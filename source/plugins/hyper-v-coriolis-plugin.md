@@ -50,8 +50,6 @@ Invoke-Webrequest -URI $URL -OutFile $Path
 
   * Next, navigate to the directory where the script resides and run it
 
-cd C:\<Path-to-file>\ .\winrm-gen.ps1
-
 ```text
 cd C:\<Path-to-file>\
 
@@ -236,8 +234,6 @@ Download the generator and extract the files:
 1) Note down the full path to the X509 certificates folder
 
 #### Get certificates full path
-
-ls $env:USERPROFILE\rct 
 
 ```text
 ls $env:USERPROFILE\rct 

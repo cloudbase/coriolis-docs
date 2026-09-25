@@ -199,13 +199,17 @@ Before restoring the backup configuration file, you may want to review the diffe
 
 You may do this by running:
 
+```text
 diff -u /etc/coriolis/coriolis.conf /etc/coriolis/coriolis.conf.<timestamp>
+```
 
 [![](_static/images/e8edf195-97e5-415a-8439-502683857f88.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/03/e8edf195-97e5-415a-8439-502683857f88.png?ssl=1)
 
 After reviewing the changes, run the following command to overwrite the default  coriolis.conf file with the backup version.
 
+```text
 cp /etc/coriolis/coriolis.conf.<timestamp> /etc/coriolis/coriolis.conf
+```
 
 Replace <timestamp> with the timestamp corresponding to the backup file you want to restore.
 

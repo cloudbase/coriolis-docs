@@ -135,8 +135,6 @@ Invoke-Webrequest -URI $URL -OutFile $Path
 
   * Next, navigate to the directory where the script resides and run it
 
-cd C:\<Path-to-file>\ .\winrm-gen.ps1
-
 ```text
 cd C:\<Path-to-file>\
 

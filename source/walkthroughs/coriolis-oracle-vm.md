@@ -96,8 +96,6 @@ systemctl enable ovm-template-initial-config
 
 Once done, shutdown the VM (cleaning the Bash history is optional):
 
-history -c && poweroff
-
 ```text
 history -c && poweroff
 ```

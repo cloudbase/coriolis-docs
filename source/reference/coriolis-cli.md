@@ -49,8 +49,6 @@ By default, the Coriolis RC file for the admin account is to be found under /etc
 
 ![](_static/images/coriolis-options.png)
 
-$cat /etc/kolla/admin-openrc.sh
-
 ```text
 $cat /etc/kolla/admin-openrc.sh
 ```

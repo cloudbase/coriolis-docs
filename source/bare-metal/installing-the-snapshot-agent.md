@@ -34,8 +34,6 @@ tar -xvzf coriolis-snapshot-agent.tar.gz
 
 4\. Now the script is ready to run from the following path on the server
 
-~/coriolis-snapshot-agent/
-
 ```text
 ~/coriolis-snapshot-agent/
 ```

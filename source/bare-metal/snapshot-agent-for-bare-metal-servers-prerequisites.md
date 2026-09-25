@@ -31,8 +31,6 @@ snapstore_destinations = "/mnt/snapstores/snapstore_files"
 
   * list the current disks after adding the extra disk and start its partitioning
 
-ls /dev/sd* fdisk /dev/sdx
-
 ```text
 ls /dev/sd*
 
@@ -52,8 +50,6 @@ write to disk = w
 ```
 
   * format the newly created partition
-
-sudo mkfs.ext4 /dev/sdx1
 
 ```bash
 sudo mkfs.ext4 /dev/sdx1

@@ -60,8 +60,6 @@ coriolis endpoint create --provider oracle_vm --name OVM --description "My Oracl
 
 You can now list the endpoints with:
 
-coriolis endpoint list
-
 ```text
 coriolis endpoint list
 ```
@@ -105,8 +103,6 @@ coriolis endpoint validate connection <id>
 ### Configuring a replica for a VM from vSphere to Oracle VM
 
 At this point you should have two valid endpoints configured in Coriolis:
-
-coriolis endpoint list
 
 ```text
 coriolis endpoint list
@@ -155,8 +151,6 @@ Note: to replicate a group of VMs, just add more “**- instance <VM name>**” 
 
 You can list the replicas with:
 
-coriolis replica list
-
 ```text
 coriolis replica list
 ```
@@ -204,8 +198,6 @@ coriolis migration show <migration_id>
 ```
 
 You can also list all migrations at once to get an overview of the status:
-
-coriolis migration list
 
 ```text
 coriolis migration list

@@ -69,6 +69,8 @@ coriolis endpoint list
 
 or have it passed to the client calls using the **- -os-cacert** option:
 
-coriolis \--os-cacert /root/coriolis-ca.crt endpoint list
+```bash
+coriolis --os-cacert /root/coriolis-ca.crt endpoint list
+```
 
 **IMPORTANT!** Coriolis appliance access, including services exposure, must be strictly controlled at the network level. Access should be granted only to particular connections or IPs.

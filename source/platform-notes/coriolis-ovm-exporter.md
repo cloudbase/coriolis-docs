@@ -32,8 +32,6 @@ The following steps will provide guidance on how to configure and run the Coriol
 
 1\. Establish connection to the compute node and navigate to the following path:
 
-cd /usr/local/bin/
-
 ```text
 cd /usr/local/bin/
 ```

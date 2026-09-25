@@ -45,8 +45,15 @@ Start-Process -Wait -ArgumentList "/silent" -PassThru -FilePath '$env\Setup.exe'
   * on Coriolis, add the PV drivers archive path to Coriolis' configuration file 
     * connect to Coriolis command-line interface
     * add the link to **coriolis.conf** file located under **/etc/coriolis/**
-      * $**windows_pv_drivers_url =** Path to the PV drivers archive
-    * **restart** the Coriolis Worker container 
-      * $**docker restart** **coriolis-worker**
+
+      ```text
+      windows_pv_drivers_url = <Path to the PV drivers archive>
+      ```
+
+    * restart the Coriolis Worker container
+
+      ```text
+      docker restart coriolis-worker
+      ```
 
 Once the above steps are complete, **Coriolis** will be able to **Migrate** Windows VMs and install platform specifics to **Oracle destination environments**.
