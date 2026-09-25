@@ -8,11 +8,10 @@ wp_id: 40314
 [![](_static/images/coriolis-logo.svg)](https://cloudbase.it/wp-content/uploads/2023/10/coriolis-logo.svg)
 
 **Coriolis®** is a fully distributed and scalable system that provides both **" lift-and-shift" migration** services (CMaaS)
-
 and **cross-site disaster recovery** features (DRaaS) between a source cloud platform and an independent destination cloud platform.
 
-**Guides**  
----  
+## Guides
+
 [Getting Started](https://cloudbase.it/coriolis-getting-started)  
 [Install Coriolis](https://cloudbase.it/install-coriolis)  
 [Coriolis License](http://cloudbase.it/coriolis-license)  
@@ -26,8 +25,8 @@ and **cross-site disaster recovery** features (DRaaS) between a source cloud pla
 [Upgrading Coriolis to a newer version](https://cloudbase.it/upgrading-coriolis/)  
 [Coriolis in air-gapped environments](https://cloudbase.it/coriolis-airgapped-environments/)  
   
-**Reference**  
----  
+## Reference
+
 [Supported source and destination platforms](https://cloudbase.it/coriolis-getting-started/#Supported_source_and_destination_platforms)  
 [Supported guest operating systems](https://cloudbase.it/coriolis-getting-started/#Supported_guest_operating_systems)  
 [Coriolis Release Notes](https://cloudbase.it/coriolis-release-notes/)  
@@ -42,8 +41,8 @@ and **cross-site disaster recovery** features (DRaaS) between a source cloud pla
 [Coriolis Network Ports Requirements](https://cloudbase.it/coriolis-network-ports-requirements/)  
 [REST API reference](https://github.com/cloudbase/coriolis/tree/master/coriolis/api-refs)  
 
-**Plugin Guides**  
----  
+## Plugin Guides
+
 [VMware vSphere](https://cloudbase.it/vmware-coriolis-plugin/)  
 [OpenStack Coriolis plugin](https://cloudbase.it/openstack-coriolis-plugin/)  
 [KubeVirt and Harvester](https://cloudbase.it/kubevirt-harvester-as-a-destination-cloud/)  
@@ -62,8 +61,8 @@ and **cross-site disaster recovery** features (DRaaS) between a source cloud pla
 [StackIt Coriolis Plugin](https://cloudbase.it/stackit-coriolis-plugin/)  
   
   
-**Features**  
----  
+## Features
+
 [Coriolis User Scripts](http://cloudbase.it/coriolis-user-scripts/)  
 [Minion Pools Operation and Usage](https://cloudbase.it/coriolis-minion-pools-operations-and-usage)  
 [SSL Certificates & Components](https://cloudbase.it/coriolis-components/)  
@@ -72,12 +71,12 @@ and **cross-site disaster recovery** features (DRaaS) between a source cloud pla
 [Security updates and hardening](https://cloudbase.it/security-updates-and-hardening/)  
 [Shared disks migrations](https://cloudbase.it/coriolis-shared-disks-migrations/)
 
-**Bare Metal Migrations - Physical to Virtual**  
----  
+## Bare Metal Migrations - Physical to Virtual
+
 [Coriolis Bare Metal Hub](https://cloudbase.it/coriolis-bare-metal-hub-plugin)  
 [Install the Snapshot agent for Bare Metal](https://cloudbase.it/installing-the-snapshot-agent)   
   
-#### Coriolis Customers and Partners
+## Coriolis Customers and Partners
 
 After thoroughly evaluating migration solutions, **Coriolis** emerged as the clear choice for many clients, some of whom are mentioned below. Their decision reflects the confidence in Coriolis to seamlessly orchestrate not only the cross-platform migrations but also as the preferred Disaster Recovery solution, making Coriolis a significant milestone in their IT strategy.
 
@@ -96,13 +95,13 @@ After thoroughly evaluating migration solutions, **Coriolis** emerged as the cle
 </div>
 </div>
 
-**Coriolis Training**
+## Coriolis Training
 
 A three-day hands-on course offered remotely will guide you through all aspects of performing effective operations on your Coriolis deployment.  
 It will provide knowledge of Coriolis’ configuration, features, and functionality to understand the Replica and Migration processes better.  
 The Coriolis Training can be customized to suit your needs. [Contact us](https://cloudbase.it/about/#contact) for more details.
 
-**Videos**
+## Videos
 
 These are 2 demos showcasing the most common scenario of VMware to OpenStack migrations.
 
@@ -113,7 +112,7 @@ A full set of recordings for all supported platforms is available on our [YouTub
 <a class="video-preview" href="https://www.youtube.com/watch?v=EZ1UMhpW-0U"><img src="../_static/images/yt-EZ1UMhpW-0U.jpg" alt="[Coriolis] Windows Server migration from VMware to OpenStack"></a>
 </div>
 
-**Bare Metal Hub Videos**
+### Bare Metal Hub Videos
 
 <div class="video-previews">
 <a class="video-preview" href="https://www.youtube.com/watch?v=m1uXcl0Yi58"><img src="../_static/images/yt-m1uXcl0Yi58.jpg" alt="[Coriolis] How to install the bare-metal agent for p2v migrations"></a>
