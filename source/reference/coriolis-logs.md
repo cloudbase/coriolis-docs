@@ -62,50 +62,28 @@ After the values are modified in the ***-logging.conf** , the container for the 
 
 The following example applies to all 3 components:
 
-```text
- +[DEFAULT]
+```ini
+[DEFAULT]
 
-+
+# Log rotation method.
+# If set to 'interval', rotation will occur at predefined time intervals. Check
+# INTERVAL ROTATION OPTIONS below.
+# If set to 'size', rotation will occur once the log file reaches the predefined
+# size. Check SIZE ROTATION OPTIONS below.
+# Default is 'none'
+log_rotation_type = none
 
-+# Log rotation method.
+# Maximum number of rotated log files to keep. Default is 30
+max_logfile_count = 30
 
-+# If set to 'interval', rotation will occur at predefined time intervals. Check
+##### INTERVAL ROTATION OPTIONS #####
+#
+# The amount of time before the log files are rotated. The final interval value
+# will be (log_rotate_interval * log_rotate_interval_type)
+log_rotate_interval = 7
 
-+# INTERVAL ROTATION OPTIONS below.
-
-+# If set to 'size', rotation will occur once the log file reaches the predefined
-
-+# size. Check SIZE ROTATION OPTIONS below.
-
-+# Default is 'none'
-
-+log_rotation_type = none
-
-+
-
-+# Maximum number of rotated log files to keep. Default is 30
-
-+max_logfile_count = 30
-
-+
-
-+##### INTERVAL ROTATION OPTIONS #####
-
-+#
-
-+# The amount of time before the log files are rotated. The final interval value
-
-+# will be (log_rotate_interval * log_rotate_interval_type)
-
-+log_rotate_interval = 7
-
-+
-
-+# The following interval types can be set: [seconds, minutes, hours, days, midnight]
-
-+# The default value is days. If this option is set to midnight, the rotation will
-
-+# occur every midnight, so log_rotate_interval option will be ignored.
-
-+log_rotate_interval_type = days 
+# The following interval types can be set: [seconds, minutes, hours, days, midnight]
+# The default value is days. If this option is set to midnight, the rotation will
+# occur every midnight, so log_rotate_interval option will be ignored.
+log_rotate_interval_type = days
 ```
