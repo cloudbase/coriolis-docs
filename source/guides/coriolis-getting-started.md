@@ -219,7 +219,7 @@ The source VM continues to run throughout the data synchronization process, with
 
 For tutorials and more information on **Migrations** , please check the [**How to create a Migration**](how-to-create-a-migration.md) page.
 
-For **DR** information and tutorials, please check the **[How to create a Replica](how-to-create-a-replica.md) **page.
+For **DR** information and tutorials, please check the **[How to create a Replica](how-to-create-a-replica.md)** page.
 
 ## Migrating Disk-encrypted workloads
 

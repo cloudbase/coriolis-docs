@@ -62,7 +62,7 @@ Depending on the virtualization technology used and the OS release we are migrat
   * installing cloudbase-init and enabling cloudbase-init service
   * installing the VirtIO drivers if OpenStack is KVM-based
 
-For more information regarding the Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](../reference/coriolis-temporary-migration-worker.md) **page.
+For more information regarding the Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](../reference/coriolis-temporary-migration-worker.md)** page.
 
 ### Preserve network settings for migrated VM
 

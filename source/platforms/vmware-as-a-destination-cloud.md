@@ -32,7 +32,7 @@ The templates need the following:
   * **VMWare tools** need to be installed
   * Configuration to a **network** with a **DHCP server** , a network which Coriolis can reach
   * **Template VM config** must have a **SCSI** controller bus attached
-  * for more information regarding Coriolis' Worker template, please check the **[Coriolis Temporary Migration Worker](../reference/coriolis-temporary-migration-worker.md) **page.
+  * for more information regarding Coriolis' Worker template, please check the **[Coriolis Temporary Migration Worker](../reference/coriolis-temporary-migration-worker.md)** page.
 
 #### Replica executions
 

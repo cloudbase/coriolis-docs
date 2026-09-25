@@ -21,7 +21,7 @@ For more information on using oVirt as a **source cloud** for Replica/Migration,
 
 ### oVirt as a destination cloud
 
-For more information on using oVirt as a **destination cloud** for Replica/Migration, please check the **[oVirt as a destination cloud](../platforms/oracle-linux-virtualization-manager-as-a-destination-cloud.md) **page.
+For more information on using oVirt as a **destination cloud** for Replica/Migration, please check the **[oVirt as a destination cloud](../platforms/oracle-linux-virtualization-manager-as-a-destination-cloud.md)** page.
 
 ### Deployment requirements and supported oVirt engine versions
 

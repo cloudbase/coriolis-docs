@@ -87,7 +87,7 @@ Depending on the virtualization technology used and the OS release we are migrat
 
 In Windows instances, the recommendation is to manually uninstall the VirtIO drivers or any integration tools, given that the destination cloud is different from the source one.
 
-For more information regarding the Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](../reference/coriolis-temporary-migration-worker.md) **page.
+For more information regarding the Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](../reference/coriolis-temporary-migration-worker.md)** page.
 
 ![](_static/images/openstack-source.jpg)
 

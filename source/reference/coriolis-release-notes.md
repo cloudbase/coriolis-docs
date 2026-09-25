@@ -56,7 +56,7 @@ Latest Release
 
 ### Coriolis Provider VMware
 
-  * Adds **export_mechanism** source option, with the ability to use the in-built **[OpenVixDiskLib](https://github.com/cloudbase/OpenVixDiskLib) **library to export VMs. 
+  * Adds **export_mechanism** source option, with the ability to use the in-built **[OpenVixDiskLib](https://github.com/cloudbase/OpenVixDiskLib)** library to export VMs. 
     * Updating to this release will install OpenVixDiskLib, as well as exposing an option to load a licensed VDDK provided by the end-user.
 
 ## Version 2608.0

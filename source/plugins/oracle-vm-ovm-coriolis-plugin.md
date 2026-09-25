@@ -60,7 +60,7 @@ For each instance it is migrating, Coriolis will create a dedicated disk copy wo
 
 The template must be pre-configured with a NIC on a network that is reachable from the Coriolis installation. Additionally, the template should be pre-configured to use DHCP for each worker VM to be allocated to its own IP.
 
-For more information regarding the Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](../reference/coriolis-temporary-migration-worker.md) **page.
+For more information regarding the Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](../reference/coriolis-temporary-migration-worker.md)** page.
 
 ### OVM connection parameters
 

@@ -94,7 +94,7 @@ The following other notable steps will be performed as part of the OSMorphing pr
 
 The OSMorphing worker images (governed by the **migr_image_map**  option) which are used for temporary disk copy/OSMorphing VMs on OCI bear no special requirements and any generic Oracle Linux or Windows OCI image may be used as long as they have cloud-init or Cloudbase-init installed and configured for a first run. Windows worker image must be an English edition or set to use English as the system language.
 
-For more information regarding the Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](../reference/coriolis-temporary-migration-worker.md) **page.
+For more information regarding the Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](../reference/coriolis-temporary-migration-worker.md)** page.
 
 ###  Oracle Cloud Infrastructure user/group policy requirements 
 

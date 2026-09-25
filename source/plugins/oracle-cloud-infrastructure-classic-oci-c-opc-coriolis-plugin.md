@@ -39,7 +39,7 @@ The above requirement doesn't apply when exporting instances from OCI-C. The def
 
 There are no Windows public images on OCI-C, so the user must upload one. The default user is **Administrator**.
 
-For more information regarding Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](../reference/coriolis-temporary-migration-worker.md) **page.
+For more information regarding Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](../reference/coriolis-temporary-migration-worker.md)** page.
 
 ### Supported instances
 

@@ -60,4 +60,4 @@ Source disk export requirements| VM disks must be EBS-backed. Disk export is don
 Instance identification scheme| ID or "Name" tag| How instances to migrate/replicate are identified on a source cloud handled by this plugin  
 Network identification scheme| IDs of VPCs| How networks are identified by the plugin. Required for the **network_map** field of the **- destination-environment**  
 Storage identification scheme| EBS volume types| How storage backends are identified by the plugin. Required for the **storage_map** field of the **- destination-environment**  
-For more information regarding Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](../reference/coriolis-temporary-migration-worker.md) **page.
+For more information regarding Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](../reference/coriolis-temporary-migration-worker.md)** page.

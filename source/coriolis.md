@@ -99,7 +99,7 @@ Where can I learn more?
 
 [vc_empty_space height="50px"][vc_row_inner][vc_column_inner][vc_column_text]
 
-A set of Guides, Reference documentation, Coriolis Features description, along with other useful resources can be found on the **[Coriolis Overview](guides/coriolis-overview.md) **page.
+A set of Guides, Reference documentation, Coriolis Features description, along with other useful resources can be found on the **[Coriolis Overview](guides/coriolis-overview.md)** page.
 
 If you would like to have a Cloudbase Solutions representative contact you with more information about Coriolis, please fill out the form below
 

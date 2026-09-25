@@ -65,7 +65,7 @@ systemctl status qemu-guest-agent
 
   * **Template VM config** must have an **SCSI** controller bus attached
 
-  * for more information regarding Coriolis’ Worker template, please check the **[Coriolis Temporary Migration Worker](../reference/coriolis-temporary-migration-worker.md) **page.
+  * for more information regarding Coriolis’ Worker template, please check the **[Coriolis Temporary Migration Worker](../reference/coriolis-temporary-migration-worker.md)** page.
 
 #### User Role requirements
 

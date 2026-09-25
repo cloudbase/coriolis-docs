@@ -53,7 +53,7 @@ As a result, VMs containing non-CBT-compatible disks can still be replicated, bu
 
 Coriolis supports two mechanisms for exporting VMware virtual disks:
 
-  * **OpenVixDiskLib** — This is the **default** export mechanism. **[OpenVixDiskLib](https://github.com/cloudbase/OpenVixDiskLib) **is Coriolis's own implementation of the VixDiskLib interface and is included in the Coriolis appliance. No additional installation or configuration is required.
+  * **OpenVixDiskLib** — This is the **default** export mechanism. **[OpenVixDiskLib](https://github.com/cloudbase/OpenVixDiskLib)** is Coriolis's own implementation of the VixDiskLib interface and is included in the Coriolis appliance. No additional installation or configuration is required.
   * **VMware VDDK** — Coriolis can alternatively use VMware's official **Virtual Disk Development Kit (VDDK)**. Using VDDK requires the user to **download and install VDDK separately in the Coriolis appliance** and configure Coriolis to use it.
 
 **Note:** Before configuring Coriolis to use VDDK, follow the **[VDDK setup guide](../platform-notes/setting-up-the-vixdisklib-library.md)** to download, install, and configure the required VDDK components in the Coriolis appliance.
@@ -87,7 +87,7 @@ The following notable steps will be performed as part of the OSMorphing process 
 
   * uninstall the VMWare guest tools and drivers
 
-For more information regarding the Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](../reference/coriolis-temporary-migration-worker.md) **page.
+For more information regarding the Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](../reference/coriolis-temporary-migration-worker.md)** page.
 
 ### Required permissions in vCenter
 

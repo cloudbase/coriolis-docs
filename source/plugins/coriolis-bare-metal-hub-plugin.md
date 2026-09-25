@@ -57,7 +57,7 @@ The following Linux distributions have been validated, and based on the kernel m
 
 The Coriolis Snapshot Agent for Bare Metal Servers is used for the process of Replica/MIgrate to be possible, and the agent is required to be installed on the machine for Coriolis to be able to communicate with it and fetch the machine info and clone the disks.
 
-The installation guide can be found on the **[Snapshot Agent](../bare-metal/installing-the-snapshot-agent.md) **page.
+The installation guide can be found on the **[Snapshot Agent](../bare-metal/installing-the-snapshot-agent.md)** page.
 
 ### Add Bare Metal Server using Coriolis Dashboard
 
