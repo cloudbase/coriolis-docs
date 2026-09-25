@@ -32,17 +32,17 @@ In order to have the Ceph options available when adding the OpenStack Endpoint, 
 
 The Ceph configuration file and credentials for a user with read-only access to the Ceph pool used by Cinder backups/snapshots must be provided. Coriolis must be able to connect to the source OpenStack’s Ceph RADOS cluster by being able to reach at least one Ceph-monitor host. For the easiest setup possible, simply using the same credentials used by the Cinder service(s) will work.
 
-**Ceph Configuration File - **Contents of the ceph.conf configuration file containing the list of monitor hosts to connect to. Ideally, this should be the same ceph.conf as used by the Cinder volume/backup service(s). The ‘[mon] keyring’ path options are irrelevant, as the keyring which is passed through the ‘Ceph Keyring File’ option will be used.
+**Ceph Configuration File -** Contents of the ceph.conf configuration file containing the list of monitor hosts to connect to. Ideally, this should be the same ceph.conf as used by the Cinder volume/backup service(s). The ‘[mon] keyring’ path options are irrelevant, as the keyring which is passed through the ‘Ceph Keyring File’ option will be used.
 
-**Ceph Keyring File -** Ceph keyring file with the access key(s) for the user given as the ‘Ceph Username’ for the cluster described in the given ‘Ceph Configuration File’. Ideally, this should be the same keyring file as used by the Cinder service(s). The default path for the**Keyring file** is **/etc/ceph/$cluster.$name.keyring** found on Ceph units.
+**Ceph Keyring File -** Ceph keyring file with the access key(s) for the user given as the ‘Ceph Username’ for the cluster described in the given ‘Ceph Configuration File’. Ideally, this should be the same keyring file as used by the Cinder service(s). The default path for the **Keyring file** is **/etc/ceph/$cluster.$name.keyring** found on Ceph units.
 
-**Ceph Username - **Ceph user to use when connecting to the source OpenStack’s Ceph cluster. The user must have read-only access to the Ceph pool(s) used by the Cinder-backup and Cinder-volume service(s). Ideally, this should be the same user that the Cinder services themselves are using
+**Ceph Username -** Ceph user to use when connecting to the source OpenStack’s Ceph cluster. The user must have read-only access to the Ceph pool(s) used by the Cinder-backup and Cinder-volume service(s). Ideally, this should be the same user that the Cinder services themselves are using
 
-**Ceph Clustername - **Name of the Ceph cluster in which Cinder volume snapshots/backups are stored
+**Ceph Clustername -** Name of the Ceph cluster in which Cinder volume snapshots/backups are stored
 
-**Ceph Pool Name - **Name of the Ceph pool in which Cinder volume snapshots/backups are stored
+**Ceph Pool Name -** Name of the Ceph pool in which Cinder volume snapshots/backups are stored
 
-**Ceph Connection Timeout - **Integer number of seconds to wait on Ceph connections before timing out.
+**Ceph Connection Timeout -** Integer number of seconds to wait on Ceph connections before timing out.
 
 ## Ceph Source Options
 
