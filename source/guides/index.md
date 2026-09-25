@@ -15,7 +15,6 @@ preparing-a-vm-for-migration-replication
 how-to-create-a-replica
 how-to-create-a-migration
 upgrading-coriolis
-updating-coriolis
 coriolis-airgapped-environments
 security-updates-and-hardening
 ```

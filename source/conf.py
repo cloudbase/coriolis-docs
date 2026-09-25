@@ -28,6 +28,7 @@ source_suffix = {".md": "markdown"}
 root_doc = "index"
 exclude_patterns = [
     "coriolis.md",
+    "deprecated/**",
     "_build",
     "Thumbs.db",
     ".DS_Store",
@@ -58,7 +59,7 @@ _DOCS_DIR = Path(__file__).parent
 _SLUG_TO_DOC = {}
 for _path in _DOCS_DIR.rglob("*.md"):
     _rel = _path.relative_to(_DOCS_DIR).as_posix()
-    if _path.name == "index.md" or _rel in exclude_patterns:
+    if _path.name == "index.md" or _rel in exclude_patterns or _rel.startswith("deprecated/"):
         continue
     _SLUG_TO_DOC[_path.stem] = _rel[:-3]
 
