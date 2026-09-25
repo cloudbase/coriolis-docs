@@ -32,11 +32,18 @@ exclude_patterns = [
     ".DS_Store",
 ]
 
-html_theme = "furo"
+html_theme = "sphinx_rtd_theme"
 html_static_path = ["_static"]
 html_title = "Coriolis Documentation"
 html_logo = "_static/images/coriolis-logo.svg"
 html_favicon = "_static/images/coriolis-logo.svg"
+html_theme_options = {
+    # Show section titles only. Pages under a section stay hidden until
+    # that section is expanded, matching the Read the Docs navigation.
+    "collapse_navigation": True,
+    "navigation_depth": 2,
+    "sticky_navigation": True,
+}
 
 # WordPress slugs that do not match the scraped filename.
 _SLUG_ALIASES = {

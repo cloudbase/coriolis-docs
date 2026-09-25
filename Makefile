@@ -24,7 +24,8 @@ clean:
 %: $(SPHINXBUILD)
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
 
-# Keep the catch-all Sphinx target from rebuilding this file.
+# Keep the catch-all Sphinx target from rebuilding these files.
+Makefile: ;
 requirements.txt: ;
 
 $(VENV)/bin/sphinx-build: requirements.txt
