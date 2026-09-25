@@ -216,7 +216,7 @@ The Windows image should have the Azure provisioning agent or cloudbase-init ins
 
 The template OS version must be at least the same as the OS of the VM that needs to be Replicated or Migrated. 
 
-[![](_static/images/image-2.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2020/04/image-2.png?ssl=1)
+[![](_static/images/azure-target-options.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2020/04/image-2.png?ssl=1)
 
 **Option name (UI)**  | **Parameter**  | **Description**    
 ---|---|---  

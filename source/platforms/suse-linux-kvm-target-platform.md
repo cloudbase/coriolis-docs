@@ -25,7 +25,7 @@ If an SSH private key is provided in the connection info, it must be base64-enco
 
 > base64 -w0 <path-to-private-key>
 
-![](_static/images/image-1.png)
+[![](_static/images/suse-linux-endpoint.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/06/image-1.png?ssl=1)
 
 #### Transfer executions
 

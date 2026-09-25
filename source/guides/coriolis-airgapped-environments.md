@@ -88,7 +88,7 @@ In case the proxy is needed to provide internet for the Coriolis appliance (such
 
 To configure this, you need to go to the Coriolis console and select the option **5) Configure/Restore Appliance Proxy Settings** , as shown in the screenshot below.
 
-[![](_static/images/image.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/05/image.png?ssl=1)
+[![](_static/images/coriolis-appliance-console.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/05/image.png?ssl=1)
 
 Once the console option has been selected, the proxy settings can be configured by editing the file located at: **/etc/coriolis/proxy-settings.ini**.
 

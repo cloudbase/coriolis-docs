@@ -48,7 +48,7 @@ $result.NumericalPassword
 
 When initiating the migration, specify the recovery password like so:
 
-![](_static/images/image.png)
+![](_static/images/bitlocker-target-options.png)
 
 In order for the final VM to be able to launch, Coriolis suspends BitLocker during OS morphing. The final VM reconfigures the TPM protector and resumes BitLocker when booted for the first time, which occurs immediately after the OS morphing process.
 

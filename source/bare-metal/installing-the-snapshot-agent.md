@@ -76,7 +76,7 @@ tar -xvzf coriolis-snapshot-agent.tar.gz
 
   * After confirming all the steps, Snapshot Agent will proceed with the install task, connection to the Coriolis Appliance, and the creation process of the **Coriolis User** and the group '**disk** '.
 
-[![](_static/images/image.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2023/09/image.png?ssl=1)
+[![](_static/images/snapshot-agent-service.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2023/09/image.png?ssl=1)
 
   * Once the interactive script completes the task, the machine is ready to be added as a **Bare Metal Server** to the **Coriolis Dashboard** and be used for **Replica/Migration**.
 

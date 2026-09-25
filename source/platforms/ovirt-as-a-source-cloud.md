@@ -39,7 +39,7 @@ After the above steps are completed, the written blocks of the backup will be tr
 
 ### oVirt source environment parameters
 
-[![](_static/images/image-2.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2025/05/image-2.png?ssl=1)
+[![](_static/images/ovirt-source-options.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2025/05/image-2.png?ssl=1)
 
 The source environment parameters are a set of source-cloud-specific parameters that offer some extra options to the migration/replication process on a per-VM basis.
 

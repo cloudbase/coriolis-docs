@@ -8,7 +8,7 @@ wp_id: 38520
 **Coriolis** integrates the platform Plugin on the Appliance itself, this way there is no need for agents to be deployed on platforms to establish the communication between the platform and the Coriolis components. Using this type of architecture, Coriolis guarantees the connection to the supported platform set up to be used as either Source or Destination, as long as the requirements are met.
 Only**Azure Stack Hub** is supported. Other Azure Stack offerings (including Azure Stack HCI, Azure Local, or similar solutions) are not available in Coriolis.
 
-[![](_static/images/image-2.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2020/04/image-2.png?ssl=1)
+[![](_static/images/azure-target-options.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2020/04/image-2.png?ssl=1)
 
 ### Deployment requirements and supported Azure API versions
 

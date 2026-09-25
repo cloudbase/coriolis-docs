@@ -118,7 +118,7 @@ The images do **NOT** require any special Coriolis agent running in them and can
 
 ## Configuration Options
 
-[![](_static/images/image-1.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2025/05/image-1.png?ssl=1)
+[![](_static/images/olvm-target-options.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2025/05/image-1.png?ssl=1)
 
 Below is a listing of the configuration section needed when migrating/replicating to oVirt:
 
