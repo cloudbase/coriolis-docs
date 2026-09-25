@@ -11,13 +11,13 @@ The feature is available in the following scenarios:
 
   * Creating a Replica Deployment from a current Replica
 
-[![](_static/images/123.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2020/05/123.jpg?ssl=1)
+![](_static/images/123.jpg)
 
   * Creating a Migration
     * User Scrips will be one of the steps prior to starting a Migration task
     * The step is available after target configurations
 
-[![](_static/images/321.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2020/05/321.jpg?ssl=1)
+![](_static/images/321.jpg)
 
 In both cases, you can choose to have one generic, global script per operating system type (Linux, Windows, etc.) or a custom script for a specific instance.
 

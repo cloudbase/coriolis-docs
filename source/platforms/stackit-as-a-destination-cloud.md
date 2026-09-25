@@ -41,7 +41,7 @@ The worker image OS version must be the same as or newer than the migrated insta
 
 **NOTE!** When Replicating/Migrating a **Windows VM** , both **Linux and Windows images** have to be specified, as **Disk transferring**  is performed using the Linux template and **OSMorphing**  is performed using the Windows template.
 
-[![](_static/images/image-5.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/09/image-5.png?ssl=1)
+![](_static/images/image-5.png)
 
 ### OSMorphing steps taken when migrating/replicating to Stackit
 

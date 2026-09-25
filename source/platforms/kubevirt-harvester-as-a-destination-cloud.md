@@ -9,7 +9,7 @@ wp_id: 43149
 
 Migrations to KubeVirt operate in the same way Replicas do and thus entail the same requirements and steps described below.
 
-[![](_static/images/Untitled.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2024/07/Untitled.png?ssl=1)
+![](_static/images/Untitled.png)
 
 ## Replicating (DRaaS) to Kubevirt
 

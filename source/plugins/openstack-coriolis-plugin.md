@@ -11,7 +11,7 @@ This section describes the functionality available via Coriolis' OpenStack plugi
 
 For a typical VMware to OpenStack migration scenario, here is a representation of the steps involved:
 
-[![](_static/images/openstack-vmware-migration-diagram.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/08/image-2.png?ssl=1)
+![](_static/images/openstack-vmware-migration-diagram.png)
 
 ### Deployment requirements and supported OpenStack versions
 

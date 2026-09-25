@@ -22,7 +22,7 @@ Conceivably, this can be used with any application that logs to Syslog, and data
 
 The Logs feature can be used either from the Coriolis Web UI or through the Coriolis CLI client. 
 
-[![](_static/images/Capture.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2020/05/Capture.png?ssl=1)
+![](_static/images/Capture.png)
 
 When downloading logs, you have the option to specify a start date and an end date. This allows you to fetch the logs only for the period you are interested in. 
 

@@ -11,7 +11,7 @@ The upgrade is performed directly from the **Coriolis Console** and updates the 
 
 Starting from **Coriolis v2608.0** , a new option was added, **Patch Coriolis Component** , to upgrade just a single component of Coriolis.
 
-[![](_static/images/image-12.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/09/image-12.png?ssl=1)
+![](_static/images/image-12.png)
 
 * * *
 
@@ -59,7 +59,7 @@ Run the following command and save the version number.
 cat /etc/coriolis/coriolis.release
 ```
 
-[![](_static/images/4e97910e-8344-434a-b298-e1ca4bf3cf3d.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/03/4e97910e-8344-434a-b298-e1ca4bf3cf3d.png?ssl=1)
+![](_static/images/4e97910e-8344-434a-b298-e1ca4bf3cf3d.png)
 
 Now you can return to the main console menu with the options.
 
@@ -111,7 +111,7 @@ Step 4 - Confirm Upgrade
 
 Confirm the selected version when prompted. After that is provided, the upgrade process begins.
 
-[![](_static/images/image-9.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/09/image-9.png?ssl=1)
+![](_static/images/image-9.png)
 
 * * *
 
@@ -139,7 +139,7 @@ In this interactive menu you can select one of the 13 components of Coriolis tha
 
 In the below example, the **Worker** component was selected.
 
-[![](_static/images/image-11.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/09/image-11.png?ssl=1)
+![](_static/images/image-11.png)
 
 Step 4 - Specify the version to be upgraded to
 
@@ -157,13 +157,13 @@ Important:
 
 Next, you will need to confirm the selection
 
-[![](_static/images/image-13.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/09/image-13.png?ssl=1)
+![](_static/images/image-13.png)
 
 Step 5 - Coriolis checks if the selected version exists
 
 Coriolis verifies that the selected version exists in the Docker registry and then prompts to start the upgrade process
 
-[![](_static/images/image-14.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/09/image-14.png?ssl=1)
+![](_static/images/image-14.png)
 
 Step 6 - Post-Patch Verification
 
@@ -171,7 +171,7 @@ Once the component is patched to the new version, Coriolis waits 60s and checks 
 
 **NOTE:** In the case the upgrade was not successful, Coriolis reverts the component to the version prior of the patch.
 
-[![](_static/images/image-15.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/09/image-15.png?ssl=1)
+![](_static/images/image-15.png)
 
 ### 4\. Upgrade Process
 
@@ -187,7 +187,7 @@ Once the upgrade process completes successfully, you will see the following scre
 
 **NOTE:** In case the upgrade was not successful, Coriolis reverts the components to the previous version.
 
-[![](_static/images/c5e8da74-877f-48f5-a52b-745b50723183.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/03/c5e8da74-877f-48f5-a52b-745b50723183.png?ssl=1)
+![](_static/images/c5e8da74-877f-48f5-a52b-745b50723183.png)
 
 After each upgrade, the Coriolis configuration file ( coriolis.conf) is replaced with a default version that does not contain any modifications previously made to the file.
 
@@ -203,7 +203,7 @@ You may do this by running:
 diff -u /etc/coriolis/coriolis.conf /etc/coriolis/coriolis.conf.<timestamp>
 ```
 
-[![](_static/images/e8edf195-97e5-415a-8439-502683857f88.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/03/e8edf195-97e5-415a-8439-502683857f88.png?ssl=1)
+![](_static/images/e8edf195-97e5-415a-8439-502683857f88.png)
 
 After reviewing the changes, run the following command to overwrite the default  coriolis.conf file with the backup version.
 

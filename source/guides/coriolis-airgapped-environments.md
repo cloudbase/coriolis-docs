@@ -36,7 +36,7 @@ If OpenStack is used as the destination, locate the following section.
 [openstack_migration_provider]
 ```
 
-[![](_static/images/ee9f6e8e-9d58-4a43-aa45-dcf099340167.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/03/ee9f6e8e-9d58-4a43-aa45-dcf099340167.png?ssl=1)
+![](_static/images/ee9f6e8e-9d58-4a43-aa45-dcf099340167.png)
 
 Scroll down until you find the following parameters:
 
@@ -48,7 +48,7 @@ Scroll down until you find the following parameters:
   * cloudbaseinit_x86_url 
     * This is optional for when a 32-bit Windows guest OS is migrated, otherwise the option can be ignored.
 
-[![](_static/images/e9d27b12-bd48-4e01-88f2-5f8f34f0118e.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/03/e9d27b12-bd48-4e01-88f2-5f8f34f0118e.png?ssl=1)
+![](_static/images/e9d27b12-bd48-4e01-88f2-5f8f34f0118e.png)
 
 Modify these URLs so they point to the location where you host the required files.
 
@@ -72,7 +72,7 @@ Then, proceed to edit the Coriolis configuration file and look for the **[proxy]
 $ vim /etc/coriolis/coriolis.conf
 ```
 
-[![](_static/images/66b465a7-3415-4ee5-90a4-6b938f2c5454.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/03/66b465a7-3415-4ee5-90a4-6b938f2c5454.png?ssl=1)
+![](_static/images/66b465a7-3415-4ee5-90a4-6b938f2c5454.png)
 
 After modifying these details, you can save the changes and exit the editor. This will also further allow the **Linux workers** so that the proxy configured will be used.
 
@@ -88,7 +88,7 @@ In case the proxy is needed to provide internet for the Coriolis appliance (such
 
 To configure this, you need to go to the Coriolis console and select the option **5) Configure/Restore Appliance Proxy Settings** , as shown in the screenshot below.
 
-[![](_static/images/coriolis-appliance-console.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/05/image.png?ssl=1)
+![](_static/images/coriolis-appliance-console.png)
 
 Once the console option has been selected, the proxy settings can be configured by editing the file located at: **/etc/coriolis/proxy-settings.ini**.
 

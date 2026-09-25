@@ -37,7 +37,7 @@ NOTE! Support for OVM as a target platform in Coriolis has been deprecated. This
 
 In the case of Replicating or Migrating to Oracle VM, there will have to be VM templates on the destination platform having set username and password for the Coriolis worker to access it and use it as a temporary VM.  This is valid for both Windows and Linux machines, and the template OS version must be at least the same as the OS of the VM that needs to be Replicated or Migrated.
 
-[![](_static/images/ovm-dest.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/04/ovm-dest.jpg?ssl=1)
+![](_static/images/ovm-dest.jpg)
 
 #### Configuration options for OVM as a destination
 

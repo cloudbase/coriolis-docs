@@ -20,7 +20,7 @@ The **generic solution** will create disk snapshots using OVM APIs. Those snapsh
 
 In contrast, **Coriolis OVM Exporter** does not need to undergo such time-consuming and expensive computations and does not require any temporary resources to be spun up in your OVM cluster. It only requires the **Coriolis OVM Exporter** service to be available on your compute nodes. It uses **[reflinks](https://blogs.oracle.com/linux/xfs-data-block-sharing-reflink)** to create crash-consistent snapshots, and **[fiemap](https://www.kernel.org/doc/Documentation/filesystems/fiemap.txt)** to compare the differences between snapshots. This way we can do **efficient incremental backups** by simply **copying only what has changed** from a previous replica run.
 
-[![](_static/images/ovm-exporter-no.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2021/05/ovm-exporter-no.jpg?ssl=1)[![](_static/images/ovm-exporter1.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2021/05/ovm-exporter1.jpg?ssl=1)
+![](_static/images/ovm-exporter-no.jpg) ![](_static/images/ovm-exporter1.jpg)
 
 **Toggling** between the **generic solution** and **Coriolis OVM Exporter** is displayed above.
 

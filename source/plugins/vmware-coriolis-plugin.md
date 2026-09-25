@@ -12,7 +12,7 @@ VMware platform is supported via Coriolis Plugins as a stand-alone ESXi (source-
 
 VMware Tools should be installed and updated to the latest current version available on the source VMs.
 
-[![](_static/images/fcd.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2021/05/fcd.jpg?ssl=1)
+![](_static/images/fcd.jpg)
 
 ### Deployment requirements and supported vSphere/ESXi versions
 

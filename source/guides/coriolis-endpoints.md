@@ -13,11 +13,11 @@ Once created, the Cloud Endpoints will be referenced during the creation of Migr
 
 In order to create endpoints, from the Coriolis Appliance, click “Cloud Endpoints” from the left side menu, then click “Add Endpoint”.
 
-[![](_static/images/coriolis-add-endpont.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2023/02/coriolis-add-endpont.jpg?ssl=1)
+![](_static/images/coriolis-add-endpont.jpg)
 
 From the new popup, select the Endpoint that is to be used
 
-[![coriolis new endpoint](_static/images/endpoints.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2024/03/endpoints.png?ssl=1)
+![coriolis new endpoint](_static/images/endpoints.png)
 
 In the new popup, fill in the details for your Endpoint.
 
@@ -27,7 +27,7 @@ Note that VMWare is used in this specific example and that other platforms will 
   2. Enter the credentials for a user with the permissions required for Coriolis to Migrate/Replica VMWare
   3. Add the host IP address
 
-[![](_static/images/image-10.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2020/03/image-10.png?ssl=1)
+![](_static/images/image-10.png)
 
   * **NAME** - the name of the endpoint that will be added
   * **USERNAME** - the VMWare username
@@ -48,14 +48,14 @@ After setting up the endpoints manually you will be able to download the file wi
 
 Firstly, you’ll have to select your Endpoint, by accessing the Cloud Endpoints in your appliance.
 
-[![](_static/images/endpoint-export.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2023/02/endpoint-export.png?ssl=1)
+![](_static/images/endpoint-export.png)
 
 Now, from the new window, select from the top left “Actions” and then “Download .endpoint file”
 
-[![](_static/images/image-29.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2020/03/image-29.png?ssl=1)
+![](_static/images/image-29.png)
 
 By having an Endpoint file downloaded, you will be able to upload it using another user or when deploying another appliance.
 
 The file can be uploaded when following the steps to add a new Endpoint, by selecting “upload” from the bottom of the page instead of selecting one on the Clouds.
 
-[![](_static/images/image-30.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2020/03/image-30.png?ssl=1)
+![](_static/images/image-30.png)

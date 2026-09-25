@@ -9,7 +9,7 @@ wp_id: 38511
 
 This section describes the functionality available via Coriolis' Hyper-V plugin, which enables Coriolis to both migrate (CMaaS) and replicate (DRaaS) instances from Hyper-V.
 
-[![](_static/images/hyper-v-source.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/04/hyper-v-source.jpg?ssl=1)
+![](_static/images/hyper-v-source.jpg)
 
 ## Hyper-V Coriolis endpoint
 
@@ -17,7 +17,7 @@ When creating the Hyper-V endpoint in Coriolis, a local account must be used for
 
 Using a domain account for the WinRM connectivity is subject to additional configuration at the domain level to allow such access. Please refer to the Microsoft documentation for further details on how this can be achieved.
 
-[![](_static/images/hv.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2025/05/hv.png?ssl=1)
+![](_static/images/hv.png)
 
 ## Deployment requirements and supported Hyper-V instances
 

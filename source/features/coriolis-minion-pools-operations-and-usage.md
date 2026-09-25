@@ -37,16 +37,16 @@ A new minion pool for a given Coriolis Cloud Endpoint can be created using the f
 
   * From Coriolis' **Dashboard** , go to **Minion Pools** and select **Create a Minion Pool**
 
-[![](_static/images/minion-pool-start1-1.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2021/02/minion-pool-start1-1.jpg?ssl=1)
+![](_static/images/minion-pool-start1-1.jpg)
 
   * Select **Source/Destination Minion Pool** depending on the platform that will be used with Minion Pools.
   * Select the **Endpoint** that you want to create the **Minion Pool** , and whether this will be a source or a destination minion pool. Endpoints can have as many source and destination pools defined for them as desired.
 
-[![](_static/images/minion2.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2021/07/minion2.jpg?ssl=1)[![](_static/images/minion3.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2021/07/minion3.jpg?ssl=1)
+![](_static/images/minion2.jpg) ![](_static/images/minion3.jpg)
 
   * The following step will provide a list of **parameters** for the **Minion Pool** to be created
 
-[![](_static/images/minion5.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2021/07/minion5.jpg?ssl=1)[![](_static/images/minion4.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2021/07/minion4.jpg?ssl=1)
+![](_static/images/minion5.jpg) ![](_static/images/minion4.jpg)
 
 The available parameters for minion pools include: 
 
@@ -69,13 +69,13 @@ It can be set up by:
 
 _allocating resources example*_
 
-[![](_static/images/pool-alocation-2.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2021/02/pool-alocation-2.jpg?ssl=1)
+![](_static/images/pool-alocation-2.jpg)
 
   * Before being able to use the newly created **Minion Pool** , its initial **allocation process** must be completed.
 
-[![](_static/images/5-2.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2021/02/5-2.png?ssl=1)
+![](_static/images/5-2.png)
 
-[![](_static/images/6-2.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2021/02/6-2.png?ssl=1)
+![](_static/images/6-2.png)
 
 ###  Using Minion Pools for Migrations/Replicas 
 
@@ -83,7 +83,7 @@ Once created, Minion Pools can then be used when creating the transfer jobs as s
 
 The following example is using OpenStack as **source Endpoint** and VMWare as **destination Endpoint** , the chosen export mechanism is **Coriolis Backups** (where Minion machines are required):
 
-[![](_static/images/source-wo-backup-option.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2021/02/source-wo-backup-option.jpg?ssl=1)
+![](_static/images/source-wo-backup-option.jpg)
 
 The parameters for Source Options are the following:
 

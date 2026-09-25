@@ -31,7 +31,7 @@ During step 5, the data chunks will be handed directly to the destination cloud 
 
 ### Configuration Options
 
-[![](_static/images/ovm-source.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/04/ovm-source.jpg?ssl=1)
+![](_static/images/ovm-source.jpg)
 
 #### Configuration options for OVM as a migration source
 

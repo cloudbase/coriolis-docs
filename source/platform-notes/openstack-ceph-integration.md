@@ -24,7 +24,7 @@ NOTE: In a real-world situation when '**cinder-backups** ' are used with Ceph, m
 
 Ceph can be used in Coriolis Replica/Migration tasks as backend storage for OpenStack, but this will require specifying its connection requirements upon adding the Openstack Endpoint.
 
-[![](_static/images/ceph-endpoint.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/06/ceph-endpoint.jpg?ssl=1)
+![](_static/images/ceph-endpoint.jpg)
 
 In order to have the Ceph options available when adding the OpenStack Endpoint, the "**Advanced**" configuration mode must be used, and "**Show Ceph Options**" must be enabled from the current menu.
 
@@ -52,7 +52,7 @@ Using **Ceph Storage** when running a Replica/Migration tasks from a source Open
 
 Selecting **Ceph Backups** will offer the option of **' Ceph Backups Diff Hash Algorithm'** which will give the option of choosing the algorithm in Python's hashlib to use for hashing disk chunks to compare them. If the option is unset, the diff will be compared directly instead of hashing them. Ceph Backups requires that the Coriolis-Worker component have network access to the source Openstack's Ceph through librbd/librados.
 
-[![](_static/images/ceph-backups.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/06/ceph-backups.jpg?ssl=1)
+![](_static/images/ceph-backups.jpg)
 
 ### Ceph Snapshots
 
@@ -60,4 +60,4 @@ Selecting **Ceph Snapshots** will not offer any further options. Using Ceph Snap
 
 Ceph Snapshots, as Ceph Backups require that the Coriolis-Worker component have network access to the source Openstack's Ceph through librbd/librados.
 
-[![](_static/images/ceph-snapshots.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/06/ceph-snapshots.jpg?ssl=1)
+![](_static/images/ceph-snapshots.jpg)

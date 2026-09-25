@@ -28,7 +28,7 @@ NOTE please consider reviewing the general steps recommended to be performed bef
 
 After the above steps are completed, the contents of the disks will be transferred and written to disks on the destination via the destination cloud plugin. Only the changed data will be transferred to the destination cloud.
 
-[![](_static/images/stackit-source-options.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/09/image-4.png?ssl=1)
+![](_static/images/stackit-source-options.png)
 
 ### Stackit source environment parameters
 

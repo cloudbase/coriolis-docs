@@ -61,4 +61,4 @@ You'll be prompted to enter the URL for each of the three files. After the conso
 
 In case of any error during the loading process, option _“10) Restore Coriolis API certificate chain”_ lets you roll back to the previous state.
 
-[![](_static/images/coriolis-api-certificate-menu.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/06/image.png?ssl=1)
+![](_static/images/coriolis-api-certificate-menu.png)

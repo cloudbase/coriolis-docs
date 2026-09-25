@@ -50,19 +50,19 @@ tar -xvzf coriolis-snapshot-agent.tar.gz
 ./coriolis-snapshot-agent -install
 ```
 
-[![](_static/images/install-1.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/10/install-1.jpg?ssl=1)
+![](_static/images/install-1.jpg)
 
   * Once the script runs, you will be prompted to enter the IP address or Hostname (by using the same DNS servers from your infrastructure, which will be able to resolve both Coriolis' Bare Metal Servers Hostname/s) of the Coriolis Appliance
 
-[![](_static/images/install2.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/10/install2.jpg?ssl=1)
+![](_static/images/install2.jpg)
 
   * Then you will be prompted to enter the **CA Fingerprint** , which can be copied from the top right corner **Coriolis Bare Metal Hub Fingerprint** on the Coriolis UI **Bare Metal Servers** tab as seen below 
 
   * Also, you will be asked to mention if the machine is used as a web server or not, an option that the **Coriolis Appliance** further uses to generate the certificates.
 
-[![](_static/images/bm-severs.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/10/bm-severs.jpg?ssl=1)
+![](_static/images/bm-severs.jpg)
 
-[![](_static/images/install3.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/10/install3.jpg?ssl=1)
+![](_static/images/install3.jpg)
 
   * The following prompt will ask again for the VM's IP address, which will communicate with the Coriolis Metal Hub. (this can be changed in the case that there is a secondary interface on the VM and that one will be preferred for usage)
   * The port that will be used for connection and transfer will prompt you to select a custom one or the default **9999**
@@ -72,11 +72,11 @@ tar -xvzf coriolis-snapshot-agent.tar.gz
       * xfs
       * btrfs 
 
-[![](_static/images/snapstore.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2023/04/snapstore.jpg?ssl=1)
+![](_static/images/snapstore.jpg)
 
   * After confirming all the steps, Snapshot Agent will proceed with the install task, connection to the Coriolis Appliance, and the creation process of the **Coriolis User** and the group '**disk** '.
 
-[![](_static/images/snapshot-agent-service.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2023/09/image.png?ssl=1)
+![](_static/images/snapshot-agent-service.png)
 
   * Once the interactive script completes the task, the machine is ready to be added as a **Bare Metal Server** to the **Coriolis Dashboard** and be used for **Replica/Migration**.
 

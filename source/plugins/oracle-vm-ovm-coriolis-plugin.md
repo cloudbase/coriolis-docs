@@ -9,7 +9,7 @@ wp_id: 38466
 
 This section describes the functionality available via Coriolis' Oracle VM (OVM) plugin, which enables Coriolis to migrate (CMaaS) instances from OVM, as well as both migrate and replicate to OVM.
 
-[![](_static/images/ovm-dest-1.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/04/ovm-dest-1.jpg?ssl=1)[![](_static/images/ovm-source.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/04/ovm-source.jpg?ssl=1)
+![](_static/images/ovm-dest-1.jpg) ![](_static/images/ovm-source.jpg)
 
 ### Deployment requirements
 

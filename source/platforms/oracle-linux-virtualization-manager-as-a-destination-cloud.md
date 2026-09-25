@@ -41,7 +41,7 @@ The **VM templates** need to have the IDs all zeroed, like the default **oVirt**
 
 The most common way to create the image Coriolis needs is to import 'as template' one of the images found in the '**ovirt-image-repository** ', as seen below
 
-[![](_static/images/olvm-image.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/10/olvm-image.jpg?ssl=1)
+![](_static/images/olvm-image.jpg)
 
 Once the image is imported as a template, a new VM must be created using it and verify if '**qemu-guest-agent** ' is installed:
 
@@ -118,7 +118,7 @@ The images do **NOT** require any special Coriolis agent running in them and can
 
 ## Configuration Options
 
-[![](_static/images/olvm-target-options.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2025/05/image-1.png?ssl=1)
+![](_static/images/olvm-target-options.png)
 
 Below is a listing of the configuration section needed when migrating/replicating to oVirt:
 

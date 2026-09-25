@@ -23,35 +23,35 @@ To reset CBT on a vSphere virtual machine:
 
   1. Open the vSphere Web Client.
 
-[![](_static/images/login.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/10/login.jpg?ssl=1)
+![](_static/images/login.jpg)
 
 2\. Right-click the virtual machine and click **Power Off**.
 
 3\. Right-click the virtual machine, click the **Snapshot** and navigate to Snapshot Manager. Ensure there are no active snapshots. If there are snapshots present, consolidate them to commit the changes. For more information, see [Consolidating/Committing snapshots in ESXi (1002310)](https://kb.vmware.com/s/article/1002310)
 
-[![](_static/images/manage-snap.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/10/manage-snap.jpg?ssl=1)
+![](_static/images/manage-snap.jpg)
 
 4\. Right-click the virtual machine and click **Edit Settings**.
 
-[![](_static/images/edit-settings.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/09/edit-settings.jpg?ssl=1)
+![](_static/images/edit-settings.jpg)
 
 5\. Click the **Options** tab, select the **Advanced  **section and then click **Edit Configuration Parameters**.
 
-[![](_static/images/advanced-set.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/09/advanced-set.jpg?ssl=1)
+![](_static/images/advanced-set.jpg)
 
 6\. Disable CBT for the virtual machine by setting the **ctkEnabled** value to **false**.
 
-[![](_static/images/cbt-false.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/09/cbt-false.jpg?ssl=1)
+![](_static/images/cbt-false.jpg)
 
 7\. Disable CBT for the individual virtual disks attached to the virtual machine by setting the **scsix:x.ctkEnabled** value for each attached virtual disk to **false**.
 
-[![](_static/images/scsi-false.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/09/scsi-false.jpg?ssl=1)
+![](_static/images/scsi-false.jpg)
 
 **NOTE:** Where **scsix:x** is the SCSI controller and SCSI device ID of your virtual disk.
 
 8\. Open the virtual machine's working directory using the Datastore Browser or ESXi shell. For more information on identifying the working directory, see [Locating virtual machine log files on an ESXi/ESX host (1007805)](https://kb.vmware.com/s/article/1007805).
 
-[![](_static/images/vmwarestorage.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/10/vmwarestorage.png?ssl=1)
+![](_static/images/vmwarestorage.png)
 
 9\. Ensure no snapshot files (.delta.vmdk) are present in the virtual machine's working directory. For more information, see [Determining if there are leftover delta files or snapshots that VMware vSphere or Infrastructure Client cannot detect (1005049)](https://kb.vmware.com/s/article/1005049).
 

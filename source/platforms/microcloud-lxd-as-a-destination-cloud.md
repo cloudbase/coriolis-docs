@@ -74,7 +74,7 @@ lxc publish <vm_name> --alias windows-worker --reuse description="Windows Worker
 
 ## Configuration Options
 
-[![](_static/images/lxc-options.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2023/08/lxc-options.png?ssl=1)
+![](_static/images/lxc-options.png)
 
 Below is a listing of the configuration section needed when migrating/replicating to MicroCloud/LXD:
 

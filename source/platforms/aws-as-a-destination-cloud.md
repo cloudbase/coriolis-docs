@@ -37,7 +37,7 @@ Below is a listing of the configuration section needed when migrating from AWS:
 
 #### Configuration options for AWS as a destination
 
-[![](_static/images/ASW-destination.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/04/ASW-destination.jpg?ssl=1)
+![](_static/images/ASW-destination.jpg)
 
 ```ini
 [aws_migration_provider]

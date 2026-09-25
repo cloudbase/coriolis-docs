@@ -46,13 +46,13 @@ A first interface is used for management and platform communication. The 2nd int
 
 After the deployment is complete, connect to the serial console of the Coriolis VM from the platform on which it is deployed.
 
-[![](_static/images/coriolis-console.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/04/coriolis-console.jpg?ssl=1)
+![](_static/images/coriolis-console.jpg)
 
 4\. Obtain the password to the **admin** account for Coriolis
 
 In order to get the admin password of the Coriolis web UI, navigate to option '**2** ', **Show UI Login Details**
 
-[![](_static/images/pass.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/04/pass.jpg?ssl=1)
+![](_static/images/pass.jpg)
 
 **NOTE:** If the environment the Coriolis Appliance was deployed in does not feature DHCP, you will have to log in to the serial console of the appliance and manually configure static networking within it, using option '4' Edit/Inspect Network Settings. It is recommended that the appliance be rebooted after any networking-related reconfigurations.
 
@@ -66,14 +66,14 @@ NOTE: SSH access to the Coriolis virtual appliance is not permitted and not prov
 
 Any required configuration, troubleshooting, or maintenance operations can be performed through the (serial) console of the appliance, as that provides all the required options and configuration.
 
-[![](_static/images/network.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/04/network.jpg?ssl=1)
+![](_static/images/network.jpg)
 
 5\. Log in to the Coriolis Web UI
 
 Open a new browser tab and type in the IP address of your Coriolis machine and log in using the credentials from the previous step.
 
-[![](_static/images/login-coriolis.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2023/02/login-coriolis.jpg?ssl=1)
+![](_static/images/login-coriolis.jpg)
 
 After the credentials are entered, click on **Login,** and the Coriolis Dashboard will load
 
-[![](_static/images/coriolis-ui.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2023/02/coriolis-ui.jpg?ssl=1)
+![](_static/images/coriolis-ui.jpg)

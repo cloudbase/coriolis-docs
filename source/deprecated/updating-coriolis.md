@@ -5,7 +5,7 @@ wp_id: 43243
 
 # Updating Coriolis
 
-[![](_static/images/image.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2024/09/image.png?ssl=1)
+![](_static/images/image.png)
 
 NOTE! This page has been deprecated. The new instructions are available here: [Upgrading Coriolis](https://cloudbase.it/upgrading-coriolis/)
 

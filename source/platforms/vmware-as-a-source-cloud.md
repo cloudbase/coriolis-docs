@@ -72,7 +72,7 @@ Before creating and executing a Replica or Migration from vSphere, review the re
 
 ### VMWare source environment parameters
 
-[![](_static/images/image_2026-09-14_144911260.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/09/image_2026-09-14_144911260.png?ssl=1)
+![](_static/images/image_2026-09-14_144911260.png)
 
 ### OSMorphing steps taken when migrating/replicating from vSphere/ESXi
 

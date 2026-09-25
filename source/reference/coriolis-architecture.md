@@ -44,7 +44,7 @@ It is worth noting that both the source and destination plugins are completely d
 
 For reference, the image below showcases a more detailed architectural overview of Coriolis' deployed components:
 
-[![](_static/images/333.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2020/05/333.jpg?ssl=1)
+![](_static/images/333.jpg)
 
 ## TLS encryption for Coriolis REST API
 

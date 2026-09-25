@@ -35,7 +35,7 @@ cloudbase@ubuntu24luks:~$ sudo cryptsetup luksDump /dev/sda3
 
 2\. Users pass the migration passphrase from step 1 to Coriolis when creating the transfer. It does not need to be memorable long-term; it is deleted automatically after the first boot of the migrated VM.
 
-[![](_static/images/luks-passphrase.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/08/image-1.png?ssl=1)
+![](_static/images/luks-passphrase.png)
 
 3\. Coriolis copies the encrypted disk as-is (it never decrypts data at the block level), then during **OS Morphing** it uses the migration passphrase to unlock the container just long enough to inject drivers, rebuild the _initramfs_ and stage a first-boot cleanup script.
 

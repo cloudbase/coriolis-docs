@@ -13,7 +13,7 @@ This platform is no longer supported by Oracle and has been archived in Coriolis
 
 In concordance with the legacy naming scheme, Coriolis's OCI-C plugin was initially labeled as the "OPC" (Oracle Public Cloud) plugin. For operations on "modern" OCI, please refer to the documentation section on the vanilla Oracle Cloud Infrastructure (OCI) Coriolis plugin.
 
-[![](_static/images/ocic-target-options.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2020/04/image-4.png?ssl=1)
+![](_static/images/ocic-target-options.png)
 
 ## Deployment requirements and supported OCI-C instances
 

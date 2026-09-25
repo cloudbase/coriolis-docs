@@ -45,7 +45,7 @@ In case a Floating IP Pool network is not visible to be selected, it can mean th
 
 The Floating IP Pool network must also carry the "router:external" property set, on the OpenStack side.
 
-[![](_static/images/openstack-target-new-1.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2021/04/openstack-target-new-1.jpg?ssl=1)
+![](_static/images/openstack-target-new-1.jpg)
 
 ### OSMorphing steps taken when migrating/replicating to OpenStack
 

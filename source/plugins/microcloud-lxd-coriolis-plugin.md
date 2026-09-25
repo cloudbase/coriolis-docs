@@ -7,7 +7,7 @@ wp_id: 42651
 
 **Coriolis** integrates the platform Plugin on the Appliance itself, this way there is no need for agents to be deployed on platforms to establish the communication between the platform and the Coriolis components. Coriolis guarantees the connection to the supported platform set up to be used as a Destination, as long as the requirements are met.
 
-[![](_static/images/lxc-options.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2023/08/lxc-options.png?ssl=1)
+![](_static/images/lxc-options.png)
 
 ## MicroCloud destination cloud
 
@@ -19,7 +19,7 @@ For detailed information regarding MicroCloud capabilities and performed steps w
 
 In order to connect to LXD to perform migration to it, the following connection parameters are required:
 
-[![](_static/images/lxd02.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2023/09/lxd02.png?ssl=1)
+![](_static/images/lxd02.png)
 
 ### LXD endpoint setup
 

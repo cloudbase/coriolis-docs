@@ -23,7 +23,7 @@ Coriolis licenses are issued based on the unique ID of the Coriolis installation
 
 To get your Coriolis installation ID, in the main Dashboard screen, navigate to the top right corner, click the user silhouette, and click “About Coriolis”.
 
-[![](_static/images/coriolis-license.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2023/02/coriolis-license.png?ssl=1)
+![](_static/images/coriolis-license.png)
 
   * Copy the appliance ID
 
@@ -41,7 +41,7 @@ To do so, please follow the steps below within the Coriolis Web UI:
   2. In the pop-up, click “Add license” and upload/paste the provided Coriolis license file
   3. After the license is pasted, click on the bottom right “Add license”
 
-[![](_static/images/image-7.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2020/03/image-7.png?ssl=1)
+![](_static/images/image-7.png)
 
 ### Communication ports between the platforms and the Coriolis appliance
 

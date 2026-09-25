@@ -20,7 +20,7 @@ NOTE! The guest OS on the source platform must also be correctly set to at least
 
 For example, in the case of a VM running on VMware, the guest OS can be set under the VM settings:
 
-[![](_static/images/vmware-guest-os-settings.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2025/10/image.png?ssl=1)
+![](_static/images/vmware-guest-os-settings.png)
 
 While in the source VM settings, any CD-ROM attachments should be unmounted or removed, as Coriolis will not migrate such types.
 

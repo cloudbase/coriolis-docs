@@ -7,7 +7,7 @@ wp_id: 44258
 
 **Coriolis** integrates the platform Plugin on the Appliance itself, this way there is no need for agents to be deployed on platforms to establish the communication between the platform and the Coriolis components. Using this type of architecture, **Coriolis** guarantees the connection to the supported platform set up to be used as either Source or Destination, as long as the requirements are met.
 
-[![](_static/images/stackit-source-options.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/09/image-4.png?ssl=1) [![](_static/images/image-5.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/09/image-5.png?ssl=1)
+![](_static/images/stackit-source-options.png) ![](_static/images/image-5.png)
 
 ### Deployment requirements
 
@@ -29,7 +29,7 @@ For more information on using StackIt as a **destination cloud** for Replica/Mig
 
 Coriolis requires the following connection parameters in order to acces Stackit and migrate resources:
 
-[![](_static/images/stackit-endpoint.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/09/image-2.png?ssl=1)
+![](_static/images/stackit-endpoint.png)
 
 Each parameter represents:
 

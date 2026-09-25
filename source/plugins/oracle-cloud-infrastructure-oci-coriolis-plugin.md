@@ -8,7 +8,7 @@ wp_id: 38527
 **Coriolis** integrates the platform Plugin on the Appliance itself, this way there is no need for agents to be deployed on platforms to establish the communication between the platform and the Coriolis components. Using this type of architecture, Coriolis guarantees the connection to the supported platform set up to be used as either Source or Destination, as long as the requirements are met.
 This section describes the functionality available via Coriolis' OCI plugin, enabling Coriolis to migrate (CMaaS) and replicate (DRaaS) instances to OCI.
 
-[![](_static/images/image-3.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2020/04/image-3.png?ssl=1)
+![](_static/images/image-3.png)
 
 ### Deployment requirements
 

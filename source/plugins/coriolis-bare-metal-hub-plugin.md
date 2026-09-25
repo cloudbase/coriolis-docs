@@ -9,7 +9,7 @@ wp_id: 41641
 
 **Bare Metal Hub Plugin** is one of the supported Source platforms by Coriolis, which will allow Migrating workload from bare-metal to the cloud, for what is called **Physical to Virtual (p2v)** , as Coriolis supports multiple clouds as Destination platforms.
 
-[![Coriolis P2V](_static/images/p2v-3.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2025/08/p2v-3.jpg?ssl=1)
+![Coriolis P2V](_static/images/p2v-3.jpg)
 
 Coriolis P2V
 
@@ -65,19 +65,19 @@ As the Endpoint and the Snapshot Agent are installed, the next step is to add th
 
   * in the Dashboard, navigate from the left side menu to Bare Metal Server
 
-[![](_static/images/bm-severs.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/10/bm-severs.jpg?ssl=1)
+![](_static/images/bm-severs.jpg)
 
   * Select 'Add a Bare Metal Server' and add the Host address and the port for the machine, and click 'Add'
     * the IP address of the machine
     * the port set upon installing the snapshot agent
 
-[![](_static/images/addbm.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/10/addbm.jpg?ssl=1)
+![](_static/images/addbm.jpg)
 
   * Once the machine has been contacted, the connection will be validated and listed as **active** , meaning that the machine is ready to be used for **Replica/Migration**.
 
   * Also, Coriolis will display the hardware details of the newly added machine
 
-[![](_static/images/addedsrv1.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/10/addedsrv1.png?ssl=1)
+![](_static/images/addedsrv1.png)
 
 ### File-systems supported
 

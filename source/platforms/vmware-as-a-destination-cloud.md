@@ -62,7 +62,7 @@ In the case of Replicating or Migrating to VMWare vSphere, there will need to be
 
 The template OS version must be at least the same as the OS of the VM that needs to be Replicated or Migrated. 
 
-**[![](_static/images/vmware-target.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/11/vmware-target.jpg?ssl=1)**
+**![](_static/images/vmware-target.jpg)**
 
 ### Required permissions in vCenter
 

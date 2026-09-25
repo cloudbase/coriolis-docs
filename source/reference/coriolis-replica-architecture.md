@@ -18,7 +18,7 @@ Both modes of operation use the same underlying Coriolis mechanisms to achieve t
 
 #### Architectural overview
 
-[![](_static/images/Diagram0.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2020/05/Diagram0.png?ssl=1)
+![](_static/images/Diagram0.png)
 
 #### Replica executions:
 
@@ -50,7 +50,7 @@ If no disk diff-ing/export mechanism is available on the source platform, Coriol
   7. read the contents of the snapshot created at step 4 (either via the source platform's snapshot/backup APIs, or the disk replication worker from step 5), transferring the written chunks to the disk writer VM created in step 6, which then writes the chunks at the appropriate index/offset of the disks created at step 2
   8. once the contents of all the disks have been synced, detach the disks created at step 2 and delete the disk writer worker VM created at step 6, as well as the disk replication worker from step 5.
 
-[![](_static/images/Diagram1.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2020/05/Diagram1.png?ssl=1)
+![](_static/images/Diagram1.png)
 
 #### Observations
 
@@ -79,7 +79,7 @@ The above describes the steps Coriolis takes in general terms. If you would like
   4. detach the disks created at step 1 from the OSMorphing worker created at step 2 and delete the temporary worker VM 
   5. create and boot the migrated VM on the destination cloud with the specifications of the original VM on the source cloud (which have been noted by Coriolis during the latest replica execution which has completed successfully), creating and attaching any necessary NICs and disks.
 
-[![](_static/images/Diagram2.1.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2020/05/Diagram2.1.png?ssl=1)
+![](_static/images/Diagram2.1.png)
 
 #### Observations
 

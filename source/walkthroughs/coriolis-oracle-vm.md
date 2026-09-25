@@ -15,11 +15,11 @@ Coriolis needs two VM templates (one with a vanilla Oracle Linux 7 installation 
 
 An Oracle Linux 7 template is available at <https://cloudbase.it/downloads/OL7_template.tgz> and can be easily imported in Oracle VM manager as described in the [Oracle VM documentation](https://docs.oracle.com/cd/E64076_01/E64082/html/vmusg-repositories-template-import.html):
 
-[![](_static/images/OVM_import_template_2.png)](https://cloudbase.it/coriolis-oracle-vm/ovm_import_template_2/)
+![](_static/images/OVM_import_template_2.png)
 
 After the import is completed, assign to the template a network with DHCP and outgoing Internet access (direct or via proxy):
 
-[![](_static/images/OVM_template_network_2.png)](https://cloudbase.it/coriolis-oracle-vm/ovm_template_network_2/)
+![](_static/images/OVM_template_network_2.png)
 
 Note: Windows templates cannot be redistributed due to licensing limitations, please refer to the section “**How to create the Oracle VM worker templates**” for details.
 

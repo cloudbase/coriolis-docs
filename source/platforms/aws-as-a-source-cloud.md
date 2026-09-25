@@ -33,7 +33,7 @@ Below is a listing of the configuration section needed when migrating from AWS:
 
 #### Configuration options for AWS as a migration source
 
-[![](_static/images/AWS-source.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/04/AWS-source.jpg?ssl=1)
+![](_static/images/AWS-source.jpg)
 
 ```ini
 [aws_migration_provider]

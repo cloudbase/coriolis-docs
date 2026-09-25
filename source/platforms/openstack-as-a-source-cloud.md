@@ -89,7 +89,7 @@ In Windows instances, the recommendation is to manually uninstall the VirtIO dri
 
 For more information regarding the Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](https://cloudbase.it/coriolis-temporary-migration-worker) **page.
 
-[![](_static/images/openstack-source.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/04/openstack-source.jpg?ssl=1)
+![](_static/images/openstack-source.jpg)
 
 ### OpenStack source environment parameters
 
