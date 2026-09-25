@@ -91,15 +91,33 @@
 
 .platform-vendors {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.25rem;
   margin: 1rem 0;
 }
 
 .platform-vendors img {
-  width: min(100%, 220px);
+  flex: 1 1 0;
+  width: 0;
+  min-width: 0;
+  max-width: 220px;
   height: auto;
+}
+
+table.docutils img {
+  max-height: 40px;
+  width: auto;
+  vertical-align: middle;
+}
+
+table.docutils td:first-child {
+  text-align: center;
+}
+
+table.docutils td:first-child img {
+  display: block;
+  margin: 0 auto 0.35rem;
 }
 
 .video-preview::before {

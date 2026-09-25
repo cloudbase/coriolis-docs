@@ -82,31 +82,23 @@ Depending on the destination platform's limitations (such as supported bus types
 
 This table will outline all the supported virtualization/cloud platforms by Coriolis, and whether their respective providers support UEFI firmware, with/without Secure Boot.
 
-| **Supported in Export Provider**| **Supported in Import Provider**  
----|---|---  
-![](_static/images/openstack.png)  
-**OpenStack**|  ![:check_mark:](_static/images/check_mark_32.png)*| ![:check_mark:](_static/images/check_mark_32.png)  
-![](_static/images/Vmware.svg.png)| ![:check_mark:](_static/images/check_mark_32.png)| ![:check_mark:](_static/images/check_mark_32.png)  
-![](_static/images/aws.png)| ![:ballot_box_with_check:](_static/images/2611.png)| ![:ballot_box_with_check:](_static/images/2611.png)  
-![](_static/images/Microsoft_Azure.svg_.png)  
-**Microsoft Azure**| ![:ballot_box_with_check:](_static/images/2611.png)| ![:ballot_box_with_check:](_static/images/2611.png)  
-![](_static/images/Blank-diagram.png)  
-**Linux servers**| ![:check_mark:](_static/images/check_mark_32.png)| ![:heavy_minus_sign:](_static/images/2796.png)  
-![](_static/images/oracle2022.png)  
-**Oracle PCA**| ![:heavy_minus_sign:](_static/images/2796.png)| ![:check_mark:](_static/images/check_mark_32.png)  
-![](_static/images/oracle2022.png)  
-**OCI**| ![:heavy_minus_sign:](_static/images/2796.png)| ![:check_mark:](_static/images/check_mark_32.png)  
-![](_static/images/lxd-logo.png)  
-**MicroCloud (LXD)**| ![:heavy_minus_sign:](_static/images/2796.png)| ![:check_mark:](_static/images/check_mark_32.png)  
-![](_static/images/ovm.jpg)| ![:x:](_static/images/274c.png)| ![:x:](_static/images/274c.png)  
-![](_static/images/OVirt-logo-highres.png)  
-**OLVM & RedHat Virtualization (RHV)** | ![:check_mark:](_static/images/check_mark_32.png)| ![:check_mark:](_static/images/check_mark_32.png)  
-![](_static/images/ws2022.png)  
-**Microsoft Hyper-V**| ![:check_mark:](_static/images/check_mark_32.png)| ![:heavy_minus_sign:](_static/images/2796.png)  
-![](_static/images/18700703.png)  
-**SUSE Virtualization (Harvester)**| ![:heavy_minus_sign:](_static/images/2796.png)| ![:check_mark:](_static/images/check_mark_32.png)  
-![](_static/images/proxmox-logo-stacked-color.svg)| ![:heavy_minus_sign:](_static/images/2796.png)| ![:check_mark:](_static/images/check_mark_32.png)  
-*OpenStack instances do not have an exact way of telling if they’re UEFI instances or not, besides reading instance metadata, which may not always be available. In those cases, the Firmware type can be overridden by a source environment option
+| | **Supported in Export Provider** | **Supported in Import Provider** |
+|---|---|---|
+| ![](_static/images/openstack.png) **OpenStack** | ![:check_mark:](_static/images/check_mark_32.png)* | ![:check_mark:](_static/images/check_mark_32.png) |
+| ![](_static/images/Vmware.svg.png) | ![:check_mark:](_static/images/check_mark_32.png) | ![:check_mark:](_static/images/check_mark_32.png) |
+| ![](_static/images/aws.png) | ![:ballot_box_with_check:](_static/images/2611.png) | ![:ballot_box_with_check:](_static/images/2611.png) |
+| ![](_static/images/Microsoft_Azure.svg_.png) **Microsoft Azure** | ![:ballot_box_with_check:](_static/images/2611.png) | ![:ballot_box_with_check:](_static/images/2611.png) |
+| ![](_static/images/Blank-diagram.png) **Linux servers** | ![:check_mark:](_static/images/check_mark_32.png) | ![:heavy_minus_sign:](_static/images/2796.png) |
+| ![](_static/images/oracle2022.png) **Oracle PCA** | ![:heavy_minus_sign:](_static/images/2796.png) | ![:check_mark:](_static/images/check_mark_32.png) |
+| ![](_static/images/oracle2022.png) **OCI** | ![:heavy_minus_sign:](_static/images/2796.png) | ![:check_mark:](_static/images/check_mark_32.png) |
+| ![](_static/images/lxd-logo.png) **MicroCloud (LXD)** | ![:heavy_minus_sign:](_static/images/2796.png) | ![:check_mark:](_static/images/check_mark_32.png) |
+| ![](_static/images/ovm.jpg) | ![:x:](_static/images/274c.png) | ![:x:](_static/images/274c.png) |
+| ![](_static/images/OVirt-logo-highres.png) **OLVM & RedHat Virtualization (RHV)** | ![:check_mark:](_static/images/check_mark_32.png) | ![:check_mark:](_static/images/check_mark_32.png) |
+| ![](_static/images/ws2022.png) **Microsoft Hyper-V** | ![:check_mark:](_static/images/check_mark_32.png) | ![:heavy_minus_sign:](_static/images/2796.png) |
+| ![](_static/images/18700703.png) **SUSE Virtualization (Harvester)** | ![:heavy_minus_sign:](_static/images/2796.png) | ![:check_mark:](_static/images/check_mark_32.png) |
+| ![](_static/images/proxmox-logo-stacked-color.svg) | ![:heavy_minus_sign:](_static/images/2796.png) | ![:check_mark:](_static/images/check_mark_32.png) |
+
+\*OpenStack instances do not have an exact way of telling if they’re UEFI instances or not, besides reading instance metadata, which may not always be available. In those cases, the Firmware type can be overridden by a source environment option
 
 ![:check_mark:](_static/images/check_mark_32.png) : fully supports UEFI with Secure Boot
 
