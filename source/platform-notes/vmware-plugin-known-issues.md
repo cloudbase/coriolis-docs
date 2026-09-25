@@ -13,7 +13,6 @@ If the above error message occurs in a multi ESXi hosts situation where vCenter 
 
 The error message will point to port 443 which vCenter will use to communicate with the ESXi hosts, but Coriolis will not be able to confirm the connection.
 
-
 In the case where the **ESXi Host** is connected to vCenter using its **hostname** and the **Coriolis Endpoint** is created using vCenter details, the **vixdisklib** will look to resolve the hostnames.
 
 If the above situation applies, following one of the two steps below will allow Coriolis to correctly communicate with the ESXi host:
@@ -22,8 +21,6 @@ If the above situation applies, following one of the two steps below will allow 
     * restart **systemd-hostnamed** service, which is a system service that may be used to change the system's hostname and related machine metadata from user programs.
   * add in **/etc/resolv.conf** on Coriolis Appliance a secondary DNS server that can resolve the Hostname of the ESXi servers. 
     * The Coriolis Appliance network must have access to the DNS server IP used.
-
-
 
 This can be avoided if the **Coriolis Endpoint** is created using the **IP** of the **ESXi host**.
 
@@ -39,13 +36,9 @@ The following steps have been observed to solve this error. Further assistance c
 
   * disable and then re-enable **CBT** on the**VM** (while the VM is powered off).
 
-
   * create a Coriolis **endpoint** using the **IP/hostname** of the **ESXi host** the **VM** is currently running on instead of the IP/hostname of the vCenter server. This will force Coriolis to export from that host instead of a random host within the cluster. 
 
-
   * **move** the **VM** using **vMotion** to a different **ESXi host** , and retry with the above step to also change Coriolis's endpoint to the new ESXi host.
-
-
 
 * * *
 
@@ -64,16 +57,12 @@ Possible causes are speculated to be:
   * VMs that have been upgraded from hardware version <= 5 may have CBT data reset, leading to the issue
   * in vSphere < 5.0, reverting a VM to an earlier snapshot may cause the issue, in which case disabling and re-enabling is recommended
 
-
-
 Further details can be found at the following links:
 
   * manifestation of an error on VMs with pre-existing snapshots: <https://kb.vmware.com/s/article/1033816>
   * manifestation of error, the apparent cause is an I/O error on a disk used as a vmfs datastore: <https://communities.vmware.com/thread/588337>
   * manifestation of error during a cross-datastore move using vMotion due to block sizes on two datastores do not match: <https://kb.vmware.com/s/article/2009097>
   * manifestation of error for a VM which has been reverted to a previous snapshot on VMWare < 5.0: <https://kb.vmware.com/s/article/1021607>
-
-
 
 #### Troubleshooting:
 
@@ -95,8 +84,6 @@ Suggested workarounds (in order of likelihood):
   * using vMotion to move the VM to a different datastore
   * manually delete the CTK data off of the datastore with the VM powered off (there should be a file named "*-ctk.vmdk" within the same directory as the VMDK file in the error report)
   * as a last resort, one may export an OVF of the VM, and re-import it (making sure to select another host or datastore)
-
-
 
 * * *
 
@@ -122,8 +109,6 @@ The above error usually occurs when Coriolis is in one of the following situatio
 
   * Coriolis appliance is not able to resolve the FQDN hostnames of *all* the ESXi nodes.
   * Coriolis appliance cannot reach *all* the ESXi nodes over TCP port 902.
-
-
 
 Due to VMware vSphere functionality, snapshot creation/read events can be executed through *any* of the ESXi hosts, and not bound to the ESXi host on which the VM is running. Thus, you should ensure that all ESXi hosts have a proper FQDN / network connectivity that the Coriolis appliance can use.
 

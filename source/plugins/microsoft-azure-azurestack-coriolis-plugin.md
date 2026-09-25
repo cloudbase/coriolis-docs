@@ -39,8 +39,6 @@ The Azure account whose credentials are given to Coriolis must have permissions 
   * read access on the properties of the source VMs and associated resources (VMs, disks, NICs, Public IPs, and virtual networks) within the resource group which is being migrated from
   * create temporary compute resources (VMs, disks, NICs, Public IPs, and virtual networks) within the resource group which is being migrated to/from
 
-
-
 ### Azure connection parameters
 
 In order to connect to Azure to perform a migration/replica to it, the following connection parameters must be supplied:
@@ -86,8 +84,6 @@ The parameters representing:
   * **custom_cloud_properties.endpoints.management_endpoint (string)** - string URL of the ARM Management Endpoint for the target Azure/Azure Stack region
   * **custom_cloud_properties.suffixes.storage_endpoint (string)** - string DNS suffix for Blob Storage Accounts.
 
-
-
 ### Using Coriolis with Azure Stack
 
 The Coriolis Azure plugin should be able to perform migration/replications to Azure Stack identically to how it operates with Azure itself, with the mention that some additional parameters (such as the ARM API endpoint of the Azure Stack region) be filled into the connection options. 
@@ -95,8 +91,6 @@ The Coriolis Azure plugin should be able to perform migration/replications to Az
 Additionally, the Root Certificate of the AzureStack must be imported in the coriolis-worker component, this should only be required for deployment of Azure Stack Development Kit. To do that, follow the next steps:
 
   * Export the root Certificate of the AzureStack:
-
-
 
 ```powershell
  $exportFileBase = "C:\AzureStackRoot"
@@ -111,8 +105,6 @@ Additionally, the Root Certificate of the AzureStack must be imported in the cor
 ```
 
   * Import it in Coriolis-worker by just adding the content of cert file to the end of this file _“/usr/local/lib/python3.6/dist-packages/certifi/cacert.pem”. Or _running the following commands on Coriolis host:
-
-
 
 ```bash
  $ docker cp /path/to/cert.pem coriolis-worker:/root/cert.pem 

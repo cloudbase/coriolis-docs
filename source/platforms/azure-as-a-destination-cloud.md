@@ -21,8 +21,6 @@ Migrations to Azure operate in the same way Replicas do and thus entail the same
   4. read the contents of the snapshot created at step 2 via the source platform's snapshot/backup APIs (handled by whatever source cloud plugin we are using), transferring the written chunks to the temporary VM created in step 3, which then writes the chunks at the appropriate index/offset of the disks created at step 1
   5. once the contents of all the disks have been synced to the disks created at step 1, detach the disks and delete the disk copy worker created at step 3
 
-
-
 #### Replica deployments:
 
 #### Steps performed by Coriolis
@@ -32,8 +30,6 @@ Migrations to Azure operate in the same way Replicas do and thus entail the same
   3. perform the "OSMorphing process", where Coriolis commands the OSMorphing worker created at step 2 to scan all attached disks for the OS installation of the VM we are migrating, mount and perform the steps needed to prepare the installation for Azure
   4. detach the disks created at step 1 from the OSMorphing worker created at step 2 and delete the temporary worker VM 
   5. create and boot the migrated VM on Azure with the specifications of the original VM on the source cloud (which have been noted during the particular replica execution we are deploying), creating and attaching any necessary NICs and disks to it
-
-
 
 ### Azure destination environment parameters
 
@@ -95,8 +91,6 @@ Each parameter represents:
   * **linux_migr_image (object)** - the parameters of a Linux Azure image to use during replication/Linux OSMorphing, default is the 16.04 image exemplified in the listing above
   * **windows_migr_image (object)** - the parameters of a Windows Azure image to use during Windows OSMorphing, default is the Server 2016 image exemplified in the listing above
   * **preserve_nic_ips (boolean)** - Whether or not to set the same IP address on migrated VM NICs if the mapped network/subnet combination includes the IP address(es) the NICs had on the source within their IP range.
-
-
 
 Most destination environment parameters can also be found in the global configuration section, in which case they may be overridden on a per-migration/replica basis by setting them in the destination environment as well.
 
@@ -214,13 +208,9 @@ In the case of Replicating/Migration to Azure, Worker images have the following 
 
   * **Linux****image requirements**
 
-
-
 The Linux image should have the walinuxagent installed and configured for the first boot. Coriolis will create a unique key pair for each migration/replication and add it as authorized via metadata. 
 
   * **Windows****image requirements**
-
-
 
 The Windows image should have the Azure provisioning agent or cloudbase-init installed and configured for the first boot. Coriolis will create a unique password for each migration deployment and use it to set up WinRM access via a VM extension. 
 
@@ -255,13 +245,9 @@ The following other notable steps will be performed as part of the OSMorphing pr
   * rebuilding initrd on RHEL-based systems
   * other distribution-related steps recommended by the Azure team and available [here](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/classic/create-upload-vhd).
 
-
-
 #### Windows
 
   * installing Cloudbase-init and enabling the Cloudbase-init service
-
-
 
 ### OSMorphing worker images
 

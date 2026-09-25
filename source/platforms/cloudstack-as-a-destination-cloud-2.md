@@ -30,8 +30,6 @@ Steps performed by Coriolis during each transfer execution to CloudStack:
   4. Attach the replicated volumes to the Linux minion and sync disk data from the source snapshot through the minion into the CloudStack volumes.
   5. When all disks are synced, detach the volumes from the minion, delete the temporary minion VM, and release its public IP and firewall rules. Replicated volumes remain on primary storage for the next execution or deployment.
 
-
-
 ## Deployments
 
 Steps performed by Coriolis when deploying a replica or completing a migration to CloudStack:
@@ -41,8 +39,6 @@ Steps performed by Coriolis when deploying a replica or completing a migration t
   3. Detach the volumes from the morphing minion and delete the temporary minion VM.
   4. Deploy the final migrated VM: create a shell VM from the **Linux template** , replace its boot volume with the migrated root disk, attach remaining data disks, map guest networks from the transfer network map, and port VM configuration from the source VM (CPU, RAM, firmware, secure boot, etc.).
   5. Start the migrated VM on CloudStack (unless configured to skip starting migrated instances).
-
-
 
 ## CloudStack prerequisites
 
@@ -139,9 +135,6 @@ Edit both files on the golden VM (keep **metadata_services  **and **plugins  **a
   * **C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\cloudbase-init.conf**  — first boot after deploy
   * **C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\cloudbase-init-unattend.conf**  — sysprep only
 
-
-
-
 ```ini
 [DEFAULT]
 username=Administrator
@@ -190,7 +183,6 @@ Remove-Item -Force -Recurse 'HKLM:\SOFTWARE\Cloudbase Solutions' -ErrorAction Si
 ```
 
 Validate after a test deploy from the template:
-
 
 ```powershell
 winrm enumerate winrm/config/listener

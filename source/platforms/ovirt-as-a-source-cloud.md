@@ -22,8 +22,6 @@ Coriolis can automatically enable the incremental backup for a virtual disk on O
   * the VM to be replicated must have Incremental Backups enabled on all of its disks
   * Coriolis can optionally be configured to enable Incremental Backups on the VM automatically
 
-
-
 Consider reviewing the general steps recommended before creating and executing a replica for an instance from oVirt.
 
 #### Steps performed by Coriolis
@@ -32,8 +30,6 @@ Consider reviewing the general steps recommended before creating and executing a
   2. if configured to enable Incremental Backups itself, Coriolis will make sure to snapshot the VM in case it has RAW formatted disks (in order to provide a CoW layer on top of it, so it can be incrementally backed up), and will enable incremental backups on all disks
   3. creates crash-consistent backups of the instance. If this is not the first replica execution, incremental backups are performed
   4. fetches backup data via the ImageIO API
-
-
 
 After the above steps are completed, the written blocks of the backup will be transferred and written to disks on the destination via the destination cloud plugin.
 
@@ -59,8 +55,6 @@ Below is a listing of the source environment parameters the oVirt plugin support
 
   * **automatically_enable_incremental_backups** (boolean) - Whether or not Coriolis should attempt to automatically enable incremental backups on the VM before Replication.
 
-
-
 ### OSMorphing steps taken when migrating/replicating from oVirt
 
 The following notable steps will be performed as part of the OSMorphing process when migrating/replicating an instance away from oVirt:
@@ -68,8 +62,6 @@ The following notable steps will be performed as part of the OSMorphing process 
 #### Linux
 
   * if not needed on the destination, the following packages will be uninstalled: cloud-init, qemu-guest-agent (or its legacy counterpart, ovirt-guest-agent)
-
-
 
 For more information regarding the Coriolis Worker template, please check the **[Coriolis Temporary Migraiton Worker](https://cloudbase.it/coriolis-temporary-migration-worker)** page.
 

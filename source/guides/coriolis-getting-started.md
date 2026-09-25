@@ -43,8 +43,6 @@ The **Coriolis virtual appliance** can be easily deployed as a virtual machine (
   * 8GB RAM
   * One or more network interfaces for access to the APIs of the source and destination environments
 
-
-
 NOTE! These requirements are suitable for a proof-of-concept or small test lab only. To ensure proper performance in a production environment, a compatibility assessment should be performed to determine the appropriate resource sizing for the Coriolis virtual appliance.
 
 Coriolis is designed to meet the specific needs of each migration or disaster recovery implementation and can be easily **scaled out both horizontally and vertically** to accommodate increasing workloads. In the case of multiple parallel and simultaneous Replica or Migration jobs, additional Coriolis worker systems can be deployed for large-scale deployments.
@@ -111,8 +109,6 @@ For further information, please check **[Coriolis Licensing](https://cloudbase.i
 </div>
 </div>
 
-
-
 * Hyper-V support remains available, though maintenance is currently limited.
 
 * * *
@@ -159,8 +155,6 @@ Coriolis aims to support the OSMorphing process for the following guest operatin
 </div>
 </div>
 
-
-
 * * *
 
 Windows Server 2012 R2 has officially reached the End of Support from Microsoft. While this means that Microsoft no longer provides any maintenance for this version, **Coriolis** was still known to facilitate the migration of workloads running on Windows Server 2012 R2. This is no longer actively tested or maintained. Please refer to the Known Issues section, as the OS will also require an older virtIO set of drivers.
@@ -205,7 +199,6 @@ For more information regarding each supported platform, please check the corresp
 </div>
 </div> 
 
-
 For Virtuozzo's VHI platform, please refer to the OpenStack Coriolis plugin pages.
 
 ## Preparing a VM for Migration/Replication
@@ -242,8 +235,6 @@ The migration process is as follows:
   * **Cleanup:** On the first boot of the migrated VM, first-boot scripts remove the temporary passphrase or protector.
   * **Final state:** The migrated VM retains the same encryption protectors it had on the source VM.
 
-
-
 The temporary passphrase or protector is therefore used only to facilitate OSMorphing during the migration and is not retained on the migrated VM.
 
 Check the user guides below for more information:
@@ -256,8 +247,6 @@ Check the user guides below for more information:
 
   * SUSE KVM
   * SUSE Virtualization
-
-
 
 Support for additional destination platforms will be added in future releases.
 

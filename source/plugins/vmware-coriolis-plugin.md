@@ -64,8 +64,6 @@ Each parameter represents:
   * **password (string)** - the password of the vSphere user to log in with
   * **allow_untrusted (boolean)** -  whether to skip certificate verification if the vSphere endpoint has self-signed certificates (default is **false**)
 
-
-
 When using hostnames for the ESXi/vCenter hosts, Coriolis needs to be able to resolve them.
 
 ### VMware platform specifics

@@ -41,8 +41,6 @@ You can repeat the same procedure choosing "**VMware** " and provide the require
 
 Like in the previous case, clicking “**Save** ” will create the endpoint and trigger the connection validation.
 
- 
-
 ### Configuring a replica for a VM from vSphere to Oracle VM
 
 Click on “**Replicas** ” and choose “**New** ”. You will be greeted by an introductory screen:
@@ -71,17 +69,11 @@ Click “**Next** ” and choose the target endpoint (**Oracle VM**):
 
 [![](_static/images/Coriolis-Web-Replica-Execution.png)](https://cloudbase.it/coriolis-how-to-migrate-vms-from-vmware-to-oracle-vm-using-the-web-interface/coriolis-web-replica-execution/)Once completed, the replica can be executed incrementally multiple times to update the replicated content (this is typically scheduled, e.g. hourly, daily, weekly, etc).
 
- 
-
 ### Migrating the VM from the replica
 
 From the replica details, you can click on “**Migrate Replica** ” to get the VM(s) running on your Oracle VM hosts:
 
- 
-
 [![](_static/images/Coriolis-Web-Migrate-Replica-2.png)](https://cloudbase.it/coriolis-how-to-migrate-vms-from-vmware-to-oracle-vm-using-the-web-interface/coriolis-web-migrate-replica-2/)
-
- 
 
 You can click on “**View Migration Status** ” to watch the migration progress. The "**migrations** " view can also be reached through the main menu (click on the top left icon).
 

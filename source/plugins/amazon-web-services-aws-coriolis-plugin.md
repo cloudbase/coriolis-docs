@@ -41,8 +41,6 @@ Each parameter represents:
   * **access_key_id (string)** - the ID of the access key to connect with
   * **secret_access_key  (string)** - the secret access key to connect with
 
-
-
 ### AWS as a source cloud
 
 For more information on using AWS as a **source cloud** for Replica/MIgration, please check the **[AWS as a source cloud](https://cloudbase.it/aws-as-a-source-cloud)** page.

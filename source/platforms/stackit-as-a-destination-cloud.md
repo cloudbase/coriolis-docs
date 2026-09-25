@@ -21,8 +21,6 @@ Transfer Migrations to Stackit operate in the same way Transfer Replicas do and 
   4. read the contents of the snapshot created at step 2 via the source platform’s snapshot/backup APIs (handled by whatever source cloud plugin we are using), transferring the written chunks to the temporary VM created in step 3, which then writes the chunks at the appropriate index/offset of the disks created at step 1
   5. once the contents of all the disks have been synced to the Stackit volumes created in Step 1, detach the Stackit volumes and delete the disk copy worker created in Step 3
 
-
-
 #### Replica deployments:
 
 #### Steps performed by Coriolis
@@ -32,8 +30,6 @@ Transfer Migrations to Stackit operate in the same way Transfer Replicas do and 
   3. perform the “OSMorphing process”, where Coriolis commands the OSMorphing worker created in step 2 to scan all attached disks for the OS installation of the VM we are migrating, mount, and perform the steps needed to prepare the installation for the Stackit platform (ex: uninstalling the VMWare guest tools and installing VirtIO drivers as well as the Stackit agent)
   4. detach the Stackit volumes created at step 1 from the OSMorphing worker created at step 2 and delete the temporary worker VM 
   5. create and boot the migrated VM on the destination cloud with the specifications of the original VM on the source cloud (which have been noted during the particular replica execution we are deploying), creating and attaching any necessary NICs and Stackit volumes.
-
-
 
 ### Configuration Options
 
@@ -56,14 +52,10 @@ The following notable steps will be performed as part of the OSMorphing process:
   * installing cloud-init
   * rebuilding initrd to add the virtIO drivers
 
-
-
 #### Windows
 
   * installing cloudbase-init and enabling cloudbase-init service
   * installing the VirtIO drivers
-
-
 
 In addition to that, the Stackit agent will be installed.
 
@@ -97,13 +89,9 @@ If disabled, Coriolis expects the guest to have static network configuration. De
   * set udev rules to preserve the interface names 
     * the MAC addresses cannot be preserved, existing configuration files must **not** contain explicit MAC filters
 
-
-
 #### Windows
 
   * define static network configuration through a script that will be invoked by cloudbase-init during the first replica boot
-
-
 
 #### Configuration options for Stackit as a destination
 
@@ -114,7 +102,6 @@ Below is a listing of the configuration section needed when migrating/replicatin
 The destination environment parameters are a set of destination-cloud-specific parameters that offer additional options to the migration/replication process on a per-VM basis.
 
 Below is a listing of the destination environment parameters the Stackit plugin supports when migrating/replicating a VM to Stackit:
-
 
 ```ini
 [stackit_migration_provider]
@@ -275,7 +262,6 @@ cloudbaseinit_x64_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x6
 
 #### Example of destination environment JSON to be passed to the Stackit plugin
 
-
 ```json
 {
   "network_map": {
@@ -348,5 +334,3 @@ Each parameter represents:
   * **set_dhcp** (boolean, default **true**) — during OSMorphing, reconfigure guest NICs to use DHCP.
   * **retain_user_credentials** (boolean, default **false**) — reconfigure cloud-init during OSMorphing so it does not create a new user, disable root/existing users, turn off password SSH, or lock accounts. Also prevents cloud-init from installing the **keypair_name** SSH key.
   * **windows_virtio_iso_url** (string) — URL of a VirtIO drivers ISO injected into Windows guests. The OSMorphing worker on STACKIT must be able to download it. Default is the Fedora stable VirtIO ISO.
-
-

@@ -22,20 +22,14 @@ Latest Release
   * Security fixes: 
     * Fully updated with latest security patches provided by Ubuntu;
 
-
-
 ### Coriolis Provider Kubevirt
 
   * Fixes PVC access mode management when creating destination volumes
-
-
 
 ### Coriolis Provider Nutanix
 
   * Adds ability to export VM inventory in CSV format;
   * Improves upon source VM shutdown
-
-
 
 ### Coriolis Provider Openstack
 
@@ -43,20 +37,14 @@ Latest Release
   * Fix os_type/os_distro image metadata assignment;
   * Fix volume attachment management
 
-
-
 ### Coriolis Provider oVirt
 
   * Excludes link-local addresses when testing minion connection;
   * Increase ballooning minimum memory for Windows
 
-
-
 ### Coriolis webUI
 
   * various UX and security fixes
-
-
 
 * * *
 
@@ -70,8 +58,6 @@ Latest Release
 
   * Adds **export_mechanism** source option, with the ability to use the in-built **[OpenVixDiskLib](https://github.com/cloudbase/OpenVixDiskLib) **library to export VMs. 
     * Updating to this release will install OpenVixDiskLib, as well as exposing an option to load a licensed VDDK provided by the end-user.
-
-
 
 ## Version 2608.0
 
@@ -101,27 +87,19 @@ Latest Release
   * Security fixes: 
     * Fully updated with latest security patches provided by Ubuntu;
 
-
-
 ### Coriolis Web UI
 
   * Masks temporary encryption key set in the target environment;
   * Displays SAP migration licensing;
   * Updates with security fixes;
 
-
-
 ### Coriolis Provider AWS
 
   * Updates minion list;
 
-
-
 ### Coriolis Provider Azure
 
   * Adds ability to export VM inventory in CSV format;
-
-
 
 ### Coriolis Provider Kubevirt
 
@@ -130,32 +108,22 @@ Latest Release
   * Fix pod network validation (errors out if multiple NICs of the same VM are set to use the **pod network**);
   * Added **data_transfer_mechanism** as a target environment option (exposed to UI);
 
-
-
 ### Coriolis Provider Libvirt
 
   * Adds support for importing VMs with shared disks;
-
-
 
 ### Coriolis Provider LXD
 
   * Fix disk bus option;
 
-
-
 ### Coriolis Provider OpenStack
 
   * Add Storage AZ override option;
-
-
 
 ### Coriolis Proivder oVirt
 
   * Adds support for preserving the first NIC of the migrated VM;
   * Adds ability to export VM inventory in CSV format;
-
-
 
 ### Coriolis Provider Proxmox
 
@@ -163,14 +131,10 @@ Latest Release
   * Fix VMID and disk attachment race conditions;
   * Adds **add_tpm_device** target option;
 
-
-
 ### Coriolis Provider VMWare
 
   * Adds support for exporting VMs with shared VMDKs (destination cloud options are currently limited);
   * Improves upon VMWare tools and drivers removal by making it an offline uninstallation instead of post-deployment removal;
-
-
 
 ## Version 2603.4
 
@@ -201,16 +165,12 @@ Latest Release
     * Allows editing barbican, keystone, rabbitmq apache/wsgi configs (mainly for hardening purposes);
     * Fully updated with latest security patches provided by Ubuntu;
 
-
-
 ### Coriolis Web UI
 
   * Optimizes page loading;
   * Fixes config option defaults when loading transfer options;
   * Supports setting new user script phases;
   * Various security updates;
-
-
 
 ### Coriolis Provider Kubevirt
 
@@ -221,13 +181,9 @@ Latest Release
   * Adds support for migrating RHEL 10 (and supported derivates);
   * Adds QEMU Guest Agent installation for Windows Migrations;
 
-
-
 ### Coriolis Provider Libvirt
 
   * Adds native encrypted VM migration support;
-
-
 
 ### Coriolis Provider LXD
 
@@ -243,21 +199,15 @@ Latest Release
   * Adds "use_config_drive" option. Users can control whether the migrated VM will have a config drive or not;
   * Added complete Virtio Driver installation when migrating Windows VMs;
 
-
-
 ### Coriolis Provider OpenStack
 
   * Adds ability to export VM inventory in CSV format;
   * Fix hostname normalization for migrated VMs;
 
-
-
 ### Coriolis Proivder oVirt
 
   * Adds support for preserving the first NIC of the migrated VM;
   * Adds ability to export VM inventory in CSV format;
-
-
 
 ### Coriolis Provider Proxmox
 
@@ -266,15 +216,11 @@ Latest Release
   * Enables KVM virtualization by default for migrated VMs;
   * Fix volume deactivations on LVM backends;
 
-
-
 ### Coriolis Provider VMWare
 
   * Updates VM inventory CSV format;
   * Fixes TLS certificate verification on endpoint connections;
   * Improves upon source disk identification;
-
-
 
 ## Version 2603.2
 
@@ -289,14 +235,10 @@ Latest Release
   * Disable /etc/hosts reset when preserving static IPs;
   * Improved proxy configuration workflow in the console.
 
-
-
 ### Coriolis Web UI
 
   * Added VM inventory CSV export in the endpoint screen;
   * Various evnrionment options and cosmetic improvements.
-
-
 
 ### Coriolis Provider Kubevirt
 
@@ -305,21 +247,15 @@ Latest Release
   * SUSE Virtualization: Add support for VMImages residing on custom CSI types;
   * Attach TPM device on migrated VMs.
 
-
-
 ### Coriolis Proivder Ovirt
 
   * Improved replica disk management;
   * Fixes migrated Windows machines' memory display in the oVirt dashboard.
 
-
-
 ### Coriolis Provider Proxmox
 
   * Adds options for SCSI Controller model, Machine Type, Data Transfer Mechanism;
   * Fix template cloning on storage that doesn't support linked clones.
-
-
 
 ### Coriolis Provider VMWare
 
@@ -327,8 +263,6 @@ Latest Release
   * Adds ability to export VM inventory in CSV format;
   * Fixes left-over VMWare service removal;
   * Fixes disk integrity validation.
-
-
 
 ## Version 2603.1
 
@@ -340,26 +274,18 @@ Latest Release
   * Added disk detection improvements for the writer service;
   * More network preservation fixes.
 
-
-
 ### Coriolis web UI
 
   * Improved option reload and display.
-
-
 
 ### Coriolis Provider Azure
 
   * Updated public IPv4 usage from deprecated 'Basic' to 'Standard'.
 
-
-
 ### Coriolis Provider Kubevirt
 
   * Fix worker NIC model;
   * Improve worker connections (skips link-local IPs).
-
-
 
 ### Coriolis Provider oVirt
 
@@ -367,19 +293,13 @@ Latest Release
   * Adds high availability enablement option;
   * Adds memory ballooning force disablement option. 
 
-
-
 ### Coriolis Provider Proxmox
 
   * Fix disk resize on incremental executions.
 
-
-
 ### Coriolis Provider VMware
 
   * Add disk integrity validation.
-
-
 
 ## Version 2603.0
 
@@ -395,20 +315,14 @@ Latest Release
   * Reduce internal Coriolis services network exposure
   * Static IP preservation improvements
 
-
-
 ### Coriolis web UI
 
   * Improved logs download
   * Security fixes
 
-
-
 ### Coriolis Provider Kubevirt
 
   * Update default Windows VirtIO ISO URL to latest release
-
-
 
 ### Coriolis Provider oVirt
 
@@ -420,8 +334,6 @@ Latest Release
   * Refactor cloud-init support
   * Other fixes and improvements
 
-
-
 ### Coriolis Provider Proxmox
 
   * Fix clone template not retrying on some recoverable errors.
@@ -429,15 +341,11 @@ Latest Release
   * Improve list_storage by fetching the storage directly from the Proxmox client
   * Other fixes and improvements
 
-
-
 ### Coriolis Provider VMware
 
   * Add VLAN ID detection for standard vSwitch port groups
   * Uninstall the VMware Tools when migrating off from VMware
   * Other fixes and improvements
-
-
 
 ## Version 2506.2
 
@@ -451,35 +359,25 @@ Latest Release
   * Removed support for Oracle VM platform;
   * Other fixes and improvements regarding Windows osmount and file permission issues.
 
-
-
 ### Coriolis web UI
 
   * Fix user role assignment;
   * Fix VM information fetch;
   * Increase default VM list page to 100.
 
-
-
 ### Coriolis Provider Kubevirt
 
   * added support for WaitForFirstConsumer storage class types;
   * other PVC related fixes.
-
-
 
 ### Coriolis Provider Openstack
 
   * Fix Debian and Ubuntu osmorphing (bootloader and initramfs rebuilding);
   * Volume snapshot race condition fix (when using minion pools with auto-deploy).
 
-
-
 ### Coriolis Provider oVirt
 
   * Add support for Virtio Drivers version 2.2+.
-
-
 
 ### Coriolis Provider Proxmox
 
@@ -489,8 +387,6 @@ Latest Release
   * Fixes network listing;
   * Port virtualization type of migrated VM (KVM hardware virtualization is enabled if the VM had nested virtualization enabled on the source);
   * Fix final instance name.
-
-
 
 ### Coriolis Provider VMWare
 
@@ -503,8 +399,6 @@ Latest Release
   * Uninstall VMWare Tools when exporting Windows VMs;
   * Add InstanceUuid VM identification scheme.
 
-
-
 ## Version 2506.1
 
 ### Changes and improvements
@@ -513,14 +407,10 @@ Latest Release
   * Improved policy handling for RBAC rules.
   * Other fixes and improvements in multiple plugins - oVirt (OLVM & RHEV), MicroCloud, Proxmox VE and KubeVirt / SUSE Virtualization
 
-
-
 ### Coriolis web UI
 
   * Add a pagination count selector for the number of instances (and other objects) to display in one view.
   * Fixed a regression in the OpenStack endpoint creation and validation in regards to the Allow untrusted/self-signed SSL certificate for the OpenStack services.
-
-
 
 ## Version 2506.0
 
@@ -531,8 +421,6 @@ Latest Release
   * Added [VHI](https://www.virtuozzo.com/hybrid-infrastructure/) provider
   * Added [SUSE Virtualization](https://www.suse.com/products/rancher/virtualization/) provider
 
-
-
 ### Changes and improvements
 
   * Fixes and improvements to the network preservation logic
@@ -540,14 +428,10 @@ Latest Release
   * Improve the deployer operations
   * Move internal RabbitMQ to use TLS by default
 
-
-
 ### Coriolis web UI
 
   * Bumped Node.js to version 22, as well as upgrading all dependencies
   * Fixed a bug in the OpenStack endpoint - Allow Untrusted toggle option
-
-
 
 ### Coriolis Provider for oVirt - OLVM and RHEV
 
@@ -555,23 +439,17 @@ Latest Release
   * Request consistent snapshots when exporting VMs
   * Other fixes and improvements
 
-
-
 ### Coriolis Provider for Proxmox VE
 
   * Add Proxmox VE SDN support
   * Filter final VM localhost subnets when detecting IP addresses
   * Fix vm disk naming convention
 
-
-
 ## Version 2412.3
 
 ### Changes and improvements
 
   * VMware to OpenStack migrations now preserve the VM hostname from the source platform
-
-
 
 ## Version 2412.1
 
@@ -580,36 +458,26 @@ Latest Release
   * Migrations have been redesigned to allow transfers (data replication), with controlled switch-over on when the VM is to be created on target 
     * In addition, the **Auto Deploy** option allows setting an incremental sync, followed by automatically completing the migration.
 
-
-
 ### Changes and improvements
 
   * The Coriolis version is now tracked in the diagnostics.log file
   * **Coriolis Web UI:** the interface has been updated to reflect the new **Transfers** and **Deployments** sections
   * SCVMM plugin has been deprecated as is no longer supported
 
-
-
 ### Coriolis Provider for OLVM / oVirt
 
   * New option was added to control the disk allocation
   * Switch to Oracle VirtIO drivers for Windows OS Morphing
 
-
-
 ### Coriolis Provider for OCI
 
   * Windows OS Morphing is now using OCI VirtIO drivers v2.2
-
-
 
 ### Coriolis Provider for OpenStack
 
   * Disable cloud-init networking with `set_dhcp=false`
   * Add `disk_bus` import option
   * Better handling of the security group used by Coriolis
-
-
 
 ### Coriolis Provider for VMware
 
@@ -618,8 +486,6 @@ Latest Release
   * Improved VMware endpoint validation checks
   * Added support for VMware deployments using **NSX**
   * Add cloudbase-init for writing static IP
-
-
 
 * * *
 
@@ -636,14 +502,10 @@ This version is a fix-release, addressing an issue with adding an OpenStack endp
   * Introducing **KubeVirt** (including**Harvester)** as new target platforms
   * Added TLS certificate support for the Coriolis REST API
 
-
-
 ### Changes and improvements
 
   * Better handling of disk mounting operations in the OS Morphing stage
   * Various fixes and improvements in the Coriolis licensing mechanism
-
-
 
 ### Coriolis Provider for OLVM / oVirt
 
@@ -654,14 +516,11 @@ This version is a fix-release, addressing an issue with adding an OpenStack endp
   * Handle fixed CDROM device in OLVM/oVirt for migrated Windows VM for drive letter consistency
   * 
 
-
 ### Coriolis Provider for OCI
 
   * Fix predictable NIC naming disablement
   * Fix driver enablement for RHEL-based guest OSes
   * Other fixes and improvements
-
-
 
 * * *
 
@@ -676,8 +535,6 @@ This is a minor release to address several bugs and to bring several improvement
   * oVirt/OLVM: fixed several issues
   * LXD/MicroCloud: added support for LXD 5.21.0 LTS
 
-
-
 * * *
 
 ## Version 2403.0
@@ -688,14 +545,10 @@ This is a minor release to address several bugs and to bring several improvement
   * Added support for Amazon Linux 2 (AL2) in OSMorphing
   * Improvements in the Windows OSMorphing process 
 
-
-
 ### Coriolis Provider for MicroCloud / LXD
 
   * Set and identify VM OS type
   * Various fixes and improvements
-
-
 
 * * *
 
@@ -708,15 +561,11 @@ This is a minor release to address several bugs and to bring several improvement
   * Refactor grub2 console setting for Linux machines
   * Improve dpkg option for no prompt
 
-
-
 ### Coriolis Provider for VMware
 
   * Upgraded vixdisklib library to version 8.0.2
   * Install Windows drivers for VMware from the official VMware repository
   * Various improvements and fixes
-
-
 
 ### Coriolis Provider for OCI
 
@@ -724,15 +573,11 @@ This is a minor release to address several bugs and to bring several improvement
   * Improve multi-NIC instance migrations
   * Various improvements and fixes
 
-
-
 ### Coriolis Provider for MicroCloud / LXD
 
   * Setup LXD Agent in OSMorphing
   * Disable EDD on RHEL-based machines
   * Various improvements and fixes
-
-
 
 * * *
 
@@ -748,15 +593,11 @@ This is a minor release to address several bugs and to bring several improvement
     * including better handling for Secure Boot feature migration
     * automated handling of q35 machine type under OpenStack with KVM
 
-
-
 ### Coriolis Provider for VMware
 
   * Upgraded vixdisklib library to the latest 7.0 series, which is compatible with all VMware 6.x to 8.x products
   * Fixed a bug in incremental backup corruption when detecting a large delta
   * Various small improvements and fixes
-
-
 
 ### Coriolis web UI
 
@@ -764,16 +605,12 @@ This is a minor release to address several bugs and to bring several improvement
   * Overall web UI improvements
   * Updated libraries to address multiple vulnerabilities
 
-
-
 ### Changes and fixes
 
   * Regenerate initrd for all kernels where applicable
   * Updated Coriolis virtual appliance with the latest security updates and patches
   * Make the HTTPS backup writer more resilient on SELinux-enforced worker machines
   * Added an option in the console menu to configure the proxy settings
-
-
 
 * * *
 
@@ -787,21 +624,15 @@ This is a minor release to address several bugs and to bring several improvement
     * added support for nftables
   * Deprecated OPC target provider
 
-
-
 ### Coriolis Provider for VMware
 
   * Fixed an issue for vSAN backends
-
-
 
 ### Bare Metal Agent
 
   * Coriolis Bare Metal Agent version 1.1.1 has been released and is available [here](https://github.com/cloudbase/coriolis-snapshot-agent/releases/tag/1.1.1)
   * Fixed an issue handling swap disks
   * Various fixes and improvements
-
-
 
 ### Coriolis web UI
 
@@ -810,8 +641,6 @@ This is a minor release to address several bugs and to bring several improvement
   * Show OS type in the migration wizard
   * Overall web UI improvements
   * Updated libraries to address multiple vulnerabilities
-
-
 
 * * *
 
@@ -831,8 +660,6 @@ This is a minor release to address several bugs and to bring several improvement
   * Defaulting Data Transfer Mechanism to HTTPS 
     * HTTPS-based transfers are faster when compared with SSH-based ones, choice between options is still available
 
-
-
 ### Changes and fixes
 
   * Better handle yum repositories in OSMorphing
@@ -842,20 +669,14 @@ This is a minor release to address several bugs and to bring several improvement
   * Fixed an issue between Windows and Linux minion pool setup
   * Small improvements and fixes for the Coriolis Azure / AzureStack provider
 
-
-
 ### Coriolis Provider for OpenStack
 
   * Multiple fixes and improvements
   * Fixed an issue with the Glance API version selection
 
-
-
 ### Coriolis Provider for VMware
 
   * Updated built-in vixdisklib version to 6.7
-
-
 
 ### Coriolis Provider for OCI
 
@@ -865,22 +686,16 @@ This is a minor release to address several bugs and to bring several improvement
   * Added field in web UI for the Windows virtIO drivers
   * Fix an issue with secondary vNIC attachment
 
-
-
 ### Coriolis Provider for OVM
 
   * Reduce public IP address wait time when finalizing the migration
   * Attempt to gracefully stop the worker VM instead of powering off
   * Fetching OS labels from OVM API
 
-
-
 ### Coriolis Provider for AWS
 
   * Updated options for AWS configuration
   * Fixed an issue with the region parameter for AWS endpoint configuration
-
-
 
 ### Coriolis web UI
 
@@ -888,8 +703,6 @@ This is a minor release to address several bugs and to bring several improvement
   * Added EULA and Privacy consent OOBE screen
   * Overall web UI improvements
   * Fixed multiple issues
-
-
 
 * * *
 
@@ -903,8 +716,6 @@ This is a minor release to address several bugs and to bring several improvement
   * Disable compression in the default configuration 
     * As the general recommendation is for the Coriolis virtual appliance to be hosted on the destination cloud, compressing transfer is disabled. This should be used when the Coriolis worker process is hosted on the source cloud and can be controlled from the Coriolis configuration file.
 
-
-
 ### Changes and fixes
 
   * Faster web UI
@@ -913,22 +724,16 @@ This is a minor release to address several bugs and to bring several improvement
   * Reduce memory footprint during job executions
   * Security fixes for the Coriolis virtual appliance
 
-
-
 ### Coriolis Provider for OpenStack
 
   * Fix snapshot cleanup for cloned source disks
   * Other fixes and improvements
-
-
 
 ### Coriolis Provider for VMWare
 
   * Add Windows guest OSMorphing tools
   * Fix a memory leak during large disks transfers
   * Other fixes and improvements
-
-
 
 * * *
 
@@ -938,27 +743,19 @@ This is a minor release to address several bugs and to bring several improvement
 
   * **Coriolis OVM Exporter**
 
-
-
 Coriolis OVM Exporter brings incremental backups to OVM for more efficient migrations. The new feature is explained in detail here: [Coriolis OVM exporter - Cloudbase Solutions](https://cloudbase.it/coriolis-ovm-exporter/)
 
   * **Add OCI provider minion pool support**
 
-
-
 Alongside OpenStack, Minion Pools are now supported in OCI as well. Refer to this page for more details: [Coriolis Minion Pools operations and usage - Cloudbase Solutions](https://cloudbase.it/coriolis-minion-pools-operations-and-usage)
 
   * **Improved operations for RedHat/Oracle Linux/CentOS**
-
-
 
 Better handling of the yum repositories and network configuration, along with full support for RedHat 8 based distributions.
 
   * **Resolved an issue with the Replica Schedule**
   * **Improved support for SUSE repositories configuration**
   * **Better handling of Windows disks in OSMorphing**
-
-
 
 Fix an issue with WinRM and PowerShell 4.0 and improve disk servicing during OSMorphing of Windows instances disks.
 
@@ -970,20 +767,14 @@ Fix an issue with WinRM and PowerShell 4.0 and improve disk servicing during OSM
   * Add a link to Coriolis Help page
   * Minor bug fixes
 
-
-
 ### Coriolis Provider for OpenStack
 
   * Improved logic to prevent volume device misidentifications caused by non-standard nova configuration.
-
-
 
 ### Coriolis Provider for VMWare
 
   * Add SCSI drivers to RHEL-based OSMorphing tools
   * Resolved an issue when listing resources for faulty VMs
-
-
 
 ### Coriolis Provider for OVM
 
@@ -992,15 +783,11 @@ Fix an issue with WinRM and PowerShell 4.0 and improve disk servicing during OSM
   * Fixed RHEL6-based OSMorphing
   * Minor bug fixes
 
-
-
 ### Coriolis Provider for OCI
 
   * Fix NSG listing
   * Added support for the new OCI-generated private key data decoding
   * Other bug fixes
-
-
 
 * * *
 
@@ -1010,8 +797,6 @@ Fix an issue with WinRM and PowerShell 4.0 and improve disk servicing during OSM
 
   * Multiple bug fixes
 
-
-
 * * *
 
 ## Version 2102.1
@@ -1019,5 +804,3 @@ Fix an issue with WinRM and PowerShell 4.0 and improve disk servicing during OSM
 ### Coriolis Provider for VMWare
 
   * Add VMware as a Target Platform
-
-

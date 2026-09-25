@@ -27,8 +27,6 @@ Note that VMWare is used in this specific example and that other platforms will 
   2. Enter the credentials for a user with the permissions required for Coriolis to Migrate/Replica VMWare
   3. Add the host IP address
 
-
-
 [![](_static/images/image-10.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2020/03/image-10.png?ssl=1)
 
   * **NAME** - the name of the endpoint that will be added
@@ -37,8 +35,6 @@ Note that VMWare is used in this specific example and that other platforms will 
   * **HOST** - the VMWare vSphere hostname of IP address
   * **PORT** - the port number user for accessing the VMWare vSphere
   * **ALLOW UNTRUSTED** - either trust of not self-signed certificates
-
-
 
 After the details are filled in, click “Validate and save”. Coriolis will then automatically attempt to log in to the VMWare platform to ensure the provided credentials are correct.
 

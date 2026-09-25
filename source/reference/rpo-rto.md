@@ -27,8 +27,6 @@ The following factors external to Coriolis directly affect a Replica's execution
   5. The available bandwidth between Coriolis and the source/destination platforms. This determines the time it takes to transfer the differential data from the source platform to Coriolis, and Coriolis to the destination platform.
   6. The speed at which the source/destination platforms can tear down the temporary resources mentioned in point 1)
 
-
-
 ## Recovery Time Objective
 
 **RTO** (Recovery Time Objective) is related to downtime. The metric refers to the amount of time it takes to recover from a data loss event and how long it takes to return to service. RTO refers then to the amount of time the system's data is unavailable or inaccessible preventing normal service. 
@@ -48,5 +46,3 @@ The following factors external to Coriolis effect a Replica Deployment's total r
   1. The speed with which the source/destination platforms spin up any temporary resources Coriolis may need, as well as start the recovered VM on the destination platform. Examples of temporary resources Coriolis uses include temporary networks/subnets, the VMs used for OSMorphing and associated resources (disks, NICs, public IPs, etc…), disk snapshots, and more Note that in all cases Coriolis only uses these resources during the actual syncing process itself, and they are cleaned up afterward.
   2. The time required to clone the Replica disks (should Coriolis be configured to clone the disks it is been syncing to) 
   3. If OSMorphing is required, then there is added overhead from the OSMount/OSMorphing processes, whose complexity depends on the guest OS installed in the VM being Replicated
-
-

@@ -116,8 +116,6 @@ The "no_proxy" variable is automatically populated by the Coriolis appliance wit
   * localhost;
   * 127.0.0.1
 
-
-
 If additional exclusions are required, you may manually append them to the **no_proxy** line without affecting the automatic defaults. For example, adding **no_proxy = example.com** in the **proxy-settings.ini** will make Coriolis set the following value: **< appliance_ip>,localhost,127.0.0.1,example.com**.
 
 ## Other considerations
@@ -127,8 +125,6 @@ As part of the OS Morphing stage, Coriolis also installs some packages as follow
   * For the Linux temporary worker: 
     * lvm2
     * psmisc
-
-
 
 These packages can be preinstalled by the user in the Linux temporary worker, and then Coriolis will no longer attempt to install these from the corresponding temporary worker Linux repositories.
 

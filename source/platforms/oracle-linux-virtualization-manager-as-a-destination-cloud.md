@@ -23,8 +23,6 @@ Migrations to oVirt operate like Replicas do and thus entail the same requiremen
   4. read the contents of the snapshot created at step 2 via the source platform’s snapshot/backup APIs (handled by whatever source cloud plugin we are using), transferring the written chunks to the temporary VM created in step 3, which then writes the chunks at the appropriate index/offset of the disks made at step 1
   5. once the contents of all the disks have been synced to the volumes created in Step 1, detach the volumes and delete the disk copy worker made in Step 3
 
-
-
 #### Replica deployments:
 
 #### Steps performed by Coriolis
@@ -34,8 +32,6 @@ Migrations to oVirt operate like Replicas do and thus entail the same requiremen
   3. perform the “OSMorphing process”, where Coriolis commands the OSMorphing worker created at step 2 to scan all attached disks for the OS installation of the VM we are migrating, mount, and perform the steps needed to prepare the installation for the new platform (ex: uninstalling the VMWare guest tools and installing VirtIO drivers)
   4. detach the volumes created at step 1 from the OSMorphing worker created at step 2 and delete the temporary worker VM
   5. create and boot the migrated VM on oVirt with the specifications of the original VM on the source cloud (which have been noted during the replica execution we are deploying), creating and attaching any necessary NICs and volumes.
-
-
 
 ### Temporary worker image for Replica/Migration
 
@@ -51,8 +47,6 @@ Once the image is imported as a template, a new VM must be created using it and 
 
   * on Linux distributions check '**systemctl status qemu-guest-agent** '
   * on a Windows machine check for the **VirtIO drivers** as the **qemu-guest-agent** is included in the VirtIO drivers
-
-
 
 #### Installing Qemu Guest Agent when not present
 
@@ -77,8 +71,6 @@ On Windows, download the VirtIO drivers using the [**official archive**](https:/
   * Install **VirtIO drivers** by running the .exe file
   * Install **qemu-guest-agent** using the .exe file
 
-
-
 #### Post-completion
 
 After completing the **qemu-guest-agent** install, depending on the OS type selected **Linux or Windows** , follow the [**temporary worker**](https://cloudbase.it/coriolis-temporary-migration-worker) page for the completing steps.
@@ -93,13 +85,9 @@ Depending on the OS release being migrated/replicated, the following notable ste
 
   * install guest agent (ovirt-guest-agent or qemu-guest-agent)
 
-
-
 #### Windows
 
   * installing the VirtIO drivers - as per the below section
-
-
 
 ### Migrating Windows VMs
 
@@ -127,8 +115,6 @@ The images do **NOT** require any special Coriolis agent running in them and can
 
   * When Migrating a Windows VM, **[the temporary worker image](https://cloudbase.it/coriolis-temporary-migration-worker)** version used for the temporary worker**must be the same** as the one for the VM replicated/migrated or **newer**.
   * image must have **VirtIO drivers** and ovirt **guest agent/qemu guest agent** For VirtIO drivers, please follow the **[official page](https://docs.fedoraproject.org/en-US/quick-docs/creating-windows-virtual-machines-using-virtio-drivers/)** for download for the community drivers, or use the Oracle VirtIO drivers.
-
-
 
 ## Configuration Options
 

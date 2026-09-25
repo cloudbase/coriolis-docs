@@ -34,15 +34,11 @@ Coriolis will use the following connections when interacting with the Hyper-V ho
   * WinRM must be enabled and configured as detailed below.
   * RCT Service. The RCT service is securely accessed through x509 certificates, which are transparent to the user.
 
-
-
 ### WinRM enablement
 
 On the Microsoft Hyper-V (source) hosts, WinRM can be easily enabled by running one of our Coriolis helper scripts. Keep in mind that this will work **only** **with self-signed certificates**.
 
   * First, the script has to be downloaded on the Windows Server VM
-
-
 
 ```text
 $URL="https://raw.githubusercontent.com/cloudbase/coriolis-resources/master/windows/winrm-gen.ps1"
@@ -53,8 +49,6 @@ Invoke-Webrequest -URI $URL -OutFile $Path
 ```
 
   * Next, navigate to the directory where the script resides and run it
-
-
 
 cd C:\<Path-to-file>\ .\winrm-gen.ps1
 
@@ -114,23 +108,17 @@ In a test environment, **WinRM** can be used with **self-signed SSL certificates
 
   * Creating the self-signed certificate on the destination machine.
 
-
-
 ```text
 New-SelfSignedCertificate -Subject 'CN=servername.domain.com' -TextExtension '2.5.29.37={text}1.3.6.1.5.5.7.3.1'
 ```
 
   * Configuring the server’s WinRM web server (listener) to use the self-signed certificate for authentication.
 
-
-
 ```text
 winrm create winrm/config/Listener?Address=*+Transport=HTTPS '@{Hostname="servername.domain.com"; CertificateThumbprint="<cert thumbprint here>"}'
 ```
 
   * Opening the appropriate ports on the destination machine’s Windows firewall**:**
-
-
 
 ```text
 $FirewallParam = @{ 
@@ -146,15 +134,11 @@ New-NetFirewallRule @FirewallParam
 
   * Executing a command to initiate a remote connection on the client using a PowerShell cmdlet like **Enter-PSSession**.
 
-
-
 More details regarding **WinRM** are available on the **[Microsoft documentation page](https://docs.microsoft.com/en-us/windows/win32/winrm/portal)**.
 
 #### Make sure that WinRM Basic Authentication is enabled, using the following steps
 
   * Check if it is enabled: "winrm get winrm/config/Service” The output should be similar to this:
-
-
 
 > AllowUnencrypted = false
 > 
@@ -172,11 +156,7 @@ More details regarding **WinRM** are available on the **[Microsoft documentation
 > 
 > CbtHardeningLevel = Relaxed 
 
- 
-
   * Enable the auth Basic authentication: "winrm set winrm/config/Service/auth @{Basic="true”}” Now, if we check again, it should be “Basic = true” and the validation should pass.
-
-
 
 ## Hyper-V as a source cloud
 
@@ -196,8 +176,6 @@ NOTE! Please consider reviewing the general steps recommended to be performed be
   2. create an app-consistent snapshot (Checkpoint) of the VM
   3. export the data of the VM's disk(s) through the RCT service
 
-
-
 After the above steps are completed, the migration process proceeds with the steps that are defined in the selected destination cloud plugin.
 
 ### OSMorphing steps taken when migrating from Hyper-V
@@ -209,13 +187,9 @@ For exported VMs, Coriolis will take the following OSMorphing steps as part of t
   * refer to the destination cloud for the tools that are being installed
   * optionally, the user can remove the LIS components from the destination instance, if no longer required by the platform
 
-
-
 #### Windows
 
   * no OSMorphing steps are taken as the integration services are part of the Windows guest OS itself
-
-
 
 For more information regarding the Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](https://cloudbase.it/coriolis-temporary-migration-worker) **page.
 
@@ -358,8 +332,6 @@ Each parameter represents:
   * **rct_password (string)** : _auth_key_ used when generating Rocket.toml file as described in the RCT setup section of this document
   * **rct_port (integer)** : port number the Hyper-V server has RCT Listener configured as used in Rocket.toml file generation
 
-
-
 For replication, the following can be used:
 
 ```json
@@ -373,5 +345,3 @@ Each parameter represents:
 
   * **fallback_to_crash_consistent_snapshots (string)** - Use crash-consistent snapshots if Hyper-V enablement is not installed in the guest VM
   * **verify_rct_server (string)** - Verify the SSL certificate for RCT service. Set to No if using a self-signed certificate.
-
-

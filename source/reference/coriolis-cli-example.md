@@ -42,8 +42,6 @@ For instructions on how to create Coriolis Endpoints please check Defining a Cor
   * the parameters for the **- destination-environment**, which are destination cloud specific. Please review the documentation of the Coriolis platform plugin of the destination cloud for the exact parameters which are expected 
   * a unique identifier of the instance we would like to migrate
 
-
-
 Granted all the above, a migration job may be created for an instance by running the following:
 
 ```text
@@ -91,8 +89,6 @@ coriolis migration delete $MIGRATION_ID
   * the parameters for the **- source-environment**, which are source cloud specific. Please review the documentation of the Coriolis platform plugin of the source cloud for the exact parameters which are expected 
   * the parameters for the **- destination-environment**, which are destination cloud specific. Please review the documentation of the Coriolis platform plugin of the destination cloud for the exact parameters which are expected 
   * a unique identifier of the instance we would like to replicate
-
-
 
 Granted all the above, a replication job may be **defined**  (but not yet executed) for an instance by running the following:
 
@@ -211,8 +207,6 @@ Each Parameter representing:
   * **vixdisklib_compatibility_version**  (string) - The vSphere version for which to initialize vixDiskLib.
   * **automatically_enable_cbt**  (boolean) - Whether or not Coriolis should attempt to automatically enable CBT on the VM before Replication.
 
-
-
 **The destination environment parameters** are a set of destination-cloud-specific parameters that offer some extra options and configurability to the migration/replication process on a per-VM basis.
 
 Below is a listing of the destination environment parameters the OVM plugin supports when migrating/replicating a VM to OVM:
@@ -245,8 +239,6 @@ Each parameter representing:
   * **leave_migrated_vm_off**  (boolean) - whether or not to just create VMs but skip powering them on
   * **os_label**  (string) - Label for the new OS on OVM
   * **virtual_disk_clone_type**  (string) - What cloning method to use when creating migrated disks. The 'Thin Clone' option is recommended, though it may not be supported by all OVM storage repository types.
-
-
 
 #### Execution script example
 

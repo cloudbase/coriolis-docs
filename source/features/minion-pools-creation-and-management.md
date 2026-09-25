@@ -125,5 +125,3 @@ coriolis migration/replica create \
     * must have been created as a minion pool of -pool-platform type destination
     * must be a pool formed of machines of the same OS type as the VM it was selected to perform OSMorphing on
     * must contain at least one minion machine which has been pre-allocated and is available for use
-
-

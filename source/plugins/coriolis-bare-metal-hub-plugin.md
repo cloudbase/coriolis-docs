@@ -18,8 +18,6 @@ Source to Coriolis required ports:
   1. TCP port 9999 for communication between Coriolis and the Bare Metal Server. The port can be customized.
   2. TCP port 80 for the Coriolis certificate issuing process upon Snapshot Agent install on the Bare Metal Server. This is required only once - during Agent installation.
 
-
-
 For the Coriolis appliance to the target platform port requirements, you can refer to [this page](https://cloudbase.it/coriolis-network-ports-requirements/).
 
 In the **Bare Metal Hub** , which is a UI section for Coriolis-metal-hub functionality, you will be able to:
@@ -30,8 +28,6 @@ In the **Bare Metal Hub** , which is a UI section for Coriolis-metal-hub functio
   * Force refresh bare metal server information pulled from the snapshot agent
   * There are Create Replica and Create Migration buttons available straight in the bare metal server’s information page, which brings you directly to choosing the target in the execution wizard;
   * Coriolis-metal-hub CLI tool is also available on the appliance, which exposes most of the operations mentioned above.
-
-
 
 The **Bare Metal Hub Endpoint** comes pre-configured with the **Coriolis** Appliance, meaning that the service is running and ready for **Replica/Migration**.
 
@@ -77,24 +73,17 @@ As the Endpoint and the Snapshot Agent are installed, the next step is to add th
 
   * in the Dashboard, navigate from the left side menu to Bare Metal Server
 
-
-
 [![](_static/images/bm-severs.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/10/bm-severs.jpg?ssl=1)
 
   * Select 'Add a Bare Metal Server' and add the Host address and the port for the machine, and click 'Add'
     * the IP address of the machine
     * the port set upon installing the snapshot agent
 
-
-
 [![](_static/images/addbm.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/10/addbm.jpg?ssl=1)
 
   * Once the machine has been contacted, the connection will be validated and listed as **active** , meaning that the machine is ready to be used for **Replica/Migration**.
 
-
   * Also, Coriolis will display the hardware details of the newly added machine
-
-
 
 [![](_static/images/addedsrv1.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/10/addedsrv1.png?ssl=1)
 
@@ -115,8 +104,6 @@ The Coriolis Bare Metal Agent supports consistent snapshot-based backup for the 
   * ntfs
   * vfat
   * nilfs2
-
-
 
 Additional file systems should also be supported as long as the corresponding kernel module and tools/utilities for the file system are present on the host system.
 

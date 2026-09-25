@@ -28,16 +28,12 @@ The following requirements apply when replicating VMs from VMware vSphere/ESXi:
   * Coriolis can optionally be configured to **enable CBT automatically** on the source VM. Automatic CBT enablement is supported only when the source VM has **no pre-existing snapshots**.
   * The VM must have the **VMware guest agent** installed and running when filesystem quiescing is required during the snapshot process.
 
-
-
 #### Steps performed by Coriolis
 
   1. read the instance configuration on the source vSphere (hardware information, disks, etc…)
   2. if configured to enable CBT itself, Coriolis will create and remove a temporary snapshot for the CBT data to be refreshed
   3. Create crash-consistent CBT snapshots of all of the instances' volumes. If this is not the first replica execution, incremental snapshots are performed
   4. fetch backup data from the CBT snapshots via the CBT API 
-
-
 
 After the above steps are completed, the written blocks of the CBT snapshot will be transferred and written to disks on the destination via the destination cloud plugin
 
@@ -51,8 +47,6 @@ For VMs containing such disks, the following requirements apply:
   * The affected disks are transferred **in their entirety** during every Transfer Execution.
   * Other disks that support CBT can still use **incremental synchronization**.
 
-
-
 As a result, VMs containing non-CBT-compatible disks can still be replicated, but subsequent Transfer Executions may require significantly more data to be transferred than those involving only CBT-compatible disks.
 
 #### Disk Export Mechanisms
@@ -61,8 +55,6 @@ Coriolis supports two mechanisms for exporting VMware virtual disks:
 
   * **OpenVixDiskLib** — This is the **default** export mechanism. **[OpenVixDiskLib](https://github.com/cloudbase/OpenVixDiskLib) **is Coriolis's own implementation of the VixDiskLib interface and is included in the Coriolis appliance. No additional installation or configuration is required.
   * **VMware VDDK** — Coriolis can alternatively use VMware's official **Virtual Disk Development Kit (VDDK)**. Using VDDK requires the user to **download and install VDDK separately in the Coriolis appliance** and configure Coriolis to use it.
-
-
 
 **Note:** Before configuring Coriolis to use VDDK, follow the **[VDDK setup guide](https://cloudbase.it/setting-up-the-vixdisklib-library/)** to download, install, and configure the required VDDK components in the Coriolis appliance.
 
@@ -75,8 +67,6 @@ Coriolis supports two mechanisms for exporting VMware virtual disks:
   * **Network connectivity:** Ensure that the required network connectivity between the Coriolis appliance and the VMware infrastructure is available. See the [Network Ports Requirements](https://cloudbase.it/coriolis-network-ports-requirements/) page for the required ports.
   * **Static IP preservation:** If the migration is configured to keep the static IP addresses, VMware Tools must be installed and available on the source VM. The VM must also be **powered on at least once** while Coriolis collects VM information from the source VM (which happens on any Transfer Execution or Transfer Update). If the VM is required to be powered off for transfer, users must use the **Shutdown Instance** execution option instead of manually shutting down. 
   * **Third-party backup software:** If third-party backup software uses or locks **VSS** on Windows source VMs, consider temporarily pausing the backup software for the duration of the migration. This includes backup solutions that install an agent inside the Windows VM.
-
-
 
 Before creating and executing a Replica or Migration from vSphere, review the recommended **pre-migration steps** to ensure that the source environment is properly prepared.
 
@@ -93,13 +83,9 @@ The following notable steps will be performed as part of the OSMorphing process 
   * uninstall the VMWare guest tools
   * rebuild **initrd** on RHEL-based systems
 
-
-
 #### Windows
 
   * uninstall the VMWare guest tools and drivers
-
-
 
 For more information regarding the Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](https://cloudbase.it/coriolis-temporary-migration-worker) **page.
 
@@ -129,8 +115,6 @@ Allow read-only disk access| The disks of the VM(s) which are to be migrated| re
 
   * * for most resource types, "Read Only" access is implicitly obtained by simply assigning any role to the user on the object in question. (regardless of the privileges declared within the role)
   * ** The privilege labels and PyVMOMI privilege IDs are for VMware 6.7. Older VMWare releases may have slightly different permission name labels.
-
-
 
 #### Configuration Options
 
@@ -196,5 +180,3 @@ Below is a listing of the source environment parameters the VMware plugin suppor
   * **verify_disk_integrity** (boolean) - Whether or not to compute source-side checksums for each disk and enable end-to-end source/destination checksum verification.
   * **enable_transfer_compression** (boolean) - Whether or not to enable transport level compression when retrieving disk data. Can speed up the transfer if the data is compressible and the connection is slow. Avoid using compression when migrating encrypted disks.
   * **skip_nfc_validation** (boolean) - Whether or not to skip pre-export NFC connectivity validation against ESXi hosts. When unset, the Coriolis worker configuration default is used. When false, Coriolis validates TCP/902 reachability for hosts that may be selected by vCenter for NBD/NBDSSL snapshot transfers.
-
-

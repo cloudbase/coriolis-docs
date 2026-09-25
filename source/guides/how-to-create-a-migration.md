@@ -22,8 +22,6 @@ After selecting the source Endpoint and selecting next, the new window will be �
   * CBT can be automatically enabled, in case the machines on the source do not have it enabled already
   * Choose the compatibility mode for the vixDiskLib, the official VMware library Coriolis uses for exporting disk data from VMware/ESXi. By default, Coriolis is configured to use OpenVixDiskLib. Using VDDK requires additional **[setup](https://cloudbase.it/setting-up-the-vixdisklib-library/)**.
 
-
-
 Changed Block Tracking, or **CBT** , is required by Coriolis to create the VM disk on the destination side during the Replica process. It can be enabled from VM attributes on VMware or using Coriolis' **Source options**. Automatically enabling CBT will **NOT** work if the VM that is to be migrated has pre-created snapshots, in which case Coriolis will provide a clear warning.
 
 [![](_static/images/create-replica-4.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2023/02/create-replica-4.jpg?ssl=1)
@@ -45,8 +43,6 @@ This feature is useful when migrating a cluster comprised of multiple VMs, or wh
   * ![](_static/images/Screenshot_12-3-2024_194955_10.8.254.132.jpeg)
   * ![](_static/images/Screenshot_12-3-2024_195057_10.8.254.132-scaled.jpeg)
 
-
-
 ### Specify general settings for the migration job
 
 In the Target options page, “Simple” will be selected as the default, with a few options available:
@@ -54,8 +50,6 @@ In the Target options page, “Simple” will be selected as the default, with a
   1. Description – where a description for the replica process may be entered
   2. Execute now – which is selected by default for the process execution to start as soon as the configuration is complete
   3. Execute now Options – an option that will offer to shut down the instances before the process starts, it is set to “no” by default
-
-
 
 The more fine-grained OpenStack options under the "Advanced" section will also be shown shortly. Select “Next” after the above steps.
 

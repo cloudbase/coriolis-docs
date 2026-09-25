@@ -21,8 +21,6 @@ NOTE! Support for OVM as a target platform in Coriolis has been deprecated. This
   4. read the contents of the snapshot created at step 2 via the source platform's snapshot/backup APIs (handled by whatever source cloud plugin we are using), transferring the written chunks to the temporary VM created in step 3, which then writes the chunks at the appropriate index/offset of the disks created at step 1
   5. once the contents of all the disks have been synced to the volumes created during step 1, detach the volumes and delete the disk copy worker created during step 3
 
-
-
 #### Replica deployments:
 
 #### Steps performed by Coriolis
@@ -32,8 +30,6 @@ NOTE! Support for OVM as a target platform in Coriolis has been deprecated. This
   3. perform the "OSMorphing process", where Coriolis commands the OSMorphing worker created during step 2 to scan all attached disks for the OS installation of the VM we are migrating, mount, and perform the steps needed to prepare the installation for the new platform (ex: uninstalling the VMWare guest tools and installing VirtIO drivers if deploying a replica of a Windows VM from source VMWare vSphere)
   4. detach the volumes created at step 1 from the OSMorphing worker created at step 2 and delete the temporary worker VM 
   5. create and boot the migrated VM on OVM with the specifications of the original VM on the source cloud (which have been noted during the particular replica execution we are deploying), creating and attaching any necessary NICs and volumes.
-
-
 
 ### Configuration Options
 
@@ -122,8 +118,6 @@ Each parameter represents:
   * **os_label** - Label for the new OS on OVM
   * **virtual_disk_clone_type** - What cloning method to use when creating migrated disks. The 'Thin Clone' option is recommended, though it may not be supported by all OVM storage repository types.
 
-
-
 Most destination environment parameters can also be found in the global configuration section, in which case they may be overridden on a per-migration/replica basis by setting them in the destination environment as well.
 
 ### OSMorphing steps taken when migrating/replicating to OVM
@@ -135,11 +129,7 @@ Depending on the OS release being migrated/replicated, the following notable ste
   * installing cloud-init/OVMd
   * rebuilding initrd on RHEL-based systems
 
-
-
 #### Windows
 
   * installing the VirtIO drivers
   * installing Cloudbase-init and enabling the Cloudbase-init service
-
-

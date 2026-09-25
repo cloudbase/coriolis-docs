@@ -26,8 +26,6 @@ NOTE please consider reviewing the general steps recommended to be performed bef
   3. create a temporary worker VM (the “disk export worker”) on the source Stackit and attach the volumes from step 2
   4. the **temporary disk export worker VM** will then determine the differences and export the contents of the attached volumes
 
-
-
 After the above steps are completed, the contents of the disks will be transferred and written to disks on the destination via the destination cloud plugin. Only the changed data will be transferred to the destination cloud.
 
 [![](_static/images/image-4.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/09/image-4.png?ssl=1)
@@ -63,8 +61,6 @@ Each parameter represents:
   * **export_worker_volume_size** (integer, min 1) — size in GB of the volume used to boot the temporary export worker. If omitted, Coriolis uses the image minimum size or the selected **export_machine_type**.
   * **export_worker_volume_performance_class** (string) — volume performance class for the temporary export worker’s boot volume.
   * **project** (string) — ID of the Stackit project from which to export VMs. If unset, the project of the service account from the Coriolis endpoint is used. Export workers and source minion pools must use the same project.
-
-
 
 > **NOTE:** The **project** option can only be populated and used if the endpoint service account has StackIt Organization level permissions to access all the projects in it.
 

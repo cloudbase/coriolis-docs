@@ -76,8 +76,6 @@ Install an Oracle Linux 7 x64 VM with the following settings:
   * 1 vNIC connected to a network reachable from the Coriolis appliance
   * 1 virtual disk (10 GB, sparse allocation)
 
-
-
 Perform a minimal system installation. **Do not partition the disk with LVM** , use standard partitioning.
 
 Once done, update the system and install the Unbreakable Enterprise Kernel:
@@ -116,8 +114,6 @@ Perform a standard installation of Windows Server 2012 R2 Standard Core with the
   * 1 vNIC connected to a network reachable from the Coriolis appliance
   * 1 virtual disk (20 GB, sparse allocation)
 
-
-
 Once the operating system is installed, add the [Oracle Linux PV drivers](https://www.oracle.com/virtualization/ovm-windows-pv-drivers.html) and configure a WINRM HTTPS listener with basic authentication.
 
 Configuring WINRM can be easily achieved with the following PowerShell script:
@@ -133,5 +129,3 @@ Notes:
 
   * The VM can be optionally sysprepped (fully unattended)
   * Ensure that proper Microsoft licensing is available since Coriolis will need to spawn and destroy Windows VMs temporarily during a migration.
-
-

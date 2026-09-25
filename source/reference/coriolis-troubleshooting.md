@@ -66,8 +66,6 @@ After logging into the temp VM, the following things to check may be of importan
   * if Coriolis properly identified and mounted the guest OS being migrated (there should be some non-root mount points on the worker)
   * try to run the `chroot` command attempted by Coriolis which leads to the OSMorphing error (can be seen in Coriolis' error logs)
 
-
-
 * * *
 
 ### AWS - 500 Server Error: Internal Server Error for url: https://IP:5566/api/v1/dev/xvdf/acquire

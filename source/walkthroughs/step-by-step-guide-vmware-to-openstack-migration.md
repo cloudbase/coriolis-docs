@@ -19,8 +19,6 @@ The Coriolis virtual appliance must be deployed first, and the Appliance ID must
 
   * Go to the About screen
 
-
-
 Coriolis licenses are issued based on the unique ID of the Coriolis installation.
 
 To get your Coriolis installation ID, in the main Dashboard screen, navigate to the top right corner, click the user silhouette, and click “About Coriolis”.
@@ -28,8 +26,6 @@ To get your Coriolis installation ID, in the main Dashboard screen, navigate to 
 [![](_static/images/coriolis-license.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2023/02/coriolis-license.png?ssl=1)
 
   * Copy the appliance ID
-
-
 
 The About pop-up will show you some details regarding your license (if there is one already). On the bottom row, there will be your Appliance ID, which needs to be copied and sent to have a license generated for your installation.
 
@@ -44,8 +40,6 @@ To do so, please follow the steps below within the Coriolis Web UI:
   1. From the Dashboard, go to “About Coriolis” (check “Obtain license 1.)
   2. In the pop-up, click “Add license” and upload/paste the provided Coriolis license file
   3. After the license is pasted, click on the bottom right “Add license”
-
-
 
 [![](_static/images/image-7.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2020/03/image-7.png?ssl=1)
 
@@ -99,8 +93,6 @@ In the new pop-up, fill in the details for your Endpoint.
   3. Add the host IP address 
      * FQDNs can be used, given that the Coriolis virtual appliance network settings allow for resolving the DNS names
 
-
-
 ![](_static/images/endpoint3.png)
 
   * **NAME** - the name of the endpoint that will be added
@@ -110,8 +102,6 @@ In the new pop-up, fill in the details for your Endpoint.
   * **HOST** - the VMware vSphere hostname or IP address
   * **PORT** - the port number used for accessing the VMware vSphere
   * **ALLOW UNTRUSTED** - either trust or not self-signed certificates. For evaluation purposes, this option can be enabled.
-
-
 
 After the details are filled in, click “Validate and save”. Coriolis will then automatically attempt to log in to the VMware platform to ensure the provided credentials are correct.
 
@@ -125,8 +115,6 @@ If the validation step fails, please review all of the provided details to ensur
   4. Project where the user specified above has access
   5. Keystone API version must be selected; v2 comes as the default
 
-
-
 Note: For advanced OpenStack endpoint options, please refer to the **OpenStack connection parameters** on the **[Coriolis OpenStack plugin](http://openstack-coriolis-plugin)** page.
 
 ![](_static/images/endpoint5.png)
@@ -139,8 +127,6 @@ Note: For advanced OpenStack endpoint options, please refer to the **OpenStack c
   * **PASSWORD** - password to log in with
   * **PROJECT NAME** - name of the project to migrate to/from
   * **GLANCE API VERSION** - version of the Image API to use for any interactions with Glance, supported versions being v1 and v2
-
-
 
 ### Coriolis Temporary Worker Template
 
@@ -184,8 +170,6 @@ For VMware as a source platform, the options are represented by:
   * vixDiskLib compatibility mode - it is set to 8.0 by default, and it is backwards compatible in the case that your VMware runs on older versions
   * Use VM Hostname as Instance Name - if enabled, Coriolis will use the hostname of the machine to identify it more easily
 
-
-
 All the platform specifics are available on **[VMware as a source page](https://cloudbase.it/vmware-as-a-source-cloud/)**.
 
 ![](_static/images/mgr4.png)
@@ -214,16 +198,12 @@ After the network, storage will be selected, where we can find:
   * Storage Backend Mapping
   * Disk Mapping - individual disk mapping using different storage backend types
 
-
-
 ![](_static/images/mgr9.png)
 
 User scripts will provide the flexibility to perform changes on the VMs to be migrated just before booting on the target platform. This step comes with two options:
 
   * Global Scripts - applied for all VMs to be migrated based on being either Linux or Windows machines
   * Instance Scripts - individual machine scripts
-
-
 
 ![](_static/images/mgr10.png)
 
@@ -238,8 +218,6 @@ The last customization page provides the following options:
   * Auto Deploy - when enabled, Coriolis will automatically deploy the instance on the target platform once the transfer is complete.
   * Clone DIsks - when enabled, the disks will be cloned during the deployment
   * Skip OS Morphing - when enabled, OS Morphing will be skipped during the deployment - NOTE - this option is recommended to use only when Source and Target are based on the same platform
-
-
 
 ![](_static/images/mgr12.png)
 

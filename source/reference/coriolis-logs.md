@@ -15,14 +15,10 @@ Conceivably, this can be used with any application that logs to Syslog, and data
 
   * InfluxDB
 
-
-
 ## Writers
 
   * Web Sockets
   * Standard out (for testing purposes mostly)
-
-
 
 The Logs feature can be used either from the Coriolis Web UI or through the Coriolis CLI client. 
 
@@ -39,8 +35,6 @@ Moreover, each Coriolis component has a separate entry in the logger, which mean
   * Coriolis-dbsync
   * Coriolis-replica-cron
   * Coriolis-worker
-
-
 
 More logs may be available, depending on whether additional components are deployed as part of Coriolis.
 

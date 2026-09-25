@@ -37,8 +37,6 @@ You can repeat the same procedure choosing "**VMware** " and provide the require
 
 Like in the previous case, clicking “**Save** ” will create the endpoint and trigger the connection validation.
 
- 
-
 ### Configuring a replica for a VM from vSphere to OpenStack
 
 Click on “**Replicas** ” and choose “**New** ”. You will be greeted by an introductory screen:
@@ -58,8 +56,6 @@ Click “**Next** ” and choose the target endpoint (**OpenStack**):
 [![](_static/images/Coriolis-Web-New-replica-8.png)](https://cloudbase.it/coriolis-how-to-migrate-vms-from-vmware-to-oracle-vm-using-the-web-interface/coriolis-web-new-replica-8/)One more “**Next** ” and you have a final confirmation screen:
 
 [![](_static/images/Coriolis-Web-New-replica-9-OpenStack.png)](https://cloudbase.it/coriolis-vmware-to-openstack-web/coriolis-web-new-replica-9-openstack/)Click “**Finish** ” and the replica will start executing:[![](_static/images/Coriolis-Web-New-replica-10-OpenStack.png)](https://cloudbase.it/coriolis-vmware-to-openstack-web/coriolis-web-new-replica-10-openstack/)You can now click on the replica to see the execution details:[![](_static/images/Coriolis-Web-Replica-Execution-OpenStack.png)](https://cloudbase.it/coriolis-vmware-to-openstack-web/coriolis-web-replica-execution-openstack/)Once completed, the replica can be executed incrementally multiple times to update the replicated content (this is typically scheduled, e.g. hourly, daily, weekly, etc).
-
- 
 
 ### Migrating the VM from the replica
 

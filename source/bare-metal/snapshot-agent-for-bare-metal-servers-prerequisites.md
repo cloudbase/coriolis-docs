@@ -21,8 +21,6 @@ The file system for the snapstore disk must support a Linux-specific system call
   * xfs
   * btrfs 
 
-
-
 Snapstore destination is an array of paths on the disk where the snap store watchers will allocate disk space for the snap stores. The device on which these folders reside will be excluded from the list of snapshot-able disks. If this path is on a device mapper, all disks that make up that device mapper, will be excluded. Paths set here should be on a separate block volume (physical, iSCSI, rbd, etc).
 
 ```text
@@ -33,8 +31,6 @@ snapstore_destinations = "/mnt/snapstores/snapstore_files"
 
   * list the current disks after adding the extra disk and start its partitioning
 
-
-
 ls /dev/sd* fdisk /dev/sdx
 
 ```text
@@ -44,8 +40,6 @@ fdisk /dev/sdx
 ```
 
   * run through the partitioning tool steps
-
-
 
 ```text
 list partitions = p
@@ -59,8 +53,6 @@ write to disk = w
 
   * format the newly created partition
 
-
-
 sudo mkfs.ext4 /dev/sdx1
 
 ```bash
@@ -68,8 +60,6 @@ sudo mkfs.ext4 /dev/sdx1
 ```
 
   * mount the previously formatted partition
-
-
 
 ```text
 mount /dev/sdx1 /mnt/snapstores/snapstore_files

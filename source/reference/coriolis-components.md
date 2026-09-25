@@ -13,8 +13,6 @@ The containers in the appliance are configured to use localhost networking, whic
   * Coriolis API - 7667
   * Web UI - 80/443 - port 80 automatically escalates to HTTPS on 443, the **self-signed** HTTPS certificate is unique to the appliance
 
-
-
 ## Technical details and container components
 
 The Coriolis appliance is built on top of an Ubuntu Server LTS host, with all of the services required to run or support Coriolis being deployed and run as Docker containers.
@@ -32,8 +30,6 @@ The containers for each of the Coriolis services are the following:
   * **coriolis-logger** - container with the centralized Coriolis logging component. It used influxdb backend.
   * **coriolis-licensing-server**  - container running the licensing server
 
-
-
 When running Docker commands, the containers may be referenced simply by their names (coriolis-api, coriolis-conductor, etc…)
 
 The rest of the supporting services are also deployed as containers using Kolla:
@@ -49,8 +45,6 @@ The rest of the supporting services are also deployed as containers using Kolla:
   * **fluentd** - container running the logging service for all services deployed by Kolla (NOT including the Coriolis components) 
   * **memcached** - container running Memcached 
 
-
-
 ## Changing the SSL certificates used by Coriolis
 
 To configure an SSL certificate on your Coriolis server, the following certificate files must be prepared:
@@ -58,8 +52,6 @@ To configure an SSL certificate on your Coriolis server, the following certifica
   * **Server Certificate** - certificate.pem
   * **Root CA Certificate** - cacert.pem
   * **Certificate Key** - key.pem
-
-
 
 These files must be made available on any web server the Coriolis appliance can reach over the network.
 

@@ -22,8 +22,6 @@ Clustered shared-disk transfers are currently supported for the following platfo
   * **target platforms:**
     * SUSE Linux KVM (Libvirt)
 
-
-
 Other source or destination platforms are not currently**** supported for this clustered shared-disk path, but might be added in future releases. If the destination provider does not support shared disks, validation fails when Coriolis detects instances in the transfer share a disk.
 
 The following diagram illustrates this workflow:
@@ -40,8 +38,6 @@ At a high level, a clustered shared-disk migration follows this sequence:
   4. At deployment, every clustered guest that should see the disk gets the **same** destination volume attached (not a per-VM clone).
   5. Private (non-shared) disks continue to be created and replicated per instance as usual.
 
-
-
 ## Creating a shared-disk transfer
 
 Typical flow from the Coriolis Dashboard (or CLI):
@@ -52,8 +48,6 @@ Typical flow from the Coriolis Dashboard (or CLI):
   4. Configure destination storage options so shared disks map to a **Libvirt storage pool** (see Limitations below).
   5. Keep **Clone Disks** **disabled** for deployments that include shared disks (see Limitations).
   6. Run the transfer. After a successful Replica execution, deploy with the same constraints.
-
-
 
 NOTE! Do not split cluster members across separate transfers if they share a single destination volume.
 
@@ -67,14 +61,9 @@ Shared disks and disks in Independent disk modes:
   2. **Require the source VM to be powered off:** power off during the Transfer Execution so the export is consistent. Enable Shutdown Instances on the execution so Coriolis can shut clustered members down together (do not leave shared / Independent-disk guests powered on).
   3. **Other disks on the same VM can still sync incrementally:**  the guest is still powered off for the run. That does not disable CBT: between executions VMware tracks changes, and the next cold run copies only those blocks for CBT-capable disks. Shared / Independent disks remain full copies every time.
 
-
-
-
 ### Destination and clustered transfer (SUSE Linux KVM)
 
   * **Clone Disks option must be disabled:** Deploying with **Clone Disks** enabled is **not supported** when the transfer includes shared disks.
   * **SUSE Linux storage pool required for shared disks:** Shared disks must map to a volume backend that supports sharing (Libvirt storage pools). Mapping a shareable disk to unsupported backends (for example raw / controller passthrough) is rejected at validation.
   * **All cluster members in one transfer:** shared-disk ownership and single replication require a **multi-instance (clustered)** transfer that includes every VM attaching that disk.
   * **Consistent storage mappings:** all instances in the clustered transfer should resolve shared disks to the **same** destination storage pool/mapping, so non-owner guests can attach the volume the owner created.
-
-

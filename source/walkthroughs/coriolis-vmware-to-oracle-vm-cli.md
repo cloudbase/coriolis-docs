@@ -23,8 +23,6 @@ OS_USERNAME=admin
 OS_USER_DOMAIN_NAME=default
 ```
 
- 
-
 ### Creating an endpoint for Oracle VM
 
 To begin with, we need to store in Barbican the Oracle VM Manager credentials and connection information:
@@ -88,8 +86,6 @@ In case of success, the command will exit with 0. In case of connection problems
 
 Connections can be managed with **coriolis endpoint show <id>**, **coriolis endpoint update <id>** and **coriolis endpoint delete <id>**
 
- 
-
 ### Creating an endpoint for VMware vSphere
 
 Similarly to the Oracle VM case, an endpoint can be created for your VMware vSphere endpoint:
@@ -105,8 +101,6 @@ coriolis endpoint create --provider vmware_vsphere --name VMware --description "
 ```text
 coriolis endpoint validate connection <id>
 ```
-
- 
 
 ### Configuring a replica for a VM from vSphere to Oracle VM
 
@@ -167,8 +161,6 @@ coriolis replica list
 coriolis replica list
 ```
 
- 
-
 ### Performing the replica
 
 Now it’s time to get Coriolis copy all the VM data from VMware to Oracle VM. The first time it will perform a full copy of the content of the VM, while from the second time onwards it will only copy incrementally the data that changed:
@@ -194,8 +186,6 @@ In case of errors, Coriolis will also give you all the information available, fo
 Once completed, you will have a 1-1 copy of all the content of the VM on your Oracle VM environment. If you execute the replica again you will notice that this time it is way faster, due to the incremental feature that copies only the bytes that changed since the last execution.
 
 Since the data is fully replicated on the target infrastructure you won’t be affected by any failure on the source, allowing disaster recovery scenarios.
-
- 
 
 ### Migrating the VM from the replica
 
@@ -223,10 +213,6 @@ coriolis migration list
 
 Once the migration is completed, your VM will be up and running in Oracle VM!
 
- 
-
 #### Troubleshooting
 
 In a complex environment involving multiple clouds it becomes useful to get detailed information about possible issues. Coriolis logs all errors, warnings and other details in the **/var/log/coriolis** folder.
-
- 

@@ -60,7 +60,6 @@ and **cross-site disaster recovery** features (DRaaS) between a source cloud pla
 [CloudStack Coriolis Plugin](https://cloudbase.it/cloudstack-as-a-destination-cloud/)  
 [StackIt Coriolis Plugin](https://cloudbase.it/stackit-coriolis-plugin/)  
 
-
 ## Features
 
 [Coriolis User Scripts](http://cloudbase.it/coriolis-user-scripts/)  

@@ -27,8 +27,6 @@ NOTE please consider reviewing the general steps recommended to be performed bef
   4. create a temporary worker VM (the "disk export worker") on the source OpenStack and attach the Cinder volumes from steps 2 and 3
   5. the **temporary disk export worker VM** will then determine the differences and export the contents of the attached Cinder volumes
 
-
-
 After the above steps are completed, the contents of the disks will be transferred and written to disks on the destination via the destination cloud plugin. Only the changed data will be transferred to the destination cloud.
 
 ### Replicating (DRaaS) from OpenStack using Cinder-backup-based exports (through either Swift or Ceph):
@@ -42,8 +40,6 @@ In the process of replicating from an OpenStack, Coriolis will use Cinder-backup
   * Cinder-backup must be installed and enabled
   * Cinder-backup must be configured to use either Swift/Ceph as the backup storage system
 
-
-
 **Input** : the ID or name (if and only if it is unique in the given tenant) of the instance to be replicated. The instance must be booted from a Cinder volume to replicate through Cinder backups.
 
 NOTE please consider reviewing the general steps recommended to be performed before creating and executing a replica of an instance from OpenStack [here](https://cloudbase.it/preparing-a-vm-for-migration-replication/).
@@ -53,8 +49,6 @@ NOTE please consider reviewing the general steps recommended to be performed bef
   1. read the configuration of the instance on the source OpenStack (flavor information, disks, etc…)
   2. create Cinder backups of all of the volumes of the instance with the Cinder backup API. If this is not the first replica, incremental backups/snapshots are performed
   3. fetch the backup data from the backup backend which was used (Swift or Ceph)
-
-
 
 After the above steps are completed, the contents of the Cinder backups will be transferred and written to disks on the destination via the destination cloud plugin
 
@@ -69,8 +63,6 @@ In the process of replicating from an OpenStack, Coriolis will use Cinder-snapsh
   * Cinder-volume must be configured to use Ceph as a volume storage backend
   * All of the Cinder volumes of a given instance must be stored on a single Ceph cluster and pool
 
-
-
 **Input** : the ID or name (if and only if it is unique in the given tenant) of the instance to be replicated. The instance must be booted from a Cinder volume to replicate. Coriolis cannot replicate instances booted off of Glance images.
 
 NOTE please consider reviewing the general steps recommended to be performed before creating and executing a replica of an instance from OpenStack [here](https://cloudbase.it/preparing-a-vm-for-migration-replication).
@@ -80,8 +72,6 @@ NOTE please consider reviewing the general steps recommended to be performed bef
   1. read the configuration of the instance on the source OpenStack (flavor information, disks, etc…)
   2. create Cinder snapshots of all of the volumes of the instance using the standard Cinder snapshotting API
   3. fetch the snapshot data directly from Ceph through the RBD APIs. If this is not the first Replica Execution, only the changed disk areas for the previous snapshots are transferred
-
-
 
 After the above steps are completed, the contents of the RBD images representing the Cinder volumes of the VM will be transferred and written to disks on the destination via the destination cloud plugin
 
@@ -94,8 +84,6 @@ Depending on the virtualization technology used and the OS release we are migrat
   * uninstalling cloud-init, if present
   * uninstalling Hyper-V integration tools, if source OpenStack is based on Hyper-V
   * uninstalling VMware integration tools, if source OpenStack is based on VMware
-
-
 
 In Windows instances, the recommendation is to manually uninstall the VirtIO drivers or any integration tools, given that the destination cloud is different from the source one.
 
@@ -148,8 +136,6 @@ Below is a listing of the source environment parameters the OpenStack plugin sup
   * **export_worker_boot_from_volume (boolean)** - Whether or not to download the temporary disk export worker VM image to a Cinder volume and boot the worker from that.
   * **export_worker_volume_type (string)** - Name of pre-existing Cinder volume type to be used for the root disk of temporary disk export VMs. Only effective in 'export_worker_boot_from_volume' is set.
   * **export_worker_volume_size (integer)** - The integer size (in GBs) of the Cinder volume to boot temporary worker VMs from. This option is only effective if 'export_worker_boot_from_volume' is set. If not set, Coriolis will use the disk size set for the selected 'export_flavor_name'.
-
-
 
 ### Configuration Options
 

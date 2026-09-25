@@ -19,8 +19,6 @@ There were several key design decisions made regarding Coriolis that set the pro
   * **clean operation** : although Coriolis may make use of temporary resources on the source or destination platforms in the migration process, it ensures proper cleanup is performed and environments are left in pristine condition, regardless of whether the operation was successful or an error was encountered
   * **built like an OpenStack project** : Coriolis is built on the same high-level technologies and libraries that OpenStack components are built of. Thus, Coriolis is written entirely in Python, relies on a Keystone service for all its identity needs, and leverages RabbitMQ (or some other AMQP implementation supported by **oslo_messaging**) for cross-component communications, stores state in a SQL relational database (or anything supported by **oslo_db**), and so on.
 
-
-
 ## Recovery Point Objective & Recovery Time Objective
 
 Before creating a Migration or a Replica Deployment, consider the two most important parameters of a data protection plan and disaster recovery strategy: Recovery Point Objective & Recovery Time Objective. For more information, please check the **[RPO& RTO documentation](https://cloudbase.it/rpo-rto)**.
@@ -39,14 +37,10 @@ At a high level, Coriolis' codebase can be split up into three separate logical 
   * **Source Plugins** : these plugins implement the cloud-specific operations needed to migrate/recover an instance _from  _a certain cloud platform
   * **Destination Plugins** :  these plugins implement the cloud-specific operations needed to migrate/recover an instance _to  _a certain cloud platform 
 
-
-
 It is worth noting that both the source and destination plugins are completely decoupled Python modules that get loaded and called by Coriolis Core. Due to this decoupling, the following advantages arise:
 
   * adding a source plugin for a cloud "X" will automatically mean that all transitions from X to any other cloud with an existing destination plugin are supported (and vice-versa for adding a new destination plugin)
   * source and destination plugins are developed separately, thus, a platform may be supported only as a source or a destination to accommodate specific use cases
-
-
 
 For reference, the image below showcases a more detailed architectural overview of Coriolis' deployed components:
 

@@ -77,24 +77,11 @@ In order for Coriolis to create a migration or a replica, connections to source 
 
 For **OpenStack** , **Coriolis** is compatible with the vanilla OpenStack project and validated with leading OpenStack distributions from trusted vendors, including:
 
- 
-
-
-
-
 ![Canonical OpenStack](_static/images/Canonical-Openstack-logo2x-1.jpg)
-
-
-
 
 ![Virtuozzo](_static/images/virtuozzo-Copy.png)
 
-
-
-
 ![Red Hat OpenStack Platform](_static/images/Logo-RH-Openstack-Platform-RGB.png)
-
- 
 
 [/vc_column_text][/vc_column][/vc_row][vc_row anchor="features"][vc_column offset="vc_col-lg-offset-1 vc_col-lg-10 vc_col-md-offset-0 vc_col-md-12 vc_col-sm-offset-0″][vc_empty_space height="50px"]
 
@@ -114,16 +101,11 @@ Where can I learn more?
 
 A set of Guides, Reference documentation, Coriolis Features description, along with other useful resources can be found on the **[Coriolis Overview](https://cloudbase.it/coriolis-overview/) **page.
 
- 
-
 If you would like to have a Cloudbase Solutions representative contact you with more information about Coriolis, please fill out the form below
 
 [/vc_column_text]
 
 Contact us
-
-
-
 
 I am a BusinessPrivate Person
 
@@ -154,8 +136,6 @@ Close
 Customer resources
 
 [vc_empty_space height="50px"][vc_row_inner][vc_column_inner width="1/3″][vc_single_image image="34932″ img_size="128×152″ alignment="center"][/vc_column_inner][vc_column_inner width="1/3″][vc_column_text]
-
- 
 
 The Coriolis appliance is available for download [here](https://cloudbase.it/downloads/coriolis/coriolis-appliance-latest.ova) using the credentials provided.
 

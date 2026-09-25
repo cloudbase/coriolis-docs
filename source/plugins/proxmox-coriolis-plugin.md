@@ -49,6 +49,4 @@ Each parameter represents:
   * **protocol** - the port to connect the Proxmox API through
   * **coriolis-regions** - optional list of Coriolis regions the Endpoint should be mapped to
 
-
-
 When using hostnames for the Proxmox hosts, Coriolis needs to be able to resolve them.

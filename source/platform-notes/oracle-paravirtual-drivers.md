@@ -19,8 +19,6 @@ The following steps will guide toward extracting the Oracle Paravirual Drivers f
   * have the Setup.exe file of the PV drivers copied on the **Windows VM** under the system drive root folder (usually C:\\)
   * run the following script on the **Windows VM** , which will **install** and **create an archive** of the PV drivers files under the **pv-drivers** folder on the system drive.
 
-
-
 The end archive created by the below script must contain the files and sub-folders of the "Oracle VM Windows PV Drivers" directory but not the directory itself.
 
 ```text
@@ -50,7 +48,5 @@ Start-Process -Wait -ArgumentList "/silent" -PassThru -FilePath '$env\Setup.exe'
       * $**windows_pv_drivers_url =** Path to the PV drivers archive
     * **restart** the Coriolis Worker container 
       * $**docker restart** **coriolis-worker**
-
-
 
 Once the above steps are complete, **Coriolis** will be able to **Migrate** Windows VMs and install platform specifics to **Oracle destination environments**.

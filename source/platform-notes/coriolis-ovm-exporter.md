@@ -16,8 +16,6 @@ Coriolis has two options when exporting Oracle VM instances:
   * A generic solution that relies exclusively on OVM provided APIs
   * Coriolis OVM Exporter
 
-
-
 The **generic solution** will create disk snapshots using OVM APIs. Those snapshots get attached to a temporary worker instance in the OVM environment as data disks. At this point, Coriolis will read each disk in fixed-size chunks, and create checksums for each individual chunk. This information will then be stored and compared to a later snapshot of the same disks.
 
 In contrast, **Coriolis OVM Exporter** does not need to undergo such time-consuming and expensive computations and does not require any temporary resources to be spun up in your OVM cluster. It only requires the **Coriolis OVM Exporter** service to be available on your compute nodes. It uses **[reflinks](https://blogs.oracle.com/linux/xfs-data-block-sharing-reflink)** to create crash-consistent snapshots, and **[fiemap](https://www.kernel.org/doc/Documentation/filesystems/fiemap.txt)** to compare the differences between snapshots. This way we can do **efficient incremental backups** by simply **copying only what has changed** from a previous replica run.

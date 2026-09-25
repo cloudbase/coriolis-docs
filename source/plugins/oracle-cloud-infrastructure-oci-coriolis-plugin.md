@@ -54,8 +54,6 @@ Migrations to OCI operate like Replicas do and thus entail the same requirements
   4. read the contents of the snapshot created at step 2 via the source platform's snapshot/backup APIs (handled by whatever source cloud plugin we are using), transferring the written chunks to the temporary VM created in step 3, which then writes the chunks at the appropriate index/offset of the disks created at step 1
   5. once the contents of all the disks have been synced to the disks created in Step 1, detach the disks and delete the disk copy worker created in Step 3
 
-
-
 #### Replica deployments:
 
 #### Steps performed by Coriolis
@@ -66,8 +64,6 @@ Migrations to OCI operate like Replicas do and thus entail the same requirements
   4. [Linux] injects a temporary initrd into the VM which will allow for connection and reconfiguration of iSCSI targets on the first boot
   5. detach the boot volume and disks of the replicated VM from the OSMorphing worker created in step 2 and delete the worker VM 
   6. create the migrated VM on OCI with the specifications of the original VM on the source cloud (which have been passed into the OCI plugin from whatever migration source plugin we were using to export the VM off the source cloud), creating and attaching any necessary NICs and disks to it
-
-
 
 ### OCI using Coriolis Minion Pools
 
@@ -89,14 +85,10 @@ The following other notable steps will be performed as part of the OSMorphing pr
   * installing cloud-init
   * applying appropriate iSCSI configurations
 
-
-
 #### Windows
 
   * due to worker image initialization issues as well as increased complexity during OSMorphing, migrating/replicating Windows VMs to OCI is currently unsupported as **Native**
   * migrations are supported only for **Emulated or Paravirtualized instances**.
-
-
 
 ### OSMorphing worker images
 
@@ -133,8 +125,6 @@ The parameters representing
   * **private_key_data (string)** - a string containing the private key in .pem file format
   * **private_key_passphrase  (string)** - string passphrase for the private key (if any)
   * **fingerprint (string)** - MD5 fingerprint of the private key data (optional)
-
-
 
 For more information on how to generate the PKI, see the [Oracle documentation](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm).
 
@@ -187,8 +177,6 @@ A short description of the parameters:
   * **vcn_compartment (string)** - This option allows the selection of VCNs from a different compartment
   * **set_public_ip (boolean)** - whether or not to set a public IP address for the migrated VM
   * **shape_name (string)** - Name of the OCI shape used when creating the final migrated instance.
-
-
 
 Destination environment parameters are also exposed in the **[oci_migration_provider]** section of the Coriolis configuration file. Setting a value for any of the above parameters in the config will provide defaults for options that are not explicitly set by the user during Migration/Replica creation.
 

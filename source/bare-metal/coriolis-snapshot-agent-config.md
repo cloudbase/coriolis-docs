@@ -71,5 +71,3 @@ location = "/mnt/snapstores/snapstore_files"
 
   1. add more entries for the parameter '**snapstore_destinations** '
   2. under '**snapstore_mappings** ' add the devices to be snapshotted and their location which were specified in the above step
-
-

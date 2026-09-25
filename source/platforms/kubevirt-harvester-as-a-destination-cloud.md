@@ -23,8 +23,6 @@ Steps performed by Coriolis:
   4. read the contents of the snapshot created in Step 2, transfer the written/changed chunks to the temporary VM created in Step 3, which then writes the chunks at the appropriate index/offset of the disks created in Step 1;
   5. once the contents of all the disks have been synced to the volumes created in Step 1, detach the volumes and delete the disk copy worker created in Step 3.
 
-
-
 ### Replica deployments
 
 Steps performed by Coriolis:
@@ -34,8 +32,6 @@ Steps performed by Coriolis:
   3. perform the “OSMorphing process”, where Coriolis commands the OSMorphing worker created in step 2 to scan all attached disks for the OS installation of the VM we are migrating, mount, and perform the steps needed to prepare the installation for the new platform (i.e. installing VirtIO drivers if deploying a replica of a Windows VM);
   4. detach the volumes created in step 1 from the OSMorphing worker created in step 2, and delete the temporary worker VM;
   5. create and boot the migrated VM in the destination cloud with the specifications of the original VM in the source cloud (as noted during the replica execution we are deploying), and create and attach any necessary network ports and volumes.
-
-
 
 ### Temporary worker image for Replica/Migration
 
@@ -54,9 +50,6 @@ The instructions below describe the process of setting up the Windows worker ima
   * Install the **VirtIO drivers** and the **Qemu-guest-agent** for Windows by using the [**VMDP package**](https://github.com/SUSE/vmdp/releases);
   * Download and Install [**Cloudbase-Init**](https://cloudbase.it/downloads/CloudbaseInitSetup_Stable_x64.msi), without running sysprep from the installation wizard;
   * edit the Cloudbase-Init configuration files (usually under **C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\cloudbase-init.conf** and **C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\cloudbase-init-unattended.conf**) to match the one below:
-
-
-
 
 ```ini
 ##### cloudbase-init.conf
@@ -121,8 +114,6 @@ raw_hdd=true
     * If VM images are not supported, set this PVC as a Windows image in the Kubevirt configuration options: 
       * **[kubevirt_migration_provider] migr_image_map = linux: quay.io/containerdisks/ubuntu:22.04, windows: my-namespace/my-windows-pvc**
 
-
-
 ## OSMorphing steps taken when migrating to KubeVirt
 
 Depending on the OS release that is being migrated, the following notable steps will be performed as part of the OSMorphing process:
@@ -133,14 +124,10 @@ Depending on the OS release that is being migrated, the following notable steps 
   * where supported, installing the guest agent (qemu-guest-agent)
   * where required, rebuilding initrd to enable the VirtIO drivers
 
-
-
 ### Windows
 
   * installing the VirtIO drivers
   * installing cloudbase-init
-
-
 
 ## Configuration Options
 

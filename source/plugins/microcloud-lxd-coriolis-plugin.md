@@ -79,5 +79,3 @@ Each parameter represents:
   * **client_certifiate (string)** - Base64-encoded contents of the LXD client certificate
   * **client_key (string)** - Base64-encoded contents of the LXD client key
   * **allow_untrusted (boolean)** - Trust self-signed HTTPS certificates
-
-

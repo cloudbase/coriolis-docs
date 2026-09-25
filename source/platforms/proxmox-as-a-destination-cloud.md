@@ -24,19 +24,13 @@ In the case of Replicating or Migrating to Proxmox VE, images will need to be cr
 
   * **Ubuntu Server 22.04** LTS (recommended) or higher
 
-
   * **sudo** must be configured to work **passwordless**
-
 
   * Must **disable security/unattended** updates on Ubuntu as those will **conflict with Coriolis**
 
-
   * **Template VM config** must have a **SCSI** controller bus attached
 
-
   * **Qemu-guest-agent** must be installed
-
-
 
 ```bash
 apt update && apt -y install qemu-guest-agent
@@ -47,13 +41,10 @@ systemctl status qemu-guest-agent
 
   * Configuration to a **network** with a **DHCP server** , a network which the Coriolis appliance can reach.
 
-
-
 #### Windows
 
   * OS used for the image must be the same version or newer than the VM to be **replicated/migrated**
     * example: when migrating a Windows Server 2019 VM, the temporary worker image must be at least WS2019 or newer.
-
 
   * **VirtIO drivers** and **Qemu-guest-agent** need to be installed 
     * Qemu-guest-agent is included in VirtIO drivers: 
@@ -70,16 +61,11 @@ systemctl status qemu-guest-agent
       * After the driver installs, click **Close** to close the window.
       * Reboot the virtual machine to complete the driver installation
 
-
   * Configuration to a **network** with a **DHCP server** , a network which Coriolis can reach
-
 
   * **Template VM config** must have an **SCSI** controller bus attached
 
-
   * for more information regarding Coriolis’ Worker template, please check the **[Coriolis Temporary Migration Worker](https://cloudbase.it/coriolis-temporary-migration-worker) **page.
-
-
 
 #### User Role requirements
 
@@ -101,8 +87,6 @@ PVESDNUser| Coriolis may use SDN networks when creating worker or migratied VMs 
   4. read the contents of the snapshot created at step 2 via the source platform's snapshot/backup APIs (handled by whatever source cloud plugin we are using), transferring the written chunks to the temporary VM created in step 3, which then writes the chunks at the appropriate index/offset of the disks created at step 1
   5. once the contents of all the disks have been synced to the volumes created in Step 1, detach the volumes and delete the disk copy worker created in Step 3
 
-
-
 #### Replica deployments:
 
 #### Steps performed by Coriolis
@@ -113,8 +97,6 @@ PVESDNUser| Coriolis may use SDN networks when creating worker or migratied VMs 
   4. detach the volumes created at step 1 from the OSMorphing worker created at step 2 and delete the temporary worker VM 
   5. create and boot the migrated VM on the destination cloud with the specifications of the original VM on the source cloud (which have been noted during the particular replica execution we are deploying), creating and attaching any necessary network ports and volumes.
 
-
-
 ### OSMorphing steps taken when migrating to Proxmox VE
 
 Depending on the OS release being migrated/replicated, the following notable steps will be performed as part of the OSMorphing process:
@@ -123,15 +105,11 @@ Depending on the OS release being migrated/replicated, the following notable ste
 
   * install guest agent (ovirt-guest-agent or qemu-guest-agent)
 
-
-
 #### Windows
 
   * install the VirtIO drivers
   * install the QEMU guest agent
   * install cloudbase-init for guest OS provisioning and configuration
-
-
 
 ### Configuration Options
 
@@ -157,5 +135,3 @@ Depending on the OS release being migrated/replicated, the following notable ste
   * **Retain User Credentials** = Whether or not Coriolis reconfigure the Cloud-init during the OS Morphing process to set a new user/remove root account
   * **Skip Starting Migrated VMs** = Whether or not to skip starting the migrated VM once the Migration is complete
   * **Windows VirtIO Drivers ISO URL** = URL to a .ISO containing the Windows VirtIO drivers
-
-

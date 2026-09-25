@@ -39,8 +39,6 @@ Each parameter represents:
   * region name - the name of the Stackit region
   * service account key - base64 encoded service account key
 
-
-
 JSON form:
 
 ```json

@@ -27,8 +27,6 @@ Considering that in OCI there are no publicly available APIs for fetching the co
   6. once the transfer of all disks is complete, delete the worker created at step 3 and its attached disks
   7. remove the volume snapshots created at step 2, along with any other temporary resources used in the disk copy process (such as the key pair for the disk copy worker)
 
-
-
 During step 5, the data chunks will be handed directly to the destination cloud plugin, which will ensure they are written to the Replica disks on the destination.
 
 ### Configuration Options
@@ -89,8 +87,6 @@ Each parameter represents:
   * **export_template_password (string)** - password for the temporary VM template
   * **virtual_disk_clone_type (string)** - What cloning method to use when cloning the source disks to be migrated. The 'Thin Clone' option is recommended, though it may not be supported by all OVM storage repository types.
 
-
-
 Most destination environment parameters can also be found in the global configuration section. These may be overridden on a per-migration/replica basis by setting them in the destination environment.
 
 NOTE! In case a DHCP server is not available in the network, a static IP can be set on the VM template, though it will limit the use of that respective VM template to a single Migration/Replica execution at a time. Multiple VM templates for different Migration or Replica tasks can be configured otherwise.
@@ -103,10 +99,6 @@ For OVM guests, Coriolis will take the following OSMorphing steps as part of the
 
   * uninstalling OVMd (if applicable)
 
-
-
 #### Windows
 
   * removing Windows PV drivers
-
-

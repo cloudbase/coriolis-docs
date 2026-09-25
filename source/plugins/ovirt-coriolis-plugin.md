@@ -59,5 +59,3 @@ Each parameter represents:
   * **username (string)** - the username to login as
   * **password  (string) **- the password for the given username
   * **allow_untrusted (boolean)** - whether or not to accept connecting to oVirt hosts with self-signed certificates
-
-

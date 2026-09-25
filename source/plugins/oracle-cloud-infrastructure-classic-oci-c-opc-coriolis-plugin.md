@@ -71,8 +71,6 @@ Considering there are unfortunately no publicly-available APIs for fetching the 
   6. once the transfer of all disks is complete, delete the worker created at step 3 and its attached disks
   7. remove the volume snapshots created at step 2, along with any other temporary resources used in the disk copy process (such as the key pair for the disk copy worker)
 
-
-
 During step 5, the data chunks will be handed directly to the destination cloud plugin, which will ensure they are written to the Replica disks on the destination.
 
 ### OSMorphing steps taken when migrating/replicating from OCI-C
@@ -83,13 +81,9 @@ For OCI-C guests, Coriolis will take the following OSMorphing steps as part of t
 
   * uninstalling OVMd (if applicable)
 
-
-
 #### Windows
 
   * removing Windows PV drivers
-
-
 
 ### OCI-C source environment parameters
 
@@ -114,8 +108,6 @@ Each parameter represents:
   * **export_img_username (string)** - username to use when a connection to the temporary disk copy worker
   * **export_shape_name (string)** - name of the shape to use for the temporary VMs which will be exporting disk data from OCI-C
   * **export_root_disk_size (integer)** - size (in GBs) of the root disk of temporary worker VMs. This is only affected by the selected image as the Coriolis Replica export process from OCI bears no extra storage requirements
-
-
 
 Most source environment parameters can also be found in the global configuration section, in which case they may be overridden on a per-migration/replica basis by setting them in the destination environment as well.
 
@@ -161,8 +153,6 @@ Migrations to OCI-C operate in the same way Replicas do, and thus entail the sam
   4. read the contents of the snapshot created at step 2 via the source platform's snapshot/backup APIs (handled by whatever source cloud plugin we are using), transferring the written chunks to the temporary VM created in step 3, which then writes the chunks at the appropriate index/offset of the disks created at step 1
   5. once the contents of all the disks have been synced to the volumes created at step 1, detach the volumes and delete the disk copy worker created at step 3
 
-
-
 #### Replica deployments:
 
 #### Steps performed by Coriolis
@@ -173,8 +163,6 @@ Migrations to OCI-C operate in the same way Replicas do, and thus entail the sam
   4. detach the volumes created at step 1 from the OSMorphing worker created at step 2 and delete the temporary worker VM 
   5. create and boot the migrated VM on the destination cloud with the specifications of the original VM on the source cloud (which have been noted during the particular replica execution we are deploying), creating and attaching any necessary NICs and volumes.
 
-
-
 ### OSMorphing steps taken when migrating/replicating to OCI-C
 
 Depending on the OS release being migrated/replicated, the following notable steps will be performed as part of the OSMorphing process:
@@ -184,14 +172,10 @@ Depending on the OS release being migrated/replicated, the following notable ste
   * installing cloud-init/OVMd
   * rebuilding initrd on RHEL-based systems
 
-
-
 #### Windows
 
   * installing cloudbase-init and enabling cloudbase-init service
   * installing the VirtIO drivers
-
-
 
 ### Disk copy worker images
 
@@ -203,8 +187,6 @@ The images do **NOT** require any special Coriolis agent running in them and can
 
   * image is recommended to be an Oracle Linux 7+
   * image must have OVMd installed and configured for an initial run on OCI-C
-
-
 
 For each instance it is migrating, Coriolis will create a dedicated disk copy worker on OCI-C to fetch its storage.
 
@@ -252,8 +234,6 @@ Each parameter represents:
   * **keypair_name (string)** - name of the pre-created keypair of the account to use when creating the final migrated instance.
   * **set_public_ip (boolean)** - Whether or not the migrated instance will have a public IP attached to its first vNIC.
 
-
-
 Most destination environment parameters can also be found in the global configuration section, in which case they may be overridden on a per-migration/replica basis by setting them in the destination environment as well.
 
 ### Configuration Options
@@ -290,13 +270,9 @@ In the case of Replicating or Migrating to Oracle Cloud Infrastructure Classic, 
 
   * **Linux image requirements**
 
-
-
 The image used for the Disk Copy and OSMorphing worker instance might need a user called opc. The OCI-C plugin defaults to this user when setting up and sending SSH commands because most of the Oracle public images have opc-init installed, which include the opc user.
 
   * **Windows image requirements**
-
-
 
 There are no Windows public images on OCI-C, so the user must upload one. The default user is Administrator. 
 
@@ -337,8 +313,6 @@ Each parameter representing:
   * **api_endpoint (string)** - the full URL of the OCI-C API endpoint for the desired region
   * **storage_api_endpoint (string)** - the full URL of the OCI-C storage API endpoint for the desired region
   * **storage_auth_endpoint (string)** - the full URL of the OCI-C storage authentication API endpoint for the desired region
-
-
 
 ### OPC platform specifics
 

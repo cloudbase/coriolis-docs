@@ -16,8 +16,6 @@ Migrations from Azure operate in the same way Replicas do and thus entail the sa
   * some parameters related to the ARM environment to aid in locating the VM (example: location, resource group name, etc…)
   * the name of the VM on Azure
 
-
-
 Please consider reviewing the general steps recommended to be performed before creating migration for an instance from Azure [here](https://cloudbase.it/preparing-a-vm-for-migration-replication/).
 
 #### Steps performed by Coriolis
@@ -32,8 +30,6 @@ Considering there are no publicly-available APIs for fetching the contents of di
   6. if this is the first Replica execution, read all non-zero disk chunks and pass them to the destination plugin If this is incremental sync, only the chunks which have changed from the previous Replica execution are transferred.
   7. delete the temporary replication created at step 4 and its attached disks
   8. remove the volume snapshots created at step 3, along with any other temporary resources used in the disk copy process (such as the NIC or public IP)
-
-
 
 During step 6, the changed blocks are transferred and written to disks on the destination platform via the destination cloud plugin.
 
@@ -63,5 +59,3 @@ Each parameter representing:
   * **export_worker_image (object)** - the parameters of the image to use for the temporary worker VM
   * **storage_account_name (string)** - If configured to Migrate/Replicate to Blob storage, the name of an Azure Blob storage account must be provided. The Storage account must reside within the selected 'Resource Group'
   * **storage_container_name (string)** - If configured to Migrate/Replicate to Blob storage, the name of an Azure storage container must be provided. The container must reside within the Azure storage account provided using 'Storage Account Name'. The container will be automatically created during the Migration/Replication process if it doesn't exist.
-
-

@@ -13,8 +13,6 @@ Coriolis Projects and Users will provide the following:
   * Assigning roles to users (access to one or multiple projects, roles for allowing or denying permissions)
   * Coriolis admin users can create and manage Projects and Users
 
-
-
 By default Coriolis comes with one **admin Project** and one **admin user** assigned to it.
 
 [![](_static/images/project.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2021/03/project.jpg?ssl=1)
@@ -41,14 +39,10 @@ For Projects:
   * user roles can be modified
   * users can be disabled or removed from the project
 
-
-
 For Users:
 
   * password ca be changed
   * Project membership can be changed
   * user can be removed
-
-
 
 [![](_static/images/edit-project.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2021/03/edit-project.jpg?ssl=1)[![](_static/images/edit-users-1.2.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2021/03/edit-users-1.2.jpg?ssl=1)

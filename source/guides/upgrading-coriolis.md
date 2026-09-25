@@ -30,8 +30,6 @@ Before initiating the upgrade, verify the following requirements.
   * The Coriolis appliance must have internet access to download the container images, either directly or through an HTTP/HTTPS proxy.
   * The following URLs need to be whitelisted in order to perform an upgrade:
 
-
-
 ```text
 https://registry.cloudbase.it
 https://bitbucket.org
@@ -115,8 +113,6 @@ Important:
   * Downgrades are not supported
   * Upgrading versions**older than 2603.0** to this release is only available through Coriolis Support. 
 
-
-
 Step 4 - Confirm Upgrade
 
 Confirm the selected version when prompted. After that is provided, the upgrade process begins.
@@ -170,8 +166,6 @@ Important:
   * The target patch version must be newer than the currently installed version
   * Downgrades are not supported
   * **Components can only be incremented to a patch of the current release** (from 2608.1, they can be upgraded to 2608.1.1, but not to 2608.2.1)
-
-
 
 Next, you will need to confirm the selection
 
@@ -239,5 +233,3 @@ After the upgrade, it is recommended to check the following:
   * Log in to the Coriolis web UI interface and browse through the options.
   * When using DR, monitor the scheduled jobs to successfully resume and run as set.
   * For Migrations, observe for any new settings and verify that new executions are running without errors.
-
-

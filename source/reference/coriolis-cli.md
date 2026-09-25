@@ -178,8 +178,6 @@ $coriolis endpoint delete $ENDPOINT_ID
   * the parameters for the **- destination-environment**, which are destination cloud-specific. Please review the documentation of the Coriolis platform plugin of the destination cloud for the exact parameters which are expected 
   * a unique identifier of the instance we would like to migrate
 
-
-
 Granted all the above, a migration job may be created for an instance by running the following:
 
 ### Creating a Coriolis migration
@@ -227,8 +225,6 @@ $coriolis migration delete $MIGRATION_ID
   * the parameters for the **- source-environment**, which are source cloud-specific. Please review the documentation of the Coriolis platform plugin of the source cloud for the exact parameters which are expected 
   * the parameters for the **- destination-environment**, which are destination cloud-specific. Please review the documentation of the Coriolis platform plugin of the destination cloud for the exact parameters which are expected 
   * a unique identifier of the instance we would like to replicate
-
-
 
 Granted all the above, a replication job may be **defined** (but not yet executed) for an instance by running the following:
 
@@ -324,8 +320,6 @@ As a generic workflow, before sending out API requests to Coriolis, you will nee
 
   1. Make sure the Coriolis API service is reachable from where you make the requests.
   2. Get authorization from Keystone for the API user.
-
-
 
 Coriolis services running on the appliance are bound to localhost by default. To expose them to the appliance VM's IP address, head to its console and execute the option `**6) Expose Coriolis Services Endpoints**`.
 

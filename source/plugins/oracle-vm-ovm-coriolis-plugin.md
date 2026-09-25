@@ -56,8 +56,6 @@ The images do **NOT** require any special Coriolis agent running in them and can
   * image is recommended to be an Oracle Linux 7+
   * image must have OVMd installed and configured for an initial run on OVM (required for querying the guest IP address)
 
-
-
 For each instance it is migrating, Coriolis will create a dedicated disk copy worker on OVM to fetch its storage.
 
 The template must be pre-configured with a NIC on a network that is reachable from the Coriolis installation. Additionally, the template should be pre-configured to use DHCP for each worker VM to be allocated to its own IP.
@@ -87,8 +85,6 @@ Each parameter represents:
   * **username (string)** - the username to login as
   * **password (string)** - the password for the given username
   * **allow_untrusted (boolean)** - whether or not to accept connecting to OVM hosts with self-signed certificates
-
-
 
 ### OVM platform specifics
 

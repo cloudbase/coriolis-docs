@@ -59,8 +59,6 @@ Coriolis' support for OpenStack is not tied directly to the standard OpenStack r
   * Swift (only used when performing Swift-based Replicas from a source OpenStack): v1
   * Ceph (only used when performing Ceph-based Replicas from a source OpenStack):  >= 11 "Kraken"
 
-
-
 If an OpenStack offers the above API endpoints, it should be supported regardless of version, vendor, hypervisor (QEMU/KVM or Microsoft Hyper-V), or underlying storage system.
 
 Setups where the source OpenStack's Cinder-backup is configured to use RADOS Gateway as a Swift-like storage backend are also feasible, in which one may perform Swift-based Replicas from the source OpenStack.
@@ -105,15 +103,11 @@ NOTE UEFI is supported in certain situations:
 
   * Microsoft Hyper-V is used. UEFI is supported if the glance image has the following property set:
 
-
-
 ```text
 --property hw_machine_type=hyperv-gen2
 ```
 
   * KVM is used. UEFI is supported if the glance image has the following property set:
-
-
 
 ```text
 --property hw_firmware_type=uefi
@@ -207,8 +201,6 @@ Each parameter represents:
   * **ceph_pool_name  (string)** - Name of the Ceph pool in which Cinder volume snapshots/backups are stored.
   * **ceph_cluster_name  (string) **- Name of the Ceph cluster in which Cinder volume snapshots/backups are stored.
   * **ceph_connection_timeout  (integer)** - Integer number of seconds to wait on Ceph connections before timing out.
-
-
 
 ### Known issues
 

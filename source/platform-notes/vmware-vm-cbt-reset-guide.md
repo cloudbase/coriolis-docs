@@ -17,15 +17,11 @@ CBT needs to be reset once the backups can no longer be performed, as the task w
     * **Disk "Hard disk #" has an incorrect changed block tracking configuration.**
     * **One or more VM disks have incorrect changed block tracking configuration.**
 
-
-
 ### Resetting CBT
 
 To reset CBT on a vSphere virtual machine:
 
   1. Open the vSphere Web Client.
-
-
 
 [![](_static/images/login.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/10/login.jpg?ssl=1)
 
@@ -52,7 +48,6 @@ To reset CBT on a vSphere virtual machine:
 [![](_static/images/scsi-false.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/09/scsi-false.jpg?ssl=1)
 
 **NOTE:** Where **scsix:x** is the SCSI controller and SCSI device ID of your virtual disk.
-
 
 8\. Open the virtual machine's working directory using the Datastore Browser or ESXi shell. For more information on identifying the working directory, see [Locating virtual machine log files on an ESXi/ESX host (1007805)](https://kb.vmware.com/s/article/1007805).
 

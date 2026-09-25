@@ -38,8 +38,6 @@ Each parameter represents:
   * port - the port used by Nutanix Prism Central
   * allow untrusted - whether to allow untrusted TLS certificates when contacting Prism Central
 
-
-
 ### Migrating (CMaaS) from Nutanix
 
 Transfer Migrations from Nutanix operate in the same way Transfer Replicas do and thus entail the same requirements and steps described below.
@@ -57,14 +55,10 @@ Please consider reviewing the general steps recommended to be performed before c
   3. create temporary volume disks, specifying the recovery point as data source reference 
      * it doesn't involve data copy operations, being executed instantly
 
-
   4. mount the iSCSI target and identify the LUNs on the Coriolis worker side
   5. stream the data to the destination cloud
 
-
   6. cleanup the iSCSI session and the temporary recovery point
-
-
 
 Note that open-iscsi is used to establish iSCSI sessions and the logs are available through the Coriolis web interface.
 
@@ -77,13 +71,9 @@ The following notable steps will be performed as part of the OSMorphing process 
   * uninstall the Nutanix guest tools
   * rebuild **initrd**  on RHEL-based systems
 
-
-
 #### Windows
 
   * uninstall the Nutanix guest tools
-
-
 
 ### Nutanix source environment parameters
 

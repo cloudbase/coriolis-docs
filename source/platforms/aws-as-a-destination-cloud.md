@@ -21,8 +21,6 @@ Migrations to AWS operate in the same way Replicas do, and thus entail the same 
   4. read the contents of the snapshot created at step 2 via the source platform's snapshot/backup APIs (handled by whatever source cloud plugin we are using), transferring the written chunks to the temporary VM created in step 3, which then writes the chunks at the appropriate index/offset of the disks created at step 1
   5. once the contents of all the disks have been synced to the EBS volumes created during step 1, detach the volumes and delete the disk copy worker created at step 3
 
-
-
 #### Replica deployments:
 
 #### Steps performed by Coriolis
@@ -32,8 +30,6 @@ Migrations to AWS operate in the same way Replicas do, and thus entail the same 
   3. perform the "OSMorphing process", where Coriolis commands the OSMorphing worker created during step 2 to scan all attached disks for the OS installation of the VM we are migrating, mount and perform the steps needed to prepare the installation for the new platform (ex: uninstalling the VMWare guest tools if migrating away from VMWare)
   4. detach the EBS volumes created at step 1 from the OSMorphing worker created at step 2 and delete the temporary worker VM 
   5. create and boot the migrated VM on the destination cloud with the specifications of the original VM on the source cloud (which have been noted during the particular replica execution we are deploying), creating and attaching any necessary network interfaces and EBS volumes.
-
-
 
 ### Configuration Options
 
@@ -81,13 +77,9 @@ Linux:
 
   * installing cloud-init
 
-
-
 Windows:
 
   * installing AWS Windows agent(s)
-
-
 
 ### OSMorphing and temporary worker VM images
 
@@ -101,14 +93,10 @@ The images do **NOT** require any special Coriolis agent running in them and can
   * AMI must have only one disk (regardless if instance storage or EBS-backed)
   * cloud-init must be installed and running in order for the initial setup/login and key injection to succeed
 
-
-
 #### Windows
 
   * for OSMorphing, must be of at least the same version as the guest of the VM being migrated
   * the Windows image should have the AWS Windows agent tools configured for the first boot
-
-
 
 ### AWS destination environment parameters
 
@@ -145,8 +133,6 @@ Each parameter represents:
   * **instance_type** - name of the instance type to be used for the final VM. If not set, Coriolis will automatically pick the smallest instance size which satisfies the VM's requirements
   * **availability_zone** -  AD to use when creating resources for Migrated/Replicated VMs. Must be in the same region as specified within the connection info.
   * **retain_source_ip** - whether or not to attempt to retain the IP addresses the VM had on the source. This requires that the mapped subnets on AWS include the respective IP address(es) in their ranges.
-
-
 
 ### Troubleshooting
 

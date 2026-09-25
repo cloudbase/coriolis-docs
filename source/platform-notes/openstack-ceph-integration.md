@@ -18,8 +18,6 @@ Ceph is an open-source software-defined storage solution designed to address mod
   * for Ceph snapshots usage, Coriolis only needs read-only access to Ceph
   * for Ceph backups usage, Coriolis will need snapshot-creation-permissions as it will have to perform an interim snapshot for running the diff.
 
-
-
 NOTE: In a real-world situation when '**cinder-backups** ' are used with Ceph, most likely '**cinder-volume** ' will be available on Ceph, so in this situation, the option of **Ceph Snapshots** is recommended instead of **Ceph Backups**. As long as the environment used supports the feature, **Ceph Snapshots** will be preferred over **Ceph Backups** as it will be less time-consuming in order to have the disk cloning complete and require fewer permissions.
 
 ### Using Ceph with Coriolis

@@ -19,6 +19,4 @@ The following steps will guide towards extracting the VMWare tools and drivers f
     * the web server must be accessible from the temporary worker network on the target cloud
     * the **URL** for the .zip file will be required in **Advanced Target Options** when performing **Replica/Migration**.
 
-
-
 Once the above steps are complete, **Coriolis** will be able to **Migrate** Windows VMs and install platform specifics to **VMware destination environments**.

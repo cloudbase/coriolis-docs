@@ -46,10 +46,7 @@ tar -xvzf coriolis-snapshot-agent.tar.gz
 
   * Connect to the machine where you will install the agent and navigate to the directory where it is extracted
 
-
   * Run the install script copied on the machine 
-
-
 
 ```text
 ./coriolis-snapshot-agent -install
@@ -59,16 +56,11 @@ tar -xvzf coriolis-snapshot-agent.tar.gz
 
   * Once the script runs, you will be prompted to enter the IP address or Hostname (by using the same DNS servers from your infrastructure, which will be able to resolve both Coriolis' Bare Metal Servers Hostname/s) of the Coriolis Appliance
 
-
-
 [![](_static/images/install2.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/10/install2.jpg?ssl=1)
 
   * Then you will be prompted to enter the **CA Fingerprint** , which can be copied from the top right corner **Coriolis Bare Metal Hub Fingerprint** on the Coriolis UI **Bare Metal Servers** tab as seen below 
 
-
   * Also, you will be asked to mention if the machine is used as a web server or not, an option that the **Coriolis Appliance** further uses to generate the certificates.
-
-
 
 [![](_static/images/bm-severs.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/10/bm-severs.jpg?ssl=1)
 
@@ -82,8 +74,6 @@ tar -xvzf coriolis-snapshot-agent.tar.gz
       * xfs
       * btrfs 
 
-
-
 [![](_static/images/snapstore.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2023/04/snapstore.jpg?ssl=1)
 
   * After confirming all the steps, Snapshot Agent will proceed with the install task, connection to the Coriolis Appliance, and the creation process of the **Coriolis User** and the group '**disk** '.
@@ -91,8 +81,6 @@ tar -xvzf coriolis-snapshot-agent.tar.gz
 [![](_static/images/image.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2023/09/image.png?ssl=1)
 
   * Once the interactive script completes the task, the machine is ready to be added as a **Bare Metal Server** to the **Coriolis Dashboard** and be used for **Replica/Migration**.
-
-
 
 #### Coriolis Snapshot Agent Config
 

@@ -20,8 +20,6 @@ Below is a listing of the source environment parameters the VMWare plugin suppor
   * **vixdisklib_compatibility_version** - The vSphere version for which to initialize vixDiskLib.
   * **automatically_enable_cbt** - Whether or not Coriolis should attempt to automatically enable CBT on the VM before Replication.
 
-
-
 ## OpenStack source environment parameters
 
 The source environment parameters are a set of source-cloud-specific parameters that offer some extra options and configurability to the migration/replication process on a per-VM basis.
@@ -49,8 +47,6 @@ Below is a listing of the source environment parameters the OpenStack plugin sup
   * **export_worker_boot_from_volume** - Whether or not to download the temporary disk export worker VM image to a Cinder volume and boot the worker from that.
   * **export_worker_volume_type** - Name of pre-existing Cinder volume type to be used for the root disk of temporary disk export VMs. Only effective in 'export_worker_boot_from_volume' is set.
   * **export_worker_volume_size** - The integer size (in GBs) of the Cinder volume to boot temporary worker VMs from. This option is only effective if 'export_worker_boot_from_volume' is set. If not set, Coriolis will use the disk size set the selected 'export_flavor_name'.
-
-
 
 ## OpenStack destination environment parameters
 
@@ -91,8 +87,6 @@ Below is a listing of the destination environment parameters the OpenStack plugi
   * **floating_ip_pool**  (string) - Name of the floating IP pool and an associated subnet(optional) to be used for the creation and attachment of floating IPs to the migrated VMs.
   * **instance_tags**  (object) - Dictionary with arbitrary key-value pairs to set as tags on the migrated/replicated VMs.
 
-
-
 ## AWS source environment parameters
 
 The source environment parameters are a set of source-cloud-specific parameters which offer some extra options and configurability to the migration/replication process on a per-VM basis.
@@ -109,8 +103,6 @@ Below is a listing of the destination environment parameters the AWS plugin supp
   * **worker_instance_type**  (string) - name of the instance type to use for the temporary worker VMs. Default is t2.medium.
   * **shutdown_migrated_instance**  (string) - Indicate whether or not to shut the VM down during the migration process in order to ensure data consitency.
 
-
-
 ## Hyper-V source environment parameters
 
 The source environment parameters are a set of source-cloud-specific parameters which offer some extra options and configurability to the migration/replication process on a per-VM basis.
@@ -123,8 +115,6 @@ The source environment parameters are a set of source-cloud-specific parameters 
 
   * **fallback_to_crash_consistent_snapshots**  (string) - Use crash-consistent snapshots if Hyper-V enablement is not installed in the guest VM
   * **verify_rct_server**  (string) - Verify the SSL certificate for RCT service. Set to No if using a self-signed certificate.
-
-
 
 ## Azure source environment parameters
 
@@ -144,8 +134,6 @@ Below is a listing of the destination environment parameters the Azure plugin su
   * **export_worker_image**  (object) - the parameters of the image to use for the temporary worker VM
   * **storage_account_name**  (string) - If configured to Migrate/Replicate to Blob storage, the name of an Azure Blob storage account must be provided. The Storage account must reside within the selected 'Resource Group'
   * **storage_container_name**  (string) - If configured to Migrate/Replicate to Blob storage, the name of an Azure storage container must be provided. The container must reside within the Azure storage account provided using 'Storage Account Name'. The container will be automatically created during the Migration/Replication process if it doesn't exist.
-
-
 
 ## Azure destination environment parameters
 
@@ -171,8 +159,6 @@ Below is a listing of the destination environment parameters the Azure plugin su
   * **windows_migr_image**  (object) - the parameters of a Windows Azure image to use during Windows OSMorphing, default is the Server 2016 image exemplified in the listing above
   * **preserve_nic_ips**  (boolean) - Whether or not to set the same IP address on migrated VM NICs if the mapped network/subnet combination includes the IP address(es) the NICs had on the source within their IP range.
 
-
-
 ## OCI destination environment parameters
 
 The destination environment parameters are a set of key-value pairs (some may have nested key value pairs of their own), that allow you to overwrite default values set in the provider. For example, you may configure the OCI provider to behave in a certain way, but for some migrations of replicas, you would like to overwrite that behaviour with a different set of settings.
@@ -197,8 +183,6 @@ Below is a listing of the destination environment parameters the OCI plugin supp
   * **set_public_ip  **(boolean) - whether or not to set a public IP address for the migrated VM
   * **shape_name**  (string) - Name of the OCI shape used when creating the final migrated instance.
 
-
-
 ## OCI-C source environment parameters
 
 The source environment parameters are a set of source-cloud-specific parameters which offer some extra options and configurability to the migration/replication process on a per-VM basis.
@@ -215,8 +199,6 @@ Below is a listing of the source environment parameters the OCI-C plugin support
   * **export_img_username**  (string) - username to use when connection to the temporary disk copy worker
   * **export_shape_name**  (string) - name of the shape to use for the temporary VMs which will be exporting disk data from OCI-C
   * **export_root_disk_size**  (integer) - size (in GBs) of the root disk of temporary worker VMs. This is only affected by the selected image as the Coriolis Replica export process from OCI bears no extra storage requirements
-
-
 
 ## OCI-C destination environment parameters
 
@@ -239,8 +221,6 @@ Below is a listing of the destination environment parameters the OCI-C plugin su
   * **keypair_name**  (string) - name of the pre-created keypair of the account to use when creating the final migrated instance.
   * **set_public_ip**  (boolean) - Whether or not the migrated instance will have a public IP attached to its first vNIC.
 
-
-
 ## OVM source environment parameters
 
 The source environment parameters are a set of source-cloud-specific parameters that offer some extra options and configurability to the migration/replication process on a per-VM basis.
@@ -258,8 +238,6 @@ Below is a listing of the source environment parameters the OVM plugin supports 
   * **export_template_username**  (string) - username for the temporary VM template
   * **export_template_password**  (string) - password for the temporary VM template
   * **virtual_disk_clone_type**  (string) - What cloning method to use when cloning the source disks to be migrated. The 'Thin Clone' option is recommended, though it may not be supported by all OVM storage repository types.
-
-
 
 ## OVM destination environment parameters
 
@@ -283,5 +261,3 @@ Below is a listing of the destination environment parameters the OVM plugin supp
   * **leave_migrated_vm_off**  (boolean) - whether or not to just create VMs but skip powering them on
   * **os_label**  (string) - Label for the new OS on OVM
   * **virtual_disk_clone_type**  (string) - What cloning method to use when creating migrated disks. The 'Thin Clone' option is recommended, though it may not be supported by all OVM storage repository types.
-
-

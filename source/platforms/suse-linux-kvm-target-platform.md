@@ -39,8 +39,6 @@ If an SSH private key is provided in the connection info, it must be base64-enco
   4. Read disk data from the source and stream it to the worker VM's backup writer service, which writes the data to the replica volumes at the correct offsets.
   5. Once all disk contents have been transferred, stop and delete the worker VM.
 
-
-
 #### Transfer deployment
 
 #### Steps performed by Coriolis
@@ -51,8 +49,6 @@ If an SSH private key is provided in the connection info, it must be base64-enco
   4. Detach the migrated volumes and delete the OS morphing worker VM.
   5. Create the final VM in Libvirt using a generated domain XML built using the settings specified during the migration.
 
-
-
 ## Temporary worker image for migration
 
 When running a migration to Libvirt, Coriolis uses temporary worker VMs to receive disk data and perform OS morphing. The images for these worker VMs must be pre-staged as volumes in a dir-type Libvirt storage pool on the destination host, and referenced by volume name in the Temporary worker target environment option.
@@ -61,8 +57,6 @@ Worker images must have a standard initialisation agent installed and configured
 
   * **Linux** – cloud-init and qemu-guest-agent
   * **Windows** – cloudbase-init, virtIO drivers, and the qemu guest agent
-
-
 
 The instructions below describe the process of setting up the Windows worker image:
 
@@ -112,14 +106,10 @@ Depending on the OS being migrated, the following notable steps are performed as
   * Configuring network interfaces for DHCP (where set_dhcp = true)
   * Setting SELinux autorelabel flag (RedHat-based distributions)
 
-
-
 ### Windows
 
   * Downloading the VirtIO driver ISO and injecting the drivers.
   * Downloading and installing Cloudbase-Init
-
-
 
 ## Configuration options
 

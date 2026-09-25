@@ -35,8 +35,6 @@ Customers are encouraged to upgrade to newer Coriolis releases as they become av
   * Performance improvements
   * New features and enhancements
 
-
-
 By keeping Coriolis services up to date, deployments benefit from the latest platform improvements as well as refreshed service images containing updated software components.
 
 ## TLS Cipher Hardening

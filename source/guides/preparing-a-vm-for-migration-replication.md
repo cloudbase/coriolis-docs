@@ -38,8 +38,6 @@ Depending on the situation, there are several aspects apart from the MAC address
   * do all the network name mappings in the **network_map** parameter describe networks with matching (ideally 1:1) virtual subnet ranges?
   * do the **network_map**  mappings also consider other parameters, such as DHCP being enabled on all the destination networks mapped to a DHCP-enabled network on the source?
 
-
-
 ### Recommended steps for Linux VMs
 
   * **install the guest agent** of the respective platform hosting the VM in the case of platforms that rely on the agent to report the network configuration. This will later allow Coriolis to query the APIs of the platform for exact details of the internal networking configuration of the VM (interfaces, addresses, etc)
@@ -50,14 +48,10 @@ Depending on the situation, there are several aspects apart from the MAC address
     * for RedHat-based distros use "**yum update** " and for Debian/Ubuntu use "**apt update** "
     * if the repositories are not available or reachable on the target platform, the packages can be manually pre-installed by the user on the source VM before running the Coriolis migration. The required packages are outlined [here](https://cloudbase.it/coriolis-airgapped-environments/#Other_considerations). This skip check on the repository validity has been superseded by checking for the required packages to be pre-installed, starting with Coriolis v2603.4.
 
-
-
 ### Recommended steps for Windows VMs 
 
   * **install the guest agent** of the respective platform hosting the VM in the case of platforms that rely on the agent for reporting the network configuration. This will later allow Coriolis to query the APIs of the platform for exact details of the internal networking configuration of the VM (interfaces, addresses, etc)
   * configure static IPs on **all network interfaces** that are configured with DHCP. This allows full user control on the addresses the instance will have on the destination platform, granted that the subnet ranges of the source and destination networks, as mapped in the network_map coincide
-
-
 
 * * *
 
@@ -77,14 +71,10 @@ Depending on the destination platform's limitations (such as supported bus types
 
   * ensure that the **/boot** partition has enough free disk space to accommodate rebuilding all existing installed kernels' initramfs image. This is a step in the OSMorphing process before the instance is booted onto the destination cloud.
 
-
-
 ### Recommended steps for Windows VMs
 
   1. Just as for Linux VMs, for Windows VMs, ensure that the latest virtualization guest agent (such as the Windows VirtIO agent) is installed and running on the Windows guest system. The guest agent is specific to the respective platform hosting the VM for platforms that rely on an agent to support filesystem quiescing. During the replication process, Coriolis will always attempt to quiesce the filesystems of a running instance to ensure the consistency of the replica filesystems after a replica execution.
   2. **For Windows VMs, ensure that the latest Windows updates are installed** and that the guest OS is rebooted to finish the installation of the updates. This is due to all the components involved in the snapshotting process, such as VSS, related to the Windows OS, and used as part of the migration process.
-
-
 
 * * *
 
@@ -134,8 +124,6 @@ To ensure a smooth process, we recommend the following to be done on the source 
 
   * update the kernel to the latest available version and reboot the source VM. This will ensure that regenerating the initramfs kernel images is also functional, this being a step that Coriolis will perform as part of the OS Morphing process.
   * Remove any obsolete / no longer required older kernels on the source VM. This will also cover the requirement that enough free disk space is available on the /boot partition.
-
-
 
 * * *
 

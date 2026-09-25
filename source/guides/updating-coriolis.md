@@ -30,8 +30,6 @@ For upgrading the Coriolis virtual appliance, you must be logged in as root in a
   * coriolis-api
   * coriolis-compressor
 
-
-
 The update process begins with bringing the Coriolis Docker and Ansible automation git repository to the latest version. You can do that with the following:
 
 > cd /root/coriolis-docker/
@@ -82,8 +80,6 @@ The options you will be looking for are:
 
   * default_coriolis_docker_images_tag: 2407.1
   * docker_pull_images: true
-
-
 
 You can edit them manually or replace them with:
 

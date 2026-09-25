@@ -21,8 +21,6 @@ Steps performed by Coriolis:
   4. read the contents of the snapshot created at step 2 via the source platform’s snapshot/backup APIs (handled by whatever source cloud plugin we are using), transferring the written chunks to the disk copy worker launched in step 3, which then writes the chunks at the appropriate index/offset of the disks made at step 1.
   5. once the contents of all the disks have been synced to the volumes created in step 1, stop the Replica VM, detach the volumes (including the worker volume), and delete the worker volume created in step 3.
 
-
-
 ### Replica deployments
 
 Steps performed by Coriolis:
@@ -33,8 +31,6 @@ Steps performed by Coriolis:
   4. detach the volumes created at step 1 and 2 from the OSMorphing VM and delete the OSMorphing worker disk.
   5. boot the migrated VM on LXD with the specifications of the original VM on the source cloud (noted during the replica execution we are deploying), creating and attaching any necessary NICs and volumes.
 
-
-
 ### Temporary worker image for Replica/Migration
 
 When choosing to run a task of **Replica/Migration** to **LXD** , Coriolis lists images available locally on the destination MicroCloud/LXD, and also from Ubuntu’s official releases remote. Images listed are filtered by **amd64** architecture and **virtual-machine** type. Also, from the Ubuntu remote, only supported LTS images are listed. If an image from a different custom remote needs to be used, we recommend copying it to the local image remote. This is because Coriolis can only access local images via LXD API, parsing and filtering remote images directly from the**simplestreams** image server. We chose the Ubuntu releases remote because it’s static on any destination LXD, therefore it cannot be changed/deleted from the platform.
@@ -44,8 +40,6 @@ The instructions below describe the process of setting up the Windows worker ima
   1. follow the [official tutorial](https://ubuntu.com/tutorials/how-to-install-a-windows-11-vm-using-lxd#1-overview) to freshly install Windows from ISO image;
   2. install Cloudbase-Init, without running sysprep from the installation wizard;
   3. edit the Cloudbase-Init configuration file (usually under **C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\cloudbase-init.conf**) to match the one below:
-
-
 
 ```ini
 [DEFAULT]
@@ -73,9 +67,6 @@ plugins=cloudbaseinit.plugins.common.mtu.MTUPlugin,cloudbaseinit.plugins.windows
 
   4. Save the configuration and start a sysprep process, shutdown the Windows VM afterward
   5. Save the LXD VM as an image using the publish command:
-
-
-
 
 ```text
 lxc publish <vm_name> --alias windows-worker --reuse description="Windows Worker Image" release="<Windows release version>" type=disk os=windows
@@ -138,13 +129,9 @@ Depending on the OS release we are migrating, the following notable steps will b
   * where supported, installing guest agent (lxd-agent)
   * where required, rebuilding initrd to add the VirtIO drivers
 
-
-
 ### Windows
 
   * installing the VirtIO drivers
   * installing cloudbase-init and enabling cloudbase-init service
-
-
 
 For more information regarding the Coriolis Worker template, please check the [Coriolis Temporary Migration Worker](https://cloudbase.it/coriolis-temporary-migration-worker) page.

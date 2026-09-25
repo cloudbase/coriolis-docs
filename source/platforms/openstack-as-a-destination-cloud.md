@@ -21,8 +21,6 @@ Transfer Migrations to OpenStack operate in the same way Transfer Replicas do an
   4. read the contents of the snapshot created at step 2 via the source platform's snapshot/backup APIs (handled by whatever source cloud plugin we are using), transferring the written chunks to the temporary VM created in step 3, which then writes the chunks at the appropriate index/offset of the disks created at step 1
   5. once the contents of all the disks have been synced to the Cinder volumes created in Step 1, detach the Cinder volumes and delete the disk copy worker created in Step 3
 
-
-
 #### Replica deployments:
 
 #### Steps performed by Coriolis
@@ -32,8 +30,6 @@ Transfer Migrations to OpenStack operate in the same way Transfer Replicas do an
   3. perform the "OSMorphing process", where Coriolis commands the OSMorphing worker created in step 2 to scan all attached disks for the OS installation of the VM we are migrating, mount, and perform the steps needed to prepare the installation for the new platform (ex: uninstalling the VMWare guest tools and installing VirtIO drivers if deploying a replica of a Windows VM from vSphere to a KVM-based OpenStack)
   4. detach the Cinder volumes created at step 1 from the OSMorphing worker created at step 2 and delete the temporary worker VM 
   5. create and boot the migrated VM on the destination cloud with the specifications of the original VM on the source cloud (which have been noted during the particular replica execution we are deploying), creating and attaching any necessary Neutron ports and Cinder volumes.
-
-
 
 ### Configuration Options
 
@@ -61,14 +57,10 @@ Depending on the virtualization technology used and the OS release we are migrat
   * installing Hyper-V integration tools, if destination OpenStack is based on Hyper-V
   * where required, rebuilding initrd to add the virtIO drivers
 
-
-
 #### Windows
 
   * installing cloudbase-init and enabling cloudbase-init service
   * installing the VirtIO drivers if OpenStack is KVM-based
-
-
 
 For more information regarding the Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](https://cloudbase.it/coriolis-temporary-migration-worker) **page.
 
@@ -332,7 +324,5 @@ Each parameter represents:
   * **use_floating_ip (boolean)** - Whether or not to attach a floating IP to the already migrated VM.
   * **floating_ip_pool (string)** - Name of the floating IP pool and an associated subnet(optional) to be used for the creation and attachment of floating IPs to the migrated VMs.
   * **instance_tags (object)** - Dictionary with arbitrary key-value pairs to set as tags on the migrated/replicated VMs.
-
-
 
 Most destination environment parameters can also be found in the global configuration section, in which case they may be overridden on a per-migration/replica basis by setting them in the destination environment as well.

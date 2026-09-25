@@ -35,15 +35,11 @@ For the Windows template VM used by Coriolis' worker on all supported Cloud Endp
     * The helper script mentioned below will handle this configuration as well.
     * alternatively, both can be enabled by running the following command in a PowerShell session: 
 
-
-
 ```text
 $winrm quickconfig -transport:https
 ```
 
   * the above command can be tested afterward with the following:
-
-
 
 ```powershell
 #Check if WinRM is enabled and configured
@@ -85,23 +81,17 @@ Note that this method is not recommended, and newer Windows editions no longer s
 
   * Creating the self-signed certificate on the destination machine.
 
-
-
 ```text
 New-SelfSignedCertificate -Subject 'CN=servername.domain.com' -TextExtension '2.5.29.37={text}1.3.6.1.5.5.7.3.1'
 ```
 
   * Configuring the server’s WinRM web server (listener) to use the self-signed certificate for authentication.
 
-
-
 ```text
 winrm create winrm/config/Listener?Address=*+Transport=HTTPS '@{Hostname="servername.domain.com"; CertificateThumbprint="<cert thumbprint here>"}'
 ```
 
   * Opening the appropriate ports on the destination machine’s Windows firewall**:**
-
-
 
 ```text
 $FirewallParam = @{ 
@@ -116,8 +106,6 @@ New-NetFirewallRule @FirewallParam
 ```
 
   * Executing a command to initiate a remote connection on the client using a PowerShell cmdlet like **Enter-PSSession**.
-
-
 
 More details regarding **WinRM** are available on the **[Microsoft documentation page](https://docs.microsoft.com/en-us/windows/win32/winrm/portal)**.
 
@@ -137,8 +125,6 @@ WinRM can also be enabled by running one of our Coriolis helper scripts. Keep in
 
   * First, the script has to be downloaded on the Windows Server VM
 
-
-
 ```text
 $URL="https://raw.githubusercontent.com/cloudbase/coriolis-resources/master/windows/winrm-gen.ps1"
 
@@ -148,8 +134,6 @@ Invoke-Webrequest -URI $URL -OutFile $Path
 ```
 
   * Next, navigate to the directory where the script resides and run it
-
-
 
 cd C:\<Path-to-file>\ .\winrm-gen.ps1
 
