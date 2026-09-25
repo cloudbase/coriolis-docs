@@ -47,8 +47,8 @@ Item| Requirement
 API access| Coriolis can reach the CloudStack API over HTTPS  
 API permissions| Volumes, VMs, templates, offerings, networks, public IPs, firewall, static NAT, snapshots  
 Zone| Selected per Transfer; determines templates, offerings, networks, and storage  
-Offerings| Custom disk offering plus compute offerings for minion and migrated VM — see [Disk and compute offerings](https://cloudbase.it/?page_id=44185#Disk_and_compute_offerings)  
-Templates| Linux: zone cloud-init template (defaults work); Windows: custom WS2022+ template for morphing — see [Recommended Minions](https://cloudbase.it/?page_id=44185#Recommended_minions)  
+Offerings| Custom disk offering plus compute offerings for minion and migrated VM — see [Disk and compute offerings](#disk-and-compute-offerings)  
+Templates| Linux: zone cloud-init template (defaults work); Windows: custom WS2022+ template for morphing — see [Recommended Minions](#recommended-minions)  
 Primary storage| KVM storage pools mapped in Coriolis storage mappings  
 Public IPs| Account can allocate public IPs for temporary workers in the target zone  
 
@@ -220,7 +220,7 @@ Coriolis setting| Create in CloudStack| Purpose
 Disk offering| Custom (flexible-size) disk offering| Replica volumes during data replication  
 Minion service offering| Compute offering| Temporary workers (replication and OS morphing)  
 Migrated VM service offering| Compute offering| Final migrated VM after cutover  
-See [Recommended minions](https://cloudbase.it/?page_id=44185#Recommended_minions) for template choices, suggested offering names, and deploy sizing.
+See [Recommended minions](#recommended-minions) for template choices, suggested offering names, and deploy sizing.
 
 ## Target environment options
 
@@ -230,7 +230,7 @@ Option| Required| Notes
 ---|---|---  
 Zone| Yes| Target CloudStack zone  
 Linux template| Yes| Zone cloud-init template; default CloudStack templates work out of the box  
-Windows template| Windows morphing| WS2019+ with [Cloudbase-init configuration](https://cloudbase.it/?page_id=44185#Cloudbase-init_configuration); not used for data replication  
+Windows template| Windows morphing| WS2019+ with [Cloudbase-init configuration](#cloudbase-init-configuration); not used for data replication  
 Disk offering| Yes| Custom flexible disk offering  
 Minion service offering| Yes| Temporary minions  
 Migrated VM service offering| For deployments| Final VM  

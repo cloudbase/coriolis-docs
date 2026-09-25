@@ -26,7 +26,7 @@ NOTE! In a vSphere environment, the Coriolis virtual appliance must be able to c
 
 NOTE! The Coriolis virtual appliance must be able to resolve the FQDNs of the ESXi hosts if they are enrolled under vSphere.
 
-Refer to the [Network Ports Requirements page](https://cloudbase.it/coriolis-network-ports-requirements/) for more details.
+Refer to the [Network Ports Requirements page](../reference/coriolis-network-ports-requirements.md) for more details.
 
 ### Supported versions
 
@@ -34,11 +34,11 @@ Coriolis supports VMware vSphere (vCenter/ESXi) environments starting from versi
 
 ### vSphere as a source cloud
 
-For more information on using vSphere/ESXi as a **source cloud** for Replica/MIgration, please check the **[VMware as a source cloud](https://cloudbase.it/vmware-as-a-source-cloud)** page.
+For more information on using vSphere/ESXi as a **source cloud** for Replica/MIgration, please check the **[VMware as a source cloud](../platforms/vmware-as-a-source-cloud.md)** page.
 
 ### vSphere as a destination cloud
 
-For more information on using vSphere/ESXi as a **destination cloud** for Replica/MIgration, please check the **[VMware as a destination cloud](https://cloudbase.it/vmware-as-a-destination-cloud)** page.
+For more information on using vSphere/ESXi as a **destination cloud** for Replica/MIgration, please check the **[VMware as a destination cloud](../platforms/vmware-as-a-destination-cloud.md)** page.
 
 ### vSphere/ESXi connection parameters
 
@@ -80,4 +80,4 @@ Storage identification scheme| Names of datastore hosting the virtual disks(s)| 
 
 ### VMware Coriolis plugin known issues
 
-For further information regarding the VMware Plugin's known issues, please check the **[documentation page](https://cloudbase.it/vmware-plugin-known-issues)**.
+For further information regarding the VMware Plugin's known issues, please check the **[documentation page](../platform-notes/vmware-plugin-known-issues.md)**.

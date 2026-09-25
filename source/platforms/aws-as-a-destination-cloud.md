@@ -136,4 +136,4 @@ Each parameter represents:
 
 ### Troubleshooting
 
-For more information regarding Coriolis Troubleshooting, check the **[Troubleshooting page](https://cloudbase.it/coriolis-troubleshooting)**.
+For more information regarding Coriolis Troubleshooting, check the **[Troubleshooting page](../reference/coriolis-troubleshooting.md)**.

@@ -71,7 +71,7 @@ By default, Coriolis automatically creates and cleans up all of the temporary re
 
 In cases where resource usage limitations are not a factor, or where the time cost outweighs the resource allocation costs, Coriolis offers the ability to pre-allocate the Minion Machines on source/destination platforms into so-called “Minion Machine Pools”.
 
-For more information, please check the **[Minion Pools page](https://cloudbase.it/coriolis-minion-pools-operations-and-usage)**.
+For more information, please check the **[Minion Pools page](../features/coriolis-minion-pools-operations-and-usage.md)**.
 
 ### OSMorphing steps taken when Migrating/Replicating to OCI
 
@@ -94,11 +94,11 @@ The following other notable steps will be performed as part of the OSMorphing pr
 
 The OSMorphing worker images (governed by the **migr_image_map**  option) which are used for temporary disk copy/OSMorphing VMs on OCI bear no special requirements and any generic Oracle Linux or Windows OCI image may be used as long as they have cloud-init or Cloudbase-init installed and configured for a first run. Windows worker image must be an English edition or set to use English as the system language.
 
-For more information regarding the Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](https://cloudbase.it/coriolis-temporary-migration-worker) **page.
+For more information regarding the Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](../reference/coriolis-temporary-migration-worker.md) **page.
 
 ###  Oracle Cloud Infrastructure user/group policy requirements 
 
-Coriolis allows users to choose two compartments when migrating to OCI, for more details regarding the compartments and their requirements, follow **[Oracle Cloud Infrastructure user/group policy requirements documentation](https://cloudbase.it/oracle-cloud-infrastructure-user-group-policy-requirements)**.
+Coriolis allows users to choose two compartments when migrating to OCI, for more details regarding the compartments and their requirements, follow **[Oracle Cloud Infrastructure user/group policy requirements documentation](../platform-notes/oracle-cloud-infrastructure-user-group-policy-requirements.md)**.
 
 ### Oracle Cloud Infrastructure connection parameters
 

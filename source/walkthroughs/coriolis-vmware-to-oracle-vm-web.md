@@ -5,7 +5,7 @@ wp_id: 37611
 
 # Coriolis &#8211; How to migrate VMs from VMware to Oracle VM using the Web interface
 
-Beside the [command line interface (CLI)](https://cloudbase.it/coriolis-vmware-to-oracle-vm-cli), Coriolis provides a web UI designed for a guided user experience.
+Beside the [command line interface (CLI)](coriolis-vmware-to-oracle-vm-cli.md), Coriolis provides a web UI designed for a guided user experience.
 
 To begin with, just point the browser (Firefox, Chrome, Safari or Edge) to the address of your Coriolis VM. The website uses a self signed certificate by default, so you might want to add a security exception in your browser.
 

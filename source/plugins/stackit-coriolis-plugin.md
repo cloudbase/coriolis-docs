@@ -19,11 +19,11 @@ Stackit does not allow snapshotting ephemeral root disks, as such Coriolis can o
 
 ### StackIt as a source cloud
 
-For more information on using StackIt as a **source cloud** for Replica/Migration, please check the **[StackIt as a source cloud](https://cloudbase.it/stackit-as-a-source-cloud/)** page.
+For more information on using StackIt as a **source cloud** for Replica/Migration, please check the **[StackIt as a source cloud](../platforms/stackit-as-a-source-cloud.md)** page.
 
 ### StackIt as a destination cloud
 
-For more information on using StackIt as a **destination cloud** for Replica/Migration, please check the **[StackIt as a destination cloud](https://cloudbase.it/stackit-as-a-destination-cloud/)** page.
+For more information on using StackIt as a **destination cloud** for Replica/Migration, please check the **[StackIt as a destination cloud](../platforms/stackit-as-a-destination-cloud.md)** page.
 
 ### Stackit connection parameters
 

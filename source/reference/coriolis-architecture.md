@@ -21,13 +21,13 @@ There were several key design decisions made regarding Coriolis that set the pro
 
 ## Recovery Point Objective & Recovery Time Objective
 
-Before creating a Migration or a Replica Deployment, consider the two most important parameters of a data protection plan and disaster recovery strategy: Recovery Point Objective & Recovery Time Objective. For more information, please check the **[RPO& RTO documentation](https://cloudbase.it/rpo-rto)**.
+Before creating a Migration or a Replica Deployment, consider the two most important parameters of a data protection plan and disaster recovery strategy: Recovery Point Objective & Recovery Time Objective. For more information, please check the **[RPO& RTO documentation](rpo-rto.md)**.
 
 ## Modes
 
 Coriolis has two distinct modes of operation: a one-off 'move' of an instance from one platform to another ("migrations"), and continuous background sync between the state a VM on a source cloud to storage elements on the destination cloud, which are ready to deploy in case of disaster ("replicas") 
 
-For more information regarding Coriolis Modes, please check the **[Coriolis Replica/Migration Architecture document](https://cloudbase.it/coriolis-replica-architecture/)**.
+For more information regarding Coriolis Modes, please check the **[Coriolis Replica/Migration Architecture document](coriolis-replica-architecture.md)**.
 
 ## High-level architectural overview
 

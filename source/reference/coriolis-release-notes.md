@@ -651,7 +651,7 @@ This is a minor release to address several bugs and to bring several improvement
   * Introducing **Coriolis Bare Metal Agent** - migrating p2v 
     * This can also be used for v2v where platform access is limited
     * Linux Agent only is currently available
-    * More details can be found at [Coriolis Bare Metal Hub Plugin - Cloudbase Solutions](https://cloudbase.it/coriolis-bare-metal-hub-plugin/)
+    * More details can be found at [Coriolis Bare Metal Hub Plugin - Cloudbase Solutions](../plugins/coriolis-bare-metal-hub-plugin.md)
   * Introducing support for **OLVM - Oracle Linux Virtualization Manager** - as a destination platform 
     * This is backed by oVirt and KVM nodes
     * **RedHat Virtualization (RHV/RHEV)** is also supported as a destination platform
@@ -743,11 +743,11 @@ This is a minor release to address several bugs and to bring several improvement
 
   * **Coriolis OVM Exporter**
 
-Coriolis OVM Exporter brings incremental backups to OVM for more efficient migrations. The new feature is explained in detail here: [Coriolis OVM exporter - Cloudbase Solutions](https://cloudbase.it/coriolis-ovm-exporter/)
+Coriolis OVM Exporter brings incremental backups to OVM for more efficient migrations. The new feature is explained in detail here: [Coriolis OVM exporter - Cloudbase Solutions](../platform-notes/coriolis-ovm-exporter.md)
 
   * **Add OCI provider minion pool support**
 
-Alongside OpenStack, Minion Pools are now supported in OCI as well. Refer to this page for more details: [Coriolis Minion Pools operations and usage - Cloudbase Solutions](https://cloudbase.it/coriolis-minion-pools-operations-and-usage)
+Alongside OpenStack, Minion Pools are now supported in OCI as well. Refer to this page for more details: [Coriolis Minion Pools operations and usage - Cloudbase Solutions](../features/coriolis-minion-pools-operations-and-usage.md)
 
   * **Improved operations for RedHat/Oracle Linux/CentOS**
 

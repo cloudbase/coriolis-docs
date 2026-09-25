@@ -7,7 +7,7 @@ wp_id: 43243
 
 ![](_static/images/image.png)
 
-NOTE! This page has been deprecated. The new instructions are available here: [Upgrading Coriolis](https://cloudbase.it/upgrading-coriolis/)
+NOTE! This page has been deprecated. The new instructions are available here: [Upgrading Coriolis](../guides/upgrading-coriolis.md)
 
 **Coriolis** virtual appliance is comprised of a set of Docker containers, a set of Kolla OpenStack services, as well as **Coriolis** service containers. For the scope of doing an in-place upgrade for Coriolis - in particular, to a newer version, the Coriolis service containers will be updated, a process which is detailed on this page.
 

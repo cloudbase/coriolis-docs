@@ -17,7 +17,7 @@ For a VMware to SUSE Virtualization migration,  here is a representation of the 
 
 For detailed information regarding KubeVirt/Harvester capabilities and steps performed while using it as a destination cloud, please check the following page:
 
-**[KubeVirt/Harvester as a destination cloud](https://cloudbase.it/kubevirt-harvester-as-a-destination-cloud/)**
+**[KubeVirt/Harvester as a destination cloud](../platforms/kubevirt-harvester-as-a-destination-cloud.md)**
 
 ## KubeVirt Endpoint Connection Parameters
 

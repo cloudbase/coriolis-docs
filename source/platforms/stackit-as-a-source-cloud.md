@@ -17,7 +17,7 @@ In the process of replicating from Stackit, Coriolis will clone locally the volu
 
 **Input** : the ID or name of the instance to be replicated. The instance is expected to be booted from volume, an error will be raised if ephemeral root disks are used since these cannot be exported.
 
-NOTE please consider reviewing the general steps recommended to be performed before creating and executing a replica of an instance from Stackit [_here_](https://cloudbase.it/preparing-a-vm-for-migration-replication/).
+NOTE please consider reviewing the general steps recommended to be performed before creating and executing a replica of an instance from Stackit [_here_](../guides/preparing-a-vm-for-migration-replication.md).
 
 #### Steps performed by Coriolis
 

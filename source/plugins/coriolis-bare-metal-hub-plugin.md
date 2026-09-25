@@ -18,7 +18,7 @@ Source to Coriolis required ports:
   1. TCP port 9999 for communication between Coriolis and the Bare Metal Server. The port can be customized.
   2. TCP port 80 for the Coriolis certificate issuing process upon Snapshot Agent install on the Bare Metal Server. This is required only once - during Agent installation.
 
-For the Coriolis appliance to the target platform port requirements, you can refer to [this page](https://cloudbase.it/coriolis-network-ports-requirements/).
+For the Coriolis appliance to the target platform port requirements, you can refer to [this page](../reference/coriolis-network-ports-requirements.md).
 
 In the **Bare Metal Hub** , which is a UI section for Coriolis-metal-hub functionality, you will be able to:
 
@@ -57,7 +57,7 @@ The following Linux distributions have been validated, and based on the kernel m
 
 The Coriolis Snapshot Agent for Bare Metal Servers is used for the process of Replica/MIgrate to be possible, and the agent is required to be installed on the machine for Coriolis to be able to communicate with it and fetch the machine info and clone the disks.
 
-The installation guide can be found on the **[Snapshot Agent](https://cloudbase.it/installing-the-snapshot-agent) **page.
+The installation guide can be found on the **[Snapshot Agent](../bare-metal/installing-the-snapshot-agent.md) **page.
 
 ### Add Bare Metal Server using Coriolis Dashboard
 

@@ -20,7 +20,7 @@ Select the desired source and destination clouds. In this example, the chosen so
 After selecting the source Endpoint and selecting next, the new window will be “Source options”, where: 
 
   * CBT can be automatically enabled, in case the machines on the source do not have it enabled already
-  * Choose the compatibility mode for the vixDiskLib, the official VMware library Coriolis uses for exporting disk data from VMware/ESXi. By default, Coriolis is configured to use OpenVixDiskLib. Using VDDK requires additional **[setup](https://cloudbase.it/setting-up-the-vixdisklib-library/)**.
+  * Choose the compatibility mode for the vixDiskLib, the official VMware library Coriolis uses for exporting disk data from VMware/ESXi. By default, Coriolis is configured to use OpenVixDiskLib. Using VDDK requires additional **[setup](../platform-notes/setting-up-the-vixdisklib-library.md)**.
 
 Changed Block Tracking, or **CBT** , is required by Coriolis to create the VM disk on the destination side during the Replica process. It can be enabled from VM attributes on VMWare or using Coriolis' **Source options**. Automatically enabling CBT will **NOT** work if the VM that is to be migrated has pre-created snapshots, in which case Coriolis will provide a clear warning.
 
@@ -75,7 +75,7 @@ There are no added requirements for the template apart from a pre-set user/passw
 
 If Replicating Windows VMs, the Windows template must be of an equal or later version to the guests being Migrated/Replicated, as the Windows image servicing tools are not forward-compatible.
 
-For more information regarding **[Coriolis Temporary Worker VM](https://cloudbase.it/coriolis-temporary-migration-worker/)** , please check the page.
+For more information regarding **[Coriolis Temporary Worker VM](../reference/coriolis-temporary-migration-worker.md)** , please check the page.
 
 ![](_static/images/create-replica-11.jpg)
 
@@ -129,7 +129,7 @@ The **Force** option that comes as "No" by default will forcibly attempt to star
 
 **Skip OS Morphing** tells Coriolis to skip performing the **OS Morphing** process. The **OS Morphing process** includes numerous steps required to ensure that the guest OS being deployed can boot and function correctly on the target platform. Notable examples include removing any platform-specific drivers or agents that were only used on the source platform and installing the drivers/agent required by the destination platform. OS Morphing can be skipped in situations where both the source and destination platforms are using the same underlying hypervisor, such as when performing a Migration between two KVM-based OpenStack installations. For more specific details regarding the actions taken during the **OS Morphing** process for each platform, please check the **Coriolis Plugins** **pages** for the source/destination platforms you are interested in.
 
-The **User Scripts** option will allow uploading a script for installations/modifications on the guest OS being migrated. These scripts are executed right before the OS Morphing process is performed by Coriolis, thus allowing for custom modifications to the guest OS before it is booted on the destination platform. For more information, please check the **[User Scripts page](https://cloudbase.it/coriolis-user-scripts/)**.
+The **User Scripts** option will allow uploading a script for installations/modifications on the guest OS being migrated. These scripts are executed right before the OS Morphing process is performed by Coriolis, thus allowing for custom modifications to the guest OS before it is booted on the destination platform. For more information, please check the **[User Scripts page](../features/coriolis-user-scripts.md)**.
 
 ![](_static/images/Screenshot-2021-08-31-at-13.06.19.png)
 

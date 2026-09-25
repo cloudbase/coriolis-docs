@@ -32,7 +32,7 @@ The templates need the following:
   * **VMWare tools** need to be installed
   * Configuration to a **network** with a **DHCP server** , a network which Coriolis can reach
   * **Template VM config** must have a **SCSI** controller bus attached
-  * for more information regarding Coriolis' Worker template, please check the **[Coriolis Temporary Migration Worker](https://cloudbase.it/coriolis-temporary-migration-worker) **page.
+  * for more information regarding Coriolis' Worker template, please check the **[Coriolis Temporary Migration Worker](../reference/coriolis-temporary-migration-worker.md) **page.
 
 #### Replica executions
 
@@ -132,6 +132,6 @@ In the situation of creating a **Replica Deployment** using an existing **Replic
 #### Windows
 
   * install the VMWare drivers 
-    * required tools and drivers. Instructions are found on the **[OS Morphing tools and drivers](https://cloudbase.it/vmware-tools-and-drivers-for-osmorphing)** page.
+    * required tools and drivers. Instructions are found on the **[OS Morphing tools and drivers](../platform-notes/vmware-tools-and-drivers-for-osmorphing.md)** page.
 
 **NOTE:** During the OSMorphing process, Coriolis will install only the drivers from the **VMware Tools ZIP file**. For full integration of the guest instance with the VMware platform, the user should install the VMware Tools after the instance migration is complete. Refer to the following VMware KB article for more details: [How to install VMware Tools (1014294)](https://kb.vmware.com/s/article/1014294)

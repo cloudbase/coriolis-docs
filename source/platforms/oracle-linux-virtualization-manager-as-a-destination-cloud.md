@@ -73,7 +73,7 @@ On Windows, download the VirtIO drivers using the [**official archive**](https:/
 
 #### Post-completion
 
-After completing the **qemu-guest-agent** install, depending on the OS type selected **Linux or Windows** , follow the [**temporary worker**](https://cloudbase.it/coriolis-temporary-migration-worker) page for the completing steps.
+After completing the **qemu-guest-agent** install, depending on the OS type selected **Linux or Windows** , follow the [**temporary worker**](../reference/coriolis-temporary-migration-worker.md) page for the completing steps.
 
 **Note:** For Windows VMs, the temporary worker image version must be at least the same as the OS of the VM that needs to be migrated.
 
@@ -113,7 +113,7 @@ Depending on the Coriolis configuration, the disk copy worker might have to do s
 
 The images do **NOT** require any special Coriolis agent running in them and can be images already available on oVirt, granted the following requirements:
 
-  * When Migrating a Windows VM, **[the temporary worker image](https://cloudbase.it/coriolis-temporary-migration-worker)** version used for the temporary worker**must be the same** as the one for the VM replicated/migrated or **newer**.
+  * When Migrating a Windows VM, **[the temporary worker image](../reference/coriolis-temporary-migration-worker.md)** version used for the temporary worker**must be the same** as the one for the VM replicated/migrated or **newer**.
   * image must have **VirtIO drivers** and ovirt **guest agent/qemu guest agent** For VirtIO drivers, please follow the **[official page](https://docs.fedoraproject.org/en-US/quick-docs/creating-windows-virtual-machines-using-virtio-drivers/)** for download for the community drivers, or use the Oracle VirtIO drivers.
 
 ## Configuration Options

@@ -9,7 +9,7 @@ wp_id: 41765
 
 Before installing the snapshot agent on the machines, make sure that storage and network requirements are met.
 
-For more information regarding it, please check **[Snapshot Agent for Bare Metal Servers prerequisites](https://cloudbase.it/snapshot-agent-for-bare-metal-servers-prerequisites)** page.
+For more information regarding it, please check **[Snapshot Agent for Bare Metal Servers prerequisites](snapshot-agent-for-bare-metal-servers-prerequisites.md)** page.
 
 #### Download the Coriolis Snapshot Agent
 
@@ -82,7 +82,7 @@ tar -xvzf coriolis-snapshot-agent.tar.gz
 
 #### Coriolis Snapshot Agent Config
 
-With the installation complete, **Coriolis Snapshot Agent** will create a config file containing the selected options and the agent defaults. For more information on the **config file** , check the **[Coriolis Snapshot Agent Config](https://cloudbase.it/coriolis-snapshot-agent-config)** page.
+With the installation complete, **Coriolis Snapshot Agent** will create a config file containing the selected options and the agent defaults. For more information on the **config file** , check the **[Coriolis Snapshot Agent Config](coriolis-snapshot-agent-config.md)** page.
 
 #### Other considerations
 

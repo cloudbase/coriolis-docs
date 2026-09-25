@@ -13,7 +13,7 @@ wp_id: 42651
 
 For detailed information regarding MicroCloud capabilities and performed steps while using it as a destination cloud, please check the following page:
 
-**[MicroCloud (LXD) as a Destination Cloud](https://cloudbase.it/microcloud-lxd-as-a-destination-cloud)**
+**[MicroCloud (LXD) as a Destination Cloud](../platforms/microcloud-lxd-as-a-destination-cloud.md)**
 
 ## LXD Endpoint Connection Parameters
 

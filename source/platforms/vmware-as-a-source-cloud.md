@@ -56,7 +56,7 @@ Coriolis supports two mechanisms for exporting VMware virtual disks:
   * **OpenVixDiskLib** — This is the **default** export mechanism. **[OpenVixDiskLib](https://github.com/cloudbase/OpenVixDiskLib) **is Coriolis's own implementation of the VixDiskLib interface and is included in the Coriolis appliance. No additional installation or configuration is required.
   * **VMware VDDK** — Coriolis can alternatively use VMware's official **Virtual Disk Development Kit (VDDK)**. Using VDDK requires the user to **download and install VDDK separately in the Coriolis appliance** and configure Coriolis to use it.
 
-**Note:** Before configuring Coriolis to use VDDK, follow the **[VDDK setup guide](https://cloudbase.it/setting-up-the-vixdisklib-library/)** to download, install, and configure the required VDDK components in the Coriolis appliance.
+**Note:** Before configuring Coriolis to use VDDK, follow the **[VDDK setup guide](../platform-notes/setting-up-the-vixdisklib-library.md)** to download, install, and configure the required VDDK components in the Coriolis appliance.
 
 #### Additional Requirements and Considerations
 
@@ -64,7 +64,7 @@ Coriolis supports two mechanisms for exporting VMware virtual disks:
     * **DC1/somevmfolder/The VM**
     * For VMs located directly under the datacenter, the datacenter name can be omitted: **The VM**
   * **ESXi host name resolution:** The Coriolis virtual appliance must be able to resolve the **FQDNs of the ESXi hosts** registered with vSphere. If DNS resolution is not available, you can manually add the required FQDN entries to the Coriolis appliance's hosts file using the Coriolis console interface.
-  * **Network connectivity:** Ensure that the required network connectivity between the Coriolis appliance and the VMware infrastructure is available. See the [Network Ports Requirements](https://cloudbase.it/coriolis-network-ports-requirements/) page for the required ports.
+  * **Network connectivity:** Ensure that the required network connectivity between the Coriolis appliance and the VMware infrastructure is available. See the [Network Ports Requirements](../reference/coriolis-network-ports-requirements.md) page for the required ports.
   * **Static IP preservation:** If the migration is configured to keep the static IP addresses, VMware Tools must be installed and available on the source VM. The VM must also be **powered on at least once** while Coriolis collects VM information from the source VM (which happens on any Transfer Execution or Transfer Update). If the VM is required to be powered off for transfer, users must use the **Shutdown Instance** execution option instead of manually shutting down. 
   * **Third-party backup software:** If third-party backup software uses or locks **VSS** on Windows source VMs, consider temporarily pausing the backup software for the duration of the migration. This includes backup solutions that install an agent inside the Windows VM.
 
@@ -87,7 +87,7 @@ The following notable steps will be performed as part of the OSMorphing process 
 
   * uninstall the VMWare guest tools and drivers
 
-For more information regarding the Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](https://cloudbase.it/coriolis-temporary-migration-worker) **page.
+For more information regarding the Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](../reference/coriolis-temporary-migration-worker.md) **page.
 
 ### Required permissions in vCenter
 

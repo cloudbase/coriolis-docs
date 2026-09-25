@@ -30,7 +30,7 @@ $ ~/coriolis-docker/expose_coriolis.py
 
 Defining Endpoints in Coriolis represent a one time job, once stored Coriolis will be able to use the Endpoint details to further perform Replica/Migration jobs.
 
-For instructions on how to create Coriolis Endpoints please check Defining a Coriolis endpoint for a given cloud under **[Coriolis CLI](https://cloudbase.it/coriolis-cli)** page.
+For instructions on how to create Coriolis Endpoints please check Defining a Coriolis endpoint for a given cloud under **[Coriolis CLI](coriolis-cli.md)** page.
 
 ## Creating migration jobs
 
@@ -108,7 +108,7 @@ The above command will define a replication job with Coriolis, which may be late
 
 #### Cloud specific parameters for Source/Destination environments
 
-For more information regarding the **Source/Destination cloud specific parameters** , please check the **[Coriolis Replica/Migration parameters](https://cloudbase.it/coriolis-replica-migration-cli-parameters)** list.
+For more information regarding the **Source/Destination cloud specific parameters** , please check the **[Coriolis Replica/Migration parameters](coriolis-replica-migration-cli-parameters.md)** list.
 
 The list that is available on **Coriolis Replica/Migration parameters** page can be shown using the following commands on Coriolis machine:
 

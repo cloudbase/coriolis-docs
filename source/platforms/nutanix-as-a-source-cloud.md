@@ -46,7 +46,7 @@ Transfer Migrations from Nutanix operate in the same way Transfer Replicas do an
 
 #### Requirements:
 
-Please consider reviewing the general steps recommended to be performed before creating and executing a replica of an instance from Nutanix [_here_](https://cloudbase.it/preparing-a-vm-for-migration-replication/).
+Please consider reviewing the general steps recommended to be performed before creating and executing a replica of an instance from Nutanix [_here_](../guides/preparing-a-vm-for-migration-replication.md).
 
 #### Steps performed by Coriolis
 

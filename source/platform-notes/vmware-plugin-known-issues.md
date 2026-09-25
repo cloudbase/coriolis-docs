@@ -32,7 +32,7 @@ This can be avoided if the **Coriolis Endpoint** is created using the **IP** of 
 
 If the above message occurs, it is an internal VMWare type of error that causes CBT data to be corrupted and thus, unexportable. This is a VMware software issue, and Coriolis is merely passing further to the user the error it receives from the hypervisor.
 
-The following steps have been observed to solve this error. Further assistance can be found on the CBT Reset **[documentation page](https://cloudbase.it/vmware-vm-cbt-reset-guide)** if the problem remains.
+The following steps have been observed to solve this error. Further assistance can be found on the CBT Reset **[documentation page](vmware-vm-cbt-reset-guide.md)** if the problem remains.
 
   * disable and then re-enable **CBT** on the**VM** (while the VM is powered off).
 
@@ -79,7 +79,7 @@ There is no clear solution, but using vMotion to migrate the VM to another ESXi 
 Suggested workarounds (in order of likelihood):
 
   * **Perform a CBT reset for the instance. Instructions are available on the CBT Reset page below:**
-    * CBT Reset **[documentation page](https://cloudbase.it/vmware-vm-cbt-reset-guide)**.
+    * CBT Reset **[documentation page](vmware-vm-cbt-reset-guide.md)**.
   * using vMotion to move the VM to a different ESXi host
   * using vMotion to move the VM to a different datastore
   * manually delete the CTK data off of the datastore with the VM powered off (there should be a file named "*-ctk.vmdk" within the same directory as the VMDK file in the error report)
@@ -122,7 +122,7 @@ In case the error remains, you can check the vixdisklib log file located under t
 
 This usually occurs when Change Block Tracking (CBT) is not enabled for the VM being backed up. CBT is required for Coriolis to be able to perform a live snapshot of the running source VM.
 
-To fix this issue, perform a CBT reset for the source VM. Instructions are available on the [CBT Reset page](https://cloudbase.it/vmware-vm-cbt-reset-guide) or by following VMware's official documentation.
+To fix this issue, perform a CBT reset for the source VM. Instructions are available on the [CBT Reset page](vmware-vm-cbt-reset-guide.md) or by following VMware's official documentation.
 
 * * *
 

@@ -95,6 +95,6 @@ The parameters for Source Options are the following:
     * If set to **Ceph Backups** : Coriolis will create a Cinder backup and will connect to the source Ceph via RADOS and retrieve chunks of disks.
     * if set to **Ceph snapshots** : Coriolis will create a Cinder snapshot for the disks and fetch the diff chunks from the source Ceph.
 
-The steps that follow the ones mentioned above are identical to **[OpenStack Replica/Migration](https://cloudbase.it/openstack-as-a-destination-cloud)**.
+The steps that follow the ones mentioned above are identical to **[OpenStack Replica/Migration](../platforms/openstack-as-a-destination-cloud.md)**.
 
-Coriolis Minion Pools can also be fully managed using CLI. For more information, please check **[Coriolis CLI](https://cloudbase.it/coriolis-cli)** page.
+Coriolis Minion Pools can also be fully managed using CLI. For more information, please check **[Coriolis CLI](../reference/coriolis-cli.md)** page.

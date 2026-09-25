@@ -54,7 +54,7 @@ chmod +x /usr/local/bin/coriolis-ovm-exporter
 mkdir /etc/coriolis-ovm-exporter && cd /etc/coriolis-ovm-exporter
 ```
 
-5\. Coriolis uses an encrypted connection to the Coriolis OVM Exporter agent, and thus an SSL certificate is required. If you decide to use **self-signed certificates** , make sure you enable "**Allow insecure**" in the Endpoint connection information for your source cloud (**[Coriolis Endpoint page](https://cloudbase.it/coriolis-endpoints)**).
+5\. Coriolis uses an encrypted connection to the Coriolis OVM Exporter agent, and thus an SSL certificate is required. If you decide to use **self-signed certificates** , make sure you enable "**Allow insecure**" in the Endpoint connection information for your source cloud (**[Coriolis Endpoint page](../guides/coriolis-endpoints.md)**).
 
 The certificated from a trusted third-party authority or self-signed user-generated certificates must be copied to the newly-created directory.
 

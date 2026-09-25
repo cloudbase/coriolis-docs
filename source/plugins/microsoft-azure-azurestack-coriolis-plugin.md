@@ -26,11 +26,11 @@ The Coriolis Azure plugin only supports interacting with Azure through the Resou
 
 ### Azure as a source cloud
 
-For more information regarding **[Azure as a source cloud](https://cloudbase.it/azure-as-a-source-cloud)** , please check the documentation page.
+For more information regarding **[Azure as a source cloud](../platforms/azure-as-a-source-cloud.md)** , please check the documentation page.
 
 ### Azure as a destination cloud
 
-For more information regarding **[Azure as a destination cloud](https://cloudbase.it/azure-as-a-destination-cloud)** , please check the documentation page. 
+For more information regarding **[Azure as a destination cloud](../platforms/azure-as-a-destination-cloud.md)** , please check the documentation page. 
 
 ### Required permissions
 

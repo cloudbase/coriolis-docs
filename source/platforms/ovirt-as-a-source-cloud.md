@@ -63,7 +63,7 @@ The following notable steps will be performed as part of the OSMorphing process 
 
   * if not needed on the destination, the following packages will be uninstalled: cloud-init, qemu-guest-agent (or its legacy counterpart, ovirt-guest-agent)
 
-For more information regarding the Coriolis Worker template, please check the **[Coriolis Temporary Migraiton Worker](https://cloudbase.it/coriolis-temporary-migration-worker)** page.
+For more information regarding the Coriolis Worker template, please check the **[Coriolis Temporary Migraiton Worker](../reference/coriolis-temporary-migration-worker.md)** page.
 
 ### Configuration Options
 

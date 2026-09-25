@@ -7,7 +7,7 @@ wp_id: 39361
 
 This section will provide an overview of how to use the CLI and API to interact with Coriolis.
 
-For an overview of the functioning and mechanics of Coriolis, please review the Product Overview page **[here](https://cloudbase.it/coriolis-getting-started)**.
+For an overview of the functioning and mechanics of Coriolis, please review the Product Overview page **[here](../guides/coriolis-getting-started.md)**.
 
 Due to Coriolis' pluggable nature, this guide presents general interactions with Coriolis and applies to working with any source/destination cloud Coriolis supports. Please review the documentation of each respective cloud's Coriolis plugin to get exact details on the required fields of parameters, such as the **- -connection** or  **- -destination-environment** 
 
@@ -304,13 +304,13 @@ Using the replica migration job's ID to reference it, you may run the same "Cori
 
 ### Coriolis Replica/Migration task tutorial
 
-For more information on how to create a Replica/Migration using Coriolis' CLI, please check the **[Coriolis Replica/Migration task](https://cloudbase.it/coriolis-cli-example)** page.
+For more information on how to create a Replica/Migration using Coriolis' CLI, please check the **[Coriolis Replica/Migration task](coriolis-cli-example.md)** page.
 
 ## Coriolis Minion Pools
 
 Coriolis Minion Pools are a resource that relies on **temporary virtual machines,** which it deploys on the source/target platforms to perform various actions during transfer operations during **Coriolis Replica/Migration jobs**.
 
-For more information regarding Coriolis Minion Pools using CLI, please check **[Minion Pools- Creation and Management](https://cloudbase.it/minion-pools---creation-and-management)** page.
+For more information regarding Coriolis Minion Pools using CLI, please check **[Minion Pools- Creation and Management](../features/minion-pools-creation-and-management.md)** page.
 
 ## Coriolis REST API
 

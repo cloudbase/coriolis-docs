@@ -9,7 +9,7 @@ Some workloads attach the same disk to multiple virtual machines at the same tim
 
 Coriolis supports migrating these workloads as a single clustered transfer. Coriolis identifies each shared disk once, transfers its data once, and then attaches the migrated disk to every destination instance that requires it.
 
-This section describes destination-side behavior and the end-to-end requirements for migrating shared disks. For source-side export behavior affecting disks that cannot use Changed Block Tracking (CBT), including shared disks and disks configured in VMware Independent mode, see [**Disks that do not support CBT**](https://cloudbase.it/vmware-as-a-source-cloud/#Disks_that_do_not_support_CBT).
+This section describes destination-side behavior and the end-to-end requirements for migrating shared disks. For source-side export behavior affecting disks that cannot use Changed Block Tracking (CBT), including shared disks and disks configured in VMware Independent mode, see [**Disks that do not support CBT**](../platforms/vmware-as-a-source-cloud.md#disks-that-do-not-support-cbt).
 
 **NOTE!** All source VMs that share a disk must be powered off during Transfer Execution.
 

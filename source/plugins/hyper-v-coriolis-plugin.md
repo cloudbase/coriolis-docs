@@ -186,7 +186,7 @@ For exported VMs, Coriolis will take the following OSMorphing steps as part of t
 
   * no OSMorphing steps are taken as the integration services are part of the Windows guest OS itself
 
-For more information regarding the Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](https://cloudbase.it/coriolis-temporary-migration-worker) **page.
+For more information regarding the Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](../reference/coriolis-temporary-migration-worker.md) **page.
 
 ### RCT service installation and configuration procedure
 

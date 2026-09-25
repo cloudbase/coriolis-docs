@@ -17,7 +17,7 @@ In the process of replicating from an OpenStack, Coriolis will clone locally the
 
 **Input** : the ID or name (if and only if it is unique in the given tenant) of the instance to be replicated. The instance can be booted either from a Cinder volume or directly from a Glance image. 
 
-NOTE please consider reviewing the general steps recommended to be performed before creating and executing a replica of an instance from OpenStack [her](https://cloudbase.it/preparing-a-vm-for-migration-replication/)[e](https://cloudbase.it/preparing-a-vm-for-migration-replication/).
+NOTE please consider reviewing the general steps recommended to be performed before creating and executing a replica of an instance from OpenStack [her](../guides/preparing-a-vm-for-migration-replication.md)[e](../guides/preparing-a-vm-for-migration-replication.md).
 
 #### Steps performed by Coriolis
 
@@ -42,7 +42,7 @@ In the process of replicating from an OpenStack, Coriolis will use Cinder-backup
 
 **Input** : the ID or name (if and only if it is unique in the given tenant) of the instance to be replicated. The instance must be booted from a Cinder volume to replicate through Cinder backups.
 
-NOTE please consider reviewing the general steps recommended to be performed before creating and executing a replica of an instance from OpenStack [here](https://cloudbase.it/preparing-a-vm-for-migration-replication/).
+NOTE please consider reviewing the general steps recommended to be performed before creating and executing a replica of an instance from OpenStack [here](../guides/preparing-a-vm-for-migration-replication.md).
 
 #### Steps performed by Coriolis
 
@@ -65,7 +65,7 @@ In the process of replicating from an OpenStack, Coriolis will use Cinder-snapsh
 
 **Input** : the ID or name (if and only if it is unique in the given tenant) of the instance to be replicated. The instance must be booted from a Cinder volume to replicate. Coriolis cannot replicate instances booted off of Glance images.
 
-NOTE please consider reviewing the general steps recommended to be performed before creating and executing a replica of an instance from OpenStack [here](https://cloudbase.it/preparing-a-vm-for-migration-replication).
+NOTE please consider reviewing the general steps recommended to be performed before creating and executing a replica of an instance from OpenStack [here](../guides/preparing-a-vm-for-migration-replication.md).
 
 #### Steps performed by Coriolis
 
@@ -87,7 +87,7 @@ Depending on the virtualization technology used and the OS release we are migrat
 
 In Windows instances, the recommendation is to manually uninstall the VirtIO drivers or any integration tools, given that the destination cloud is different from the source one.
 
-For more information regarding the Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](https://cloudbase.it/coriolis-temporary-migration-worker) **page.
+For more information regarding the Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](../reference/coriolis-temporary-migration-worker.md) **page.
 
 ![](_static/images/openstack-source.jpg)
 

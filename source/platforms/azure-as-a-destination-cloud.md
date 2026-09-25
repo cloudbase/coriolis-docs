@@ -259,4 +259,4 @@ The images do **NOT** require any special Coriolis agent running in them and can
 
 **Windows** : the Windows image should have the Azure provisioning agent OR cloudbase-init installed and configured for the first boot. Coriolis will create a unique password for each migration deployment and use it to set up WinRM access via a VM extension.
 
-For more information regarding the Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](https://cloudbase.it/coriolis-temporary-migration-worker) **page.
+For more information regarding the Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](../reference/coriolis-temporary-migration-worker.md) **page.

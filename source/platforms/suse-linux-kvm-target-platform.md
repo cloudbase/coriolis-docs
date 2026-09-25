@@ -94,7 +94,7 @@ Save the configuration and start a sysprep process, then shut down the Windows V
 
 Place the resulting QCOW2 disk image in a dir-type Libvirt storage pool on the destination host.
 
-For more information regarding the Coriolis Worker image, please check the [_Coriolis Temporary Migration Worker_](https://cloudbase.it/coriolis-temporary-migration-worker/) page.
+For more information regarding the Coriolis Worker image, please check the [_Coriolis Temporary Migration Worker_](../reference/coriolis-temporary-migration-worker.md) page.
 
 ## OSMorphing steps
 

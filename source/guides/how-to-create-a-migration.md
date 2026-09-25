@@ -20,7 +20,7 @@ Select the desired source and destination clouds. In this example, the chosen so
 After selecting the source Endpoint and selecting next, the new window will be “Source options”, where: 
 
   * CBT can be automatically enabled, in case the machines on the source do not have it enabled already
-  * Choose the compatibility mode for the vixDiskLib, the official VMware library Coriolis uses for exporting disk data from VMware/ESXi. By default, Coriolis is configured to use OpenVixDiskLib. Using VDDK requires additional **[setup](https://cloudbase.it/setting-up-the-vixdisklib-library/)**.
+  * Choose the compatibility mode for the vixDiskLib, the official VMware library Coriolis uses for exporting disk data from VMware/ESXi. By default, Coriolis is configured to use OpenVixDiskLib. Using VDDK requires additional **[setup](../platform-notes/setting-up-the-vixdisklib-library.md)**.
 
 Changed Block Tracking, or **CBT** , is required by Coriolis to create the VM disk on the destination side during the Replica process. It can be enabled from VM attributes on VMware or using Coriolis' **Source options**. Automatically enabling CBT will **NOT** work if the VM that is to be migrated has pre-created snapshots, in which case Coriolis will provide a clear warning.
 
@@ -73,7 +73,7 @@ There are no added requirements for the template.
 
 If Migrating Windows VMs, the Windows template must be of an equal or later version to the guests being Migrated/Replicated, as the Windows image servicing tools are not forward-compatible.
 
-For more information regarding **[Coriolis Temporary Worker VM](https://cloudbase.it/coriolis-temporary-migration-worker/)** , please check the page.
+For more information regarding **[Coriolis Temporary Worker VM](../reference/coriolis-temporary-migration-worker.md)** , please check the page.
 
 ![](_static/images/create-replica-11.jpg)
 

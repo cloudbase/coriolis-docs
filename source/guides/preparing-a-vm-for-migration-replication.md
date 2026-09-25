@@ -46,7 +46,7 @@ Depending on the situation, there are several aspects apart from the MAC address
   * check package repositories for local sources. The sources should be available from the destination Cloud during the OSMorphing stage. Any local sources i.e. CD-ROM should be commented out. 
     * make sure that the repositories are updated successfully on the source VM
     * for RedHat-based distros use "**yum update**" and for Debian/Ubuntu use "**apt update**"
-    * if the repositories are not available or reachable on the target platform, the packages can be manually pre-installed by the user on the source VM before running the Coriolis migration. The required packages are outlined [here](https://cloudbase.it/coriolis-airgapped-environments/#Other_considerations). This skip check on the repository validity has been superseded by checking for the required packages to be pre-installed, starting with Coriolis v2603.4.
+    * if the repositories are not available or reachable on the target platform, the packages can be manually pre-installed by the user on the source VM before running the Coriolis migration. The required packages are outlined [here](coriolis-airgapped-environments.md#other-considerations). This skip check on the repository validity has been superseded by checking for the required packages to be pre-installed, starting with Coriolis v2603.4.
 
 ### Recommended steps for Windows VMs 
 

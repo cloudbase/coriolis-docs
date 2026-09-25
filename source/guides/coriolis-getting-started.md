@@ -26,7 +26,7 @@ Both options are available in Coriolis Dashboard under **Transfers**.
 
 ![](_static/images/Screenshot_10-7-2025_17534_10.8.254.69.jpeg)
 
-For more information regarding Coriolis' Replica and Migration Architecture, check the [**Coriolis ' Architecture page**](https://cloudbase.it/coriolis-architecture/).
+For more information regarding Coriolis' Replica and Migration Architecture, check the [**Coriolis ' Architecture page**](../reference/coriolis-architecture.md).
 
 ### About this guide
 
@@ -53,13 +53,13 @@ The Coriolis virtual appliance is configured to automatically discover and perfo
 
 Coriolis is provided as an OVA file, which can be deployed on one of the supported platforms.
 
-For the deployment tutorial, please follow the [**Installation guide**](https://cloudbase.it/install-coriolis/).
+For the deployment tutorial, please follow the [**Installation guide**](install-coriolis.md).
 
 ## Coriolis Console Menu
 
 The Coriolis Console Menu is an Interactive User Console that can be accessed using the serial console of the Coriolis Appliance once the installation is complete. It will offer you options to inspect or modify the credentials, networks, and configuration files, as well as use Coriolis via CLI.
 
-For more information, please check the **[Coriolis Console Menu](https://cloudbase.it/coriolis-console-menu)** page.
+For more information, please check the **[Coriolis Console Menu](coriolis-console-menu.md)** page.
 
 ## Coriolis License
 
@@ -67,7 +67,7 @@ Coriolis Licenses are required to perform Replicas/Migrations.
 
 Replica and Migration licenses are counted separately and on a per-VM basis. In the case of a Replica, which is a continuous syncing process, a valid license is required when both creating the Replica and for the following syncs.
 
-For further information, please check **[Coriolis Licensing](https://cloudbase.it/coriolis-license/)**.
+For further information, please check **[Coriolis Licensing](coriolis-license.md)**.
 
 ## Supported source and destination platforms
 
@@ -161,13 +161,13 @@ Windows Server 2012 R2 has officially reached the End of Support from Microsoft.
 
 Older or unsupported Linux distribution releases may require custom support due to factors such as target platform compatibility, availability of guest OS package repositories, and other considerations. Please contact us for more details.
 
-The firmware type (BIOS or UEFI) is automatically matched for the migrated VM, considering that the target platform supports the same firmware model, including features such as Secure Boot. More details can be found [here](https://cloudbase.it/preparing-a-vm-for-migration-replication/#Firmware_type_support).
+The firmware type (BIOS or UEFI) is automatically matched for the migrated VM, considering that the target platform supports the same firmware model, including features such as Secure Boot. More details can be found [here](preparing-a-vm-for-migration-replication.md#firmware-type-support).
 
 ## Coriolis Endpoints
 
 Coriolis will save the connection details to your source and destination platforms as Cloud Endpoints. Having Cloud Endpoints will allow you to create transfer jobs to or from the platforms specified within the Cloud Endpoints.
 
-To use the Coriolis Endpoints, please follow the **[Endpoints guide](https://cloudbase.it/coriolis-endpoints/)**.
+To use the Coriolis Endpoints, please follow the **[Endpoints guide](coriolis-endpoints.md)**.
 
 For more information regarding each supported platform, please check the corresponding page of the plugin:
 
@@ -205,7 +205,7 @@ For Virtuozzo's VHI platform, please refer to the OpenStack Coriolis plugin page
 
 Before starting the migration process, there is a list of recommended steps to take on a VM running on a supported source platform that is planned to be migrated/replicated with Coriolis. While these steps are not mandatory, they are recommended to ensure the smoothest migration possible.
 
-For information regarding the steps for preparing a VM, please check the **[Preparing a VM for Replica/Migration page](https://cloudbase.it/preparing-a-vm-for-migration-replication/)**.
+For information regarding the steps for preparing a VM, please check the **[Preparing a VM for Replica/Migration page](preparing-a-vm-for-migration-replication.md)**.
 
 **Note!** When preparing for a **Replica/Migration** , Coriolis will create the disks on the destination platform with an **additional 1GB** to their original size. The 1GB disk size to be added is most common for all platforms, as it is the smallest unit of measure that the clouds support.
 
@@ -217,9 +217,9 @@ The additional disk size on the destination platform is required to cover situat
 
 The source VM continues to run throughout the data synchronization process, without downtime or service impact.
 
-For tutorials and more information on **Migrations** , please check the [**How to create a Migration**](https://cloudbase.it/how-to-create-a-migration) page.
+For tutorials and more information on **Migrations** , please check the [**How to create a Migration**](how-to-create-a-migration.md) page.
 
-For **DR** information and tutorials, please check the **[How to create a Replica](https://cloudbase.it/how-to-create-a-replica) **page.
+For **DR** information and tutorials, please check the **[How to create a Replica](how-to-create-a-replica.md) **page.
 
 ## Migrating Disk-encrypted workloads
 
@@ -239,9 +239,9 @@ The temporary passphrase or protector is therefore used only to facilitate OSMor
 
 Check the user guides below for more information:
 
-[**Migrating Linux VMs encrypted with LUKS**](https://cloudbase.it/migrating-linux-vms-encrypted-with-luks/)
+[**Migrating Linux VMs encrypted with LUKS**](../features/migrating-linux-vms-encrypted-with-luks.md)
 
-**[Migrating Windows VMs encrypted with BitLocker](https://cloudbase.it/migrating-windows-vms-encrypted-with-bitlocker/)**
+**[Migrating Windows VMs encrypted with BitLocker](../features/migrating-windows-vms-encrypted-with-bitlocker.md)**
 
 **Note:**  Encrypted VM migrations are currently supported only when migrating to the following destination platforms:
 
@@ -254,7 +254,7 @@ Support for additional destination platforms will be added in future releases.
 
 Coriolis Minion Pool feature will allow the creation of **worker VMs (Minions)** on Source/Destination clouds that will act as Coriolis **temporary resources** during the **Replica/Migration** process. **Minion Pools** will improve the **time efficiency** for the Replica/Migration process, as Coriolis will no longer need to create the temporary resources and clean up when the process finishes.
 
-For more information, please check the **[Coriolis Minion Pools Operation and Usage](https://cloudbase.it/coriolis-minion-pools-operations-and-usage)** page.
+For more information, please check the **[Coriolis Minion Pools Operation and Usage](../features/coriolis-minion-pools-operations-and-usage.md)** page.
 
 The Minion Pool requires a DHCP-enabled network for the workers, so it can automatically scale up new workers and be able to connect to them. A separate and restricted network for the scope of the migration network can be created and have DHCP, which can be removed post-migration.
 
@@ -264,15 +264,15 @@ In case a DHCP server is not available or cannot be used, temporary Coriolis wor
 
 Coriolis provides the option for multiple users to access a variety of roles to the default Project or a new one. In Coriolis, **multiple Projects can coexist** using different or the same Endpoints, but listing only the **Replica/Migration** processes performed on that Project.
 
-For more information, please check the **[Coriolis Projects and Users documentation](https://cloudbase.it/coriolis-projects-and-users)** page.
+For more information, please check the **[Coriolis Projects and Users documentation](coriolis-projects-and-users.md)** page.
 
 ## Coriolis CLI and API
 
-Besides the Coriolis Dashboard, a command-line interface is available for all the Coriolis operations, as well as an API Please find more information on the **[Coriolis CLI page](https://cloudbase.it/coriolis-cli)**.
+Besides the Coriolis Dashboard, a command-line interface is available for all the Coriolis operations, as well as an API Please find more information on the **[Coriolis CLI page](../reference/coriolis-cli.md)**.
 
 ## Troubleshooting
 
-When encountering any issue during one of the above processes, the **Coriolis Logs** option is available from both **Coriolis CLI** and**Coriolis GUI**. For more information on logs, please check the **[Coriolis Logs page](https://cloudbase.it/coriolis-logs/)**. For more information regarding Coriolis Troubleshooting, check the **[Troubleshooting page](https://cloudbase.it/coriolis-troubleshooting)**.
+When encountering any issue during one of the above processes, the **Coriolis Logs** option is available from both **Coriolis CLI** and**Coriolis GUI**. For more information on logs, please check the **[Coriolis Logs page](../reference/coriolis-logs.md)**. For more information regarding Coriolis Troubleshooting, check the **[Troubleshooting page](../reference/coriolis-troubleshooting.md)**.
 
 * * *
 

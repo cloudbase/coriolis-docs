@@ -47,4 +47,4 @@ cloudbase@ubuntu24luks:~$ sudo cryptsetup luksDump /dev/sda3
 
 ### Known Issues
 
-[Troubleshooting LUKS-encrypted migrations](https://cloudbase.it/coriolis-troubleshooting/#Troubleshooting_LUKS-encrypted_migrations)
+[Troubleshooting LUKS-encrypted migrations](../reference/coriolis-troubleshooting.md#troubleshooting-luks-encrypted-migrations)

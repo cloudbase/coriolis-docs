@@ -134,4 +134,4 @@ Depending on the OS release we are migrating, the following notable steps will b
   * installing the VirtIO drivers
   * installing cloudbase-init and enabling cloudbase-init service
 
-For more information regarding the Coriolis Worker template, please check the [Coriolis Temporary Migration Worker](https://cloudbase.it/coriolis-temporary-migration-worker) page.
+For more information regarding the Coriolis Worker template, please check the [Coriolis Temporary Migration Worker](../reference/coriolis-temporary-migration-worker.md) page.

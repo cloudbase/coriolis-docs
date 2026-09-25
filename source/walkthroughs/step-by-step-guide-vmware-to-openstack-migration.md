@@ -9,7 +9,7 @@ wp_id: 43627
 
 Coriolis virtual appliance is provided in the format of an OVA file. This can be deployed directly as-is on VMware.
 
-The VMDK disk file must be extracted and converted into the required virtual disk format for other platforms. More details on this can be found in the [**install guide here**](https://cloudbase.it/install-coriolis/)
+The VMDK disk file must be extracted and converted into the required virtual disk format for other platforms. More details on this can be found in the [**install guide here**](../guides/install-coriolis.md)
 
 ### Obtain Coriolis License
 
@@ -146,7 +146,7 @@ For Linux OS images, we recommend using **Ubuntu Server 20.04 LTS (or newer)** ,
 
 When Migrating Windows VMs, the Windows VM template must be based on the same version of the VM to be migrated
 
-More information on configuring the Windows Migration Template can be found on the **[Coriolis Temporary Migration Worker page](https://cloudbase.it/coriolis-temporary-migration-worker/)**.
+More information on configuring the Windows Migration Template can be found on the **[Coriolis Temporary Migration Worker page](../reference/coriolis-temporary-migration-worker.md)**.
 
 ## Migration process
 
@@ -170,7 +170,7 @@ For VMware as a source platform, the options are represented by:
   * vixDiskLib compatibility mode - it is set to 8.0 by default, and it is backwards compatible in the case that your VMware runs on older versions
   * Use VM Hostname as Instance Name - if enabled, Coriolis will use the hostname of the machine to identify it more easily
 
-All the platform specifics are available on **[VMware as a source page](https://cloudbase.it/vmware-as-a-source-cloud/)**.
+All the platform specifics are available on **[VMware as a source page](../platforms/vmware-as-a-source-cloud.md)**.
 
 ![](_static/images/mgr4.png)
 
@@ -184,7 +184,7 @@ Once the source details are set, the next step will provide the target platform 
 
 Once the target platform is selected, target options must be allocated to the VM/VMs to be migrated.
 
-All the options are found on the[ **OpenStack as a destination page**](https://cloudbase.it/openstack-as-a-destination-cloud/).
+All the options are found on the[ **OpenStack as a destination page**](../platforms/openstack-as-a-destination-cloud.md).
 
 ![](_static/images/mgr7.png)
 

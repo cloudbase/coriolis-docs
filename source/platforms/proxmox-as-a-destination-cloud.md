@@ -14,7 +14,7 @@ Migrations to Proxmox VE operate in the same way Replicas do and thus entail the
 
 #### Requirements:
 
-To **Replicate** to Proxmox VE, **VM templates** for temporary Coriolis workers are required. The templates need the following platform specifics in addition to **[Coriolis Temporary Migration Worker](https://cloudbase.it/coriolis-temporary-migration-worker)**.
+To **Replicate** to Proxmox VE, **VM templates** for temporary Coriolis workers are required. The templates need the following platform specifics in addition to **[Coriolis Temporary Migration Worker](../reference/coriolis-temporary-migration-worker.md)**.
 
 In the case of Replicating or Migrating to Proxmox VE, images will need to be created for both Linux and Windows machines for the worker to create temporary VMs to perform the tasks. The template OS version must be at least the same as the VM OS that needs to be migrated.
 
@@ -65,7 +65,7 @@ systemctl status qemu-guest-agent
 
   * **Template VM config** must have an **SCSI** controller bus attached
 
-  * for more information regarding Coriolis’ Worker template, please check the **[Coriolis Temporary Migration Worker](https://cloudbase.it/coriolis-temporary-migration-worker) **page.
+  * for more information regarding Coriolis’ Worker template, please check the **[Coriolis Temporary Migration Worker](../reference/coriolis-temporary-migration-worker.md) **page.
 
 #### User Role requirements
 

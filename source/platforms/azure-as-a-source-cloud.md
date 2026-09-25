@@ -16,7 +16,7 @@ Migrations from Azure operate in the same way Replicas do and thus entail the sa
   * some parameters related to the ARM environment to aid in locating the VM (example: location, resource group name, etc…)
   * the name of the VM on Azure
 
-Please consider reviewing the general steps recommended to be performed before creating migration for an instance from Azure [here](https://cloudbase.it/preparing-a-vm-for-migration-replication/).
+Please consider reviewing the general steps recommended to be performed before creating migration for an instance from Azure [here](../guides/preparing-a-vm-for-migration-replication.md).
 
 #### Steps performed by Coriolis
 

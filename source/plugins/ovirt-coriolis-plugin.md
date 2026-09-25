@@ -17,11 +17,11 @@ Coriolis supports environments running the oVirt engine starting from version 4.
 
 ### oVirt as a source cloud
 
-For more information on using oVirt as a **source cloud** for Replica/Migration, please check the **[oVirt as a source cloud](https://cloudbase.it/ovirt-as-a-source-cloud)** page.
+For more information on using oVirt as a **source cloud** for Replica/Migration, please check the **[oVirt as a source cloud](../platforms/ovirt-as-a-source-cloud.md)** page.
 
 ### oVirt as a destination cloud
 
-For more information on using oVirt as a **destination cloud** for Replica/Migration, please check the **[oVirt as a destination cloud](https://cloudbase.it/oracle-linux-virtualization-manager-as-a-destination-cloud/) **page.
+For more information on using oVirt as a **destination cloud** for Replica/Migration, please check the **[oVirt as a destination cloud](../platforms/oracle-linux-virtualization-manager-as-a-destination-cloud.md) **page.
 
 ### Deployment requirements and supported oVirt engine versions
 

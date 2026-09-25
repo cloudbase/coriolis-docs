@@ -13,7 +13,7 @@ Coriolis supports Proxmox VE environments starting from version 8.0 and is compa
 
 ### Proxmox as a destination cloud
 
-For more information on using Proxmox as a **destination cloud** for Replica/MIgration, please check the **[Proxmox as a destination cloud](https://cloudbase.it/proxmox-as-a-destination-cloud)** page.
+For more information on using Proxmox as a **destination cloud** for Replica/MIgration, please check the **[Proxmox as a destination cloud](../platforms/proxmox-as-a-destination-cloud.md)** page.
 
 ### Proxmox connection parameters
 
