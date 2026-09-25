@@ -169,12 +169,11 @@ Temporary Migration Worker - Destination| 22, 5986| TCP
 
 When accessing the Coriolis API or CLI from a remote / client machine, the following ports have to be allowed for the Coriolis appliance network. Additional ports are required when scaling out Coriolis with additional Coriolis worker machines:
 
-**Service**
-| **Default** **Port**| **Protocol**  
----|---|---  
-Coriolis API| 7667| TCP  
-Coriolis API - Keystone| 5000| TCP  
-Barbican| 9311| TCP  
-Metal Hub API - required only for Linux p2v| 9900| TCP  
-Coriolis Licensing| 37667| TCP  
-Coriolis Logging| 9998| TCP
+| **Service** | **Default Port** | **Protocol** |
+|---|---|---|
+| Coriolis API | 7667 | TCP |
+| Coriolis API - Keystone | 5000 | TCP |
+| Barbican | 9311 | TCP |
+| Metal Hub API - required only for Linux p2v | 9900 | TCP |
+| Coriolis Licensing | 37667 | TCP |
+| Coriolis Logging | 9998 | TCP |
