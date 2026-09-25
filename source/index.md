@@ -6,12 +6,12 @@
 :maxdepth: 2
 :titlesonly:
 
-guides
-reference
-plugins
-platforms
-walkthroughs
-features
-bare-metal
-platform-notes
+guides/index
+reference/index
+plugins/index
+platforms/index
+walkthroughs/index
+features/index
+bare-metal/index
+platform-notes/index
 ```

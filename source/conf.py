@@ -1,6 +1,7 @@
 """Sphinx configuration for the Coriolis documentation."""
 
 import html
+import os
 import re
 from pathlib import Path
 
@@ -52,7 +53,13 @@ _SLUG_ALIASES = {
 }
 
 _DOCS_DIR = Path(__file__).parent
-_DOC_STEMS = {path.stem for path in _DOCS_DIR.glob("*.md")} - set(exclude_patterns)
+# stem -> docname, for pages that live in a section folder.
+_SLUG_TO_DOC = {}
+for _path in _DOCS_DIR.rglob("*.md"):
+    _rel = _path.relative_to(_DOCS_DIR).as_posix()
+    if _path.name == "index.md" or _rel in exclude_patterns:
+        continue
+    _SLUG_TO_DOC[_path.stem] = _rel[:-3]
 
 # Page URL only: optional trailing slash and a heading anchor. Extra path
 # segments (attachment pages, downloads) are left unchanged.
@@ -72,17 +79,25 @@ def _anchor_to_myst(anchor: str) -> str:
     return "#" + anchor[1:].replace("_", "-").lower()
 
 
-def _rewrite_link(match: re.Match) -> str:
-    slug = match.group(1).lower()
-    slug = _SLUG_ALIASES.get(slug, slug)
-    if slug not in _DOC_STEMS:
-        return match.group(0)
-    return f"{slug}.md{_anchor_to_myst(match.group(2) or '')}"
+def _relative_doc_link(docname: str, target: str, anchor: str) -> str:
+    start = os.path.dirname(docname) or "."
+    return os.path.relpath(f"{target}.md", start=start) + anchor
 
 
 def _rewrite_source(app, docname, source):
     text = html.unescape(source[0])
-    source[0] = _PAGE_LINK.sub(_rewrite_link, text)
+    if "/" in docname:
+        text = text.replace("](_static/", "](../_static/")
+        text = text.replace("(_static/", "(../_static/")
+
+    def rewrite_link(match: re.Match) -> str:
+        slug = _SLUG_ALIASES.get(match.group(1).lower(), match.group(1).lower())
+        target = _SLUG_TO_DOC.get(slug)
+        if target is None:
+            return match.group(0)
+        return _relative_doc_link(docname, target, _anchor_to_myst(match.group(2) or ""))
+
+    source[0] = _PAGE_LINK.sub(rewrite_link, text)
 
 
 def setup(app):
