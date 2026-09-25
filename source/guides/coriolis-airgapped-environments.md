@@ -24,12 +24,17 @@ From the Coriolis Console, select the following option:
 
 In the CLI, run the following command to start modifying the coriolis.conf file.
 
+```text
 $ vim /etc/coriolis/coriolis.conf
+```
 
-The nano editor is also available. 
+The nano editor is also available.
 
 If OpenStack is used as the destination, locate the following section.
+
+```ini
 [openstack_migration_provider]
+```
 
 [![](_static/images/ee9f6e8e-9d58-4a43-aa45-dcf099340167.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/03/ee9f6e8e-9d58-4a43-aa45-dcf099340167.png?ssl=1)
 
@@ -63,7 +68,9 @@ From within the Coriolis console, you need to select option **3) Edit/Inspect Co
 
 Then, proceed to edit the Coriolis configuration file and look for the **[proxy]** section.
 
-**$ vim /etc/coriolis/coriolis.conf**
+```text
+$ vim /etc/coriolis/coriolis.conf
+```
 
 [![](_static/images/66b465a7-3415-4ee5-90a4-6b938f2c5454.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/03/66b465a7-3415-4ee5-90a4-6b938f2c5454.png?ssl=1)
 
