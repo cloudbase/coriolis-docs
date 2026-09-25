@@ -1,0 +1,95 @@
+---
+title: "Coriolis &#8211; How to migrate VMs from VMware to Oracle VM using the Web interface"
+wp_id: 37611
+---
+
+# Coriolis &#8211; How to migrate VMs from VMware to Oracle VM using the Web interface
+
+Beside the [command line interface (CLI)](https://cloudbase.it/coriolis-vmware-to-oracle-vm-cli), Coriolis provides a web UI designed for a guided user experience.
+
+To begin with, just point the browser (Firefox, Chrome, Safari or Edge) to the address of your Coriolis VM. The website uses a self signed certificate by default, so you might want to add a security exception in your browser.
+
+[![](_static/images/Coriolis-Web-Welcome.png)](https://cloudbase.it/coriolis-how-to-migrate-vms-from-vmware-to-oracle-vm-using-the-web-interface/coriolis-web-welcome/)You can use the “admin” user to login with the password randomly generated during the deployment. To retrieve the password, just connect to the VM using **SSH**(default credentials:**root / coriolis**) and run:
+
+grep OS_PASSWORD /etc/kolla/admin-openrc.sh
+
+1 | grep OS_PASSWORD /etc/kolla/admin-openrc.sh  
+---|---  
+  
+Once logged in, click on “**Cloud Endpoints** ”:
+
+[![](_static/images/Coriolis-Web-Endpoints.png)](https://cloudbase.it/coriolis-how-to-migrate-vms-from-vmware-to-oracle-vm-using-the-web-interface/coriolis-web-endpoints/)
+
+### Creating an endpoint for Oracle VM
+
+After clicking on “**New** ” you will see all available cloud endpoint options currently installed, for example:
+
+[![](_static/images/Coriolis-Web-Create-Endpoint.png)](https://cloudbase.it/coriolis-how-to-migrate-vms-from-vmware-to-oracle-vm-using-the-web-interface/coriolis-web-create-endpoint/)
+
+Choose “**Oracle VM Server** ” and provide all the required data. Make also sure to set “**Allow Untrusted** ” to “**Yes** ” if your Oracle VM Manager API endpoint uses a self signed certificate.
+
+[![](_static/images/Coriolis-Web-Create-Oracle-VM-Endpoint.png)](https://cloudbase.it/coriolis-how-to-migrate-vms-from-vmware-to-oracle-vm-using-the-web-interface/coriolis-web-create-oracle-vm-endpoint/)
+
+Once done, click “**Save** ”. This will create the endpoint and trigger a validation of the data by attempting a connection to the Oracle VM Manager.
+
+[![](_static/images/Coriolis-Web-Validating-Endpoint.png)](https://cloudbase.it/coriolis-how-to-migrate-vms-from-vmware-to-oracle-vm-using-the-web-interface/coriolis-web-validating-endpoint/)
+
+### Creating an endpoint for VMware vSphere
+
+You can repeat the same procedure choosing "**VMware** " and provide the required data. Also in this case make sure to set “**Allow Untrusted** ” to “**Yes** ” if your VMware vSphere API endpoint uses a self signed certificate.
+
+[![](_static/images/Coriolis-Web-Create-VMware-Endpoint.png)](https://cloudbase.it/coriolis-how-to-migrate-vms-from-vmware-to-oracle-vm-using-the-web-interface/coriolis-web-create-vmware-endpoint/)
+
+Like in the previous case, clicking “**Save** ” will create the endpoint and trigger the connection validation.
+
+ 
+
+### Configuring a replica for a VM from vSphere to Oracle VM
+
+Click on “**Replicas** ” and choose “**New** ”. You will be greeted by an introductory screen:
+
+[![](_static/images/Coriolis-Web-New-Replica-1.png)](https://cloudbase.it/coriolis-how-to-migrate-vms-from-vmware-to-oracle-vm-using-the-web-interface/coriolis-web-new-replica-1/)
+
+Click “**Next** ” and select the source endpoint (**VMware**):
+
+[![](_static/images/Coriolis-Web-New-Replica-2.png)](https://cloudbase.it/coriolis-how-to-migrate-vms-from-vmware-to-oracle-vm-using-the-web-interface/coriolis-web-new-replica-2/)
+
+Click “**Next** ” and choose the target endpoint (**Oracle VM**):
+
+[![](_static/images/Coriolis-Web-New-Replica-3.png)](https://cloudbase.it/coriolis-how-to-migrate-vms-from-vmware-to-oracle-vm-using-the-web-interface/coriolis-web-new-replica-3/)After clicking “**Next** ” again, it’s time to select the VM(s) to migrate. You can apply filters on the name to simplify the search:
+
+[![](_static/images/Coriolis-Web-New-replica-5.png)](https://cloudbase.it/coriolis-how-to-migrate-vms-from-vmware-to-oracle-vm-using-the-web-interface/coriolis-web-new-replica-5/)Click “**Next** ” to set the Oracle VM specific options, starting with the name of the **Server Pool** to be used:
+
+[![](_static/images/Coriolis-Web-New-replica-6.png)](https://cloudbase.it/coriolis-how-to-migrate-vms-from-vmware-to-oracle-vm-using-the-web-interface/coriolis-web-new-replica-6/)Clicking once more “**Next** ” will bring you to the **Network Mapping** , where for each network used by the VM(s) on the source cloud we need to select a matching network on the target. This is where the VMs will be connected after being migrated.
+
+[![](_static/images/Coriolis-Web-New-replica-7.png)](https://cloudbase.it/coriolis-how-to-migrate-vms-from-vmware-to-oracle-vm-using-the-web-interface/coriolis-web-new-replica-7/)Click “**Next** ” and you will see the **scheduling** options:
+
+[![](_static/images/Coriolis-Web-New-replica-8.png)](https://cloudbase.it/coriolis-how-to-migrate-vms-from-vmware-to-oracle-vm-using-the-web-interface/coriolis-web-new-replica-8/)One more “**Next** ” and you have a final confirmation screen:
+
+[![](_static/images/Coriolis-Web-New-replica-9.png)](https://cloudbase.it/coriolis-how-to-migrate-vms-from-vmware-to-oracle-vm-using-the-web-interface/coriolis-web-new-replica-9/)Click “**Finish** ” and the replica will start executing:
+
+[![](_static/images/Coriolis-Web-New-replica-10.png)](https://cloudbase.it/coriolis-how-to-migrate-vms-from-vmware-to-oracle-vm-using-the-web-interface/coriolis-web-new-replica-10/)You can now click on the replica to see the execution details:
+
+[![](_static/images/Coriolis-Web-Replica-Execution.png)](https://cloudbase.it/coriolis-how-to-migrate-vms-from-vmware-to-oracle-vm-using-the-web-interface/coriolis-web-replica-execution/)Once completed, the replica can be executed incrementally multiple times to update the replicated content (this is typically scheduled, e.g. hourly, daily, weekly, etc).
+
+ 
+
+### Migrating the VM from the replica
+
+From the replica details, you can click on “**Migrate Replica** ” to get the VM(s) running on your Oracle VM hosts:
+
+ 
+
+[![](_static/images/Coriolis-Web-Migrate-Replica-2.png)](https://cloudbase.it/coriolis-how-to-migrate-vms-from-vmware-to-oracle-vm-using-the-web-interface/coriolis-web-migrate-replica-2/)
+
+ 
+
+You can click on “**View Migration Status** ” to watch the migration progress. The "**migrations** " view can also be reached through the main menu (click on the top left icon).
+
+[![](_static/images/Corolis-Web-Migration-running.png)](https://cloudbase.it/coriolis-how-to-migrate-vms-from-vmware-to-oracle-vm-using-the-web-interface/corolis-web-migration-running/)
+
+Once completed, the migration status will change accordingly:
+
+[![](_static/images/Corolis-Web-Migration-completed.png)](https://cloudbase.it/coriolis-how-to-migrate-vms-from-vmware-to-oracle-vm-using-the-web-interface/corolis-web-migration-completed/)Congratulations, your VM is now running and accessible from Oracle VM Manager:
+
+[![](_static/images/Coriolis-Web-Oracle-VM-VNC.png)](https://cloudbase.it/coriolis-how-to-migrate-vms-from-vmware-to-oracle-vm-using-the-web-interface/coriolis-web-oracle-vm-vnc/)
