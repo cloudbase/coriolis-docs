@@ -83,15 +83,11 @@ The following sections describe the two procedures:
 
 Step 1 - From the Coriolis Console menu, choose:
 
-13) Upgrade Options
-
 ```text
 13) Upgrade Options
 ```
 
 Step 2 - Choose the option:
-
-1) Upgrade Coriolis Services
 
 ```text
 1) Upgrade Coriolis Services
@@ -100,8 +96,6 @@ Step 2 - Choose the option:
 Step 3 - Specify Target Version
 
 You will be prompted to enter the **Coriolis version** to upgrade to, for example:
-
-2608.2
 
 ```text
 2608.2
@@ -129,15 +123,11 @@ Starting from **Coriolis v2608.0** , a new option was added, **Patch Coriolis Co
 
 Step 1 - From the Coriolis Console menu, choose:
 
-13) Upgrade Options
-
 ```text
 13) Upgrade Options
 ```
 
 Step 2 - Choose the option:
-
-2) Patch Coriolis Component
 
 ```text
 2) Patch Coriolis Component
@@ -154,8 +144,6 @@ In the below example, the **Worker** component was selected.
 Step 4 - Specify the version to be upgraded to
 
 You will be prompted to enter the **Patch version for Component** to be upgrade to, for example:
-
-2608.1.1
 
 ```text
 2608.1.1
