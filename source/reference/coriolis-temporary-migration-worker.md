@@ -143,7 +143,7 @@ cd C:\<Path-to-file>\
 
 During the installation process, outputs are provided with the current status of the running task. Once it finishes, the message 'Done' will be shown.
 
-Optionally, when using **SSL** ,**** the **computer name** can be specified.
+Optionally, when using **SSL**, the **computer name** can be specified.
 
 ## Other considerations
 

@@ -22,7 +22,7 @@ Clustered shared-disk transfers are currently supported for the following platfo
   * **target platforms:**
     * SUSE Linux KVM (Libvirt)
 
-Other source or destination platforms are not currently**** supported for this clustered shared-disk path, but might be added in future releases. If the destination provider does not support shared disks, validation fails when Coriolis detects instances in the transfer share a disk.
+Other source or destination platforms are not currently supported for this clustered shared-disk path, but might be added in future releases. If the destination provider does not support shared disks, validation fails when Coriolis detects instances in the transfer share a disk.
 
 The following diagram illustrates this workflow:
 

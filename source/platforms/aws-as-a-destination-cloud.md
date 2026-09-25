@@ -102,7 +102,7 @@ The images do **NOT** require any special Coriolis agent running in them and can
 
 The destination environment parameters are a set of destination-cloud-specific parameters which offer some extra options and configurability to the migration/replication process on a per-VM basis.
 
-Below is a listing of the destination environment parameters the AWS plugin supports when migrating/replicating a VM to AWS:****
+Below is a listing of the destination environment parameters the AWS plugin supports when migrating/replicating a VM to AWS:
 
 #### Example of destination environment JSON to be passed to the AWS plugin
 

@@ -100,7 +100,7 @@ For multi-tenant configurations, the following command can be used to change the
 
 ### Migrated guest VM fails to boot with a message that root volume or partition not found
 
-A guest VM with the root partition using LABEL paths in /etc/fstab**** might fail to migrate under Coriolis.
+A guest VM with the root partition using LABEL paths in /etc/fstab might fail to migrate under Coriolis.
 
 Please refer to the steps to verify and prepare on the source VM before running a migration task, as detailed here: [Preparing a VM for migration/replication](../guides/preparing-a-vm-for-migration-replication.md#recommended-storage-steps-for-linux-vms)
 

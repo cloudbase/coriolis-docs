@@ -95,7 +95,7 @@ For role isolation purposes, we highly recommend creating a new service role in 
 
 When having **VMware as a source platform** , the role of the user account given to Coriolis must have the following privileges:
 
-**Object**| **Required Privilege****|  **Required on**| **Requirement**| **Motivation/observation**  
+**Object**| **Required Privilege**|  **Required on**| **Requirement**| **Motivation/observation**  
 ---|---|---|---|---  
 **Datacenter**|  Read-only*| The Datacenter object(s) to be migrated from| required| Listing the VM inventory of the DC  
 **Datastore**|  Read-only*  

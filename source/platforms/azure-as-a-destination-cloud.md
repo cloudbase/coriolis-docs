@@ -206,11 +206,11 @@ Below is a listing of the configuration section needed when migrating/replicatin
 
 In the case of Replicating/Migration to Azure, Worker images have the following requirements: 
 
-  * **Linux****image requirements**
+  * **Linux image requirements**
 
 The Linux image should have the walinuxagent installed and configured for the first boot. Coriolis will create a unique key pair for each migration/replication and add it as authorized via metadata. 
 
-  * **Windows****image requirements**
+  * **Windows image requirements**
 
 The Windows image should have the Azure provisioning agent or cloudbase-init installed and configured for the first boot. Coriolis will create a unique password for each migration deployment and use it to set up WinRM access via a VM extension. 
 

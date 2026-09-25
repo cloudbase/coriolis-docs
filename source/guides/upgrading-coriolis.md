@@ -22,7 +22,7 @@ Before initiating the upgrade, verify the following requirements.
   * Confirm the upgrade path with the Coriolis Support Team 
     * Check for the supported versions and for any major changes.
   * Perform the upgrade during a planned maintenance window.
-  * Create a**** full backup or snapshot of the Coriolis virtual appliance.
+  * Create a full backup or snapshot of the Coriolis virtual appliance.
   * Verify Available Disk Space 
     * Ensure the appliance has sufficient free disk space; the recommended usage threshold should be <80%.
   * Schedule a Maintenance Window 

@@ -52,7 +52,7 @@ Scroll down until you find the following parameters:
 
 Modify these URLs so they point to the location where you host the required files.
 
-After this, save the file**** and exit the CLI. When prompted to restart the Coriolis containers, select y (Yes).
+After this, save the file and exit the CLI. When prompted to restart the Coriolis containers, select y (Yes).
 
 The process is the same for the other providers, by identifying the correct section in coriolis.conf with the format **[{platform}_migration_provider].**
 

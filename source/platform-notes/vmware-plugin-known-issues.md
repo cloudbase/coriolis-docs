@@ -122,7 +122,7 @@ In case the error remains, you can check the vixdisklib log file located under t
 
 This usually occurs when Change Block Tracking (CBT) is not enabled for the VM being backed up. CBT is required for Coriolis to be able to perform a live snapshot of the running source VM.
 
-To fix this issue,**** perform a CBT reset for the source VM. Instructions are available on the [CBT Reset page](https://cloudbase.it/vmware-vm-cbt-reset-guide) or by following VMware's official documentation.
+To fix this issue, perform a CBT reset for the source VM. Instructions are available on the [CBT Reset page](https://cloudbase.it/vmware-vm-cbt-reset-guide) or by following VMware's official documentation.
 
 * * *
 
