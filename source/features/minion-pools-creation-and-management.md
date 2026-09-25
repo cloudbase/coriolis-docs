@@ -3,7 +3,7 @@ title: "Minion Pools &#8211; Creation and Management"
 wp_id: 39758
 ---
 
-# Minion Pools &#8211; Creation and Management
+# Minion Pools &#8211; Creation and Management using CLI
 
 For most of the supported plugins, the set of **parameters** related to **Minion Pool Machines** are usually shared with the Destination Environment parameters to allow for the dynamic selection of whether or not to use a minion pool or perform creation/cleanup of temporary resources as usual. 
 
@@ -109,15 +109,15 @@ coriolis migration/replica create \
 
 ###  Requirements for using Minion pools for a transfer of N instances 
 
-  * **- origin-minion-pool-id**: 
+  * **origin-minion-pool-id**:
     * must have been created as a minion pool of -pool-platform type source
     * must be a pool formed of Linux machines to be used for data exports
     * must contain at least N minion machines which have been pre-allocated and available for use
-  * **- destination-minion-pool-id**: 
+  * **destination-minion-pool-id**:
     * must have been created as a minion pool of -pool-platform type destination
     * must be a pool formed of Linux machines to be used for data imports
     * must contain at least N minion machines which have been pre-allocated and are available for use
-  * **- osmorphing-minion-pool-mapping**: 
+  * **osmorphing-minion-pool-mapping**:
     * must have been created as a minion pool of -pool-platform type destination
     * must be a pool formed of machines of the same OS type as the VM it was selected to perform OSMorphing on
     * must contain at least one minion machine which has been pre-allocated and is available for use
