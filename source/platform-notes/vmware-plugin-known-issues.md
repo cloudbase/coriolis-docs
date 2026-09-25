@@ -140,7 +140,7 @@ Once these steps are carried out on the source VM, a new migration job can be cr
 
 * * *
 
-### The guest ID of the VM is: otherGuest "
+### The guest ID of the VM is: otherGuest
 
 The following migration error can be observed:
 
