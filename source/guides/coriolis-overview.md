@@ -111,4 +111,14 @@ These are 2 demos showcasing the most common scenario of VMware to OpenStack mig
 
 A full set of recordings for all supported platforms is available on our [YouTube channel Coriolis playlist](https://www.youtube.com/playlist?list=PL3wS6qV9GtxfGxhQyf7XtGVhiXdpE4FZ-).
 
+<div class="video-previews">
+<a class="video-preview" href="https://www.youtube.com/watch?v=bPQSYRTCleQ"><img src="../_static/images/yt-bPQSYRTCleQ.jpg" alt="[Coriolis] Ubuntu Server migration from VMware to OpenStack"></a>
+<a class="video-preview" href="https://www.youtube.com/watch?v=EZ1UMhpW-0U"><img src="../_static/images/yt-EZ1UMhpW-0U.jpg" alt="[Coriolis] Windows Server migration from VMware to OpenStack"></a>
+</div>
+
 **Bare Metal Hub Videos**
+
+<div class="video-previews">
+<a class="video-preview" href="https://www.youtube.com/watch?v=m1uXcl0Yi58"><img src="../_static/images/yt-m1uXcl0Yi58.jpg" alt="[Coriolis] How to install the bare-metal agent for p2v migrations"></a>
+<a class="video-preview" href="https://www.youtube.com/watch?v=n1hMUEaJufA"><img src="../_static/images/yt-n1hMUEaJufA.jpg" alt="[Coriolis] Migrating a physical server as an OpenStack instance"></a>
+</div>
