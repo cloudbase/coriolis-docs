@@ -142,7 +142,7 @@ Edit both files on the golden VM (keep **metadata_services  **and **plugins  **a
 
 
 
-```json
+```ini
 [DEFAULT]
 username=Administrator
 groups=Administrators

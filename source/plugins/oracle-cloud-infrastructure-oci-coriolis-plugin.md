@@ -151,7 +151,8 @@ Below is a listing of the destination environment parameters the OCI plugin supp
      "network_map": {
          "source_network_1": {
              "id": "",
-             "security_groups": ["network_secgroup_id_1", …]
+             "security_groups": ["network_secgroup_id_1"]
+         }
      },
      "storage_mapping": {
          "default": "emulated",
@@ -167,10 +168,10 @@ Below is a listing of the destination environment parameters the OCI plugin supp
      "migr_image_map": {
          "linux": "",
          "windows": ""
-     }
+     },
      "migr_shape_name": "VM.Standard1.2",
-     "shape_name": "VM.Standard2.2",
- }
+     "shape_name": "VM.Standard2.2"
+}
 ```
 
 A short description of the parameters:
@@ -197,37 +198,37 @@ Below is a listing of the configuration section needed when migrating/replicatin
 
 #### Configuration options for OCI as a destination
 
-```json
+```ini
  [oci_migration_provider]
-  
+  
  # Default image names used for worker instances during migrations:
  migr_image_map = linux: <linux_image_ID>, windows: <windows_image_ID>
-  
+  
  # Whether to use paravirtualized mode by default for
  # instances that use BIOS.
  default_to_pv_mode = true
-  
+  
  # Default shape name used for final instances:
  shape_name = VM.Standard2.8
-  
+  
  # Default shape name used for worker instances during migration/replica:
  migr_shape_name = VM.Standard2.8
-  
+  
  # Default subnet id used for worker instances during migration/replica:
  migr_subnet_id = <migr_subnet_id_value>
-  
+  
  # Default compartment in which the migration/replica should take place:
  compartment = <compartment_name_value>
-  
+  
  # Fallback option for determining whether or not to create and
  # associate a public IP for the Migrated VMs:
  set_public_ip = true/false
-  
+  
  # Default attach type to be used when attaching secondary
  # disks to the migrated instance. Accepted values:
  # 'iscsi', 'emulated', 'paravirtualized'
  default_attach_type = iscsi
-  
+  
  # Windows VMs that are migrated to OCI need virtio drivers.
  # Please refer to the documentation page of the Coriolis OCI plugin for more
  # information on how to obtain the .zip file containing the drivers:

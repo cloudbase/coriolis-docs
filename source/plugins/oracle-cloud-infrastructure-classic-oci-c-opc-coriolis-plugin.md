@@ -125,18 +125,18 @@ Below is a listing of the configuration section needed when migrating from OCI-C
 
 #### Configuration options for OCI-C as a migration source
 
-```json
+```ini
 [opc_migration_provider]
  # Image used for the export worker
  export_image_name = /oracle/public/OL_7.2_UEKR4_x86_64
-  
+  
  # Shape used for export worker
  export_shape_name = oc3
-  
+  
  # Exporting an instance may require an extra disk to be attached, to accomodate the size of the
  # largest disks that belong to the exported instance. Make sure to allocate enough space here.
  export_root_disk_size = 150
-  
+  
  # Admin username for the export_image_name. Default username is 'opc'.
  # export_img_username = 
 ```
@@ -224,13 +224,13 @@ Below is a listing of the destination environment parameters the OCI-C plugin su
          "source network name": "name of an existing IP network on destination OPC"
      },
      "storage_mappings": {
-         "default": ""/oracle/public/storage/default"",
+         "default": "/oracle/public/storage/default",
          "backend_mappings": [{"source": "datastor1", "destination": "/oracle/public/storage/default"}],
          "disk_mappings": [{"disk_id": "", "destination": "/oracle/public/storage/latency"}]
      },
      "migr_image_map": {
          "linux": "/oracle/public/OL_7.2_UEKR4_x86_64",
-         // NOTE: syntax for custom images:
+         
          "windows": "/Compute-a488347/user@mail.com/Windows_2012_R2"
      },
      "migr_shape_name": "oc3",
@@ -262,24 +262,24 @@ Below is a listing of the configuration section needed when migrating/replicatin
 
 #### Configuration options for OCI-C as a destination
 
-```json
+```ini
 [opc_migration_provider]
  # Linux and Windows images for the temporary Worker VMs:
  migr_image_map = linux: /oracle/public/OL_7.2_UEKR4_x86_64, windows: /Compute-a488347/user@mail.com/Windows_2012_R2
-  
+  
  # The shape to use for the migration Worker VMs:
  migr_shape_name = oc3
-  
+  
  # Default volume pool to use. Oracle exposes 2 pools: "default" and "latency".
  # The default pool leverages rotary disks, while the latency disks are backed
  # by SSD and low latency storage subsystem. The latency pool is suitable for 
  # databases.
  default_volume_pool = default
-  
+  
  # Default network name used for worker instances
  # during migrations.
  migr_network_name = private
-  
+  
  # URL of a zip file with the Windows PV drivers:
  windows_pv_drivers_url = https://cloudbase.it/downloads/ovm_win_pv_drivers_all_323.zip 
 ```
@@ -322,10 +322,10 @@ In order to connect to OCI-C to perform a migration from it, the following conne
      "identity_domain": "a514847",
      "username": "user@email.com",
      "password": "SuperS3kre7",
-     // NOTE: the below example values are for the EMEA region:
+     
      "api_endpoint": "https://compute.eucom-north-1.oraclecloud.com/",
      "storage_api_endpoint": "https://Storage-a514847.storage.oraclecloud.com/v1/Storage-6264247ef814462f8dd4908f3eaaf288",
-     "storage_auth_endpoint": "https://Storage-6264247ef814462f8dd4908f3eaaf288.storage.oraclecloud.com/auth/v1.0",
+     "storage_auth_endpoint": "https://Storage-6264247ef814462f8dd4908f3eaaf288.storage.oraclecloud.com/auth/v1.0"
  }
 ```
 

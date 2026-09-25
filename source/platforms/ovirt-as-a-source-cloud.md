@@ -79,7 +79,7 @@ Below is a listing of the configuration section needed when migrating from oVirt
 
 #### Configuration options for oVirt as a source
 
-```json
+```ini
 [ovirt_migration_provider]
 # Whether or not Coriolis should attempt to automatically enable incremental
 # backups on the VM before data replication.

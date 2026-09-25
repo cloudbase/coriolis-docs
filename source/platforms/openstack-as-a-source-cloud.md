@@ -128,7 +128,7 @@ Below is a listing of the source environment parameters the OpenStack plugin sup
                 "export_fip_pool_name": "floating-ip-net",
                 "export_worker_boot_from_volume": false,
                 "export_worker_volume_type": "default-volume-type",
-                "export_worker_volume_size": 20,
+                "export_worker_volume_size": 20
          }
  }
 ```
@@ -157,7 +157,7 @@ Below is a listing of the configuration section needed when replicating from an 
 
 #### Configuration options for OpenStack as a DRaaS source
 
-```json
+```ini
 [openstack_migration_provider]
 ### Export parameters:
 

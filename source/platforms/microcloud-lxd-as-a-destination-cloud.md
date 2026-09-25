@@ -47,7 +47,7 @@ The instructions below describe the process of setting up the Windows worker ima
 
 
 
-```json
+```ini
 [DEFAULT]
 username=Admin
 groups=Administrators
@@ -89,7 +89,7 @@ Below is a listing of the configuration section needed when migrating/replicatin
 
 #### Configuration options for LXD as destination
 
-```json
+```ini
 [lxd_migration_provider]
 
 # Default network name used for worker instances during migrations.

@@ -37,7 +37,7 @@ During step 5, the data chunks will be handed directly to the destination cloud 
 
 #### Configuration options for OVM as a migration source
 
-```json
+```ini
 [oracle_vm_migration_provider]
  # Name of the repository to create the temporary disk Replication VM in.
  repository_name = repo1
@@ -53,7 +53,7 @@ During step 5, the data chunks will be handed directly to the destination cloud 
  # What cloning method to use when cloning the source disks to be migrated. 
  # The 'Thin Clone' option is recommended, though it may not be supported by 
  # all OVM storage repository types.
- virtual_disk_clone_type = "THIN_CLONE 
+ virtual_disk_clone_type = "THIN_CLONE" 
 ```
 
 The **export_template_name** parameter which is used for the **temporary worker** must use an Oracle Linux VM (**recommended version 7.x or newer**) for the template.
@@ -72,13 +72,13 @@ Below is a listing of the source environment parameters the OVM plugin supports 
 
 ```json
  {
-          "repository_name": "",
-          "export_template_name": "",
-          "export_template_username": "",
-          "export_template_password": "",
-          "virtual_disk_clone_types": "THIN_CLONE"
-  }
-    
+          "repository_name": "",
+          "export_template_name": "",
+          "export_template_username": "",
+          "export_template_password": "",
+          "virtual_disk_clone_types": "THIN_CLONE"
+  }
+    
 ```
 
 Each parameter represents:

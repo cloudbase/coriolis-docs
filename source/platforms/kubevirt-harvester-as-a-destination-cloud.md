@@ -146,7 +146,7 @@ Depending on the OS release that is being migrated, the following notable steps 
 
 Below is a listing of the configuration section needed when migrating/replicating to KubeVirt/Harvester:
 
-```json
+```ini
 [kubevirt_migration_provider]
 # Default storage class to use
 # default_storage_class = 

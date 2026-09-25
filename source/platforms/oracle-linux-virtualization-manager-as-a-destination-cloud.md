@@ -138,7 +138,7 @@ Below is a listing of the configuration section needed when migrating/replicatin
 
 ### Configuration options for oVirt as a destination
 
-```json
+```ini
 [ovirt_migration_provider]
 ### General parameters:
 # Name or ID of a blank template to be used for a temporary VM through

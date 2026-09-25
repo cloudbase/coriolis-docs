@@ -45,7 +45,7 @@ In the case of Replicating or Migrating to Oracle VM, there will have to be VM t
 
 #### Configuration options for OVM as a destination
 
-```json
+```ini
 [oracle_vm_migration_provider]
  # If migrating/replicating a heterogeneous workload with both Linux and
  # Windows instances, separate template names will need to be provided for the
@@ -84,28 +84,28 @@ Below is a listing of the destination environment parameters the OVM plugin supp
 
 ```json
 {
-      "network_map": {
-          "source network name": "name or ID of existing network on destination OVM",
-      },
-      "storage_mappings": {
-          "default": "default_repository",
-          "backend_mappings": [{"source": "datastor1", "destination": "Main"}],
-          "disk_mappings": [{"disk_id": "", "destination": "Local"}]
-      },
-          "server_pool_name": "",
-          "repository_name": "",
+      "network_map": {
+          "source network name": "name or ID of existing network on destination OVM"
+      },
+      "storage_mappings": {
+          "default": "default_repository",
+          "backend_mappings": [{"source": "datastor1", "destination": "Main"}],
+          "disk_mappings": [{"disk_id": "", "destination": "Local"}]
+      },
+          "server_pool_name": "",
+          "repository_name": "",
           "set_dhcp":"",
-          "migr_template_name_map": {
-          "linux": "OracleLinux7_template",
-          "windows": "Windows2012R2_template"
-          },
-          "migr_template_username_map": { "linux": "root", "windows": "Administrator" },
-          "migr_template_password_map": { "linux": "", "windows": "<Administrator password" },
-      "leave_migrated_vm_off": false,
-          "os_label": "coriolis-migrated",
-          "virtual_disk_clone_type": "THIN_CLONE"
-  }
-   
+          "migr_template_name_map": {
+          "linux": "OracleLinux7_template",
+          "windows": "Windows2012R2_template"
+          },
+          "migr_template_username_map": { "linux": "root", "windows": "Administrator" },
+          "migr_template_password_map": { "linux": "", "windows": "<Administrator password>" },
+      "leave_migrated_vm_off": false,
+          "os_label": "coriolis-migrated",
+          "virtual_disk_clone_type": "THIN_CLONE"
+  }
+   
 ```
 
 Each parameter represents:

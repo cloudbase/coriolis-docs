@@ -96,7 +96,7 @@ Note that the "Preserve Fixed IPs" option requires that the subnet(s) on the Neu
 
 Below is a listing of the configuration section needed when migrating/replicating to an OpenStack:
 
-```json
+```ini
  [openstack_migration_provider]
 ...
 ### Import parameters:
@@ -260,9 +260,9 @@ Below is a listing of the destination environment parameters the OpenStack plugi
 
 ```json
 {
-         // parameters relating to the instance, used in both migrations and replicas:
+         
          "network_map": {
-                "source network name": "name or ID of existing Neutron network in destination OpenStack",
+                "source network name": "name or ID of existing Neutron network in destination OpenStack"
          },
          "storage_mappings": {
                 "default": "cinder-volume-type-0",
@@ -274,7 +274,7 @@ Below is a listing of the destination environment parameters the OpenStack plugi
          "keypair_name": "new-key",
          "delete_disks_on_vm_termination": false,
          "security_groups": ["name of existing secgroup on destination OpenStack", "and another one"],
-         // parameters relating to the temporary worker instances, used in both migrations and replicas:
+         
          "migr_image_map": {
                 "linux": "Linux migration worker Image name/ID",
                 "windows": "63d8f1a4-3192-4edc-b113-0d099b4bc458"
@@ -288,14 +288,14 @@ Below is a listing of the destination environment parameters the OpenStack plugi
          "migr_worker_volume_type": "cinder-voltype",
      "list_all_destination_networks": true,
          "migr_worker_use_config_drive": true,
-         // parameters relating to the migration process:
+         
          "port_reuse_policy": "keep_mac",
          "volumes_are_zeroed": true,
          "preserve_fixed_ips": true,
          "server_group": "name or ID of Nova server group",
          "use_floating_ip": true,
          "floating_ip_pool": "external_network/external_subnet",
-         // parameters relating to the OSMorphing process, used in both migrations and replica deployments:
+         
          "set_dhcp": true,
          "instance_tags": {
                 "tag1": "value1",

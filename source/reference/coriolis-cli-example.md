@@ -201,7 +201,7 @@ Below is a listing of the source environment parameters the VMWare plugin suppor
 
 ```json
 {
-"vixdisklib_compatibility_version": "6.7",
+"vixdisklib_compatibility_version": "6.7",
 "automatically_enable_cbt": false
 }
 ```

@@ -29,10 +29,10 @@ In order to connect to an Proxmox cloud to perform a migration/replica to that c
      "coriolis_regions": "Public",
      "host": "10.8.17.240",
      "port": 8006,
-     "protocol": "https"
+     "protocol": "https",
      "username": "root",
      "password": "SeKr3t",
-     "authentication_realm": "pam"
+     "authentication_realm": "pam",
      "allow_untrusted": false
  }
 ```

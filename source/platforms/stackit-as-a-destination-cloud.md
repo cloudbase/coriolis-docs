@@ -116,7 +116,7 @@ The destination environment parameters are a set of destination-cloud-specific p
 Below is a listing of the destination environment parameters the Stackit plugin supports when migrating/replicating a VM to Stackit:
 
 
-```json
+```ini
 [stackit_migration_provider]
 
 ### Import parameters

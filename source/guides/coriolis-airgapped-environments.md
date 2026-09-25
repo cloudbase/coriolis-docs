@@ -95,7 +95,7 @@ Setting **proxy_host** does not affect **proxy_worker** and vice versa.
 
 Setting both variables to false will remove proxy configurations from both the host and the coriolis-worker container.
 
-```json
+```ini
 [proxy]
 proxy_host = true
 proxy_worker = true
@@ -135,7 +135,3 @@ These packages can be preinstalled by the user in the Linux temporary worker, an
   * For the migrated Linux guest OS: 
     * refer to the plugin page of the target platform. The usual packages for KVM-based platforms would be **cloud-init** and **qemu-guest-agent**.
     * Coriolis will not attempt to install these packages if they are already present; they should be installed on the source VM before migration. This scenario should be considered if the target platform has no access to the Linux repositories.
-
-
-
-* * *

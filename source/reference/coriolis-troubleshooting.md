@@ -104,7 +104,7 @@ For multi-tenant configurations, the following command can be used to change the
 
 A guest VM with the root partition using LABEL paths in /etc/fstab**** might fail to migrate under Coriolis.
 
-Please refer to the steps to verify and prepare on the source VM before running a migration task, as detailed here: [Preparing a VM for migration/replication - Cloudbase Solutions](https://cloudbase.it/preparing-a-vm-for-migration-replication/#Recommended_steps_for_Linux_VMs-2)
+Please refer to the steps to verify and prepare on the source VM before running a migration task, as detailed here: [Preparing a VM for migration/replication](../guides/preparing-a-vm-for-migration-replication.md#recommended-storage-steps-for-linux-vms)
 
 Once /etc/fstab has been updated on the source VM to use filesystem UUIDs, create a new migration task or an incremental replica.
 
@@ -203,5 +203,3 @@ Raised when neither **update-initramfs** nor **dracut** can be found inside the 
 ### " No /etc/crypttab entries matched LUKS UUIDs in '\<path\>'; cannot configure initramfs auto-unlock"
 
 Coriolis matches LUKS devices to **/etc/crypttab** entries by UUID (**UUID= …** or **/dev/disk/by-uuid/ …**). If the source VM's **/etc/crypttab** references the encrypted device some other way (e.g. a raw **/dev/sdaX** path, an LVM path, or a missing entry entirely), Coriolis cannot determine which keyfile / options to wire up and fails instead of guessing. Fix the source VM's **/etc/crypttab** to reference the device by UUID before migrating, or report the case to your Coriolis provider if UUID-based crypttab entries should be supported but aren't being recognized.
-
-* * *

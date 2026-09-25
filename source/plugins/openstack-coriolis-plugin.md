@@ -142,38 +142,38 @@ To connect to an OpenStack cloud to perform a migration/replica to/from that clo
 #### Example of connection info JSON to be passed to the OpenStack plugin
 
 ```json
- {
-         "identity_api_version": 3,
-         "auth_url": "http://openstack.awesome.our:5000/v3",
-         "username": "my username",
-         "password": "Sekr3T",
-         "project_name": "coriolis",
-         "user_domain_name": "domain",
-         "project_domain_name": "domain",
-         "glance_api_version": 2,
-         "allow_untrusted": true,
-         "allow_untrusted_swift": true,
-         "region_name": "RegionOne",
-         "nova_region_name": "RegionOne",
-         "neutron_region_name": "RegionOne",
-         "glance_region_name": "RegionOne",
-         "cinder_region_name": "RegionOne",
-         "swift_region_name": "RegionOne"
-     "interface_name": "public",
-     "nova_interface_name": "public",
-     "neutron_interface_name": "public",
-     "glance_interface_name": "public",
-     "cinder_interface_name": "public",
-     "swift_interface_name": "admin",
-         "ceph_options": {
-                "ceph_conf_file": "config_file_contents",
-                "ceph_username": "admin",
-                "ceph_keyring_file": "keyring_file_path",
-                "ceph_pool_name": "coriolis",
-                "ceph_cluster_name: "coriolis_cluster",
-                "ceph_connection_timeout": 30
-         }
- } 
+{
+         "identity_api_version": 3,
+         "auth_url": "http://openstack.awesome.our:5000/v3",
+         "username": "my username",
+         "password": "Sekr3T",
+         "project_name": "coriolis",
+         "user_domain_name": "domain",
+         "project_domain_name": "domain",
+         "glance_api_version": 2,
+         "allow_untrusted": true,
+         "allow_untrusted_swift": true,
+         "region_name": "RegionOne",
+         "nova_region_name": "RegionOne",
+         "neutron_region_name": "RegionOne",
+         "glance_region_name": "RegionOne",
+         "cinder_region_name": "RegionOne",
+         "swift_region_name": "RegionOne",
+         "interface_name": "public",
+         "nova_interface_name": "public",
+         "neutron_interface_name": "public",
+         "glance_interface_name": "public",
+         "cinder_interface_name": "public",
+         "swift_interface_name": "admin",
+         "ceph_options": {
+                "ceph_conf_file": "config_file_contents",
+                "ceph_username": "admin",
+                "ceph_keyring_file": "keyring_file_path",
+                "ceph_pool_name": "coriolis",
+                "ceph_cluster_name": "coriolis_cluster",
+                "ceph_connection_timeout": 30
+         }
+}
 ```
 
 Each parameter represents:

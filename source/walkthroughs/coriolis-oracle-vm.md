@@ -29,7 +29,7 @@ A few configuration settings are needed when using Oracle VM as a target cloud.
 
 Use an editor like _vi_ or _nano_ to edit **/etc/coriolis/coriolis.conf** and replace the following settings accordingly. The parameters refer to the VM templates location and login information, along with the network, pool, and repository to be used when spawning the temporary VMs. The network specified in **migr_network_name** needs to be reachable by Coriolis and the temporary VMs cloned from the templates during a migration need to be able to access Internet resources via HTTP/HTTPS (e.g. yum repositories).
 
-```json
+```ini
 [oracle_vm_migration_provider]
 migr_template_name_map = linux: OracleLinux7_template, windows: WS2012R2_template
 migr_template_username = root
@@ -52,7 +52,7 @@ The configuration file contains also other settings, no other changes are needed
 
 The following section in **/etc/coriolis/coriolis.conf** provides the proxy settings for accessing external resources (e.g. yum or apt repositories):
 
-```json
+```ini
 [proxy]
 url = http://proxy:3128
 # Optional proxy credentials

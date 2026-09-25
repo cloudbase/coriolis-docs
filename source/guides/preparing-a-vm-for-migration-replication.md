@@ -67,7 +67,7 @@ In the migration/replication process, Coriolis will do its best to preserve the 
 
 Depending on the destination platform's limitations (such as supported bus types, block storage paravirtualization features, and so on) the order of block devices, and thus the naming scheme for Linux-based OSes may differ.
 
-### Recommended steps for Linux VMs
+### Recommended storage steps for Linux VMs
 
   * **update /etc/fstab to use filesystem UUIDs** to identify partitions to be mounted. Any other naming scheme may be unreliable due to limitations on some supported destination platforms The UUIDs of the partitions can be found by using the "**blkid** " command, and then the **/etc/fstab** file has to be edited to replace the references with the **UUID=value** or **LABEL=value** instead
 

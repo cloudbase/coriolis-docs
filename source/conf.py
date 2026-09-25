@@ -20,7 +20,7 @@ myst_enable_extensions = [
     "replacements",
     "smartquotes",
 ]
-myst_heading_anchors = 3
+myst_heading_anchors = 4
 # Scraped WordPress pages often jump from H1 to H3.
 suppress_warnings = ["myst.header"]
 

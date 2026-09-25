@@ -49,7 +49,7 @@ During step 6, the changed blocks are transferred and written to disks on the de
          "offer": "UbuntuServer",
          "sku": "16.04.0-LTS",
          "version": "latest"},
-     // Below options are for Blob storage-based scenarios:
+     
      "storage_account_name": "storage-account",
      "storage_container_name": "coriolis"
  }

@@ -6,6 +6,7 @@ wp_id: 38725
 # Coriolis User Scripts
 
 **User Scripts** allow users to hook into Coriolis’ OS Morphing process and execute any needed last-minute customizations for the instance(s) being Migrated before being booted up on the destination cloud platform.
+
 The feature is available in the following scenarios:
 
   * Creating a Replica Deployment from a current Replica

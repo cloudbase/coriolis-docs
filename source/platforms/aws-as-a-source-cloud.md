@@ -37,7 +37,7 @@ Below is a listing of the configuration section needed when migrating from AWS:
 
 [![](_static/images/AWS-source.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/04/AWS-source.jpg?ssl=1)
 
-```json
+```ini
 [aws_migration_provider]
  #Name of the instance type to be used for the disk copy workers.
  #Default is t2.medium.
