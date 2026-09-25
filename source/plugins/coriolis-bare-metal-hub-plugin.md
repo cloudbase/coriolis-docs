@@ -41,24 +41,16 @@ The following Linux distributions have been validated, and based on the kernel m
 
 **For other kernels, only the "lift-and-shift" Coriolis Migrations are supported, incremental syncs not being available.**
 
-**Release**| **Supported versions**| **Latest kernel verified**  
----|---|---  
-![](_static/images/ubuntu.svg)   
-**Ubuntu Server**|  16.04 - 22.04| 5.15.0-83  
-![](_static/images/redhat.jpg)  
-#### Red Hat Enterprise
-**Linux**|  7.0 - 8.3| 4.18.0-240  
-![](_static/images/centos.svg)  
-**CentOS**|  7.0 - 8.3| 4.18.0-240.22  
-![](_static/images/oracle.jpg)  
-**Oracle Linux**|  7.9 - 8.3| 4.18.0-240  
-Red Hat Compatible Kernel
-![](_static/images/suse.jpg)  
-**SUSE Linux**|  12 - 15 SP4| 5.14.21-150400.24  
-![](_static/images/opensuse.svg)  
-**openSUSE Leap**|  15.4| 5.14.21-150400.24  
-![](_static/images/debian.jpg)  
-**Debian**|  10| 4.19.0-21  
+| **Release** | **Supported versions** | **Latest kernel verified** |
+|---|---|---|
+| ![](_static/images/ubuntu.svg) **Ubuntu Server** | 16.04 - 22.04 | 5.15.0-83 |
+| ![](_static/images/redhat.jpg) **Red Hat Enterprise Linux** | 7.0 - 8.3 | 4.18.0-240 |
+| ![](_static/images/centos.svg) **CentOS** | 7.0 - 8.3 | 4.18.0-240.22 |
+| ![](_static/images/oracle.jpg) **Oracle Linux**<br>Red Hat Compatible Kernel | 7.9 - 8.3 | 4.18.0-240 |
+| ![](_static/images/suse.jpg) **SUSE Linux** | 12 - 15 SP4 | 5.14.21-150400.24 |
+| ![](_static/images/opensuse.svg) **openSUSE Leap** | 15.4 | 5.14.21-150400.24 |
+| ![](_static/images/debian.jpg) **Debian** | 10 | 4.19.0-21 |
+
 **NOTE:** Oracle Linux Unbreakable Kernel is not supported, **Red Hat Compatible Kernel** must be used instead.
 
 ### Installing the Snapshot Agent
