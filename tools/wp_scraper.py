@@ -6,7 +6,7 @@ from urllib.parse import urlparse, unquote
 
 SITE_URL = "https://cloudbase.it/"
 FILTER_KEYWORD = "coriolis"  # Only export pages containing this word
-OUTPUT_DIR = "sphinx_docs"
+OUTPUT_DIR = "source"
 IMAGES_DIR = os.path.join(OUTPUT_DIR, "_static", "images")
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
