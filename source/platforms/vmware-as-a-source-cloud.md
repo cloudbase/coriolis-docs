@@ -139,10 +139,37 @@ Below is a listing of the configuration section needed when migrating from VMWar
 
 **Configuration options for VMWare vSphere/ESXi as a DRaaS source**
 
-# Which mechanism to use to read VM disk data during export. 'vddk' # reads directly via the VDDK library (must be provided by the user). # 'openvixdisklib' uses an alternative implementation included with # Coriolis, avoiding VDDK licensing constraints. (string value) # Possible values: # vddk - <No description provided> # openvixdisklib - <No description provided> export_transfer_mechanism = openvixdisklib # Absolute path to directory containing the SOs/DLLs for vixDiskLib # and its dependencies, as taken from the VDDK release. (string value) vixdisklib_library_directory = /usr/lib/vmware-vix-disklib # The vSphere version for which to initialize vixDiskLib.Must be # formatted as 'Major.Minor' (ex: '6.0') (string value) vixdisklib_compatibility_version = <None> # Whether or not Coriolis should attempt to automatically enable CBT # on the VM before Replication. This requires that the VM have no pre- # existing snapshots. (boolean value) automatically_enable_cbt = false # Path to the vixdisklib configuration file. (string value) vixdisklib_config_location = <None> # Whether or not to use the hostname of the exported VM as the # migrated VM's name, in order to more easily identify it. (boolean # value) export_hostname_as_instance_name = false # Whether or not to skip pre-export NFC connectivity validation # against ESXi hosts. When false (default), Coriolis validates TCP/902 # reachability for hosts that may be selected by vCenter for # NBD/NBDSSL snapshot transfers. (boolean value) skip_nfc_validation = false
-
-1234567891011121314151617181920212223242526272829303132333435 | # Which mechanism to use to read VM disk data during export. 'vddk'# reads directly via the VDDK library (must be provided by the user).# 'openvixdisklib' uses an alternative implementation included with# Coriolis, avoiding VDDK licensing constraints. (string value)# Possible values:# vddk - <No description provided># openvixdisklib - <No description provided>export_transfer_mechanism = openvixdisklib # Absolute path to directory containing the SOs/DLLs for vixDiskLib# and its dependencies, as taken from the VDDK release. (string value)vixdisklib_library_directory = /usr/lib/vmware-vix-disklib # The vSphere version for which to initialize vixDiskLib.Must be# formatted as 'Major.Minor' (ex: '6.0') (string value)vixdisklib_compatibility_version = <None> # Whether or not Coriolis should attempt to automatically enable CBT# on the VM before Replication. This requires that the VM have no pre-# existing snapshots. (boolean value)automatically_enable_cbt = false # Path to the vixdisklib configuration file. (string value)vixdisklib_config_location = <None> # Whether or not to use the hostname of the exported VM as the# migrated VM's name, in order to more easily identify it. (boolean# value)export_hostname_as_instance_name = false # Whether or not to skip pre-export NFC connectivity validation# against ESXi hosts. When false (default), Coriolis validates TCP/902# reachability for hosts that may be selected by vCenter for# NBD/NBDSSL snapshot transfers. (boolean value)skip_nfc_validation = false  
----|---  
+```ini
+# Which mechanism to use to read VM disk data during export. 'vddk'
+# reads directly via the VDDK library (must be provided by the user).
+# 'openvixdisklib' uses an alternative implementation included with
+# Coriolis, avoiding VDDK licensing constraints. (string value)
+# Possible values:
+# vddk - <No description provided>
+# openvixdisklib - <No description provided>
+export_transfer_mechanism = openvixdisklib
+# Absolute path to directory containing the SOs/DLLs for vixDiskLib
+# and its dependencies, as taken from the VDDK release. (string value)
+vixdisklib_library_directory = /usr/lib/vmware-vix-disklib
+# The vSphere version for which to initialize vixDiskLib. Must be
+# formatted as 'Major.Minor' (ex: '6.0') (string value)
+vixdisklib_compatibility_version = <None>
+# Whether or not Coriolis should attempt to automatically enable CBT
+# on the VM before Replication. This requires that the VM have no pre-
+# existing snapshots. (boolean value)
+automatically_enable_cbt = false
+# Path to the vixdisklib configuration file. (string value)
+vixdisklib_config_location = <None>
+# Whether or not to use the hostname of the exported VM as the
+# migrated VM's name, in order to more easily identify it. (boolean
+# value)
+export_hostname_as_instance_name = false
+# Whether or not to skip pre-export NFC connectivity validation
+# against ESXi hosts. When false (default), Coriolis validates TCP/902
+# reachability for hosts that may be selected by vCenter for
+# NBD/NBDSSL snapshot transfers. (boolean value)
+skip_nfc_validation = false
+```
   
 The source environment parameters are a set of source-cloud-specific parameters that offer some extra options to the migration/replication process on a per-VM basis.
 

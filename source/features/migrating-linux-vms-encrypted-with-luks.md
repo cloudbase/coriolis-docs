@@ -11,10 +11,27 @@ The guide covers Linux VMs preparation, Coriolis automatic handling of LUKS (bot
 
 1\. You add a **new passphrase** ("migration passphrase") to the LUKS container on the source VM, in addition to whatever key it already uses (a regular passphrase, a TPM-sealed key, a Tang-bound key, etc.):
 
-# first, we identify the encrypted partition. cloudbase@ubuntu24luks:~$ lsblk NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS sda 8:0 0 25G 0 disk ├─sda1 8:1 0 1G 0 part /boot/efi ├─sda2 8:2 0 2G 0 part /boot └─sda3 8:3 0 21.9G 0 part └─dm_crypt-0 252:0 0 21.9G 0 crypt └─ubuntu--vg-ubuntu--lv 252:1 0 11G 0 lvm / # the encrypted partition is /dev/sda3; add a new key to it. cloudbase@ubuntu24luks:~$ sudo cryptsetup luksAddKey /dev/sda3 Enter any existing passphrase: Enter new passphrase for key slot: Verify passphrase: # now we confirm the new key was added. cloudbase@ubuntu24luks:~$ sudo cryptsetup luksDump /dev/sda3 # here we confirm another keyslot was added
+```bash
+# first, we identify the encrypted partition.
+cloudbase@ubuntu24luks:~$ lsblk
+NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS
+sda 8:0 0 25G 0 disk
+├─sda1 8:1 0 1G 0 part /boot/efi
+├─sda2 8:2 0 2G 0 part /boot
+└─sda3 8:3 0 21.9G 0 part
+  └─dm_crypt-0 252:0 0 21.9G 0 crypt
+    └─ubuntu--vg-ubuntu--lv 252:1 0 11G 0 lvm /
 
-123456789101112131415161718 | # first, we identify the encrypted partition.cloudbase@ubuntu24luks:~$ lsblkNAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINTSsda 8:0 0 25G 0 disk├─sda1 8:1 0 1G 0 part /boot/efi├─sda2 8:2 0 2G 0 part /boot└─sda3 8:3 0 21.9G 0 part  └─dm_crypt-0 252:0 0 21.9G 0 crypt    └─ubuntu\--vg-ubuntu\--lv 252:1 0 11G 0 lvm / # the encrypted partition is /dev/sda3; add a new key to it.cloudbase@ubuntu24luks:~$ sudo cryptsetup luksAddKey /dev/sda3Enter any existing passphrase:Enter new passphrase for key slot:Verify passphrase: # now we confirm the new key was added.cloudbase@ubuntu24luks:~$ sudo cryptsetup luksDump /dev/sda3 # here we confirm another keyslot was added  
----|---  
+# the encrypted partition is /dev/sda3; add a new key to it.
+cloudbase@ubuntu24luks:~$ sudo cryptsetup luksAddKey /dev/sda3
+Enter any existing passphrase:
+Enter new passphrase for key slot:
+Verify passphrase:
+
+# now we confirm the new key was added.
+cloudbase@ubuntu24luks:~$ sudo cryptsetup luksDump /dev/sda3
+# here we confirm another keyslot was added
+```
   
 2\. Users pass the migration passphrase from step 1 to Coriolis when creating the transfer. It does not need to be memorable long-term; it is deleted automatically after the first boot of the migrated VM.
 

@@ -7,7 +7,7 @@ wp_id: 44099
 
 Follow this guide to learn how Coriolis can be used to migrate Windows instances that have BitLocker-encrypted disks.  
   
-# BitLocker key protectors
+## BitLocker key protectors
 
 BitLocker key protectors define how the encrypted drives will be unlocked. TPM protectors store the keys on the **Trusted Platform Module** device and may be used in conjunction with other methods, such as PIN and/or startup keys stored on unencrypted drives, usually USB drives.
 
@@ -15,7 +15,7 @@ The Windows drive is the only partition that may leverage the TPM. In most cases
 
 If the TPM isn’t available (e.g. due to hardware changes or if the disks have been moved), recovery passwords or keys must be used to unlock the encrypted partitions.
 
-# Recommended migration procedure
+## Recommended migration procedure
 
 A preconfigured BitLocker recovery password must be specified when initiating the Coriolis transfer. Coriolis will use it to unlock the OS drive during OS morphing, which is performed by a temporary worker VM on the destination cloud.
 
@@ -41,7 +41,7 @@ Install-WindowsFeature BitLocker
   
 Feel free to remove the temporary key protector from the source and destination instances after completing the migration.
 
-# Alternative Migration Methods
+## Alternative Migration Methods
 
 ## Suspend BitLocker before initiating the migration
 

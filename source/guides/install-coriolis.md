@@ -21,10 +21,12 @@ If you're performing the conversion on a Linux host, please look up how to insta
 
 For Linux distributions, you can use:
 
-# First extract the OVA tar -xvf coriolis-appliance.ova # this will extract the vmdk disk. Use qemu-img to convert it: qemu-img convert -f vmdk -O qcow2 disk-0.vmdk image-name.qcow2
-
-1234 | # First extract the OVAtar -xvf coriolis-appliance.ova# this will extract the vmdk disk. Use qemu-img to convert it:qemu-img convert -f vmdk -O qcow2 disk-0.vmdk image-name.qcow2  
----|---  
+```bash
+# First extract the OVA
+tar -xvf coriolis-appliance.ova
+# this will extract the vmdk disk. Use qemu-img to convert it:
+qemu-img convert -f vmdk -O qcow2 disk-0.vmdk image-name.qcow2
+```
   
 For this example, the Coriolis VM will be deployed in VMWare by importing the .ova file directly from the Web link.
 

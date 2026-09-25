@@ -27,10 +27,11 @@ There is a dedicated 'debug_os_morphing_errors' flag in the '[conductor]' sectio
 
 **debug_os_morphing_errors example**
 
-# NOTE: this option must be appended within the '[conductor]' section: [conductor] debug_os_morphing_errors = false 
-
-123 | # NOTE: this option must be appended within the '[conductor]' section:[conductor]debug_os_morphing_errors = false  
----|---  
+```ini
+# NOTE: this option must be appended within the '[conductor]' section:
+[conductor]
+debug_os_morphing_errors = false
+```
   
 If set to 'true', the Coriolis Conductor will skip performing the cleanup steps on the temporary resources on the destination platform and will log out the connection info for the temporary VM in the Coriolis-conductor.log.
 
@@ -44,10 +45,15 @@ Below is a sample of the connection info for the temporary worker VM as seen in 
 
 **debug_os_morphing_errors log output example**
 
-# NOTE: the private keys for the worker VMs may have the passphrase # configured in coriolis.conf set to them: $ grep "temp_keypair_password" /etc/coriolis/coriolis.conf temp_keypair_password = qJDxLBbdFCvRKP3J8qTxcvuh # NOTE: the IP and connection info the temp VM will be logged in the Conductor logs: $ grep "have been cancelled to allow for OSMorphing debugging." /var/log/coriolis/coriolis-conductor.log 2019-10-16 21:53:53.007 WARNING coriolis.conductor.rpc.server [req-05f6b9fa-6d78-45fc-9bee-a1e4de05ac49 ] All subtasks for Migration 'ece4b02d-4ab8-405c-b33e-c36c63a20993' have been cancelled to allow for OSMorphing debugging. The connection info for the worker VM is: {'ip': '138.91.73.150', 'port': 22, 'username': 'coriolis', 'password': None, 'pkey': '<pkey_data>'} 
-
-12345678 | # NOTE: the private keys for the worker VMs may have the passphrase# configured in coriolis.conf set to them:$ grep "temp_keypair_password" /etc/coriolis/coriolis.conftemp_keypair_password = qJDxLBbdFCvRKP3J8qTxcvuh # NOTE: the IP and connection info the temp VM will be logged in the Conductor logs:$ grep "have been cancelled to allow for OSMorphing debugging." /var/log/coriolis/coriolis-conductor.log 2019-10-16 21:53:53.007 WARNING coriolis.conductor.rpc.server [req-05f6b9fa-6d78-45fc-9bee-a1e4de05ac49 ] All subtasks for Migration 'ece4b02d-4ab8-405c-b33e-c36c63a20993' have been cancelled to allow for OSMorphing debugging. The connection info for the worker VM is: {'ip': '138.91.73.150', 'port': 22, 'username': 'coriolis', 'password': None, 'pkey': '<pkey_data>'}  
----|---  
+```text
+# NOTE: the private keys for the worker VMs may have the passphrase
+# configured in coriolis.conf set to them:
+$ grep "temp_keypair_password" /etc/coriolis/coriolis.conf
+temp_keypair_password = qJDxLBbdFCvRKP3J8qTxcvuh
+# NOTE: the IP and connection info the temp VM will be logged in the Conductor logs:
+$ grep "have been cancelled to allow for OSMorphing debugging." /var/log/coriolis/coriolis-conductor.log
+2019-10-16 21:53:53.007 WARNING coriolis.conductor.rpc.server [req-05f6b9fa-6d78-45fc-9bee-a1e4de05ac49 ] All subtasks for Migration 'ece4b02d-4ab8-405c-b33e-c36c63a20993' have been cancelled to allow for OSMorphing debugging. The connection info for the worker VM is: {'ip': '138.91.73.150', 'port': 22, 'username': 'coriolis', 'password': None, 'pkey': '<pkey_data>'}
+```
   
 WARNING if 'debug_os_morphing_errors' is set, the lifecycle of the temporary OSMorphing worker VM and all of its associated resources (disks, NICs, public IPs, etc…) will no longer be managed by Coriolis.  
 **All the temporary OSMorphing resources on the destination platform will need to be manually cleaned up after investigations have concluded.**
@@ -144,10 +150,9 @@ After a successful migration of a VM to OLVM that has TPM module enabled, Coriol
 
 To overcome this, log onto the ovirt server, and run the following command, so that SELinux context changes for the ovirt engine service:
 
-# semodule -i swtpm_local.pp
-
-1 |  # semodule -i swtpm_local.pp  
----|---  
+```bash
+semodule -i swtpm_local.pp
+```
   
 This usually happens on OLVM versions older than 4.5. Newer versions may have this issue resolved. After setting this, Coriolis should be able to power on migrated machines when finalizing the migration process. The previously-migrated machines will also be able to be powered on.
 

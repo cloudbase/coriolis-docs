@@ -184,10 +184,13 @@ At deploy, Coriolis sends base64 **#cloud-config**  userdata like:
 
 After configuring cloudbase-init, run sysprep with cloudbase-init’s **Unattend.xml**  and register the stopped VM as a CloudStack template. If cloudbase-init already ran on the golden VM during testing, clear its registry state first so the next deploy is treated as a true first boot (otherwise WinRM may stay on HTTP/5985 only).
 
-# Optional — only if cloudbase-init already ran on this VM Remove-Item -Force -Recurse 'HKLM:\SOFTWARE\Cloudbase Solutions' -ErrorAction SilentlyContinue # Sysprep (use cloudbase-init Unattend.xml path on your image) & 'C:\Windows\System32\Sysprep\sysprep.exe' /generalize /oobe /shutdown ` '/unattend:C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\Unattend.xml'
-
-123456 | # Optional — only if cloudbase-init already ran on this VMRemove-Item -Force -Recurse 'HKLM:\SOFTWARE\Cloudbase Solutions' -ErrorAction SilentlyContinue # Sysprep (use cloudbase-init Unattend.xml path on your image)& 'C:\Windows\System32\Sysprep\sysprep.exe' /generalize /oobe /shutdown `  '/unattend:C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\Unattend.xml'  
----|---  
+```powershell
+# Optional — only if cloudbase-init already ran on this VM
+Remove-Item -Force -Recurse 'HKLM:\SOFTWARE\Cloudbase Solutions' -ErrorAction SilentlyContinue
+# Sysprep (use cloudbase-init Unattend.xml path on your image)
+& 'C:\Windows\System32\Sysprep\sysprep.exe' /generalize /oobe /shutdown `
+  '/unattend:C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\Unattend.xml'
+```
   
 Validate after a test deploy from the template:
 

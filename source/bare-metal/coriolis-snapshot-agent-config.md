@@ -14,10 +14,59 @@ After installing the Coriolis Snapshot Agent, there will be a default configurat
   
 This config file will contain all the options that were set during the installation process and some agent defaults as follows:
 
-# Path to coriolis snapshot agent log file log_file = "/tmp/coriolis-snapshot-agent.log" # Snap store file size is the size in bytes of the chunks of disk space that will # be added to a snap store in the event that a snap store reaches their # "empty limit". The empty limit is a threshold set on every created snap store # that is equal to the size of this setting, where the agent gets notified that # it needs to add more disk space. The disk space it adds is in increments of # bytes, dictated by this option. The default value is 2 GB. # So for example, if you set this option to 2 GB, if the disk space available # to a snap store drops bellow 2 GB, an event is triggered that prompts the agent # to add another 2 GB chunk of space to a snap store. snap_store_file_size = "size measured in bytes" # snapstore_destinations is an array of paths on disk where the snap # store watchers will allocate disk space for the snap stores. The device # on which these folders reside, will be excluded from the list of # snapshot-able disks. If this path is on a device mapper, all disks # that make up that device mapper, will be excluded. Paths set here, should # be on a separate block volume (physical, iSCSI, rbd, etc). snapstore_destinations = ["/mnt/snapstores/snapstore_files"] # auto_init_physical_disks, if true will automatically add all physical # disks that are not set as a snap store destination, under tracking. auto_init_physical_disks = true [api] # IP address to bind to bind = "server IP address" # Port to listen on port = "port selected for the server, default port is 9999" [api.tls] # x509 settings for this daemon. The agent will validate client # certificates before answering to API requests. certificate = "/etc/coriolis-snapshot-agent/certs/srv-pub.pem" key = "/etc/coriolis-snapshot-agent/certs/srv-key.pem" ca_certificate = "/etc/coriolis-snapshot-agent/certs/ca-pub.pem" # Snapstore mappings are a quick way to pre-configure snap store mappings. # When creating a snapshot, the agent will look for a mapping of where it # could define a new snap store to hold the CoW chunks for a disk. If no # mappings are specified here, before you can take a snapshot of a disk, # you must create a snapstore mapping through the API. Considering that # disks do not really change, the best way to go about this is to define the # mappings in the config. # `device` is the device name for which we need to create a mapping for. # `location` must be one of the locations configured in the snapstore_destinations # option above. [[snapstore_mapping]] # device is the device name for which we need to create a mapping for. device = "vda" # location must be one of the locations configured in the snapstore_destinations # option above. location = "/mnt/snapstores/snapstore_files"
+```toml
+# Path to coriolis snapshot agent log file
+log_file = "/tmp/coriolis-snapshot-agent.log"
+# Snap store file size is the size in bytes of the chunks of disk space that will
+# be added to a snap store in the event that a snap store reaches their
+# "empty limit". The empty limit is a threshold set on every created snap store
+# that is equal to the size of this setting, where the agent gets notified that
+# it needs to add more disk space. The disk space it adds is in increments of
+# bytes, dictated by this option. The default value is 2 GB.
+# So for example, if you set this option to 2 GB, if the disk space available
+# to a snap store drops bellow 2 GB, an event is triggered that prompts the agent
+# to add another 2 GB chunk of space to a snap store.
+snap_store_file_size = "size measured in bytes"
+# snapstore_destinations is an array of paths on disk where the snap
+# store watchers will allocate disk space for the snap stores. The device
+# on which these folders reside, will be excluded from the list of
+# snapshot-able disks. If this path is on a device mapper, all disks
+# that make up that device mapper, will be excluded. Paths set here, should
+# be on a separate block volume (physical, iSCSI, rbd, etc).
+snapstore_destinations = ["/mnt/snapstores/snapstore_files"]
+# auto_init_physical_disks, if true will automatically add all physical
+# disks that are not set as a snap store destination, under tracking.
+auto_init_physical_disks = true
 
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455 | # Path to coriolis snapshot agent log filelog_file = "/tmp/coriolis-snapshot-agent.log" # Snap store file size is the size in bytes of the chunks of disk space that will# be added to a snap store in the event that a snap store reaches their# "empty limit". The empty limit is a threshold set on every created snap store# that is equal to the size of this setting, where the agent gets notified that# it needs to add more disk space. The disk space it adds is in increments of# bytes, dictated by this option. The default value is 2 GB.# So for example, if you set this option to 2 GB, if the disk space available# to a snap store drops bellow 2 GB, an event is triggered that prompts the agent# to add another 2 GB chunk of space to a snap store.snap_store_file_size = "size measured in bytes" # snapstore_destinations is an array of paths on disk where the snap# store watchers will allocate disk space for the snap stores. The device# on which these folders reside, will be excluded from the list of# snapshot-able disks. If this path is on a device mapper, all disks# that make up that device mapper, will be excluded. Paths set here, should# be on a separate block volume (physical, iSCSI, rbd, etc).snapstore_destinations = ["/mnt/snapstores/snapstore_files"] # auto_init_physical_disks, if true will automatically add all physical# disks that are not set as a snap store destination, under tracking.auto_init_physical_disks = true [api]# IP address to bind tobind = "server IP address"# Port to listen onport = "port selected for the server, default port is 9999"        [api.tls]        # x509 settings for this daemon. The agent will validate client        # certificates before answering to API requests.        certificate = "/etc/coriolis-snapshot-agent/certs/srv-pub.pem"        key = "/etc/coriolis-snapshot-agent/certs/srv-key.pem"        ca_certificate = "/etc/coriolis-snapshot-agent/certs/ca-pub.pem" # Snapstore mappings are a quick way to pre-configure snap store mappings.# When creating a snapshot, the agent will look for a mapping of where it# could define a new snap store to hold the CoW chunks for a disk. If no# mappings are specified here, before you can take a snapshot of a disk,# you must create a snapstore mapping through the API. Considering that# disks do not really change, the best way to go about this is to define the# mappings in the config.# `device` is the device name for which we need to create a mapping for.# `location` must be one of the locations configured in the snapstore_destinations# option above. [[snapstore_mapping]]# device is the device name for which we need to create a mapping for.device = "vda"# location must be one of the locations configured in the snapstore_destinations# option above.location = "/mnt/snapstores/snapstore_files"  
----|---  
+[api]
+# IP address to bind to
+bind = "server IP address"
+# Port to listen on
+port = "port selected for the server, default port is 9999"
+
+[api.tls]
+# x509 settings for this daemon. The agent will validate client
+# certificates before answering to API requests.
+certificate = "/etc/coriolis-snapshot-agent/certs/srv-pub.pem"
+key = "/etc/coriolis-snapshot-agent/certs/srv-key.pem"
+ca_certificate = "/etc/coriolis-snapshot-agent/certs/ca-pub.pem"
+# Snapstore mappings are a quick way to pre-configure snap store mappings.
+# When creating a snapshot, the agent will look for a mapping of where it
+# could define a new snap store to hold the CoW chunks for a disk. If no
+# mappings are specified here, before you can take a snapshot of a disk,
+# you must create a snapstore mapping through the API. Considering that
+# disks do not really change, the best way to go about this is to define the
+# mappings in the config.
+# `device` is the device name for which we need to create a mapping for.
+# `location` must be one of the locations configured in the snapstore_destinations
+# option above.
+[[snapstore_mapping]]
+# device is the device name for which we need to create a mapping for.
+device = "vda"
+# location must be one of the locations configured in the snapstore_destinations
+# option above.
+location = "/mnt/snapstores/snapstore_files"
+```
   
 **NOTE:** If there are multiple disks on the server, there is a possibility to use separate snapshot locations for each snapshotted disk, by modifying **config.toml** as follows:
 

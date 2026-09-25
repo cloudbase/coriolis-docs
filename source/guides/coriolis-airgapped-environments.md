@@ -27,7 +27,7 @@ In the CLI, run the following command to start modifying the coriolis.conf file.
 
 $ vim /etc/coriolis/coriolis.conf
 
-# nano editor is also available 
+The nano editor is also available. 
 
 If OpenStack is used as the destination, locate the following section.  
   
