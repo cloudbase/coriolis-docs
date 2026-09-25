@@ -1,6 +1,7 @@
 # Coriolis Documentation
 
-**Coriolis** migrates Windows and Linux virtual machines, with their storage and networking, across clouds and virtualization platforms. It also provides cross-site disaster recovery.
+**Coriolis®** is a fully distributed and scalable system that provides both **"lift-and-shift" migration** services (CMaaS)
+and **cross-site disaster recovery** features (DRaaS) between a source cloud platform and an independent destination cloud platform.
 
 ```{toctree}
 :maxdepth: 2
