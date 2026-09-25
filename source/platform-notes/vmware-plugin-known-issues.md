@@ -7,7 +7,7 @@ wp_id: 39345
 
 ### Backup fails when the source Endpoint is set for the VCenter
 
-**Error message** : _" The ESXi host performing the CBT export refused connection. The host is chosen automatically by Center, so please ensure that the Coriolis deployment can dial TCP/902 on all the ESXi hosts of a vSphere, and that DNS name resolution firewalls are setup to facilitate this.Alternatively, try connecting Coriolis directly to the specific ESXi host which is running the VM(s) to be migrated by creating a Coriolis endpoint using the DNS name/IP address of the host itself. "_
+**Error message** : _"The ESXi host performing the CBT export refused connection. The host is chosen automatically by Center, so please ensure that the Coriolis deployment can dial TCP/902 on all the ESXi hosts of a vSphere, and that DNS name resolution firewalls are setup to facilitate this.Alternatively, try connecting Coriolis directly to the specific ESXi host which is running the VM(s) to be migrated by creating a Coriolis endpoint using the DNS name/IP address of the host itself."_
 
 If the above error message occurs in a multi ESXi hosts situation where vCenter is used in the Coriolis endpoint configuration, we recommend adding as Coriolis Endpoint the ESXi hosts IP or Hostname rather than the vCenter'. This way, we are making sure that Coriolis will send the commands directly to the ESXi host.
 
@@ -144,8 +144,8 @@ Once these steps are carried out on the source VM, a new migration job can be cr
 
 The following migration error can be observed:
 
-_" The OS type of VM 'Datacenter/Discovered virtual machine/VMNAME' ('other') is either not supported or unrecognized by Coriolis or the version of pyVmomi which Coriolis is currently using. The guest ID of the VM is: otherGuest"_
+_"The OS type of VM 'Datacenter/Discovered virtual machine/VMNAME' ('other') is either not supported or unrecognized by Coriolis or the version of pyVmomi which Coriolis is currently using. The guest ID of the VM is: otherGuest"_
 
 This occurs when the source VM on the VMware side has a generic or incorrect guest OS. Coriolis requires an accurate value matching the source VM guest OS for the scope of migration.
 
-To resolve this issue, please edit the VM .vmx configuration file and modify the **guestOS** field to a correct value. This can be for example "oraclelinux8-64. " for an Oracle Linux 8 VM. Please refer to the VMware documentation for the proper fields.
+To resolve this issue, please edit the VM .vmx configuration file and modify the **guestOS** field to a correct value. This can be for example "oraclelinux8-64." for an Oracle Linux 8 VM. Please refer to the VMware documentation for the proper fields.

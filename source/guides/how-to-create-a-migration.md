@@ -5,7 +5,7 @@ wp_id: 43473
 
 # How to create a Migration
 
-To create a Migration from the Coriolis Web UI, select from the top right, “**New** ” and then select “**Transfers** ” from the drop-down.
+To create a Migration from the Coriolis Web UI, select from the top right, “**New**” and then select “**Transfers**” from the drop-down.
 
 [![](_static/images/new01.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/05/new01.png?ssl=1)
 

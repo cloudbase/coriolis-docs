@@ -45,7 +45,7 @@ Depending on the situation, there are several aspects apart from the MAC address
   * update any udev rules describing interface naming to rely explicitly on the MAC address of the interfaces. Coriolis guarantees that the MAC address of the interfaces will be replicated on destination clouds that support the explicit setting of a MAC address on a vNIC
   * check package repositories for local sources. The sources should be available from the destination Cloud during the OSMorphing stage. Any local sources i.e. CD-ROM should be commented out. 
     * make sure that the repositories are updated successfully on the source VM
-    * for RedHat-based distros use "**yum update** " and for Debian/Ubuntu use "**apt update** "
+    * for RedHat-based distros use "**yum update**" and for Debian/Ubuntu use "**apt update**"
     * if the repositories are not available or reachable on the target platform, the packages can be manually pre-installed by the user on the source VM before running the Coriolis migration. The required packages are outlined [here](https://cloudbase.it/coriolis-airgapped-environments/#Other_considerations). This skip check on the repository validity has been superseded by checking for the required packages to be pre-installed, starting with Coriolis v2603.4.
 
 ### Recommended steps for Windows VMs 
@@ -63,7 +63,7 @@ Depending on the destination platform's limitations (such as supported bus types
 
 ### Recommended storage steps for Linux VMs
 
-  * **update /etc/fstab to use filesystem UUIDs** to identify partitions to be mounted. Any other naming scheme may be unreliable due to limitations on some supported destination platforms The UUIDs of the partitions can be found by using the "**blkid** " command, and then the **/etc/fstab** file has to be edited to replace the references with the **UUID=value** or **LABEL=value** instead
+  * **update /etc/fstab to use filesystem UUIDs** to identify partitions to be mounted. Any other naming scheme may be unreliable due to limitations on some supported destination platforms The UUIDs of the partitions can be found by using the "**blkid**" command, and then the **/etc/fstab** file has to be edited to replace the references with the **UUID=value** or **LABEL=value** instead
 
   * update/remove any udev rules describing block device naming that rely on a disk's physical aspects, such as a vendor ID, bus ID, and so on. Depending on the limitations of the destination platform, Coriolis may not be able to guarantee that such specific aspects relating to the disk devices will be preserved
 

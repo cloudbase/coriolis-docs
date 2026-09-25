@@ -30,7 +30,7 @@ For the Windows template VM used by Coriolis' worker on all supported Cloud Endp
   * install the virtualization drivers as well as the corresponding guest VM agent 
     * The agent can be either the Qemu guest agent or the VMware Tools, to ensure that the platform will be able to fetch the network configuration of the temporary worker spawned from this template
   * install **cloudbase-init**
-    * Coriolis relies on the default cloudbase-init username as "**Admin** ". The "**Admin** " account must not be disabled in the temporary worker image.
+    * Coriolis relies on the default cloudbase-init username as "**Admin**". The "**Admin**" account must not be disabled in the temporary worker image.
   * configure and enable **WinRM HTTPS** service**,** and configure **Windows Firewall** to allow **WinRM HTTPS** port **5986**
     * The helper script mentioned below will handle this configuration as well.
     * alternatively, both can be enabled by running the following command in a PowerShell session: 

@@ -152,7 +152,7 @@ This usually happens on OLVM versions older than 4.5. Newer versions may have th
 
 ## Troubleshooting LUKS-encrypted migrations
 
-### " No key available with this passphrase"
+### "No key available with this passphrase"
 
 **Command "sudo cryptsetup luksOpen -disable-keyring -key-file /tmp/coriolis_sdb3.key /dev/sdb3 coriolis_sdb3" failed on host '10.8.29.225:22' with exit code: 2 stdout: No key available with this passphrase.**
 
@@ -174,7 +174,7 @@ The only useful diagnostic here is the VM's own console / serial log for that sp
 
 * * *
 
-### " The VM has encrypted disks (…), which require a TPM device"
+### "The VM has encrypted disks (…), which require a TPM device"
 
 **The VM has encrypted disks ( 'encrypted_disks_passphrase' given), which require a TPM device. The add_tpm_device config option is False.**
 
@@ -186,18 +186,18 @@ Fix: set the proper configuration options in coriolis-worker's **coriolis.conf**
 
 * * *
 
-### " \<device\> is LUKS-encrypted, but no passphrase is provided"
+### "\<device\> is LUKS-encrypted, but no passphrase is provided"
 
 The deployment / migration fails outright with this error if Coriolis detects a LUKS container on a source disk but no **Encrypted Disks Passphrase** was set on the transfer's target options. Add the migration passphrase (see Prerequisites above) and re-run.
 
 * * *
 
-### " No initramfs tool found in OS at '\<path\>'"
+### "No initramfs tool found in OS at '\<path\>'"
 
 Raised when neither **update-initramfs** nor **dracut** can be found inside the guest OS being migrated. This means either the guest distro isn't one of the supported families, or its filesystem wasn't fully mounted / detected before this check ran. This is not something you can fix from the client side, report the source OS distro / version to your Coriolis provider.
 
 * * *
 
-### " No /etc/crypttab entries matched LUKS UUIDs in '\<path\>'; cannot configure initramfs auto-unlock"
+### "No /etc/crypttab entries matched LUKS UUIDs in '\<path\>'; cannot configure initramfs auto-unlock"
 
 Coriolis matches LUKS devices to **/etc/crypttab** entries by UUID (**UUID= …** or **/dev/disk/by-uuid/ …**). If the source VM's **/etc/crypttab** references the encrypted device some other way (e.g. a raw **/dev/sdaX** path, an LVM path, or a missing entry entirely), Coriolis cannot determine which keyfile / options to wire up and fails instead of guessing. Fix the source VM's **/etc/crypttab** to reference the device by UUID before migrating, or report the case to your Coriolis provider if UUID-based crypttab entries should be supported but aren't being recognized.

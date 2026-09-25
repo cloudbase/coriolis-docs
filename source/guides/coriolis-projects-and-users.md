@@ -17,7 +17,7 @@ By default Coriolis comes with one **admin Project** and one **admin user** assi
 
 [![](_static/images/project.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2021/03/project.jpg?ssl=1)
 
-More **Projects and Users** can be created using the **" New" button** listed on the top right corner on Coriolis' Dashboard.
+More **Projects and Users** can be created using the **"New" button** listed on the top right corner on Coriolis' Dashboard.
 
 [![](_static/images/new-pu.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2021/03/new-pu.jpg?ssl=1)
 

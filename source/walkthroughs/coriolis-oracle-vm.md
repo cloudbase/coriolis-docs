@@ -21,7 +21,7 @@ After the import is completed, assign to the template a network with DHCP and ou
 
 [![](_static/images/OVM_template_network_2.png)](https://cloudbase.it/coriolis-oracle-vm/ovm_template_network_2/)
 
-Note: Windows templates cannot be redistributed due to licensing limitations, please refer to the section “**How to create the Oracle VM worker templates** ” for details.
+Note: Windows templates cannot be redistributed due to licensing limitations, please refer to the section “**How to create the Oracle VM worker templates**” for details.
 
 ### Configuration
 

@@ -6,11 +6,11 @@ wp_id: 38342
 # Coriolis &#8211; Getting Started
 
 ### About Coriolis
-**Coriolis®** is a fully distributed and scalable system that provides with the use of Transfers both **" lift-and-shift" migration services (CMaaS)** and cross-site **disaster recovery features (DRaaS)** between a source cloud platform and an independent destination cloud platform.
+**Coriolis®** is a fully distributed and scalable system that provides with the use of Transfers both **"lift-and-shift" migration services (CMaaS)** and cross-site **disaster recovery features (DRaaS)** between a source cloud platform and an independent destination cloud platform.
 
 Coriolis operates without needing agents to be installed on the guest VM, relying only on the public APIs exposed by the cloud platforms to query the compute and network-related parameters of the VMs and perform data transfers. For **physical-to-virtual (p2v) migrations,** an agent must be installed on the bare-metal server in order to facilitate the ability to live-migrate it.
 
-Coriolis has two distinct modes of operation: a one-off 'move' of an instance from one platform to another ("**migrations** "), and continuous background sync between the state of a VM on a source cloud to storage elements on the destination cloud that are ready to deploy in case of a source-side fault ("**replicas** ").
+Coriolis has two distinct modes of operation: a one-off 'move' of an instance from one platform to another ("**migrations**"), and continuous background sync between the state of a VM on a source cloud to storage elements on the destination cloud that are ready to deploy in case of a source-side fault ("**replicas**").
 
 Both options are available in Coriolis Dashboard under **Transfers**.
 

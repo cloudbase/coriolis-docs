@@ -5,11 +5,11 @@ wp_id: 37604
 
 # Coriolis &#8211; How to migrate VMs from VMware to Oracle VM using the CLI
 
-Coriolis provides a portable command line interface (CLI) available on Linux, Macos or Windows. It is already available in the VM appliance and it can be easily installed anywhere with “**pip install python-coriolisclient** ”.
+Coriolis provides a portable command line interface (CLI) available on Linux, Macos or Windows. It is already available in the VM appliance and it can be easily installed anywhere with “**pip install python-coriolisclient**”.
 
 ### Basic usage
 
-Coriolis uses Keystone for identity management and the CLI usage resembles the OpenStack client for setting the required variables. The easiest way to start is just to SSH into the VM appliance. The connection parameters are available in "**/etc/kolla/admin-openrc.sh** ”:
+Coriolis uses Keystone for identity management and the CLI usage resembles the OpenStack client for setting the required variables. The easiest way to start is just to SSH into the VM appliance. The connection parameters are available in "**/etc/kolla/admin-openrc.sh**”:
 
 ```text
 OS_AUTH_URL=http://127.0.0.1:35357/v3

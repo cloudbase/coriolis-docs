@@ -7,7 +7,7 @@ wp_id: 40314
 
 [![](_static/images/coriolis-logo.svg)](https://cloudbase.it/wp-content/uploads/2023/10/coriolis-logo.svg)
 
-**Coriolis®** is a fully distributed and scalable system that provides both **" lift-and-shift" migration** services (CMaaS)
+**Coriolis®** is a fully distributed and scalable system that provides both **"lift-and-shift" migration** services (CMaaS)
 and **cross-site disaster recovery** features (DRaaS) between a source cloud platform and an independent destination cloud platform.
 
 ## Guides

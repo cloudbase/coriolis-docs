@@ -35,7 +35,7 @@ The `**rbd_flatten_volume_from_snapshot**` flag will make new Cinder volumes ind
 
 ### Coriolis metadata not available over the network
 
-While migrating from VMWare to OpenStack if no metadata for the networks and storage is available in Coriolis, error messages will be received when starting the process: **" No networks were found"** and **" No storage backends were found" **
+While migrating from VMWare to OpenStack if no metadata for the networks and storage is available in Coriolis, error messages will be received when starting the process: **"No networks were found"** and **"No storage backends were found" **
 
 To have it fixed, use config drive to send metadata to the temporary disk copy/OSMorphing worker VMs in case Neutron metadata is not available.
 

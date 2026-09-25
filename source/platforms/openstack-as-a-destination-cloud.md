@@ -41,7 +41,7 @@ The template OS version must be at least the same as the OS of the VM that needs
 
 **NOTE!** When Replicating/Migrating a **Windows VM** , both **Linux and Windows templates**  have to be specified, as **Disk cloning**  is performed using the Linux template and **OSMorphing**  is performed using the Windows template.
 
-In case a Floating IP Pool network is not visible to be selected, it can mean that the network resides under another tenant project. To overcome this, you must enable the "**List All Destination Networks** ".
+In case a Floating IP Pool network is not visible to be selected, it can mean that the network resides under another tenant project. To overcome this, you must enable the "**List All Destination Networks**".
 
 The Floating IP Pool network must also carry the "router:external" property set, on the OpenStack side.
 
@@ -70,9 +70,9 @@ When migrating to OpenStack, Coriolis features the capability to preserve the ne
 
 OpenStack's networking model relies on the VMs being internally configured to use DHCP, thus the following set of options are to be used when creating the Migration/Replica:
 
-- **" Set DHCP" = True** -- will have Coriolis reconfigure the VM internally to use DHCP on all interfaces
+- **"Set DHCP" = True** -- will have Coriolis reconfigure the VM internally to use DHCP on all interfaces
 
-- **" Preserve Fixed IPs" = True** -- will have Coriolis set the same IP address the source VM had on the Neutron port(s) of the final target VM on OpenStack
+- **"Preserve Fixed IPs" = True** -- will have Coriolis set the same IP address the source VM had on the Neutron port(s) of the final target VM on OpenStack
 
 In combination, the above two options will lead to Coriolis setting the same IP address(es) the VM had on the source vSphere to the Neutron ports of the migrated VM on the target OpenStack, which Neutron will in turn set via DHCP in the final migrated VM, leading to the effect of "static IPs being preserved" when it's handled via DHCP behind the scenes.
 

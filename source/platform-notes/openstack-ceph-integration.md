@@ -26,7 +26,7 @@ Ceph can be used in Coriolis Replica/Migration tasks as backend storage for Open
 
 [![](_static/images/ceph-endpoint.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/06/ceph-endpoint.jpg?ssl=1)
 
-In order to have the Ceph options available when adding the OpenStack Endpoint, the "**Advanced** " configuration mode must be used, and "**Show Ceph Options** " must be enabled from the current menu.
+In order to have the Ceph options available when adding the OpenStack Endpoint, the "**Advanced**" configuration mode must be used, and "**Show Ceph Options**" must be enabled from the current menu.
 
 ### Ceph Options
 
