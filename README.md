@@ -16,4 +16,4 @@ Pages are Markdown under `source/`, built with Sphinx, MyST, and the Read the Do
 
 ## Publishing
 
-Pushes to `main` build the HTML and deploy it to GitHub Pages.
+Pull requests build the HTML to validate the change. Pushes to `main` build it again and deploy it to GitHub Pages.
