@@ -117,106 +117,79 @@ Depending on the OS being migrated, the following notable steps are performed as
 
 Below is a listing of the configuration section needed when migrating to SUSE Linux (KVM):
 
-> [libvirt_migration_provider]
-> 
-> # Name of the Libvirt storage pool to be used for volumes with unspecified
-> 
-> # storage backing option from the source or which could not be mapped in
-> 
-> # the "storage_mappings".
-> 
-> default_storage_pool =
-> 
-> # Default image paths used for worker instances during migrations.
-> 
-> # Format: key:value,key2:value2
-> 
-> migr_image_map =
-> 
-> # The integer size (in GBs) of the volume to boot temporary worker VMs from.
-> 
-> migr_worker_volume_size = 25
-> 
-> # The amount of memory (in MBs) to allocate to temporary worker VMs.
-> 
-> migr_worker_memory = 4096
-> 
-> # The amount of vcpus to allocate to temporary worker VMs.
-> 
-> migr_worker_vcpus = 2
-> 
-> # The name of an existing Libvirt network used for worker VMs.
-> 
-> migr_worker_network =
-> 
-> # What mechanism to use when sending disk data to the temporary VMs.
-> 
-> # Choices: https, ssh
-> 
-> data_transfer_mechanism = https
-> 
-> # Write the VM serial console output to a file.
-> 
-> enable_vm_console_log = true
-> 
-> # The directory used to store console log files on the Libvirt host.
-> 
-> vm_console_log_dir = /var/log/libvirt/qemu
-> 
-> # Attach a VNC console to the VM. Port is selected automatically.
-> 
-> enable_vm_vnc_console = false
-> 
-> # The VNC listen address.
-> 
-> vnc_listen_address = 0.0.0.0
-> 
-> # URL to a .iso file containing the Windows VirtIO drivers.
-> 
-> windows_virtio_iso_url = https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso
-> 
-> # Whether or not to configure the VM to use DHCP during OSMorphing.
-> 
-> set_dhcp = true
-> 
-> # Whether or not to use config drive to send metadata to the migrated instance.
-> 
-> use_config_drive = false
-> 
-> # Whether or not Coriolis should reconfigure cloud-init during OSMorphing
-> 
-> # to preserve existing user credentials, SSH auth, and keypairs.
-> 
-> retain_user_credentials = true
-> 
-> # CPU mode to use for Libvirt domains (e.g. 'host-passthrough', 'host-model').
-> 
-> # When empty, Libvirt's default behaviour is used.
-> 
-> cpu_mode = host-passthrough
-> 
-> # Disable CPU features that would prevent the VM from being live migrated.
-> 
-> cpu_migratable = true
-> 
-> # Optional list of CPU feature names to require on created domains.
-> 
-> cpu_features = rdtscp,invtsc,x2apic
-> 
-> # Source used to retrieve IP addresses from the migration worker VM.
-> 
-> # Choices: agent, lease, arp
-> 
-> migr_worker_iface_addr_src = agent
-> 
-> # The path of the SSH key used when connecting to Libvirt hosts.
-> 
-> ssh_key_path =
-> 
-> # The location of the SQLite database file for backend-specific data.
-> 
-> sqlite_database_file = /opt/coriolis/libvirt_provider_db.sqlite
-> 
-> # Attach a persistent TPM device to replica instances.
-> 
-> add_tpm_device = true
+```ini
+[libvirt_migration_provider]
+
+# Name of the Libvirt storage pool to be used for volumes with unspecified
+# storage backing option from the source or which could not be mapped in
+# the "storage_mappings".
+default_storage_pool =
+
+# Default image paths used for worker instances during migrations.
+# Format: key:value,key2:value2
+migr_image_map =
+
+# The integer size (in GBs) of the volume to boot temporary worker VMs from.
+migr_worker_volume_size = 25
+
+# The amount of memory (in MBs) to allocate to temporary worker VMs.
+migr_worker_memory = 4096
+
+# The amount of vcpus to allocate to temporary worker VMs.
+migr_worker_vcpus = 2
+
+# The name of an existing Libvirt network used for worker VMs.
+migr_worker_network =
+
+# What mechanism to use when sending disk data to the temporary VMs.
+# Choices: https, ssh
+data_transfer_mechanism = https
+
+# Write the VM serial console output to a file.
+enable_vm_console_log = true
+
+# The directory used to store console log files on the Libvirt host.
+vm_console_log_dir = /var/log/libvirt/qemu
+
+# Attach a VNC console to the VM. Port is selected automatically.
+enable_vm_vnc_console = false
+
+# The VNC listen address.
+vnc_listen_address = 0.0.0.0
+
+# URL to a .iso file containing the Windows VirtIO drivers.
+windows_virtio_iso_url = https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso
+
+# Whether or not to configure the VM to use DHCP during OSMorphing.
+set_dhcp = true
+
+# Whether or not to use config drive to send metadata to the migrated instance.
+use_config_drive = false
+
+# Whether or not Coriolis should reconfigure cloud-init during OSMorphing
+# to preserve existing user credentials, SSH auth, and keypairs.
+retain_user_credentials = true
+
+# CPU mode to use for Libvirt domains (e.g. 'host-passthrough', 'host-model').
+# When empty, Libvirt's default behaviour is used.
+cpu_mode = host-passthrough
+
+# Disable CPU features that would prevent the VM from being live migrated.
+cpu_migratable = true
+
+# Optional list of CPU feature names to require on created domains.
+cpu_features = rdtscp,invtsc,x2apic
+
+# Source used to retrieve IP addresses from the migration worker VM.
+# Choices: agent, lease, arp
+migr_worker_iface_addr_src = agent
+
+# The path of the SSH key used when connecting to Libvirt hosts.
+ssh_key_path =
+
+# The location of the SQLite database file for backend-specific data.
+sqlite_database_file = /opt/coriolis/libvirt_provider_db.sqlite
+
+# Attach a persistent TPM device to replica instances.
+add_tpm_device = true
+```

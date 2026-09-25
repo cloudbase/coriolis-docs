@@ -258,8 +258,6 @@ use_config_drive = false
 cloudbaseinit_x64_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x64.zip
 ```
 
-[/crayon]
-
 #### Example of destination environment JSON to be passed to the Stackit plugin
 
 ```json
@@ -302,8 +300,6 @@ cloudbaseinit_x64_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x6
   "windows_virtio_iso_url": "https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso"
 }
 ```
-
-[/crayon]
 
 Each parameter represents:
 
