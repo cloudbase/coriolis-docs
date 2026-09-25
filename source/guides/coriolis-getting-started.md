@@ -75,38 +75,43 @@ For further information, please check **[Coriolis Licensing](https://cloudbase.i
 
 ## Supported source and destination platforms
 
-Source platforms 
-
-  1. ![AWS](_static/images/aws.png) Amazon Web Services (AWS)
-  2. ![Linux servers](_static/images/Blank-diagram.png) Linux servers
-  3. ![Microsoft Azure](_static/images/azure.svg) Microsoft Azure
-  4. ![Microsoft Hyper-V](_static/images/ws2022.png) Microsoft Hyper-V*
-  5. ![Nutanix AHV](_static/images/nutanix-128.svg) Nutanix AHV
-  6. ![OpenStack](_static/images/openstack.png) OpenStack
-  7. ![VMware vSphere](_static/images/Vmware.svg.png) VMware vSphere
-  8. ![Virtuozzo Hybrid Infrastructure](_static/images/vhi-128.svg) Virtuozzo Hybrid Infrastructure (VHI)
-  9. ![Oracle Virtualization](_static/images/oracle2022.png) Oracle Virtualization (OLVM)
-  10. ![Red Hat Virtualization](_static/images/redhat.jpg) Red Hat Virtualization (legacy RHV)
-
-
-
-Target platforms 
-
-  1. ![AWS](_static/images/aws.png) Amazon Web Services (AWS)
-  2. ![KubeVirt](_static/images/18700703.png) KubeVirt
-  3. ![Microsoft Azure](_static/images/azure.svg) Microsoft Azure
-  4. ![MicroCloud](_static/images/lxd-logo.png) MicroCloud (LXD)
-  5. ![OpenStack](_static/images/openstack.png) OpenStack
-  6. ![Oracle Cloud Infrastructure](_static/images/oracle2022.png) Oracle Cloud Infrastructure (OCI)
-  7. ![Oracle Virtualization](_static/images/oracle2022.png) Oracle Virtualization (OLVM)
-  8. ![Oracle Private Cloud Appliance](_static/images/oracle2022.png) Oracle Private Cloud Appliance (PCA)
-  9. ![Proxmox VE](_static/images/proxmox-logo-stacked-color.svg) Proxmox VE
-  10. ![Red Hat OpenShift Virtualization](_static/images/virt-icon1.png) Red Hat OpenShift Virtualization
-  11. ![Red Hat Virtualization](_static/images/redhat.jpg) Red Hat Virtualization (legacy RHV)
-  12. ![SUSE Virtualization](_static/images/suse.jpg) SUSE Virtualization
-  13. ![SUSE Linux \(KVM\)](_static/images/suse.jpg) SUSE Linux (KVM)
-  14. ![VMware vSphere](_static/images/Vmware.svg.png) VMware vSphere
-  15. ![Virtuozzo Hybrid Infrastructure](_static/images/vhi-128.svg) Virtuozzo Hybrid Infrastructure (VHI)
+<div class="platform-row">
+<div class="source-platform">
+<p>Source platforms</p>
+<ol>
+<li class="platform"><img src="../_static/images/aws.png" alt="AWS"><span>Amazon Web Services (AWS)</span></li>
+<li class="platform"><img src="../_static/images/Blank-diagram.png" alt="Linux servers"><span>Linux servers</span></li>
+<li class="platform"><img src="../_static/images/azure.svg" alt="Microsoft Azure"><span>Microsoft Azure</span></li>
+<li class="platform"><img src="../_static/images/ws2022.png" alt="Microsoft Hyper-V"><span>Microsoft Hyper-V*</span></li>
+<li class="platform"><img src="../_static/images/nutanix-128.svg" alt="Nutanix AHV"><span>Nutanix AHV</span></li>
+<li class="platform"><img src="../_static/images/openstack.png" alt="OpenStack"><span>OpenStack</span></li>
+<li class="platform"><img src="../_static/images/Vmware.svg.png" alt="VMware vSphere"><span>VMware vSphere</span></li>
+<li class="platform"><img src="../_static/images/vhi-128.svg" alt="Virtuozzo Hybrid Infrastructure"><span>Virtuozzo Hybrid Infrastructure (VHI)</span></li>
+<li class="platform"><img src="../_static/images/oracle2022.png" alt="Oracle Virtualization"><span>Oracle Virtualization (OLVM)</span></li>
+<li class="platform"><img src="../_static/images/redhat.jpg" alt="Red Hat Virtualization"><span>Red Hat Virtualization (legacy RHV)</span></li>
+</ol>
+</div>
+<div class="destination-platform">
+<p>Target platforms</p>
+<ol>
+<li class="platform"><img src="../_static/images/aws.png" alt="AWS"><span>Amazon Web Services (AWS)</span></li>
+<li class="platform"><img src="../_static/images/18700703.png" alt="KubeVirt"><span>KubeVirt</span></li>
+<li class="platform"><img src="../_static/images/azure.svg" alt="Microsoft Azure"><span>Microsoft Azure</span></li>
+<li class="platform"><img src="../_static/images/lxd-logo.png" alt="MicroCloud"><span>MicroCloud (LXD)</span></li>
+<li class="platform"><img src="../_static/images/openstack.png" alt="OpenStack"><span>OpenStack</span></li>
+<li class="platform"><img src="../_static/images/oracle2022.png" alt="Oracle Cloud Infrastructure"><span>Oracle Cloud Infrastructure (OCI)</span></li>
+<li class="platform"><img src="../_static/images/oracle2022.png" alt="Oracle Virtualization"><span>Oracle Virtualization (OLVM)</span></li>
+<li class="platform"><img src="../_static/images/oracle2022.png" alt="Oracle Private Cloud Appliance"><span>Oracle Private Cloud Appliance (PCA)</span></li>
+<li class="platform"><img src="../_static/images/proxmox-logo-stacked-color.svg" alt="Proxmox VE"><span>Proxmox VE</span></li>
+<li class="platform"><img src="../_static/images/virt-icon1.png" alt="Red Hat OpenShift Virtualization"><span>Red Hat OpenShift Virtualization</span></li>
+<li class="platform"><img src="../_static/images/redhat.jpg" alt="Red Hat Virtualization"><span>Red Hat Virtualization (legacy RHV)</span></li>
+<li class="platform"><img src="../_static/images/suse.jpg" alt="SUSE Virtualization"><span>SUSE Virtualization</span></li>
+<li class="platform"><img src="../_static/images/suse.jpg" alt="SUSE Linux (KVM)"><span>SUSE Linux (KVM)</span></li>
+<li class="platform"><img src="../_static/images/Vmware.svg.png" alt="VMware vSphere"><span>VMware vSphere</span></li>
+<li class="platform"><img src="../_static/images/vhi-128.svg" alt="Virtuozzo Hybrid Infrastructure"><span>Virtuozzo Hybrid Infrastructure (VHI)</span></li>
+</ol>
+</div>
+</div>
 
 
 
@@ -116,11 +121,11 @@ Target platforms
 
 For **OpenStack** , **Coriolis** is compatible with the vanilla OpenStack project, as well as being validated with the most common OpenStack distributions from trusted vendors such as:
 
-![Canonical OpenStack](_static/images/Canonical-Openstack-logo2x-1.jpg)
-
-![RHOSP](_static/images/rhosp2.png)
-
-![Virtuozzo VHI](_static/images/virtuozzo-logo-social.png)
+<div class="platform-vendors">
+<img src="../_static/images/Canonical-Openstack-logo2x-1.jpg" alt="Canonical OpenStack">
+<img src="../_static/images/rhosp2.png" alt="RHOSP">
+<img src="../_static/images/virtuozzo-logo-social.png" alt="Virtuozzo VHI">
+</div>
 
 ## Supported guest operating systems
 
