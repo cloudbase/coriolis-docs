@@ -25,15 +25,11 @@ $ENDPOINT_ID
 
 The available parameters for minion pools include:
 
-• **- pool-endpoint**: the ID of the Coriolis Endpoint for the pool. The Endpoint must be for a platform whose Provider Plugin supports Minon Pool management.
-
-• **- pool-platform**: whether this should be used as a source or destination Minion Pool. The distinction is in place due to source pools requiring’s special setup steps to allow them to export VM data, while destination pools are especially deployed to import VM data to the destination platform and/or perform OSMorphing.
-
-• **- pool-os-type**: the OS type ('linux', 'windows', or otherwise) for the Minion Pool. Source Minion Pools require them to be of OS type Linux to be able to run the data exports during VM transfers.
-
-• **- environment-options**: JSON data with platform-specific environment options for the Minion Pool. These will usually allow for the selection of properties such as the image to be used for the temporary machines. Care should be taken to pick properties which match the declared -pool-os-type
-
-• **- minimum-minions**: strictly positive number of Minion Machines the pool should contain once allocated.
+* **pool-endpoint**: the ID of the Coriolis Endpoint for the pool. The Endpoint must be for a platform whose Provider Plugin supports Minon Pool management.
+* **pool-platform**: whether this should be used as a source or destination Minion Pool. The distinction is in place due to source pools requiring’s special setup steps to allow them to export VM data, while destination pools are especially deployed to import VM data to the destination platform and/or perform OSMorphing.
+* **pool-os-type**: the OS type ('linux', 'windows', or otherwise) for the Minion Pool. Source Minion Pools require them to be of OS type Linux to be able to run the data exports during VM transfers.
+* **environment-options**: JSON data with platform-specific environment options for the Minion Pool. These will usually allow for the selection of properties such as the image to be used for the temporary machines. Care should be taken to pick properties which match the declared -pool-os-type
+* **minimum-minions**: strictly positive number of Minion Machines the pool should contain once allocated.
 
 Additional operations on minion pools include: 
 
