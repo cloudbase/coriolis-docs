@@ -26,8 +26,6 @@ and **cross-site disaster recovery** features (DRaaS) between a source cloud pla
 [Upgrading Coriolis to a newer version](https://cloudbase.it/upgrading-coriolis/)  
 [Coriolis in air-gapped environments](https://cloudbase.it/coriolis-airgapped-environments/)  
   
-  
-  
 **Reference**  
 ---  
 [Supported source and destination platforms](https://cloudbase.it/coriolis-getting-started/#Supported_source_and_destination_platforms)  
@@ -43,6 +41,7 @@ and **cross-site disaster recovery** features (DRaaS) between a source cloud pla
   
 [Coriolis Network Ports Requirements](https://cloudbase.it/coriolis-network-ports-requirements/)  
 [REST API reference](https://github.com/cloudbase/coriolis/tree/master/coriolis/api-refs)  
+
 **Plugin Guides**  
 ---  
 [VMware vSphere](https://cloudbase.it/vmware-coriolis-plugin/)  
@@ -71,14 +70,12 @@ and **cross-site disaster recovery** features (DRaaS) between a source cloud pla
 [Replica Schedule](https://cloudbase.it/how-to-create-a-replica/#Specify_Replica_scheduling_options)  
 [Coriolis Logs](https://cloudbase.it/coriolis-logs/)  
 [Security updates and hardening](https://cloudbase.it/security-updates-and-hardening/)  
-[Shared disks migrations](https://cloudbase.it/coriolis-shared-disks-migrations/)  
+[Shared disks migrations](https://cloudbase.it/coriolis-shared-disks-migrations/)
+
 **Bare Metal Migrations - Physical to Virtual**  
 ---  
 [Coriolis Bare Metal Hub](https://cloudbase.it/coriolis-bare-metal-hub-plugin)  
 [Install the Snapshot agent for Bare Metal](https://cloudbase.it/installing-the-snapshot-agent)   
-  
-  
-  
   
 #### Coriolis Customers and Partners
 
@@ -99,7 +96,7 @@ After thoroughly evaluating migration solutions, **Coriolis** emerged as the cle
 </div>
 </div>
 
-**Coriolis** **Training**
+**Coriolis Training**
 
 A three-day hands-on course offered remotely will guide you through all aspects of performing effective operations on your Coriolis deployment.  
 It will provide knowledge of Coriolis’ configuration, features, and functionality to understand the Replica and Migration processes better.  
