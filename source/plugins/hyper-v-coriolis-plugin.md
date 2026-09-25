@@ -70,21 +70,23 @@ $winrm quickconfig -transport:https
 
 The above command can be tested afterward with the following:
 
-> #Check if WinRM is enabled and configured
->  $winrm get winrm/config
->
->  #Locate WinRM listeners and addresses
->  $winrm enumerate winrm/config/listener
->
->  #Display WinRM Firewall rules
->  Get-NetFirewallPortFilter | Where-Object -Property LocalPort -EQ 5986  
->
->  #Expected output
->  Protocol : TCP
->  LocalPort : 5986
->  RemotePort : Any
->  IcmpType : Any
->  DynamicTarget : Any
+```powershell
+# Check if WinRM is enabled and configured
+$winrm get winrm/config
+
+# Locate WinRM listeners and addresses
+$winrm enumerate winrm/config/listener
+
+# Display WinRM Firewall rules
+Get-NetFirewallPortFilter | Where-Object -Property LocalPort -EQ 5986
+
+# Expected output
+Protocol : TCP
+LocalPort : 5986
+RemotePort : Any
+IcmpType : Any
+DynamicTarget : Any
+```
 
 Enable the basic authentication for WinRM, from the command prompt using the following command:
 
@@ -138,21 +140,16 @@ More details regarding **WinRM** are available on the **[Microsoft documentation
 
   * Check if it is enabled: "winrm get winrm/config/Service” The output should be similar to this:
 
-> AllowUnencrypted = false
-> 
-> Auth
-> 
-> Basic = false
-> 
-> Kerberos = true
-> 
-> Negotiate = true
-> 
-> Certificate = true
-> 
-> CredSSP = false
-> 
-> CbtHardeningLevel = Relaxed 
+```text
+AllowUnencrypted = false
+Auth
+    Basic = false
+    Kerberos = true
+    Negotiate = true
+    Certificate = true
+    CredSSP = false
+    CbtHardeningLevel = Relaxed
+``` 
 
   * Enable the auth Basic authentication: "winrm set winrm/config/Service/auth @{Basic="true”}” Now, if we check again, it should be “Basic = true” and the validation should pass.
 
@@ -201,12 +198,14 @@ As prerequisites, the Windows machine must have the Hyper-V features enabled.
 
 #### RCT binary download
 
-> [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
->
->  $cli = New-Object "System.Net.WebClient"
->  $cli.DownloadFile("[https://cloudbase.it/downloads/app/hyper-v/rct-service.zip"](https://cloudbase.it/downloads/app/hyper-v/rct-service.zip%22), "$env:USERPROFILE\rct-service.zip")
->
->  Expand-Archive $env:USERPROFILE\rct-service.zip -DestinationPath $env:USERPROFILE\rct 
+```powershell
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
+$cli = New-Object "System.Net.WebClient"
+$cli.DownloadFile("https://cloudbase.it/downloads/app/hyper-v/rct-service.zip", "$env:USERPROFILE\rct-service.zip")
+
+Expand-Archive $env:USERPROFILE\rct-service.zip -DestinationPath $env:USERPROFILE\rct
+``` 
 
 #### Generating the certificates
 
@@ -216,10 +215,11 @@ Generate the X509 certificates for encryption of data transfer and store them in
 
 Download the generator and extract the files:
 
-> $cli.DownloadFile("[http://wiki.cloudbase.it/_media/gen-certs.zip"](http://wiki.cloudbase.it/_media/gen-certs.zip%22), "$env:USERPROFILE\gen-certs.zip")
-> 
->
-> Expand-Archive "$env:USERPROFILE\gen-certs.zip" -DestinationPath "$env:USERPROFILE\rct"
+```powershell
+$cli.DownloadFile("http://wiki.cloudbase.it/_media/gen-certs.zip", "$env:USERPROFILE\gen-certs.zip")
+
+Expand-Archive "$env:USERPROFILE\gen-certs.zip" -DestinationPath "$env:USERPROFILE\rct"
+```
 
 #### Generate certificates and store them into _$env:USERPROFILE\rct_
 
@@ -283,13 +283,15 @@ New-NetFirewallRule -DisplayName rct -Direction Inbound -LocalPort 6677 -Protoco
 
 Enable RCT service to start automatically, and manually start the service for first-time use:
 
-> $params = @{
-> Name = "rct-service"
-> BinaryPathName = '"C:\Users\Administrator\rct\OpenStackService.exe" rct-service "C:\Users\Administrator\rct\rct-service.exe"'
-> DisplayName = "rct-service"
-> StartupType = "Automatic"
-> }
-> New-Service @params
+```powershell
+$params = @{
+    Name = "rct-service"
+    BinaryPathName = '"C:\Users\Administrator\rct\OpenStackService.exe" rct-service "C:\Users\Administrator\rct\rct-service.exe"'
+    DisplayName = "rct-service"
+    StartupType = "Automatic"
+}
+New-Service @params
+```
 
 ### Hyper-V connection parameters
 
@@ -308,15 +310,17 @@ Storage identification scheme| IDs of QoS Policies| How storage backends are ide
 
 To connect to Hyper-V to perform a migration/replica from it, the following connection parameters are required:
 
-> {
->  "host": "10.7.200.100",
->  "username": "Administrator",
->  "password": "Passw0rd",
->  "port": 5986,
->  "allow_untrusted": true,
->  "rct_port": 6677,
->  "rct_password": "swordfish"
->  }
+```json
+{
+  "host": "10.7.200.100",
+  "username": "Administrator",
+  "password": "Passw0rd",
+  "port": 5986,
+  "allow_untrusted": true,
+  "rct_port": 6677,
+  "rct_password": "swordfish"
+}
+```
 
 Each parameter represents:
 
