@@ -45,10 +45,13 @@ On the Microsoft Hyper-V (source) hosts, WinRM can be easily enabled by running 
 
 
 
-$URL="https://raw.githubusercontent.com/cloudbase/coriolis-resources/master/windows/winrm-gen.ps1" $Path="C:\<Path-to-file>\winrm-gen.ps1" Invoke-Webrequest -URI $URL -OutFile $Path
+```text
+$URL="https://raw.githubusercontent.com/cloudbase/coriolis-resources/master/windows/winrm-gen.ps1"
 
-12345 | $URL="https://raw.githubusercontent.com/cloudbase/coriolis-resources/master/windows/winrm-gen.ps1" $Path="C:\<Path-to-file>\winrm-gen.ps1" Invoke-Webrequest -URI $URL -OutFile $Path  
----|---  
+$Path="C:\<Path-to-file>\winrm-gen.ps1"
+
+Invoke-Webrequest -URI $URL -OutFile $Path
+```
   
   * Next, navigate to the directory where the script resides and run it
 
@@ -56,8 +59,11 @@ $URL="https://raw.githubusercontent.com/cloudbase/coriolis-resources/master/wind
 
 cd C:\<Path-to-file>\ .\winrm-gen.ps1
 
-123 | cd C:\<Path-to-file>\ .\winrm-gen.ps1  
----|---  
+```text
+cd C:\<Path-to-file>\
+
+.\winrm-gen.ps1
+```
   
 During the installation process, outputs are provided with the current status of the running task.  
 Once it finishes, the message 'Done' will be shown. Optionally when using**SSL** the **computer name** can be specified.
@@ -68,10 +74,9 @@ The steps required to configure and **enable WinRM HTTPS** service and configure
 
 This can be achieved by running:
 
+```text
 $winrm quickconfig -transport:https
-
-1 | $winrm quickconfig -transport:https  
----|---  
+```
   
 The above command can be tested afterward with the following:
 
@@ -93,10 +98,19 @@ The above command can be tested afterward with the following:
 
 Enable the basic authentication for WinRM, from the command prompt using the following command:
 
-$ winrm set winrm/config/service/auth '@{Basic="true"}' # Validate the service settings $ winrm get winrm/config/service/Auth Auth Basic = true Kerberos = true Negotiate = true Certificate = false CredSSP = false CbtHardeningLevel = Relaxed
+```bash
+$ winrm set winrm/config/service/auth '@{Basic="true"}'
 
-1234567891011 | $ winrm set winrm/config/service/auth '@{Basic="true"}' # Validate the service settings$ winrm get winrm/config/service/AuthAuth    Basic = true    Kerberos = true    Negotiate = true    Certificate = false    CredSSP = false    CbtHardeningLevel = Relaxed  
----|---  
+# Validate the service settings
+$ winrm get winrm/config/service/Auth
+Auth
+    Basic = true
+    Kerberos = true
+    Negotiate = true
+    Certificate = false
+    CredSSP = false
+    CbtHardeningLevel = Relaxed
+```
   
 In a test environment, **WinRM** can be used with **self-signed SSL certificates**.
 
@@ -104,28 +118,33 @@ In a test environment, **WinRM** can be used with **self-signed SSL certificates
 
 
 
+```text
 New-SelfSignedCertificate -Subject 'CN=servername.domain.com' -TextExtension '2.5.29.37={text}1.3.6.1.5.5.7.3.1'
-
-1 | New-SelfSignedCertificate -Subject 'CN=servername.domain.com' -TextExtension '2.5.29.37={text}1.3.6.1.5.5.7.3.1'  
----|---  
+```
   
   * Configuring the server’s WinRM web server (listener) to use the self-signed certificate for authentication.
 
 
 
+```text
 winrm create winrm/config/Listener?Address=*+Transport=HTTPS '@{Hostname="servername.domain.com"; CertificateThumbprint="<cert thumbprint here>"}'
-
-1 | winrm create winrm/config/Listener?Address=*+Transport=HTTPS '@{Hostname="servername.domain.com"; CertificateThumbprint="<cert thumbprint here>"}'  
----|---  
+```
   
   * Opening the appropriate ports on the destination machine’s Windows firewall**:**
 
 
 
-$FirewallParam = @{ DisplayName = 'Windows Remote Management (HTTPS-In)' Direction = 'Inbound' LocalPort = 5986 Protocol = 'TCP' Action = 'Allow' Program = 'System' } New-NetFirewallRule @FirewallParam
-
-123456789 | $FirewallParam = @{       DisplayName = 'Windows Remote Management (HTTPS-In)'      Direction = 'Inbound'       LocalPort = 5986       Protocol = 'TCP'       Action = 'Allow'       Program = 'System' } New-NetFirewallRule @FirewallParam  
----|---  
+```text
+$FirewallParam = @{ 
+      DisplayName = 'Windows Remote Management (HTTPS-In)'
+      Direction = 'Inbound' 
+      LocalPort = 5986 
+      Protocol = 'TCP' 
+      Action = 'Allow' 
+      Program = 'System' 
+} 
+New-NetFirewallRule @FirewallParam
+```
   
   * Executing a command to initiate a remote connection on the client using a PowerShell cmdlet like **Enter-PSSession**.
 
@@ -238,10 +257,9 @@ Download the generator and extract the files:
 
 **Generate X509 certificates**
 
+```text
 & "$env:USERPROFILE\rct\gen-certs.exe" -certificate-hosts "127.0.0.1,localhost" -output-dir "$env:USERPROFILE\rct" 
-
-1 | & "$env:USERPROFILE\rct\gen-certs.exe" -certificate-hosts "127.0.0.1,localhost" -output-dir "$env:USERPROFILE\rct"  
----|---  
+```
   
 #### Generate Rocket.toml file
 
@@ -251,8 +269,9 @@ Download the generator and extract the files:
 
 ls $env:USERPROFILE\rct 
 
-1 | ls $env:USERPROFILE\rct  
----|---  
+```text
+ls $env:USERPROFILE\rct 
+```
   
 In our case, it is _C:/Users/Administrator/rct/_
 
@@ -260,19 +279,27 @@ In our case, it is _C:/Users/Administrator/rct/_
 
 2) create a config file array variable and replace accordingly the desired _auth_key/ port/ certs &key path_, as follows:
 
-$config = @" [global] # Use something else auth_key = "swordfish" address = "0.0.0.0" port = 6677 [global.tls] certs = "C:/Users/Administrator/rct/srv-pub.pem" key = "C:/Users/Administrator/rct/srv-key.pem" "@
-
-1234567891011 | $config = @"[global]# Use something elseauth_key = "swordfish"address = "0.0.0.0"port = 6677 [global.tls]certs = "C:/Users/Administrator/rct/srv-pub.pem"key = "C:/Users/Administrator/rct/srv-key.pem""@  
----|---  
+```text
+$config = @"
+[global]
+# Use something else
+auth_key = "swordfish"
+address = "0.0.0.0"
+port = 6677
+ 
+[global.tls]
+certs = "C:/Users/Administrator/rct/srv-pub.pem"
+key = "C:/Users/Administrator/rct/srv-key.pem"
+"@
+```
   
 #### Generate the config file
 
 **Create Rocket.toml file**
 
+```powershell
 Set-Content C:\Rocket.toml $config
-
-1 | Set-Content C:\Rocket.toml $config  
----|---  
+```
   
 We are using forward slashes in the config!
 
@@ -282,10 +309,9 @@ Depending on your client, you may need to concatenate the **ca-pub.pem** with **
 
 **Enable RCT port in the firewall**
 
+```text
 New-NetFirewallRule -DisplayName rct -Direction Inbound -LocalPort 6677 -Protocol TCP -Action Allow 
-
-1 | New-NetFirewallRule -DisplayName rct -Direction Inbound -LocalPort 6677 -Protocol TCP -Action Allow  
----|---  
+```
   
 #### Create the RCT service
 
@@ -340,10 +366,12 @@ Each parameter represents:
 
 For replication, the following can be used:
 
-{ "fallback_to_crash_consistent_snapshots": true, "verify_rct_server": false }
-
-1234 | {     "fallback_to_crash_consistent_snapshots": true,     "verify_rct_server": false }  
----|---  
+```json
+{
+     "fallback_to_crash_consistent_snapshots": true,
+     "verify_rct_server": false
+ }
+```
   
 Each parameter represents:
 

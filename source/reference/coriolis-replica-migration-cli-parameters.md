@@ -13,10 +13,9 @@ Below is a listing of the source environment parameters the VMWare plugin suppor
 
 **Example of source environment JSON to be passed to VMWAre plugin**
 
-{"vixdisklib_compatibility_version": "6.7","automatically_enable_cbt": false}
-
-1 | {"vixdisklib_compatibility_version": "6.7","automatically_enable_cbt": false}  
----|---  
+```json
+{"vixdisklib_compatibility_version": "6.7","automatically_enable_cbt": false}
+```
   
   * **vixdisklib_compatibility_version** - The vSphere version for which to initialize vixDiskLib.
   * **automatically_enable_cbt** - Whether or not Coriolis should attempt to automatically enable CBT on the VM before Replication.
@@ -31,10 +30,9 @@ Below is a listing of the source environment parameters the OpenStack plugin sup
 
 **Source environment for Openstack plugin**
 
-{"custom_os_type_map": { "redhat": "linux" },"replica_export_mechanism": "swift_backups","swift_backups_options": {"volume_backups_container": "coriolis"},"coriolis_backups_options": {"export_interim_volume_type": "default-volume-type","export_image": "bionic","export_worker_use_config_drive": true,"export_network": "admin-net","export_flavor_name": "m1.small","export_worker_use_fip": true,"export_fip_pool_name": "floating-ip-net","export_worker_boot_from_volume": false,"export_worker_volume_type": "default-volume-type","export_worker_volume_size": 20,}}
-
-1 | {"custom_os_type_map": { "redhat": "linux" },"replica_export_mechanism": "swift_backups","swift_backups_options": {"volume_backups_container": "coriolis"},"coriolis_backups_options": {"export_interim_volume_type": "default-volume-type","export_image": "bionic","export_worker_use_config_drive": true,"export_network": "admin-net","export_flavor_name": "m1.small","export_worker_use_fip": true,"export_fip_pool_name": "floating-ip-net","export_worker_boot_from_volume": false,"export_worker_volume_type": "default-volume-type","export_worker_volume_size": 20,}}  
----|---  
+```json
+{"custom_os_type_map": { "redhat": "linux" },"replica_export_mechanism": "swift_backups","swift_backups_options": {"volume_backups_container": "coriolis"},"coriolis_backups_options": {"export_interim_volume_type": "default-volume-type","export_image": "bionic","export_worker_use_config_drive": true,"export_network": "admin-net","export_flavor_name": "m1.small","export_worker_use_fip": true,"export_fip_pool_name": "floating-ip-net","export_worker_boot_from_volume": false,"export_worker_volume_type": "default-volume-type","export_worker_volume_size": 20,}}
+```
   
   * **custom_os_type_map** - Custom mapping between the 'os_type' or 'os_distro' of Glance images on the source OpenStack. Mapping values must be one of the supported OS types in Coriolis.
   * **replica_export_mechanism** - Replica export mechanism to use. Available mechanisms are "swift_backups", "ceph_backups", "ceph_snapshots", "coriolis_backups"
@@ -62,10 +60,9 @@ Below is a listing of the destination environment parameters the OpenStack plugi
 
 **Example of destination environment JSON to be passed to the OpenStack plugin**
 
-{"network_map": {"source network name": "name or ID of existing Neutron network in destination OpenStack",},"storage_mappings": {"default": "cinder-volume-type-0","backend_mappings": [{"source": "datastor1", "destination": "cinder-volume-type-1"}],"disk_mappings": [{"disk_id": "<ID of disk>", "destination": "cinder-volume-type-2"}]},"hypervisor_type": "kvm","flavor_name": "m1.small","keypair_name": "new-key","delete_disks_on_vm_termination": false,"security_groups": ["name of existing secgroup on destination OpenStack", "and another one"],// parameters relating to the temporary worker instances, used in both migrations and replicas:"migr_image_map": {"linux": "Linux migration worker Image name/ID","windows": "63d8f1a4-3192-4edc-b113-0d099b4bc458"},"migr_network": "private","migr_worker_use_fip": true,"migr_fip_pool_name": "external_network/external_subnet","migr_flavor_name": "m1.small","migr_worker_boot_from_volume": true,"migr_worker_volume_size": 1,"migr_worker_volume_type": "cinder-voltype","list_all_destination_networks": true,"migr_worker_use_config_drive": true,// parameters relating to the migration process:"port_reuse_policy": "keep_mac","volumes_are_zeroed": true,"preserve_fixed_ips": true,"server_group": "name or ID of Nova server group","use_floating_ip": true,"floating_ip_pool": "external_network/external_subnet",// parameters relating to the OSMorphing process, used in both migrations and replica deployments:"set_dhcp": true,"instance_tags": {"tag1": "value1","tag2": "value2"}}
-
-1 | {"network_map": {"source network name": "name or ID of existing Neutron network in destination OpenStack",},"storage_mappings": {"default": "cinder-volume-type-0","backend_mappings": [{"source": "datastor1", "destination": "cinder-volume-type-1"}],"disk_mappings": [{"disk_id": "<ID of disk>", "destination": "cinder-volume-type-2"}]},"hypervisor_type": "kvm","flavor_name": "m1.small","keypair_name": "new-key","delete_disks_on_vm_termination": false,"security_groups": ["name of existing secgroup on destination OpenStack", "and another one"],// parameters relating to the temporary worker instances, used in both migrations and replicas:"migr_image_map": {"linux": "Linux migration worker Image name/ID","windows": "63d8f1a4-3192-4edc-b113-0d099b4bc458"},"migr_network": "private","migr_worker_use_fip": true,"migr_fip_pool_name": "external_network/external_subnet","migr_flavor_name": "m1.small","migr_worker_boot_from_volume": true,"migr_worker_volume_size": 1,"migr_worker_volume_type": "cinder-voltype","list_all_destination_networks": true,"migr_worker_use_config_drive": true,// parameters relating to the migration process:"port_reuse_policy": "keep_mac","volumes_are_zeroed": true,"preserve_fixed_ips": true,"server_group": "name or ID of Nova server group","use_floating_ip": true,"floating_ip_pool": "external_network/external_subnet",// parameters relating to the OSMorphing process, used in both migrations and replica deployments:"set_dhcp": true,"instance_tags": {"tag1": "value1","tag2": "value2"}}  
----|---  
+```json
+{"network_map": {"source network name": "name or ID of existing Neutron network in destination OpenStack",},"storage_mappings": {"default": "cinder-volume-type-0","backend_mappings": [{"source": "datastor1", "destination": "cinder-volume-type-1"}],"disk_mappings": [{"disk_id": "<ID of disk>", "destination": "cinder-volume-type-2"}]},"hypervisor_type": "kvm","flavor_name": "m1.small","keypair_name": "new-key","delete_disks_on_vm_termination": false,"security_groups": ["name of existing secgroup on destination OpenStack", "and another one"],// parameters relating to the temporary worker instances, used in both migrations and replicas:"migr_image_map": {"linux": "Linux migration worker Image name/ID","windows": "63d8f1a4-3192-4edc-b113-0d099b4bc458"},"migr_network": "private","migr_worker_use_fip": true,"migr_fip_pool_name": "external_network/external_subnet","migr_flavor_name": "m1.small","migr_worker_boot_from_volume": true,"migr_worker_volume_size": 1,"migr_worker_volume_type": "cinder-voltype","list_all_destination_networks": true,"migr_worker_use_config_drive": true,// parameters relating to the migration process:"port_reuse_policy": "keep_mac","volumes_are_zeroed": true,"preserve_fixed_ips": true,"server_group": "name or ID of Nova server group","use_floating_ip": true,"floating_ip_pool": "external_network/external_subnet",// parameters relating to the OSMorphing process, used in both migrations and replica deployments:"set_dhcp": true,"instance_tags": {"tag1": "value1","tag2": "value2"}}
+```
   
   * **network_map**  (string-string mapping) - a mapping between the names of networks on the source cloud and names or IDs of corresponding pre-existing networks on the destination Openstack. For each NIC of the instance on the source cloud, Coriolis will lookup the mapped network on the destination OpenStack and ensure the Neutron port corresponding to that NIC is attached to that Neutron network
   * **storage_mappings  **(object) - storage-related options such as how to map each disk or storage type on the source to Cinder volume types on OpenStack
@@ -104,10 +101,9 @@ Below is a listing of the destination environment parameters the AWS plugin supp
 
 **Example of source environment JSON to be passed to the AWS plugin**
 
-{"migr_image_map": {"linux": "ami-50946030", "windows": "ami-50946031"},"worker_instance_type": "t2.medium","shutdown_migrated_instance": false}
-
-1 | {"migr_image_map": {"linux": "ami-50946030", "windows": "ami-50946031"},"worker_instance_type": "t2.medium","shutdown_migrated_instance": false}  
----|---  
+```json
+{"migr_image_map": {"linux": "ami-50946030", "windows": "ami-50946031"},"worker_instance_type": "t2.medium","shutdown_migrated_instance": false}
+```
   
   * **migr_image_map**  (string-string mapping) - a mapping specifying the ID of an AMI to use for temporary worker VMs. Supported keys are linux and windows.
   * **worker_instance_type**  (string) - name of the instance type to use for the temporary worker VMs. Default is t2.medium.
@@ -121,10 +117,9 @@ The source environment parameters are a set of source-cloud-specific parameters 
 
 **Example of source environment JSON to be passed to the Hyper-V plugin**
 
+```json
 {"fallback_to_crash_consistent_snapshots": true,"verify_rct_server": false}
-
-1 | {"fallback_to_crash_consistent_snapshots": true,"verify_rct_server": false}  
----|---  
+```
   
   * **fallback_to_crash_consistent_snapshots**  (string) - Use crash-consistent snapshots if Hyper-V enablement is not installed in the guest VM
   * **verify_rct_server**  (string) - Verify the SSL certificate for RCT service. Set to No if using a self-signed certificate.
@@ -139,10 +134,9 @@ Below is a listing of the destination environment parameters the Azure plugin su
 
 **Example of source environment JSON to be passed to the Azure plugin**
 
-{"location": "westus","resource_group": "coriolis-testgroup","export_worker_size": "Standard_A1","export_worker_image": {"publisher": "Canonical","offer": "UbuntuServer","sku": "16.04.0-LTS","version": "latest"},// Below options are for Blob storage-based scenarios:"storage_account_name": "storage-account","storage_container_name": "coriolis"}
-
-1 | {"location": "westus","resource_group": "coriolis-testgroup","export_worker_size": "Standard_A1","export_worker_image": {"publisher": "Canonical","offer": "UbuntuServer","sku": "16.04.0-LTS","version": "latest"},// Below options are for Blob storage-based scenarios:"storage_account_name": "storage-account","storage_container_name": "coriolis"}  
----|---  
+```json
+{"location": "westus","resource_group": "coriolis-testgroup","export_worker_size": "Standard_A1","export_worker_image": {"publisher": "Canonical","offer": "UbuntuServer","sku": "16.04.0-LTS","version": "latest"},// Below options are for Blob storage-based scenarios:"storage_account_name": "storage-account","storage_container_name": "coriolis"}
+```
   
   * **location**  (string) - the Azure location where to search for the VM to migrate/replicate (ex: westus, eastus, etc…)
   * **resource_group**  (string) - the name of the resource group in which the VMs to migrate/replicate are in
@@ -161,10 +155,9 @@ Below is a listing of the destination environment parameters the Azure plugin su
 
 **Example of destination environment JSON to be passed to the Azure plugin**
 
-{"location": "westus","resource_group": "Migrations","network_map":{"source network name": "azure-network-name/test-subnet-name"},"storage_map": {"default": "Standard_LRS","backend_mappings": [{"source": "source_backend", "destination": "Premium_LRS"}],"disk_mappings": [{"disk_id": "source_disk_id", "destination": "Premium_SSD"}]},"vm_size": "Standard_D1",// parameters relating to the temporary worker instances, used in both migrations and replicas:"worker_size": "Standard_D1","linux_migr_image": {"publisher": "Canonical","offer": "UbuntuServer","sku": "16.04.0-LTS","version": "latest"},"windows_migr_image": {"publisher": "MicrosoftWindowsServer","offer": "WindowsServer","sku": "2016-Datacenter-Server-Core","version": "latest"},// Below options are for Blob storage-based scenarios:"storage_account_name": "storage-account","storage_container_name": "coriolis","preserve_nic_ips": false}
-
-1 | {"location": "westus","resource_group": "Migrations","network_map":{"source network name": "azure-network-name/test-subnet-name"},"storage_map": {"default": "Standard_LRS","backend_mappings": [{"source": "source_backend", "destination": "Premium_LRS"}],"disk_mappings": [{"disk_id": "source_disk_id", "destination": "Premium_SSD"}]},"vm_size": "Standard_D1",// parameters relating to the temporary worker instances, used in both migrations and replicas:"worker_size": "Standard_D1","linux_migr_image": {"publisher": "Canonical","offer": "UbuntuServer","sku": "16.04.0-LTS","version": "latest"},"windows_migr_image": {"publisher": "MicrosoftWindowsServer","offer": "WindowsServer","sku": "2016-Datacenter-Server-Core","version": "latest"},// Below options are for Blob storage-based scenarios:"storage_account_name": "storage-account","storage_container_name": "coriolis","preserve_nic_ips": false}  
----|---  
+```json
+{"location": "westus","resource_group": "Migrations","network_map":{"source network name": "azure-network-name/test-subnet-name"},"storage_map": {"default": "Standard_LRS","backend_mappings": [{"source": "source_backend", "destination": "Premium_LRS"}],"disk_mappings": [{"disk_id": "source_disk_id", "destination": "Premium_SSD"}]},"vm_size": "Standard_D1",// parameters relating to the temporary worker instances, used in both migrations and replicas:"worker_size": "Standard_D1","linux_migr_image": {"publisher": "Canonical","offer": "UbuntuServer","sku": "16.04.0-LTS","version": "latest"},"windows_migr_image": {"publisher": "MicrosoftWindowsServer","offer": "WindowsServer","sku": "2016-Datacenter-Server-Core","version": "latest"},// Below options are for Blob storage-based scenarios:"storage_account_name": "storage-account","storage_container_name": "coriolis","preserve_nic_ips": false}
+```
   
   * **location**  (string) - the Azure location to which to migrate/replicate (ex: westus, eastus, etc…)
   * **resource_group**  (string) - the name of a pre-existing resource group in which to migrate/replicate to and must exist in the specified location
@@ -188,10 +181,9 @@ Below is a listing of the destination environment parameters the OCI plugin supp
 
 **Example of destination environment JSON to be passed to the OCI plugin**
 
-{"network_map": {"source_network_1": {"id": "<ID of destination OCI subnet>","security_groups": ["network_secgroup_id_1", ...]},"storage_mapping": {"default": "emulated","backend_mappings": [{"source": "datastor1", "destination": "iscsi"}],"disk_mappings": [{"disk_id": "<ID of disk>", "destination": "paravirtualized"}]},"use_pv_mode": true,"availability_domain": "<availability_domain>","compartment": "<compartment_ID>","vcn_compartment": "<compartment_ID>","set_public_ip": true,"migr_subnet_id": "<migrsubnet>","migr_image_map": {"linux": "<linux_image_id>","windows": "<windows image ID>"}"migr_shape_name": "VM.Standard1.2","shape_name": "VM.Standard2.2"}
-
-1 | {"network_map": {"source_network_1": {"id": "<ID of destination OCI subnet>","security_groups": ["network_secgroup_id_1", ...]},"storage_mapping": {"default": "emulated","backend_mappings": [{"source": "datastor1", "destination": "iscsi"}],"disk_mappings": [{"disk_id": "<ID of disk>", "destination": "paravirtualized"}]},"use_pv_mode": true,"availability_domain": "<availability_domain>","compartment": "<compartment_ID>","vcn_compartment": "<compartment_ID>","set_public_ip": true,"migr_subnet_id": "<migrsubnet>","migr_image_map": {"linux": "<linux_image_id>","windows": "<windows image ID>"}"migr_shape_name": "VM.Standard1.2","shape_name": "VM.Standard2.2"}  
----|---  
+```json
+{"network_map": {"source_network_1": {"id": "<ID of destination OCI subnet>","security_groups": ["network_secgroup_id_1", ...]},"storage_mapping": {"default": "emulated","backend_mappings": [{"source": "datastor1", "destination": "iscsi"}],"disk_mappings": [{"disk_id": "<ID of disk>", "destination": "paravirtualized"}]},"use_pv_mode": true,"availability_domain": "<availability_domain>","compartment": "<compartment_ID>","vcn_compartment": "<compartment_ID>","set_public_ip": true,"migr_subnet_id": "<migrsubnet>","migr_image_map": {"linux": "<linux_image_id>","windows": "<windows image ID>"}"migr_shape_name": "VM.Standard1.2","shape_name": "VM.Standard2.2"}
+```
   
   * **availability_domain**  (string) - ID of the availability domain on OCI 
   * **network_map**  (string-object mapping) - a mapping between the names of networks on the source cloud and a corresponding pre-existing network on OCI, in addition to an optional list of security groups
@@ -215,10 +207,9 @@ Below is a listing of the source environment parameters the OCI-C plugin support
 
 **Example of source environment JSON to be passed to the OCI-C plugin**
 
-{"export_image_name": "/oracle/public/OL_7.2_UEKR4_x86_64","export_img_username": "cloud-user","export_shape_name": "oc3","export_root_disk_size": 20}
-
-1 | {"export_image_name": "/oracle/public/OL_7.2_UEKR4_x86_64","export_img_username": "cloud-user","export_shape_name": "oc3","export_root_disk_size": 20}  
----|---  
+```json
+{"export_image_name": "/oracle/public/OL_7.2_UEKR4_x86_64","export_img_username": "cloud-user","export_shape_name": "oc3","export_root_disk_size": 20}
+```
   
   * **export_image_name  **(string) - name of a Linux image on OCI-C to use for the temporary VMs which will be exporting disk data from OCI-C
   * **export_img_username**  (string) - username to use when connection to the temporary disk copy worker
@@ -235,10 +226,9 @@ Below is a listing of the destination environment parameters the OCI-C plugin su
 
 **Example of destination environment JSON to be passed to the OCI-C plugin**
 
-{"network_map": {"source network name": "name of an existing IP network on destination OPC"},"storage_mappings": {"default": ""/oracle/public/storage/default"","backend_mappings": [{"source": "datastor1", "destination": "/oracle/public/storage/default"}],"disk_mappings": [{"disk_id": "<ID of disk>", "destination": "/oracle/public/storage/latency"}]},"migr_image_map": {"linux": "/oracle/public/OL_7.2_UEKR4_x86_64",// NOTE: syntax for custom images:"windows": "/Compute-a488347/user@mail.com/Windows_2012_R2"},"migr_shape_name": "oc3","shape_name": "oc3","default_volume_pool": "/oracle/public/storage/default","keypair_name": "key1","set_public_ip": true}
-
-1 | {"network_map": {"source network name": "name of an existing IP network on destination OPC"},"storage_mappings": {"default": ""/oracle/public/storage/default"","backend_mappings": [{"source": "datastor1", "destination": "/oracle/public/storage/default"}],"disk_mappings": [{"disk_id": "<ID of disk>", "destination": "/oracle/public/storage/latency"}]},"migr_image_map": {"linux": "/oracle/public/OL_7.2_UEKR4_x86_64",// NOTE: syntax for custom images:"windows": "/Compute-a488347/user@mail.com/Windows_2012_R2"},"migr_shape_name": "oc3","shape_name": "oc3","default_volume_pool": "/oracle/public/storage/default","keypair_name": "key1","set_public_ip": true}  
----|---  
+```json
+{"network_map": {"source network name": "name of an existing IP network on destination OPC"},"storage_mappings": {"default": ""/oracle/public/storage/default"","backend_mappings": [{"source": "datastor1", "destination": "/oracle/public/storage/default"}],"disk_mappings": [{"disk_id": "<ID of disk>", "destination": "/oracle/public/storage/latency"}]},"migr_image_map": {"linux": "/oracle/public/OL_7.2_UEKR4_x86_64",// NOTE: syntax for custom images:"windows": "/Compute-a488347/user@mail.com/Windows_2012_R2"},"migr_shape_name": "oc3","shape_name": "oc3","default_volume_pool": "/oracle/public/storage/default","keypair_name": "key1","set_public_ip": true}
+```
   
   * **network_map**  (string-object mapping) - a mapping between the names of networks on the source cloud and names of corresponding pre-existing IP networks on the destination OPC
   * **storage_mappings**  (string-object mapping) - storage-related options such as how to map each disk or storage type on the source to OPC storage pools.
@@ -259,10 +249,9 @@ Below is a listing of the source environment parameters the OVM plugin supports 
 
 **Example of source environment JSON to be passed to the OVM plugin**
 
-{"repository_name": "<name of the repository to create temporary worker VMs in>","export_template_name": "<name of Linux template to use for the temporary disk export VMs>","export_template_username": "<username to the temporary VM template>","export_template_password": "<password to the temporary VM template>","virtual_disk_clone_types": "THIN_CLONE"}
-
-1 | {"repository_name": "<name of the repository to create temporary worker VMs in>","export_template_name": "<name of Linux template to use for the temporary disk export VMs>","export_template_username": "<username to the temporary VM template>","export_template_password": "<password to the temporary VM template>","virtual_disk_clone_types": "THIN_CLONE"}  
----|---  
+```json
+{"repository_name": "<name of the repository to create temporary worker VMs in>","export_template_name": "<name of Linux template to use for the temporary disk export VMs>","export_template_username": "<username to the temporary VM template>","export_template_password": "<password to the temporary VM template>","virtual_disk_clone_types": "THIN_CLONE"}
+```
   
   * **repository_name**  (string) - name of the repository to create temporary worker VMs in
   * **export_template_name**  (string) - name of Linux template to use for the temporary disk export VMs. The template must be configured with a NIC attached to a network that is both reach-able from the Coriolis installation and has a DHCP server available to allocate a new IP to the temporary VM.
@@ -280,10 +269,9 @@ Below is a listing of the destination environment parameters the OVM plugin supp
 
 **Example of destination environment JSON to be passed to the OVM plugin**
 
-{"network_map": {"source network name": "name or ID of existing network on destination OVM",},"storage_mappings": {"default": "default_repository","backend_mappings": [{"source": "datastor1", "destination": "Main"}],"disk_mappings": [{"disk_id": "<ID of disk>", "destination": "Local"}]},"server_pool_name": "<name of server pool>","repository_name": "<name of storage repository>","migr_template_name_map": {"linux": "OracleLinux7_template","windows": "Windows2012R2_template"},"migr_template_username_map": { "linux": "root", "windows": "Administrator" },"migr_template_password_map": { "linux": "<root password>", "windows": "<Administrator password" },"leave_migrated_vm_off": false,"os_label": "coriolis-migrated","virtual_disk_clone_type": "THIN_CLONE"}
-
-1 | {"network_map": {"source network name": "name or ID of existing network on destination OVM",},"storage_mappings": {"default": "default_repository","backend_mappings": [{"source": "datastor1", "destination": "Main"}],"disk_mappings": [{"disk_id": "<ID of disk>", "destination": "Local"}]},"server_pool_name": "<name of server pool>","repository_name": "<name of storage repository>","migr_template_name_map": {"linux": "OracleLinux7_template","windows": "Windows2012R2_template"},"migr_template_username_map": { "linux": "root", "windows": "Administrator" },"migr_template_password_map": { "linux": "<root password>", "windows": "<Administrator password" },"leave_migrated_vm_off": false,"os_label": "coriolis-migrated","virtual_disk_clone_type": "THIN_CLONE"}  
----|---  
+```json
+{"network_map": {"source network name": "name or ID of existing network on destination OVM",},"storage_mappings": {"default": "default_repository","backend_mappings": [{"source": "datastor1", "destination": "Main"}],"disk_mappings": [{"disk_id": "<ID of disk>", "destination": "Local"}]},"server_pool_name": "<name of server pool>","repository_name": "<name of storage repository>","migr_template_name_map": {"linux": "OracleLinux7_template","windows": "Windows2012R2_template"},"migr_template_username_map": { "linux": "root", "windows": "Administrator" },"migr_template_password_map": { "linux": "<root password>", "windows": "<Administrator password" },"leave_migrated_vm_off": false,"os_label": "coriolis-migrated","virtual_disk_clone_type": "THIN_CLONE"}
+```
   
   * **network_map**  (string-string mapping) - a mapping between the names of networks on the source cloud and names or of corresponding pre-existing networks on the destination OVM
   * **storage_mappings**  (string-object mapping) - storage-related options such as how to map each disk or storage type on the source to repositories on OVM

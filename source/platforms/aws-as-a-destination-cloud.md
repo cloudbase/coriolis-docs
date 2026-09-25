@@ -46,10 +46,35 @@ Below is a listing of the configuration section needed when migrating from AWS:
 
 [![](_static/images/ASW-destination.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/04/ASW-destination.jpg?ssl=1)
 
-[aws_migration_provider] # Whether or not to attempt to retain the IP addresses the VM had on the # source. This requires that the mapped subnets on AWS include the respective # IP address(es) in their ranges. # Default is False. retain_source_ip = false # The OS migration image map to use. This mapping will be used to spin up # the OS morphing worker needed to morph the OS being migrated. migr_image_map = linux: ami-50946030, windows: ami-50946031 # A map similar with migr_image_map, where we specify the username for each OS # image. On EC2, various linux distributions, have different usernames. # Default is 'ubuntu' for Linux and 'coriolis' for Windows. migr_image_username_map = linux: ubuntu, windows: coriolis # The storage type to default to for the disks of Migrated VMs if an explicit # storage mapping was not supplied during the Replica/Migration creation. # Default is 'standard' default_storage_type = standard # Default AD to use when creating resources for Migrated/Replicated VMs. # Must be in the same region as specified within the connection info. # availability_zone = az1 # Default instance type used for final migrated instances. # instance_type = t2.medium
+```json
+[aws_migration_provider]
+# Whether or not to attempt to retain the IP addresses the VM had on the
+# source. This requires that the mapped subnets on AWS include the respective
+# IP address(es) in their ranges.
+# Default is False.
+retain_source_ip = false
 
-123456789101112131415161718192021222324252627 | [aws_migration_provider]# Whether or not to attempt to retain the IP addresses the VM had on the# source. This requires that the mapped subnets on AWS include the respective# IP address(es) in their ranges.# Default is False.retain_source_ip = false # The OS migration image map to use. This mapping will be used to spin up# the OS morphing worker needed to morph the OS being migrated.migr_image_map = linux: ami-50946030, windows: ami-50946031 # A map similar with migr_image_map, where we specify the username for each OS# image. On EC2, various linux distributions, have different usernames.# Default is 'ubuntu' for Linux and 'coriolis' for Windows.migr_image_username_map = linux: ubuntu, windows: coriolis # The storage type to default to for the disks of Migrated VMs if an explicit# storage mapping was not supplied during the Replica/Migration creation.# Default is 'standard'default_storage_type = standard # Default AD to use when creating resources for Migrated/Replicated VMs.# Must be in the same region as specified within the connection info.# availability_zone = az1 # Default instance type used for final migrated instances.# instance_type = t2.medium  
----|---  
+# The OS migration image map to use. This mapping will be used to spin up
+# the OS morphing worker needed to morph the OS being migrated.
+migr_image_map = linux: ami-50946030, windows: ami-50946031
+
+# A map similar with migr_image_map, where we specify the username for each OS
+# image. On EC2, various linux distributions, have different usernames.
+# Default is 'ubuntu' for Linux and 'coriolis' for Windows.
+migr_image_username_map = linux: ubuntu, windows: coriolis
+
+# The storage type to default to for the disks of Migrated VMs if an explicit
+# storage mapping was not supplied during the Replica/Migration creation.
+# Default is 'standard'
+default_storage_type = standard
+
+# Default AD to use when creating resources for Migrated/Replicated VMs.
+# Must be in the same region as specified within the connection info.
+# availability_zone = az1
+
+# Default instance type used for final migrated instances.
+# instance_type = t2.medium
+```
   
 ### OSMorphing steps taken when migrating to AWS
 
@@ -96,10 +121,23 @@ Below is a listing of the destination environment parameters the AWS plugin supp
 
 **Example of destination environment JSON to be passed to the AWS plugin**
 
-{ "network_map": { "source network name": "ID of existing VPC.", }, "storage_mappings": { "default": "standard", "backend_mappings": [{"source": "datastor1", "destination": "gp2"}] "disk_mappings": [{"disk_id": "<ID of disk>"}, "destination": "io1"] }, "migr_image_map": {"linux": "ami-50946030", "windows": "ami-50946031"}, "worker_instance_type": "t2.medium", "instance_type": "t2.medium", "availability_zone": "az1" "retain_source_ip": true }
-
-123456789101112131415 | { "network_map": { "source network name": "ID of existing VPC.", }, "storage_mappings": { "default": "standard", "backend_mappings": [{"source": "datastor1", "destination": "gp2"}] "disk_mappings": [{"disk_id": "<ID of disk>"}, "destination": "io1"] }, "migr_image_map": {"linux": "ami-50946030", "windows": "ami-50946031"}, "worker_instance_type": "t2.medium", "instance_type": "t2.medium", "availability_zone": "az1" "retain_source_ip": true}  
----|---  
+```json
+{
+	"network_map": {
+		"source network name": "ID of existing VPC.",
+	},
+	"storage_mappings": {
+		"default": "standard",
+		"backend_mappings": [{"source": "datastor1", "destination": "gp2"}]
+		"disk_mappings": [{"disk_id": "<ID of disk>"}, "destination": "io1"]
+	},
+	"migr_image_map": {"linux": "ami-50946030", "windows": "ami-50946031"},
+	"worker_instance_type": "t2.medium",
+	"instance_type": "t2.medium",
+	"availability_zone": "az1"
+	"retain_source_ip": true
+}
+```
   
 Each parameter represents:
 

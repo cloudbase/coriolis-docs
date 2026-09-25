@@ -19,17 +19,17 @@ The following commands will install the Coriolis command-line client on the loca
 
 **Coriolis CLI installation commands**
 
+```bash
 $ git clone https://github.com/cloudbase/python-coriolisclient
-
-1 | $ git clone https://github.com/cloudbase/python-coriolisclient  
----|---  
+```
   
 ![](_static/images/cli1.png)
 
-$ pip3 install python-coriolisclient $ # verify client is available in path: $ /usr/bin/env coriolis
-
-123 | $ pip3 install python-coriolisclient$ # verify client is available in path:$ /usr/bin/env coriolis  
----|---  
+```bash
+$ pip3 install python-coriolisclient
+$ # verify client is available in path:
+$ /usr/bin/env coriolis
+```
   
 ![](_static/images/cli2.png)
 
@@ -43,35 +43,35 @@ This is a one-time step that must be performed for an appliance.
 
 By default, the Coriolis RC file for the admin account is to be found under /etc/kolla/ on the Coriolis Appliance
 
+```text
 #select option '3) Edit/Inspect Coriolis Configuration'
-
-1 | #select option '3) Edit/Inspect Coriolis Configuration'  
----|---  
+```
   
 ![](_static/images/coriolis-options.png)
 
 $cat /etc/kolla/admin-openrc.sh
 
-1 | $cat /etc/kolla/admin-openrc.sh  
----|---  
+```text
+$cat /etc/kolla/admin-openrc.sh
+```
   
 ![](_static/images/coriolis-rc-file1.png)
 
 It will also need to be copied to the machine where the Coriolis client has been installed.
 
+```text
 $scp /etc/kolla/admin-openc.sh adrian@<IP address>:/mnt/c/coriolis/
-
-1 | $scp /etc/kolla/admin-openc.sh adrian@<IP address>:/mnt/c/coriolis/  
----|---  
+```
   
 After copying it, the file needs to be sourced on the machine where the client runs, and Coriolis commands can be performed afterwards.
 
 Please modify the OS_AUTH_URL with the corresponding IP of the Coriolis appliance. A ping test can confirm the connectivity from the client machine where you have installed the CLI to the Coriolis remote-facing IP address.
 
-$source admin-openrc.sh $coriolis endpoint list
+```text
+$source admin-openrc.sh
 
-123 | $source admin-openrc.sh $coriolis endpoint list  
----|---  
+$coriolis endpoint list
+```
   
 ![](_static/images/coriolis-apply-rc.png)
 
@@ -85,10 +85,13 @@ Below is an example of creating an endpoint for a fictitious "CloudX"
 
 **Endpoint creation example**
 
-#the example of the RC file is reffering to the one on the Coriolis Appliance $source /etc/kolla/admin-openrc.sh $coriolis endpoint create \ \--name cloudx --description "CloudX endpoint" \ \--provider cloudx --connection '{"username": "iamtheowner", "password": "SeKr37"}'
-
-12345 | #the example of the RC file is reffering to the one on the Coriolis Appliance$source /etc/kolla/admin-openrc.sh$coriolis endpoint create \      \--name cloudx \--description "CloudX endpoint" \      \--provider cloudx \--connection '{"username": "iamtheowner", "password": "SeKr37"}'  
----|---  
+```text
+#the example of the RC file is reffering to the one on the Coriolis Appliance
+$source /etc/kolla/admin-openrc.sh
+$coriolis endpoint create \
+      --name cloudx --description "CloudX endpoint" \
+      --provider cloudx --connection '{"username": "iamtheowner", "password": "SeKr37"}'
+```
   
 The cloud plugin identifier given through the **- provider** parameter is unique to each plugin. Please review the documentation of the respective platform's Coriolis plugin to find the correct plugin identifier for it.
 
@@ -102,10 +105,15 @@ Instead of providing the plaintext JSON **- connection** directly to Coriolis, o
 
 **Endpoint creation example with Barbican secret**
 
-#the example of the RC file is reffering to the one on the Coriolis Appliance $source /etc/kolla/admin-openrc.sh $openstack secret store --name "CloudX credentials" -t "text/plain" \ -p '{"username": "iamtheowner", "password": "SeKr37"}' $coriolis endpoint create \ \--name cloudx --description "CloudX endpoint" \ \--provider cloudx --connection-secret "$URL_OF_ABOVE_BARBICAN_SECRET"
-
-1234567 | #the example of the RC file is reffering to the one on the Coriolis Appliance$source /etc/kolla/admin-openrc.sh$openstack secret store \--name "CloudX credentials" -t "text/plain" \ -p '{"username": "iamtheowner", "password": "SeKr37"}'$coriolis endpoint create \ \--name cloudx \--description "CloudX endpoint" \ \--provider cloudx \--connection-secret "$URL_OF_ABOVE_BARBICAN_SECRET"  
----|---  
+```text
+#the example of the RC file is reffering to the one on the Coriolis Appliance
+$source /etc/kolla/admin-openrc.sh
+$openstack secret store --name "CloudX credentials" -t "text/plain" \
+ -p '{"username": "iamtheowner", "password": "SeKr37"}'
+$coriolis endpoint create \
+ --name cloudx --description "CloudX endpoint" \
+ --provider cloudx --connection-secret "$URL_OF_ABOVE_BARBICAN_SECRET"
+```
   
 Barbican will encrypt the connection info before storing it in the database, and Coriolis will only access the credentials and pass them to the respective Coriolis platform plugin when it uses its services.
 
@@ -117,10 +125,11 @@ From the command line client, this may be done by running the following:
 
 **Endpoint validation example**
 
-#the example of the RC file is reffering to the one on the Coriolis Appliance $source /etc/kolla/admin-openrc.sh $coriolis endpoint validate connection $ENDPOINT_ID
-
-123 | #the example of the RC file is reffering to the one on the Coriolis Appliance$source /etc/kolla/admin-openrc.sh$coriolis endpoint validate connection $ENDPOINT_ID  
----|---  
+```text
+#the example of the RC file is reffering to the one on the Coriolis Appliance
+$source /etc/kolla/admin-openrc.sh
+$coriolis endpoint validate connection $ENDPOINT_ID
+```
   
 Should the credentials be in order, the command will terminate with no output and error code 0. Otherwise, a descriptive error message received back from the Coriolis service will be displayed.
 
@@ -132,10 +141,11 @@ From the command line client, the following may be run to list instances availab
 
 **Endpoint instance list example**
 
-#the example of the RC file is reffering to the one on the Coriolis Appliance $source /etc/kolla/admin-openrc.sh $coriolis endpoint instance list --source-environment '{"source": "parameters"}' $ENDPOINT_ID
-
-123 | #the example of the RC file is reffering to the one on the Coriolis Appliance$source /etc/kolla/admin-openrc.sh$coriolis endpoint instance list \--source-environment '{"source": "parameters"}' $ENDPOINT_ID  
----|---  
+```text
+#the example of the RC file is reffering to the one on the Coriolis Appliance
+$source /etc/kolla/admin-openrc.sh
+$coriolis endpoint instance list --source-environment '{"source": "parameters"}' $ENDPOINT_ID
+```
   
 The parameters for the **- source-environment** are source cloud-specific and will aid Coriolis in listing instances (e.g: 'resource_group' for Azure/AzureStack). Please review the documentation of the Coriolis platform plugin of the source cloud for the exact parameters that are expected. 
 
@@ -146,10 +156,18 @@ For starting migrations/replicas for a given instance, whether or not it may be 
   
 In addition to the above notable commands, the Coriolis command line client also offers the following operations on cloud endpoints:
 
-#the example of the RC file is reffering to the one on the Coriolis Appliance $source /etc/kolla/admin-openrc.sh #list all defined endpoints: $coriolis endpoint list #detailed view of a specific endpoint: $coriolis endpoint show $ENDPOINT_ID #update the parameters of a specific endpoint: $coriolis endpoint update --param "updated value for --param" $ENDPOINT_ID #delete a specific endpoint: $coriolis endpoint delete $ENDPOINT_ID
-
-12345678910 | #the example of the RC file is reffering to the one on the Coriolis Appliance$source /etc/kolla/admin-openrc.sh #list all defined endpoints:$coriolis endpoint list #detailed view of a specific endpoint:$coriolis endpoint show $ENDPOINT_ID #update the parameters of a specific endpoint:$coriolis endpoint update \--param "updated value for --param" $ENDPOINT_ID #delete a specific endpoint:$coriolis endpoint delete $ENDPOINT_ID  
----|---  
+```text
+#the example of the RC file is reffering to the one on the Coriolis Appliance
+$source /etc/kolla/admin-openrc.sh
+ #list all defined endpoints:
+$coriolis endpoint list
+ #detailed view of a specific endpoint:
+$coriolis endpoint show $ENDPOINT_ID
+ #update the parameters of a specific endpoint:
+$coriolis endpoint update --param "updated value for --param" $ENDPOINT_ID
+ #delete a specific endpoint:
+$coriolis endpoint delete $ENDPOINT_ID
+```
   
 ## Creating migration jobs
 
@@ -167,10 +185,17 @@ Granted all the above, a migration job may be created for an instance by running
 
 **Creating a Coriolis migration**
 
-#the example of the RC file is reffering to the one on the Coriolis Appliance $source /etc/kolla/admin-openrc.sh $coriolis migration create \ \--origin-endpoint $ID_OF_SOURCE_CLOUD_ENDPOINT \ \--destination-endpoint $ID_OF_DESTINATION_CLOUD_ENDPOINT \ \--source-environment '{"the": "source cloud specific params"}' \ \--destination-environment '{"the": "destination cloud specific params"}' \ \--network-map '{"source network name": "name or ID of network on destination"}' \ \--instance $IDENTIFIER_OF_INSTANCE_ON_SOURCE
-
-123456789 | #the example of the RC file is reffering to the one on the Coriolis Appliance$source /etc/kolla/admin-openrc.sh$coriolis migration create \ \--origin-endpoint $ID_OF_SOURCE_CLOUD_ENDPOINT \ \--destination-endpoint $ID_OF_DESTINATION_CLOUD_ENDPOINT \ \--source-environment '{"the": "source cloud specific params"}' \ \--destination-environment '{"the": "destination cloud specific params"}' \ \--network-map '{"source network name": "name or ID of network on destination"}' \ \--instance $IDENTIFIER_OF_INSTANCE_ON_SOURCE  
----|---  
+```text
+#the example of the RC file is reffering to the one on the Coriolis Appliance
+$source /etc/kolla/admin-openrc.sh
+$coriolis migration create \
+ --origin-endpoint $ID_OF_SOURCE_CLOUD_ENDPOINT \
+ --destination-endpoint $ID_OF_DESTINATION_CLOUD_ENDPOINT \
+ --source-environment '{"the": "source cloud specific params"}' \
+ --destination-environment '{"the": "destination cloud specific params"}' \
+ --network-map '{"source network name": "name or ID of network on destination"}' \
+ --instance $IDENTIFIER_OF_INSTANCE_ON_SOURCE
+```
   
 The above command will create a migration job within Coriolis, which may later be queried or halted by referencing its ID.
 
@@ -178,10 +203,21 @@ The above command will create a migration job within Coriolis, which may later b
 
 In addition to the above create command, the Coriolis command line client also offers the following operations on migration jobs:
 
-#the example of the RC file is reffering to the one on the Coriolis Appliance $source /etc/kolla/admin-openrc.sh #list all registered migration jobs: $coriolis migration list #view a particular migration's status: $coriolis migration show $MIGRATION_ID #cancel a running migration: $coriolis migration cancel $MIGRATION_ID #delete records of a previous migration: #this does not delete the migrated instance on the destination cloud #should that migration have been ended successfully. #the migration must not be running. $coriolis migration delete $MIGRATION_ID
-
-12345678910111213 | #the example of the RC file is reffering to the one on the Coriolis Appliance$source /etc/kolla/admin-openrc.sh #list all registered migration jobs:$coriolis migration list #view a particular migration's status:$coriolis migration show $MIGRATION_ID #cancel a running migration:$coriolis migration cancel $MIGRATION_ID #delete records of a previous migration: #this does not delete the migrated instance on the destination cloud #should that migration have been ended successfully. #the migration must not be running.$coriolis migration delete $MIGRATION_ID  
----|---  
+```text
+#the example of the RC file is reffering to the one on the Coriolis Appliance
+$source /etc/kolla/admin-openrc.sh
+ #list all registered migration jobs:
+$coriolis migration list
+ #view a particular migration's status:
+$coriolis migration show $MIGRATION_ID
+ #cancel a running migration:
+$coriolis migration cancel $MIGRATION_ID
+ #delete records of a previous migration:
+ #this does not delete the migrated instance on the destination cloud
+ #should that migration have been ended successfully.
+ #the migration must not be running.
+$coriolis migration delete $MIGRATION_ID
+```
   
 ## Creating replication (DRaaS) jobs
 
@@ -199,10 +235,17 @@ Granted all the above, a replication job may be **defined** (but not yet execute
 
 **Creating a Coriolis replica**
 
-#the example of the RC file is reffering to the one on the Coriolis Appliance $source /etc/kolla/admin-openrc.sh $coriolis replica create \ \--origin-endpoint $ID_OF_SOURCE_CLOUD_ENDPOINT \ \--destination-endpoint $ID_OF_DESTINATION_CLOUD_ENDPOINT \ \--source-environment '{"the": "source cloud specific params"}' \ \--destination-environment '{"the": "destination cloud specific params"}' \ \--network-map '{"source network name": "name or ID of network on destination"}' \ \--instance $IDENTIFIER_OF_INSTANCE_ON_SOURCE
-
-123456789 | #the example of the RC file is reffering to the one on the Coriolis Appliance$source /etc/kolla/admin-openrc.sh$coriolis replica create \ \--origin-endpoint $ID_OF_SOURCE_CLOUD_ENDPOINT \ \--destination-endpoint $ID_OF_DESTINATION_CLOUD_ENDPOINT \ \--source-environment '{"the": "source cloud specific params"}' \ \--destination-environment '{"the": "destination cloud specific params"}' \ \--network-map '{"source network name": "name or ID of network on destination"}' \ \--instance $IDENTIFIER_OF_INSTANCE_ON_SOURCE  
----|---  
+```text
+#the example of the RC file is reffering to the one on the Coriolis Appliance
+$source /etc/kolla/admin-openrc.sh
+$coriolis replica create \
+ --origin-endpoint $ID_OF_SOURCE_CLOUD_ENDPOINT \
+ --destination-endpoint $ID_OF_DESTINATION_CLOUD_ENDPOINT \
+ --source-environment '{"the": "source cloud specific params"}' \
+ --destination-environment '{"the": "destination cloud specific params"}' \
+ --network-map '{"source network name": "name or ID of network on destination"}' \
+ --instance $IDENTIFIER_OF_INSTANCE_ON_SOURCE
+```
   
 The above command will define a replication job with Coriolis, which may later have executions (syncs) scheduled, canceled, and deployed by referencing the replication job's ID.
 
@@ -214,10 +257,11 @@ An existing replica may have a new execution (sync run) started by running the f
 
 **Executing a Coriolis replica**
 
-#the example of the RC file is reffering to the one on the Coriolis Appliance $source /etc/kolla/admin-openrc.sh $coriolis replica execute $REPLICA_ID
-
-123 | #the example of the RC file is reffering to the one on the Coriolis Appliance$source /etc/kolla/admin-openrc.sh$coriolis replica execute $REPLICA_ID  
----|---  
+```text
+#the example of the RC file is reffering to the one on the Coriolis Appliance
+$source /etc/kolla/admin-openrc.sh
+$coriolis replica execute $REPLICA_ID
+```
   
 The above command will launch a new replica execution, which may later be queried for status, canceled, or deleted by referencing both the ID of the Replica, and the ID of the newly-created replica execution.
 
@@ -225,10 +269,27 @@ The above command will launch a new replica execution, which may later be querie
 
 In addition to the above execution command, the Coriolis command line client also offers the following operations on replica executions:
 
-#the example of the RC file is reffering to the one on the Coriolis Appliance $source /etc/kolla/admin-openrc.sh #list all executions of a replica: $coriolis replica execution list $REPLICA_ID #view a particular replica execution's status: $coriolis replica execution show $REPLICA_ID $REPLICA_EXECUTION_ID #cancel a running replica execution: $coriolis replica execution cancel $REPLICA_ID $REPLICA_EXECUTION_ID #delete records of a non-running replica execution: #this will not delete any resources which might have been #replicated on the destination cloud if the replica execution #had completed successfully (such as the replica disks) $coriolis replica execution delete $REPLICA_ID $REPLICA_EXECUTION_ID #delete the replica disks: #this will delete the disks on the destination cloud we are #replicating to, but it will not delete replica in Coriolis. #Later executions may be launched for the replica, but the next one #will be a full execution to completely new disks on the destination. $coriolis replica disks delete $REPLICA_ID
-
-12345678910111213141516171819 | #the example of the RC file is reffering to the one on the Coriolis Appliance$source /etc/kolla/admin-openrc.sh #list all executions of a replica:$coriolis replica execution list $REPLICA_ID #view a particular replica execution's status:$coriolis replica execution show $REPLICA_ID $REPLICA_EXECUTION_ID #cancel a running replica execution:$coriolis replica execution cancel $REPLICA_ID $REPLICA_EXECUTION_ID #delete records of a non-running replica execution: #this will not delete any resources which might have been #replicated on the destination cloud if the replica execution #had completed successfully (such as the replica disks)$coriolis replica execution delete $REPLICA_ID $REPLICA_EXECUTION_ID #delete the replica disks: #this will delete the disks on the destination cloud we are #replicating to, but it will not delete replica in Coriolis. #Later executions may be launched for the replica, but the next one #will be a full execution to completely new disks on the destination.$coriolis replica disks delete $REPLICA_ID  
----|---  
+```text
+#the example of the RC file is reffering to the one on the Coriolis Appliance
+$source /etc/kolla/admin-openrc.sh
+ #list all executions of a replica:
+$coriolis replica execution list $REPLICA_ID
+ #view a particular replica execution's status:
+$coriolis replica execution show $REPLICA_ID $REPLICA_EXECUTION_ID
+ #cancel a running replica execution:
+$coriolis replica execution cancel $REPLICA_ID $REPLICA_EXECUTION_ID
+ #delete records of a non-running replica execution:
+ #this will not delete any resources which might have been
+ #replicated on the destination cloud if the replica execution
+ #had completed successfully (such as the replica disks)
+$coriolis replica execution delete $REPLICA_ID $REPLICA_EXECUTION_ID
+ #delete the replica disks:
+ #this will delete the disks on the destination cloud we are
+ #replicating to, but it will not delete replica in Coriolis.
+ #Later executions may be launched for the replica, but the next one
+ #will be a full execution to completely new disks on the destination.
+$coriolis replica disks delete $REPLICA_ID
+```
   
 ### Deploying a replica on the destination cloud
 
@@ -238,10 +299,11 @@ An existing replica may be deployed on the destination cloud by running the foll
 
 **Deploying a Coriolis replica**
 
-#the example of the RC file is reffering to the one on the Coriolis Appliance $source /etc/kolla/admin-openrc.sh $coriolis migration deploy replica $REPLICA_ID
-
-123 | #the example of the RC file is reffering to the one on the Coriolis Appliance$source /etc/kolla/admin-openrc.sh$coriolis migration deploy replica $REPLICA_ID  
----|---  
+```text
+#the example of the RC file is reffering to the one on the Coriolis Appliance
+$source /etc/kolla/admin-openrc.sh
+$coriolis migration deploy replica $REPLICA_ID
+```
   
 The above command will start a replica migration job that will recreate the instance on the destination cloud with the state of the last replica execution.
 

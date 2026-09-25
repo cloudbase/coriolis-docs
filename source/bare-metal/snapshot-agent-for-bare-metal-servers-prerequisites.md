@@ -25,10 +25,9 @@ The file system for the snapstore disk must support a Linux-specific system call
 Snapstore destination is an array of paths on the disk where the snap store watchers will allocate disk space for the snap stores. The device on which these folders reside will be excluded from the list of  
 snapshot-able disks. If this path is on a device mapper, all disks that make up that device mapper, will be excluded. Paths set here should be on a separate block volume (physical, iSCSI, rbd, etc).
 
+```text
 snapstore_destinations = "/mnt/snapstores/snapstore_files"
-
-1 | snapstore_destinations = "/mnt/snapstores/snapstore_files"  
----|---  
+```
   
 #### Adding, formatting, and mounting the extra disk
 
@@ -38,17 +37,25 @@ snapstore_destinations = "/mnt/snapstores/snapstore_files"
 
 ls /dev/sd* fdisk /dev/sdx
 
-123 | ls /dev/sd* fdisk /dev/sdx  
----|---  
+```text
+ls /dev/sd*
+
+fdisk /dev/sdx
+```
   
   * run through the partitioning tool steps
 
 
 
-list partitions = p create new partition = n set the partition number = 1 (default) write to disk = w
+```text
+list partitions = p
 
-1234567 | list partitions = p create new partition = n set the partition number = 1 (default) write to disk = w  
----|---  
+create new partition = n
+
+set the partition number = 1 (default)
+
+write to disk = w
+```
   
   * format the newly created partition
 
@@ -56,17 +63,17 @@ list partitions = p create new partition = n set the partition number = 1 (defau
 
 sudo mkfs.ext4 /dev/sdx1
 
-1 | sudo mkfs.ext4 /dev/sdx1  
----|---  
+```bash
+sudo mkfs.ext4 /dev/sdx1
+```
   
   * mount the previously formatted partition
 
 
 
+```text
 mount /dev/sdx1 /mnt/snapstores/snapstore_files
-
-1 | mount /dev/sdx1 /mnt/snapstores/snapstore_files  
----|---  
+```
   
 Once the disk is formatted and mounted Coriolis will automatically add the new mount to fstab, while running the Agent install script.
 

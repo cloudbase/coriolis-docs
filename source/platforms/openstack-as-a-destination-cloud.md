@@ -98,10 +98,159 @@ Note that the "Preserve Fixed IPs" option requires that the subnet(s) on the Neu
 
 Below is a listing of the configuration section needed when migrating/replicating to an OpenStack:
 
-[openstack_migration_provider] ... ### Import parameters: # Name of a pre-created availability zone where resources migrated by Coriolis # will be created in. Note that Coriolis will need to also create any # temporary resources (such as disk transfer and OSMorphing worker VMs) # within the same availability zone, so all of the other # temporary-resource-related options must be compatible with the selected AZ. # Default is None (Nova will choose the default one for Coriolis) # availability_zone = # If migrating/replicating a heterogeneous workload with both Linux and # Windows instances, separate image names or IDs will need to be provided # for the temporary OSMorphing workers for each OS type. # The 'linux' image will be used for the disk copy worker during the replica # execution process as well # Only accepted keys are 'linux' and 'windows' # migr_image_map = linux: 283bdce4-112c-4758-b06a-7e5985a9cd15, windows: Windows Server 2012 R2 Std Eval # Boolean flag indicating whether or not to list all Neutron networks. # By default, Coriolis will only list the networks which are in the # same tenant as the one set in the Coriolis endpoint in use. list_all_destination_networks = False # Whether or not unallocated blocks on Cinder target volumes contain # zeros. This is controlled by the "volume_clear" Cinder configuration # options. (boolean value) volumes_are_zeroed = True # Default hypervisor type. (string value) # The type of hypervisor the destination OpenStack features, # supported options being "hyperv", "qemu" or "kvm" # Default is None, meaning no extra hypervisor-specific actions will be taken # during the OSMorphing process hypervisor_type = kvm # Whether or not to download the worker image to a Cinder volume and boot the # worker from that. The root disk size on the configured 'migr_flavor_name' # will be used for the worker VM volume, 'migr_flavor_name' will be used for # the worker VM volume unless explicitly specified using 'migr_worker_volume_size'. migr_worker_boot_from_volume = False # The integer size (in GBs) of the Cinder volume to boot temporary worker VMs # from. This option is only effective if "migr_worker_boot_from_volume" is set. # If not set, Coriolis will use the disk size set the selected "migr_flavor_name". # migr_worker_volume_size = # Name of the precreated Cinder volume type to use when creating temporary worker volumes. # This option is only effective if "migr_worker_boot_from_volume" is set. # migr_worker_volume_type = # Name of the Cinder volume type to be used for # volumes with unspecified storage backing option from the # source or which could not be mapped in the "storage_map". # Default is "" (Cinder scheduler will # use default volume type) # default_cinder_volume_type = # Whether or not to set the Cinder volumes as ephemeral (to be deleted when # the VM is deleted) on the newly migrated/replicated instance on the # destination OpenStack. Default is False. delete_disks_on_vm_termination = True # List of names or IDs of pre-existing security groups on the destination # OpenStack to be applied to the migrated/replicated instance. # Note that the below set will be joined with the list specified via the # 'security_groups' parameter from the set of destination environment parameters # (list value) # default_security_groups = secgroup1, secgroup2 # Name or ID of an existing Neutron network on the destination # OpenStack where to attach the Neutron port of the temporary disk # copy/OSMorphing worker VMs. (string value) # migr_network = private # Whether or not to allocate floating IPs from the "migr_fip_pool_name" # for the temporary disk copy/OSMorphing worker VMs. # Default is True migr_worker_use_fip = True # Name of an existing Neutron network on the destination OpenStack which # serves as external and may have floating IPs allocated from it. # These floating IPs will be associated to the temporary disk copy/OSMorphing # worker VMs. # Default is "public" # migr_fip_pool_name = public # Name of an existing Nova flavor which to boot the temporary # disk copy/OSMorphing worker VMs as. # Default is "m1.small" # (string value) # migr_flavor_name = m1.small # Whether or not to use config drive to send metadata to the temporary # disk copy/OSMorphing worker VMs in case Neutron metadata is not available # Default is False migr_worker_use_config_drive = False # Whether or not to reconfigure the internal network settings of each # interface of the instance being migrated/replicated during the OSMorphing # process to have the VM perform DHCP on first boot inside the new environment. # Default is True set_dhcp = True # If set to "reuse_ports", Coriolis will reuse any Neutron ports found with # the MAC addresses needed for the new VM. If set to "keep_mac", Coriolis # will delete any ports with the MAC addresses the VM needs and recreate them # with the same MAC address. If set to "replace_mac", Coriolis will always # create new ports with new MAC addresses. port_reuse_policy = keep_mac # Dictionary with arbitrary key-value pairs to set as tags on the # migrated/replicated VMs. # instance_tags = # Whether or not to preserve the fixed IPs of the migrated instances' Neutron # ports. When this is set to 'True', the target Openstack cloud will attempt # to create ports containing fixed IPs collected from the source VM. A subnet # with the right CIDR is required in the mapped network for the VM's first NIC. preserve_fixed_ips = False # If set, Coriolis will attempt to identify a suitable subnet from the provided # 'floating_ip_pool' on the target OpenStack in which to create a floating IP # with the same address the VM had on the source. preserve_floating_ip = False # Whether or not to attach a floating IP to the already migrated VM. This # option must be set to 'True' if the migrated VM is intended to have a public # IP attached. The floating IP will be allocated from the 'floating_ip_pool' # option. use_floating_ip = False # use these flags for uefi with secure boot #default_custom_boot_volume_image_metadata = os_secure_boot: required,hw_machine_type: q35 # What mechanism to use when sending disk data from the Coriolis installation # to the temporary VMs on the target OpenStack to be written to their # respective disk. The HTTPS-based transfer mechanism (TCP/5566) is faster but # might not work if there are firewalls in the way. The SSH-based transfer # mechanism (TCP/22) is more costly but will be allowed by most firewalls since # SSH access from the Coriolis installation to the temporary worker VM is always # required. Coriolis automatically sets security groups rules for the temporary # VMs accordingly. # Choices are 'SSH' or 'HTTPS'. Default is 'HTTPS'. data_transfer_mechanism = HTTPS # Parameters related to the OSMorphing process for Windows instances: windows_virtio_iso_url = https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso cloudbaseinit_x64_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x64.zip cloudbaseinit_x86_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x86.zip
+```json
+ [openstack_migration_provider]
+...
+### Import parameters:
 
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139140141142143144145146147148149150151 |  [openstack_migration_provider]...### Import parameters: # Name of a pre-created availability zone where resources migrated by Coriolis# will be created in. Note that Coriolis will need to also create any# temporary resources (such as disk transfer and OSMorphing worker VMs)# within the same availability zone, so all of the other# temporary-resource-related options must be compatible with the selected AZ.# Default is None (Nova will choose the default one for Coriolis)# availability_zone = # If migrating/replicating a heterogeneous workload with both Linux and# Windows instances, separate image names or IDs will need to be provided# for the temporary OSMorphing workers for each OS type.# The 'linux' image will be used for the disk copy worker during the replica# execution process as well# Only accepted keys are 'linux' and 'windows'# migr_image_map = linux: 283bdce4-112c-4758-b06a-7e5985a9cd15, windows: Windows Server 2012 R2 Std Eval # Boolean flag indicating whether or not to list all Neutron networks.# By default, Coriolis will only list the networks which are in the# same tenant as the one set in the Coriolis endpoint in use.list_all_destination_networks = False # Whether or not unallocated blocks on Cinder target volumes contain# zeros. This is controlled by the "volume_clear" Cinder configuration# options. (boolean value)volumes_are_zeroed = True # Default hypervisor type. (string value)# The type of hypervisor the destination OpenStack features,# supported options being "hyperv", "qemu" or "kvm"# Default is None, meaning no extra hypervisor-specific actions will be taken# during the OSMorphing processhypervisor_type = kvm # Whether or not to download the worker image to a Cinder volume and boot the# worker from that. The root disk size on the configured 'migr_flavor_name'# will be used for the worker VM volume, 'migr_flavor_name' will be used for# the worker VM volume unless explicitly specified using 'migr_worker_volume_size'.migr_worker_boot_from_volume = False # The integer size (in GBs) of the Cinder volume to boot temporary worker VMs# from. This option is only effective if "migr_worker_boot_from_volume" is set.# If not set, Coriolis will use the disk size set the selected "migr_flavor_name".# migr_worker_volume_size = # Name of the precreated Cinder volume type to use when creating temporary worker volumes.# This option is only effective if "migr_worker_boot_from_volume" is set.# migr_worker_volume_type = # Name of the Cinder volume type to be used for# volumes with unspecified storage backing option from the# source or which could not be mapped in the "storage_map".# Default is "" (Cinder scheduler will# use default volume type)# default_cinder_volume_type = # Whether or not to set the Cinder volumes as ephemeral (to be deleted when# the VM is deleted) on the newly migrated/replicated instance on the# destination OpenStack. Default is False.delete_disks_on_vm_termination = True # List of names or IDs of pre-existing security groups on the destination# OpenStack to be applied to the migrated/replicated instance.# Note that the below set will be joined with the list specified via the# 'security_groups' parameter from the set of destination environment parameters# (list value)# default_security_groups = secgroup1, secgroup2 # Name or ID of an existing Neutron network on the destination# OpenStack where to attach the Neutron port of the temporary disk# copy/OSMorphing worker VMs. (string value)# migr_network = private # Whether or not to allocate floating IPs from the "migr_fip_pool_name"# for the temporary disk copy/OSMorphing worker VMs.# Default is Truemigr_worker_use_fip = True # Name of an existing Neutron network on the destination OpenStack which# serves as external and may have floating IPs allocated from it.# These floating IPs will be associated to the temporary disk copy/OSMorphing# worker VMs.# Default is "public"# migr_fip_pool_name = public # Name of an existing Nova flavor which to boot the temporary# disk copy/OSMorphing worker VMs as.# Default is "m1.small"# (string value)# migr_flavor_name = m1.small # Whether or not to use config drive to send metadata to the temporary# disk copy/OSMorphing worker VMs in case Neutron metadata is not available# Default is Falsemigr_worker_use_config_drive = False # Whether or not to reconfigure the internal network settings of each# interface of the instance being migrated/replicated during the OSMorphing# process to have the VM perform DHCP on first boot inside the new environment.# Default is Trueset_dhcp = True # If set to "reuse_ports", Coriolis will reuse any Neutron ports found with# the MAC addresses needed for the new VM. If set to "keep_mac", Coriolis# will delete any ports with the MAC addresses the VM needs and recreate them# with the same MAC address. If set to "replace_mac", Coriolis will always# create new ports with new MAC addresses.port_reuse_policy = keep_mac # Dictionary with arbitrary key-value pairs to set as tags on the# migrated/replicated VMs.# instance_tags = # Whether or not to preserve the fixed IPs of the migrated instances' Neutron# ports. When this is set to 'True', the target Openstack cloud will attempt# to create ports containing fixed IPs collected from the source VM. A subnet# with the right CIDR is required in the mapped network for the VM's first NIC.preserve_fixed_ips = False # If set, Coriolis will attempt to identify a suitable subnet from the provided# 'floating_ip_pool' on the target OpenStack in which to create a floating IP# with the same address the VM had on the source.preserve_floating_ip = False # Whether or not to attach a floating IP to the already migrated VM. This# option must be set to 'True' if the migrated VM is intended to have a public# IP attached. The floating IP will be allocated from the 'floating_ip_pool'# option.use_floating_ip = False # use these flags for uefi with secure boot#default_custom_boot_volume_image_metadata = os_secure_boot: required,hw_machine_type: q35 # What mechanism to use when sending disk data from the Coriolis installation# to the temporary VMs on the target OpenStack to be written to their# respective disk. The HTTPS-based transfer mechanism (TCP/5566) is faster but# might not work if there are firewalls in the way. The SSH-based transfer# mechanism (TCP/22) is more costly but will be allowed by most firewalls since# SSH access from the Coriolis installation to the temporary worker VM is always# required. Coriolis automatically sets security groups rules for the temporary# VMs accordingly.# Choices are 'SSH' or 'HTTPS'. Default is 'HTTPS'.data_transfer_mechanism = HTTPS # Parameters related to the OSMorphing process for Windows instances:windows_virtio_iso_url = https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.isocloudbaseinit_x64_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x64.zipcloudbaseinit_x86_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x86.zip  
----|---  
+# Name of a pre-created availability zone where resources migrated by Coriolis
+# will be created in. Note that Coriolis will need to also create any
+# temporary resources (such as disk transfer and OSMorphing worker VMs)
+# within the same availability zone, so all of the other
+# temporary-resource-related options must be compatible with the selected AZ.
+# Default is None (Nova will choose the default one for Coriolis)
+# availability_zone =
+
+# If migrating/replicating a heterogeneous workload with both Linux and
+# Windows instances, separate image names or IDs will need to be provided
+# for the temporary OSMorphing workers for each OS type.
+# The 'linux' image will be used for the disk copy worker during the replica
+# execution process as well
+# Only accepted keys are 'linux' and 'windows'
+# migr_image_map = linux: 283bdce4-112c-4758-b06a-7e5985a9cd15, windows: Windows Server 2012 R2 Std Eval
+
+# Boolean flag indicating whether or not to list all Neutron networks.
+# By default, Coriolis will only list the networks which are in the
+# same tenant as the one set in the Coriolis endpoint in use.
+list_all_destination_networks = False
+
+# Whether or not unallocated blocks on Cinder target volumes contain
+# zeros. This is controlled by the "volume_clear" Cinder configuration
+# options. (boolean value)
+volumes_are_zeroed = True
+
+# Default hypervisor type. (string value)
+# The type of hypervisor the destination OpenStack features,
+# supported options being "hyperv", "qemu" or "kvm"
+# Default is None, meaning no extra hypervisor-specific actions will be taken
+# during the OSMorphing process
+hypervisor_type = kvm
+
+# Whether or not to download the worker image to a Cinder volume and boot the
+# worker from that. The root disk size on the configured 'migr_flavor_name'
+# will be used for the worker VM volume, 'migr_flavor_name' will be used for
+# the worker VM volume unless explicitly specified using 'migr_worker_volume_size'.
+migr_worker_boot_from_volume = False
+
+# The integer size (in GBs) of the Cinder volume to boot temporary worker VMs
+# from. This option is only effective if "migr_worker_boot_from_volume" is set.
+# If not set, Coriolis will use the disk size set the selected "migr_flavor_name".
+# migr_worker_volume_size =
+
+# Name of the precreated Cinder volume type to use when creating temporary worker volumes.
+# This option is only effective if "migr_worker_boot_from_volume" is set.
+# migr_worker_volume_type =
+
+# Name of the Cinder volume type to be used for
+# volumes with unspecified storage backing option from the
+# source or which could not be mapped in the "storage_map".
+# Default is "" (Cinder scheduler will
+# use default volume type)
+# default_cinder_volume_type =
+
+# Whether or not to set the Cinder volumes as ephemeral (to be deleted when
+# the VM is deleted) on the newly migrated/replicated instance on the
+# destination OpenStack. Default is False.
+delete_disks_on_vm_termination = True
+
+# List of names or IDs of pre-existing security groups on the destination
+# OpenStack to be applied to the migrated/replicated instance.
+# Note that the below set will be joined with the list specified via the
+# 'security_groups' parameter from the set of destination environment parameters
+# (list value)
+# default_security_groups = secgroup1, secgroup2
+
+# Name or ID of an existing Neutron network on the destination
+# OpenStack where to attach the Neutron port of the temporary disk
+# copy/OSMorphing worker VMs. (string value)
+# migr_network = private
+
+# Whether or not to allocate floating IPs from the "migr_fip_pool_name"
+# for the temporary disk copy/OSMorphing worker VMs.
+# Default is True
+migr_worker_use_fip = True
+
+# Name of an existing Neutron network on the destination OpenStack which
+# serves as external and may have floating IPs allocated from it.
+# These floating IPs will be associated to the temporary disk copy/OSMorphing
+# worker VMs.
+# Default is "public"
+# migr_fip_pool_name = public
+
+# Name of an existing Nova flavor which to boot the temporary
+# disk copy/OSMorphing worker VMs as.
+# Default is "m1.small"
+# (string value)
+# migr_flavor_name = m1.small
+
+# Whether or not to use config drive to send metadata to the temporary
+# disk copy/OSMorphing worker VMs in case Neutron metadata is not available
+# Default is False
+migr_worker_use_config_drive = False
+
+# Whether or not to reconfigure the internal network settings of each
+# interface of the instance being migrated/replicated during the OSMorphing
+# process to have the VM perform DHCP on first boot inside the new environment.
+# Default is True
+set_dhcp = True
+
+# If set to "reuse_ports", Coriolis will reuse any Neutron ports found with
+# the MAC addresses needed for the new VM. If set to "keep_mac", Coriolis
+# will delete any ports with the MAC addresses the VM needs and recreate them
+# with the same MAC address. If set to "replace_mac", Coriolis will always
+# create new ports with new MAC addresses.
+port_reuse_policy = keep_mac
+
+# Dictionary with arbitrary key-value pairs to set as tags on the
+# migrated/replicated VMs.
+# instance_tags =
+
+# Whether or not to preserve the fixed IPs of the migrated instances' Neutron
+# ports. When this is set to 'True', the target Openstack cloud will attempt
+# to create ports containing fixed IPs collected from the source VM. A subnet
+# with the right CIDR is required in the mapped network for the VM's first NIC.
+preserve_fixed_ips = False
+
+# If set, Coriolis will attempt to identify a suitable subnet from the provided
+# 'floating_ip_pool' on the target OpenStack in which to create a floating IP
+# with the same address the VM had on the source.
+preserve_floating_ip = False
+
+# Whether or not to attach a floating IP to the already migrated VM. This
+# option must be set to 'True' if the migrated VM is intended to have a public
+# IP attached. The floating IP will be allocated from the 'floating_ip_pool'
+# option.
+use_floating_ip = False
+
+# use these flags for uefi with secure boot
+#default_custom_boot_volume_image_metadata = os_secure_boot: required,hw_machine_type: q35
+
+# What mechanism to use when sending disk data from the Coriolis installation
+# to the temporary VMs on the target OpenStack to be written to their
+# respective disk. The HTTPS-based transfer mechanism (TCP/5566) is faster but
+# might not work if there are firewalls in the way. The SSH-based transfer
+# mechanism (TCP/22) is more costly but will be allowed by most firewalls since
+# SSH access from the Coriolis installation to the temporary worker VM is always
+# required. Coriolis automatically sets security groups rules for the temporary
+# VMs accordingly.
+# Choices are 'SSH' or 'HTTPS'. Default is 'HTTPS'.
+data_transfer_mechanism = HTTPS
+
+# Parameters related to the OSMorphing process for Windows instances:
+windows_virtio_iso_url = https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso
+cloudbaseinit_x64_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x64.zip
+cloudbaseinit_x86_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x86.zip
+```
   
 ### OpenStack destination environment parameters
 
@@ -111,10 +260,51 @@ Below is a listing of the destination environment parameters the OpenStack plugi
 
 **Example of destination environment JSON to be passed to the OpenStack plugin**
 
-{ // parameters relating to the instance, used in both migrations and replicas: "network_map": { "source network name": "name or ID of existing Neutron network in destination OpenStack", }, "storage_mappings": { "default": "cinder-volume-type-0", "backend_mappings": [{"source": "datastor1", "destination": "cinder-volume-type-1"}], "disk_mappings": [{"disk_id": "", "destination": "cinder-volume-type-2"}] }, "hypervisor_type": "kvm", "flavor_name": "m1.small", "keypair_name": "new-key", "delete_disks_on_vm_termination": false, "security_groups": ["name of existing secgroup on destination OpenStack", "and another one"], // parameters relating to the temporary worker instances, used in both migrations and replicas: "migr_image_map": { "linux": "Linux migration worker Image name/ID", "windows": "63d8f1a4-3192-4edc-b113-0d099b4bc458" }, "migr_network": "private", "migr_worker_use_fip": true, "migr_fip_pool_name": "external_network/external_subnet", "migr_flavor_name": "m1.small", "migr_worker_boot_from_volume": true, "migr_worker_volume_size": 1, "migr_worker_volume_type": "cinder-voltype", "list_all_destination_networks": true, "migr_worker_use_config_drive": true, // parameters relating to the migration process: "port_reuse_policy": "keep_mac", "volumes_are_zeroed": true, "preserve_fixed_ips": true, "server_group": "name or ID of Nova server group", "use_floating_ip": true, "floating_ip_pool": "external_network/external_subnet", // parameters relating to the OSMorphing process, used in both migrations and replica deployments: "set_dhcp": true, "instance_tags": { "tag1": "value1", "tag2": "value2" } }
-
-12345678910111213141516171819202122232425262728293031323334353637383940414243 | {         // parameters relating to the instance, used in both migrations and replicas:         "network_map": {                "source network name": "name or ID of existing Neutron network in destination OpenStack",         },         "storage_mappings": {                "default": "cinder-volume-type-0",                "backend_mappings": [{"source": "datastor1", "destination": "cinder-volume-type-1"}],                "disk_mappings": [{"disk_id": "", "destination": "cinder-volume-type-2"}]         },         "hypervisor_type": "kvm",         "flavor_name": "m1.small",         "keypair_name": "new-key",         "delete_disks_on_vm_termination": false,         "security_groups": ["name of existing secgroup on destination OpenStack", "and another one"],         // parameters relating to the temporary worker instances, used in both migrations and replicas:         "migr_image_map": {                "linux": "Linux migration worker Image name/ID",                "windows": "63d8f1a4-3192-4edc-b113-0d099b4bc458"         },         "migr_network": "private",         "migr_worker_use_fip": true,         "migr_fip_pool_name": "external_network/external_subnet",         "migr_flavor_name": "m1.small",     "migr_worker_boot_from_volume": true,     "migr_worker_volume_size": 1,         "migr_worker_volume_type": "cinder-voltype",     "list_all_destination_networks": true,         "migr_worker_use_config_drive": true,         // parameters relating to the migration process:         "port_reuse_policy": "keep_mac",         "volumes_are_zeroed": true,         "preserve_fixed_ips": true,         "server_group": "name or ID of Nova server group",         "use_floating_ip": true,         "floating_ip_pool": "external_network/external_subnet",         // parameters relating to the OSMorphing process, used in both migrations and replica deployments:         "set_dhcp": true,         "instance_tags": {                "tag1": "value1",                "tag2": "value2"         } }  
----|---  
+```json
+{
+         // parameters relating to the instance, used in both migrations and replicas:
+         "network_map": {
+                "source network name": "name or ID of existing Neutron network in destination OpenStack",
+         },
+         "storage_mappings": {
+                "default": "cinder-volume-type-0",
+                "backend_mappings": [{"source": "datastor1", "destination": "cinder-volume-type-1"}],
+                "disk_mappings": [{"disk_id": "", "destination": "cinder-volume-type-2"}]
+         },
+         "hypervisor_type": "kvm",
+         "flavor_name": "m1.small",
+         "keypair_name": "new-key",
+         "delete_disks_on_vm_termination": false,
+         "security_groups": ["name of existing secgroup on destination OpenStack", "and another one"],
+         // parameters relating to the temporary worker instances, used in both migrations and replicas:
+         "migr_image_map": {
+                "linux": "Linux migration worker Image name/ID",
+                "windows": "63d8f1a4-3192-4edc-b113-0d099b4bc458"
+         },
+         "migr_network": "private",
+         "migr_worker_use_fip": true,
+         "migr_fip_pool_name": "external_network/external_subnet",
+         "migr_flavor_name": "m1.small",
+     "migr_worker_boot_from_volume": true,
+     "migr_worker_volume_size": 1,
+         "migr_worker_volume_type": "cinder-voltype",
+     "list_all_destination_networks": true,
+         "migr_worker_use_config_drive": true,
+         // parameters relating to the migration process:
+         "port_reuse_policy": "keep_mac",
+         "volumes_are_zeroed": true,
+         "preserve_fixed_ips": true,
+         "server_group": "name or ID of Nova server group",
+         "use_floating_ip": true,
+         "floating_ip_pool": "external_network/external_subnet",
+         // parameters relating to the OSMorphing process, used in both migrations and replica deployments:
+         "set_dhcp": true,
+         "instance_tags": {
+                "tag1": "value1",
+                "tag2": "value2"
+         }
+ }
+```
   
 Each parameter represents:
 

@@ -117,19 +117,207 @@ The destination environment parameters are a set of destination-cloud-specific p
 
 Below is a listing of the destination environment parameters the Stackit plugin supports when migrating/replicating a VM to Stackit:
 
-[crayon-6ab61aeb4605c317702315 inline="true" ][stackit_migration_provider] ### Import parameters # If enabled, all public Stackit images will be listed, including # previous builds of the same OS (e.g. having more than 10 builds for # Windows Server 2025). This can slow down user dialogs significantly, # having to retrieve more than 2000 images. (boolean value) list_all_images = false # Configure volumes to be deleted on an eventual termination of the # migrated server. Only applies to the boot volume. (boolean value) delete_disks_on_server_termination = false # Sets whether or not to configure the server to use DHCP during the # OSMorphing stage. (boolean value) set_dhcp = true # Whether or not unallocated blocks on target volumes contain zeros. # (boolean value) volumes_are_zeroed = true # Name of the volume performance class to be used for volumes with # unspecified storage backing option from the source or which could # not be mapped in the "storage_mappings". Default is "" (Stackit will # use the default volume performance class) (string value) default_volume_performance_class = # List of names or IDs of pre-existing security groups on the # destination Stackit project/region to be applied to the migrated # server. This set will be joined with the list specified via the # "security groups" parameter from the set of destination environment. # (list value) default_security_groups = # Mapping between guest OS types ('linux' or 'windows') and the names # or IDs of pre-existing images on the destination Stackit to be used # for temporary worker servers on the destination. The images must be # available to the project provided in the Coriolis Endpoint. The # images must have a standard initialization agent ('cloud-init' for # Linux, or 'Cloudbase-init' for Windows) installed and configured for # first boot. (dict value) migr_image_map = # Name of an existing machine type which to boot the temporary disk # copy/OSMorphing worker servers as. (string value) migr_machine_type = <None> # Name or ID of an existing network on the destination Stackit # project/region where to attach the NIC of the temporary disk # copy/OSMorphing worker servers. If "migr_worker_use_public_ip" is # set to 'false', the Coriolis installation must be able to route to # addresses allocated from this network. (string value) migr_network = <None> # Whether or not to allocate public IPs for the temporary disk # copy/OSMorphing worker servers. (boolean value) migr_worker_use_public_ip = true # A base64 encoded SSH public key that will be added to the migration # worker for debugging purposes. (string value) migr_worker_debug_ssh_public_key = <None> # The integer size (in GBs) of the volume to boot temporary worker # servers from. If not set, Coriolis will select the size based on the # minimum size reported by the image or the selected # "migr_machine_type". (integer value) # Minimum value: 1 migr_worker_volume_size = <None> # List of comma-separated labels to be set on the migrated servers. # (list value) server_labels = # Dictionary with arbitrary key-value pairs to set as the migrated # server's properties. (dict value) server_properties = # Whether or not to preserve the fixed (private) IPs of the migrated # servers' NICs. When this is set to 'true', the target Stackit cloud # will attempt to create NICs containing fixed IPs collected from the # source server. (boolean value) preserve_fixed_ips = false # Whether or not to attach a public IP to the already migrated server. # This option must be set to 'true' if the migrated server is intended # to have a public IP attached. (boolean value) use_public_ip = false # Name or ID of the affinity group to use when recreating the final # servers on Stackit. (string value) affinity_group = <None> # Name of the volume performance class to use when creating temporary # worker volumes. (string value) migr_worker_volume_performance_class = <None> # What mechanism to use when sending disk data from the Coriolis # installation to the temporary servers on the target Stackit to be # written to their respective disk. The HTTPS-based transfer mechanism # (TCP/5566) is faster but might not work if there are firewalls in # the way. The SSH-based transfer mechanism (TCP/22) is more costly # but will be allowed by most firewalls since SSH access from the # Coriolis installation to the temporary worker server is always # required. Coriolis automatically sets security groups rules for the # temporary servers accordingly. Default is HTTPS. (string value) # Possible values: # SSH - <No description provided> # HTTPS - <No description provided> data_transfer_mechanism = HTTPS # Name of the availability zone to where resources like servers and # volumes are assigned to. (string value) availability_zone = <None> # A dict of arbitrary key-value pairs to be added as volume image # config to the boot volume(s) of the final migrated server. Coriolis # automatically sets the 'operating_system', 'uefi', and 'secure_boot' # keys as part of the migration process, but they too can be # overridden using this option. These options will get overridden by # any options specified in the target_environment. (dict value) default_custom_boot_volume_image_metadata = # Whether or not Coriolis should reconfigure cloud-init during # OSMorphing to prevent it from creating a new system user or # disabling the root user and other existing users, including by # disabling password-based SSH authentication, or locking the user by # changing/removing its password completely. This will also prevent # cloud-init from adding SSH keypairs as authorized by the # "keypair_name" option. (boolean value) retain_user_credentials = false # URL to a .iso file containing the Windows VirtIO drivers to be # injected within Windows servers being migrated to Stackit. The URL # must be accessible from the OSMorphing worker server which will be # deployed on Stackit. (string value) windows_virtio_iso_url = https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso # Disk bus to be used for migrated server's volumes. (string value) # Possible values: # scsi - <No description provided> # virtio - <No description provided> # ide - <No description provided> # usb - <No description provided> disk_bus = virtio # Whether or not use config drive to send metadata to the migrated # server. Default is false. (boolean value) use_config_drive = false # Location of the Cloudbase-Init ZIP for amd64 systems (string value) cloudbaseinit_x64_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x64.zip
 
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139140141142143144145146147148149150151152 | [crayon-6ab61aeb4605c317702315 inline="true" ][stackit_migration_provider] ### Import parameters # If enabled, all public Stackit images will be listed, including# previous builds of the same OS (e.g. having more than 10 builds for# Windows Server 2025). This can slow down user dialogs significantly,# having to retrieve more than 2000 images. (boolean value)list_all_images = false # Configure volumes to be deleted on an eventual termination of the# migrated server. Only applies to the boot volume. (boolean value)delete_disks_on_server_termination = false # Sets whether or not to configure the server to use DHCP during the# OSMorphing stage. (boolean value)set_dhcp = true # Whether or not unallocated blocks on target volumes contain zeros.# (boolean value)volumes_are_zeroed = true # Name of the volume performance class to be used for volumes with# unspecified storage backing option from the source or which could# not be mapped in the "storage_mappings". Default is "" (Stackit will# use the default volume performance class) (string value)default_volume_performance_class = # List of names or IDs of pre-existing security groups on the# destination Stackit project/region to be applied to the migrated# server. This set will be joined with the list specified via the# "security groups" parameter from the set of destination environment.# (list value)default_security_groups = # Mapping between guest OS types ('linux' or 'windows') and the names# or IDs of pre-existing images on the destination Stackit to be used# for temporary worker servers on the destination. The images must be# available to the project provided in the Coriolis Endpoint. The# images must have a standard initialization agent ('cloud-init' for# Linux, or 'Cloudbase-init' for Windows) installed and configured for# first boot. (dict value)migr_image_map = # Name of an existing machine type which to boot the temporary disk# copy/OSMorphing worker servers as. (string value)migr_machine_type = <None> # Name or ID of an existing network on the destination Stackit# project/region where to attach the NIC of the temporary disk# copy/OSMorphing worker servers. If "migr_worker_use_public_ip" is# set to 'false', the Coriolis installation must be able to route to# addresses allocated from this network. (string value)migr_network = <None> # Whether or not to allocate public IPs for the temporary disk# copy/OSMorphing worker servers. (boolean value)migr_worker_use_public_ip = true # A base64 encoded SSH public key that will be added to the migration# worker for debugging purposes. (string value)migr_worker_debug_ssh_public_key = <None> # The integer size (in GBs) of the volume to boot temporary worker# servers from. If not set, Coriolis will select the size based on the# minimum size reported by the image or the selected# "migr_machine_type". (integer value)# Minimum value: 1migr_worker_volume_size = <None> # List of comma-separated labels to be set on the migrated servers.# (list value)server_labels = # Dictionary with arbitrary key-value pairs to set as the migrated# server's properties. (dict value)server_properties = # Whether or not to preserve the fixed (private) IPs of the migrated# servers' NICs. When this is set to 'true', the target Stackit cloud# will attempt to create NICs containing fixed IPs collected from the# source server. (boolean value)preserve_fixed_ips = false # Whether or not to attach a public IP to the already migrated server.# This option must be set to 'true' if the migrated server is intended# to have a public IP attached. (boolean value)use_public_ip = false # Name or ID of the affinity group to use when recreating the final# servers on Stackit. (string value)affinity_group = <None> # Name of the volume performance class to use when creating temporary# worker volumes. (string value)migr_worker_volume_performance_class = <None> # What mechanism to use when sending disk data from the Coriolis# installation to the temporary servers on the target Stackit to be# written to their respective disk. The HTTPS-based transfer mechanism# (TCP/5566) is faster but might not work if there are firewalls in# the way. The SSH-based transfer mechanism (TCP/22) is more costly# but will be allowed by most firewalls since SSH access from the# Coriolis installation to the temporary worker server is always# required. Coriolis automatically sets security groups rules for the# temporary servers accordingly. Default is HTTPS. (string value)# Possible values:# SSH - <No description provided># HTTPS - <No description provided>data_transfer_mechanism = HTTPS # Name of the availability zone to where resources like servers and# volumes are assigned to. (string value)availability_zone = <None> # A dict of arbitrary key-value pairs to be added as volume image# config to the boot volume(s) of the final migrated server. Coriolis# automatically sets the 'operating_system', 'uefi', and 'secure_boot'# keys as part of the migration process, but they too can be# overridden using this option. These options will get overridden by# any options specified in the target_environment. (dict value)default_custom_boot_volume_image_metadata = # Whether or not Coriolis should reconfigure cloud-init during# OSMorphing to prevent it from creating a new system user or# disabling the root user and other existing users, including by# disabling password-based SSH authentication, or locking the user by# changing/removing its password completely. This will also prevent# cloud-init from adding SSH keypairs as authorized by the# "keypair_name" option. (boolean value)retain_user_credentials = false # URL to a .iso file containing the Windows VirtIO drivers to be# injected within Windows servers being migrated to Stackit. The URL# must be accessible from the OSMorphing worker server which will be# deployed on Stackit. (string value)windows_virtio_iso_url = https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso # Disk bus to be used for migrated server's volumes. (string value)# Possible values:# scsi - <No description provided># virtio - <No description provided># ide - <No description provided># usb - <No description provided>disk_bus = virtio # Whether or not use config drive to send metadata to the migrated# server. Default is false. (boolean value)use_config_drive = false # Location of the Cloudbase-Init ZIP for amd64 systems (string value)cloudbaseinit_x64_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x64.zip  
----|---  
+```json
+[stackit_migration_provider]
+
+### Import parameters
+
+# If enabled, all public Stackit images will be listed, including
+# previous builds of the same OS (e.g. having more than 10 builds for
+# Windows Server 2025). This can slow down user dialogs significantly,
+# having to retrieve more than 2000 images. (boolean value)
+list_all_images = false
+
+# Configure volumes to be deleted on an eventual termination of the
+# migrated server. Only applies to the boot volume. (boolean value)
+delete_disks_on_server_termination = false
+
+# Sets whether or not to configure the server to use DHCP during the
+# OSMorphing stage. (boolean value)
+set_dhcp = true
+
+# Whether or not unallocated blocks on target volumes contain zeros.
+# (boolean value)
+volumes_are_zeroed = true
+
+# Name of the volume performance class to be used for volumes with
+# unspecified storage backing option from the source or which could
+# not be mapped in the "storage_mappings". Default is "" (Stackit will
+# use the default volume performance class) (string value)
+default_volume_performance_class =
+
+# List of names or IDs of pre-existing security groups on the
+# destination Stackit project/region to be applied to the migrated
+# server. This set will be joined with the list specified via the
+# "security groups" parameter from the set of destination environment.
+# (list value)
+default_security_groups =
+
+# Mapping between guest OS types ('linux' or 'windows') and the names
+# or IDs of pre-existing images on the destination Stackit to be used
+# for temporary worker servers on the destination. The images must be
+# available to the project provided in the Coriolis Endpoint. The
+# images must have a standard initialization agent ('cloud-init' for
+# Linux, or 'Cloudbase-init' for Windows) installed and configured for
+# first boot. (dict value)
+migr_image_map =
+
+# Name of an existing machine type which to boot the temporary disk
+# copy/OSMorphing worker servers as. (string value)
+migr_machine_type = <None>
+
+# Name or ID of an existing network on the destination Stackit
+# project/region where to attach the NIC of the temporary disk
+# copy/OSMorphing worker servers. If "migr_worker_use_public_ip" is
+# set to 'false', the Coriolis installation must be able to route to
+# addresses allocated from this network. (string value)
+migr_network = <None>
+
+# Whether or not to allocate public IPs for the temporary disk
+# copy/OSMorphing worker servers. (boolean value)
+migr_worker_use_public_ip = true
+
+# A base64 encoded SSH public key that will be added to the migration
+# worker for debugging purposes. (string value)
+migr_worker_debug_ssh_public_key = <None>
+
+# The integer size (in GBs) of the volume to boot temporary worker
+# servers from. If not set, Coriolis will select the size based on the
+# minimum size reported by the image or the selected
+# "migr_machine_type". (integer value)
+# Minimum value: 1
+migr_worker_volume_size = <None>
+
+# List of comma-separated labels to be set on the migrated servers.
+# (list value)
+server_labels =
+
+# Dictionary with arbitrary key-value pairs to set as the migrated
+# server's properties. (dict value)
+server_properties =
+
+# Whether or not to preserve the fixed (private) IPs of the migrated
+# servers' NICs. When this is set to 'true', the target Stackit cloud
+# will attempt to create NICs containing fixed IPs collected from the
+# source server. (boolean value)
+preserve_fixed_ips = false
+
+# Whether or not to attach a public IP to the already migrated server.
+# This option must be set to 'true' if the migrated server is intended
+# to have a public IP attached. (boolean value)
+use_public_ip = false
+
+# Name or ID of the affinity group to use when recreating the final
+# servers on Stackit. (string value)
+affinity_group = <None>
+
+# Name of the volume performance class to use when creating temporary
+# worker volumes. (string value)
+migr_worker_volume_performance_class = <None>
+
+# What mechanism to use when sending disk data from the Coriolis
+# installation to the temporary servers on the target Stackit to be
+# written to their respective disk. The HTTPS-based transfer mechanism
+# (TCP/5566) is faster but might not work if there are firewalls in
+# the way. The SSH-based transfer mechanism (TCP/22) is more costly
+# but will be allowed by most firewalls since SSH access from the
+# Coriolis installation to the temporary worker server is always
+# required. Coriolis automatically sets security groups rules for the
+# temporary servers accordingly. Default is HTTPS. (string value)
+# Possible values:
+# SSH - <No description provided>
+# HTTPS - <No description provided>
+data_transfer_mechanism = HTTPS
+
+# Name of the availability zone to where resources like servers and
+# volumes are assigned to. (string value)
+availability_zone = <None>
+
+# A dict of arbitrary key-value pairs to be added as volume image
+# config to the boot volume(s) of the final migrated server. Coriolis
+# automatically sets the 'operating_system', 'uefi', and 'secure_boot'
+# keys as part of the migration process, but they too can be
+# overridden using this option. These options will get overridden by
+# any options specified in the target_environment. (dict value)
+default_custom_boot_volume_image_metadata =
+
+# Whether or not Coriolis should reconfigure cloud-init during
+# OSMorphing to prevent it from creating a new system user or
+# disabling the root user and other existing users, including by
+# disabling password-based SSH authentication, or locking the user by
+# changing/removing its password completely. This will also prevent
+# cloud-init from adding SSH keypairs as authorized by the
+# "keypair_name" option. (boolean value)
+retain_user_credentials = false
+
+# URL to a .iso file containing the Windows VirtIO drivers to be
+# injected within Windows servers being migrated to Stackit. The URL
+# must be accessible from the OSMorphing worker server which will be
+# deployed on Stackit. (string value)
+windows_virtio_iso_url = https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso
+
+# Disk bus to be used for migrated server's volumes. (string value)
+# Possible values:
+# scsi - <No description provided>
+# virtio - <No description provided>
+# ide - <No description provided>
+# usb - <No description provided>
+disk_bus = virtio
+
+# Whether or not use config drive to send metadata to the migrated
+# server. Default is false. (boolean value)
+use_config_drive = false
+
+# Location of the Cloudbase-Init ZIP for amd64 systems (string value)
+cloudbaseinit_x64_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x64.zip
+```
   
 [/crayon] 
 
 **Example of destination environment JSON to be passed to the Stackit plugin**
 
-[crayon-6ab61aeb46060608262583 inline="true" ]{ "network_map": { "source network name": "name or ID of existing network in destination Stackit" }, "storage_mappings": { "default": "storage_premium_perf2", "backend_mappings": [{"source": "datastor1", "destination": "storage_premium_perf4"}], "disk_mappings": [{"disk_id": "3000", "destination": "storage_premium_perf6"}] }, "machine_type": "g1.2", "project": "dest-stackit-project", "keypair_name": "new-key", "delete_disks_on_server_termination": false, "security_groups": ["security-group0", "security-group1"], "affinity_group": "name or ID of affinity group", "availability_zone": "eu01-1", "server_labels": ["env=prod", "migrated-by-coriolis"], "server_properties": {}, "use_public_ip": true, "disk_bus": "virtio", "use_config_drive": false, "custom_boot_volume_image_metadata": {}, "migr_image_map": { "linux": "Linux migration worker image name/ID", "windows": "Windows migration worker image name/ID" }, "migr_network": "stackit-network", "migr_machine_type": "g1.2", "migr_worker_use_public_ip": true, "migr_worker_volume_size": 10, "migr_worker_volume_performance_class": "storage_premium_perf2", "preserve_fixed_ips": true, "volumes_are_zeroed": true, "data_transfer_mechanism": "HTTPS", "set_dhcp": true, "retain_user_credentials": false, "windows_virtio_iso_url": "https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso" }
 
-1234567891011121314151617181920212223242526272829303132333435363738 | [crayon-6ab61aeb46060608262583 inline="true" ]{  "network_map": {    "source network name": "name or ID of existing network in destination Stackit"  },  "storage_mappings": {    "default": "storage_premium_perf2",    "backend_mappings": [{"source": "datastor1", "destination": "storage_premium_perf4"}],    "disk_mappings": [{"disk_id": "3000", "destination": "storage_premium_perf6"}]  },  "machine_type": "g1.2",  "project": "dest-stackit-project",  "keypair_name": "new-key",  "delete_disks_on_server_termination": false,  "security_groups": ["security-group0", "security-group1"],  "affinity_group": "name or ID of affinity group",  "availability_zone": "eu01-1",  "server_labels": ["env=prod", "migrated-by-coriolis"],  "server_properties": {},  "use_public_ip": true,  "disk_bus": "virtio",  "use_config_drive": false,  "custom_boot_volume_image_metadata": {},  "migr_image_map": {    "linux": "Linux migration worker image name/ID",    "windows": "Windows migration worker image name/ID"  },  "migr_network": "stackit-network",  "migr_machine_type": "g1.2",  "migr_worker_use_public_ip": true,  "migr_worker_volume_size": 10,  "migr_worker_volume_performance_class": "storage_premium_perf2",  "preserve_fixed_ips": true,  "volumes_are_zeroed": true,  "data_transfer_mechanism": "HTTPS",  "set_dhcp": true,  "retain_user_credentials": false,  "windows_virtio_iso_url": "https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso"}  
----|---  
+```json
+{
+  "network_map": {
+    "source network name": "name or ID of existing network in destination Stackit"
+  },
+  "storage_mappings": {
+    "default": "storage_premium_perf2",
+    "backend_mappings": [{"source": "datastor1", "destination": "storage_premium_perf4"}],
+    "disk_mappings": [{"disk_id": "3000", "destination": "storage_premium_perf6"}]
+  },
+  "machine_type": "g1.2",
+  "project": "dest-stackit-project",
+  "keypair_name": "new-key",
+  "delete_disks_on_server_termination": false,
+  "security_groups": ["security-group0", "security-group1"],
+  "affinity_group": "name or ID of affinity group",
+  "availability_zone": "eu01-1",
+  "server_labels": ["env=prod", "migrated-by-coriolis"],
+  "server_properties": {},
+  "use_public_ip": true,
+  "disk_bus": "virtio",
+  "use_config_drive": false,
+  "custom_boot_volume_image_metadata": {},
+  "migr_image_map": {
+    "linux": "Linux migration worker image name/ID",
+    "windows": "Windows migration worker image name/ID"
+  },
+  "migr_network": "stackit-network",
+  "migr_machine_type": "g1.2",
+  "migr_worker_use_public_ip": true,
+  "migr_worker_volume_size": 10,
+  "migr_worker_volume_performance_class": "storage_premium_perf2",
+  "preserve_fixed_ips": true,
+  "volumes_are_zeroed": true,
+  "data_transfer_mechanism": "HTTPS",
+  "set_dhcp": true,
+  "retain_user_credentials": false,
+  "windows_virtio_iso_url": "https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso"
+}
+```
   
 [/crayon] 
 

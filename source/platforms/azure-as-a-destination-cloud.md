@@ -44,10 +44,44 @@ Below is a listing of the destination environment parameters the Azure plugin su
 
 **Example of destination environment JSON to be passed to the Azure plugin**
 
-{ // parameters relating to the instance, used in both migrations and replicas: "location": "westus", "resource_group": "Migrations", "network_map":{ "source network name": "azure-network-name/test-subnet-name" }, "storage_map": { "default": "Standard_LRS", "backend_mappings": [ {"source": "source_backend", "destination": "Premium_LRS"} ], "disk_mappings": [ {"disk_id": "source_disk_id", "destination": "Premium_SSD"} ] }, "vm_size": "Standard_D1", // parameters relating to the temporary worker instances, used in both migrations and replicas: "worker_size": "Standard_D1", "linux_migr_image": { "publisher": "Canonical", "offer": "UbuntuServer", "sku": "16.04.0-LTS", "version": "latest" }, "windows_migr_image": { "publisher": "MicrosoftWindowsServer", "offer": "WindowsServer", "sku": "2016-Datacenter-Server-Core", "version": "latest" }, // Below options are for Blob storage-based scenarios: "storage_account_name": "storage-account", "storage_container_name": "coriolis", "preserve_nic_ips": false }
-
-123456789101112131415161718192021222324252627282930313233343536 | {     // parameters relating to the instance, used in both migrations and replicas:     "location": "westus",     "resource_group": "Migrations",     "network_map":{         "source network name": "azure-network-name/test-subnet-name"     },     "storage_map": {         "default": "Standard_LRS",         "backend_mappings": [             {"source": "source_backend", "destination": "Premium_LRS"}         ],         "disk_mappings": [             {"disk_id": "source_disk_id", "destination": "Premium_SSD"}         ]     },     "vm_size": "Standard_D1",     // parameters relating to the temporary worker instances, used in both migrations and replicas:     "worker_size": "Standard_D1",     "linux_migr_image": {         "publisher": "Canonical",         "offer": "UbuntuServer",         "sku": "16.04.0-LTS",         "version": "latest"     },     "windows_migr_image": {         "publisher": "MicrosoftWindowsServer",         "offer": "WindowsServer",         "sku": "2016-Datacenter-Server-Core",         "version": "latest"     },     // Below options are for Blob storage-based scenarios:     "storage_account_name": "storage-account",     "storage_container_name": "coriolis",     "preserve_nic_ips": false }  
----|---  
+```json
+{
+     // parameters relating to the instance, used in both migrations and replicas:
+     "location": "westus",
+     "resource_group": "Migrations",
+     "network_map":{
+         "source network name": "azure-network-name/test-subnet-name"
+     },
+     "storage_map": {
+         "default": "Standard_LRS",
+         "backend_mappings": [
+             {"source": "source_backend", "destination": "Premium_LRS"}
+         ],
+         "disk_mappings": [
+             {"disk_id": "source_disk_id", "destination": "Premium_SSD"}
+         ]
+     },
+     "vm_size": "Standard_D1",
+     // parameters relating to the temporary worker instances, used in both migrations and replicas:
+     "worker_size": "Standard_D1",
+     "linux_migr_image": {
+         "publisher": "Canonical",
+         "offer": "UbuntuServer",
+         "sku": "16.04.0-LTS",
+         "version": "latest"
+     },
+     "windows_migr_image": {
+         "publisher": "MicrosoftWindowsServer",
+         "offer": "WindowsServer",
+         "sku": "2016-Datacenter-Server-Core",
+         "version": "latest"
+     },
+     // Below options are for Blob storage-based scenarios:
+     "storage_account_name": "storage-account",
+     "storage_container_name": "coriolis",
+     "preserve_nic_ips": false
+ }
+```
   
 Each parameter represents:
 
@@ -73,20 +107,108 @@ Below is a listing of the configuration section needed when migrating/replicatin
 
 **Configuration options for Azure as a source**
 
-[azure_migration_provider] # The Azure location to use for any temporary export resources. # Under most circumstances, this should be the same as the location of the VM # being Migrated/Replicated which should be specified in the source-env. export_location = westus # Default Migration worker VM size. This will be used if no worker_size is set in # the source_environment. If none is provided, Coriolis will list all available # flavors on Azure and select the smallest available one that can accommodate # the number of disks. If not given, Coriolis will select the first worker # size available which can accomodate attaching all the disks for the # particular VM being migrated/replicated. export_worker_size = Standard_D1 # Params of the Azure image to use for the temporary VM: export_worker_image = version: latest, publisher: Canonical, offer: UbuntuServer, sku: 18.04-LTS # For use with AzureStack, the following ARM Provider API versions must be # configured to API versions supported by the AzureStack. If unset, they will # default to the latest API versions which are supported by the ARM client # libraries bundled with Coriolis. # export_arm_resource_api_version = 2016-09-01 # export_arm_compute_api_version = 2016-03-30 # export_arm_network_api_version = 2015-06-15 # export_blob_storage_api_version = 2015-04-05 
-
-12345678910111213141516171819202122232425 |  [azure_migration_provider] # The Azure location to use for any temporary export resources. # Under most circumstances, this should be the same as the location of the VM # being Migrated/Replicated which should be specified in the source-env. export_location = westus # Default Migration worker VM size. This will be used if no worker_size is set in # the source_environment. If none is provided, Coriolis will list all available # flavors on Azure and select the smallest available one that can accommodate # the number of disks. If not given, Coriolis will select the first worker # size available which can accomodate attaching all the disks for the # particular VM being migrated/replicated. export_worker_size = Standard_D1 # Params of the Azure image to use for the temporary VM: export_worker_image = version: latest, publisher: Canonical, offer: UbuntuServer, sku: 18.04-LTS # For use with AzureStack, the following ARM Provider API versions must be # configured to API versions supported by the AzureStack. If unset, they will # default to the latest API versions which are supported by the ARM client # libraries bundled with Coriolis. # export_arm_resource_api_version = 2016-09-01 # export_arm_compute_api_version = 2016-03-30 # export_arm_network_api_version = 2015-06-15 # export_blob_storage_api_version = 2015-04-05   
----|---  
+```json
+ [azure_migration_provider]
+ # The Azure location to use for any temporary export resources.
+ # Under most circumstances, this should be the same as the location of the VM
+ # being Migrated/Replicated which should be specified in the source-env.
+ export_location = westus
+  
+ # Default Migration worker VM size. This will be used if no worker_size is set in
+ # the source_environment. If none is provided, Coriolis will list all available
+ # flavors on Azure and select the smallest available one that can accommodate
+ # the number of disks. If not given, Coriolis will select the first worker
+ # size available which can accomodate attaching all the disks for the
+ # particular VM being migrated/replicated.
+ export_worker_size = Standard_D1
+  
+ # Params of the Azure image to use for the temporary VM:
+ export_worker_image = version: latest, publisher: Canonical, offer: UbuntuServer, sku: 18.04-LTS
+  
+ # For use with AzureStack, the following ARM Provider API versions must be
+ # configured to API versions supported by the AzureStack. If unset, they will
+ # default to the latest API versions which are supported by the ARM client
+ # libraries bundled with Coriolis.
+ # export_arm_resource_api_version = 2016-09-01
+ # export_arm_compute_api_version = 2016-03-30
+ # export_arm_network_api_version = 2015-06-15
+ # export_blob_storage_api_version = 2015-04-05 
+```
   
   
 Below is a listing of the configuration section needed when migrating/replicating to Azure:
 
 **Configuration options for Azure as a destination**
 
-[azure_migration_provider] # The default Azure location to which to migrate. # Can be overridden by the # 'location' --destination-environment parameter. # ex: westus, eastus, etc... migr_location = westus # Default migrated instance size. This will be used if no # "vm_size" is set in the --destination-environment . # Note: migration will fail if migrated instance size cannot # accommodate the number of disks that can be migrated. default_vm_size = Standard_A1 # Default migration worker size.This will be used in case no # "worker_size" is set in the --destination-environment. If none is " # provided, Coriolis will list all available flavors on Azure " # and select the smallest available one that can accommodate the number # of disks. # Note: migration will fail if worker size cannot accommodate " # the number of disks that can be migrated." default_worker_size = Standard_D1 # Name of the Azure storage account to create # VHD Page blobs in (only when using Blob storage) storage_account_name = StorageAccountName # The type of storage backing to use for the disks of VMs migrated to Azure. # If set to 'blob_storage', disks will be transferred as VHD Page Blobs inside # a pre-existing Blob Storage Account inside the resource group being migrated # to. If set to 'managed_disks', disks will be transferred as Managed Disks # within the resource group being migrated to. If not set, Coriolis will query # the available Compute API versions to determine if Managed Disks are # available (2017-03-30 onwards), else it defaults to using Blob Storage. disk_storage_backing_type = managed_disks # Name of the Azure storage container to create # VHD Page blobs in (only when using Blob storage) storage_container_name = coriolis # The parameters of a Linux Azure image to use during disk copy/Linux OSMorphing # Default is the 16.04 image exemplified below linux_migr_image = publisher: Canonical, offer: UbuntuServer, sku: 16.04.0-LTS, version: latest # The parameters of a Windows Azure image to use during Windows OSMorphing # Default is the Server 2016 image exemplified below windows_migr_image = publisher: MicrosoftWindowsServer, offer: WindowsServer, sku: 2016-Datacenter-Server-Core, version: latest # Whether or not to set any IP addresses read from source VM NIC configurations # to destination NICs on Azure. This requires that the network/subnet mappings # in the 'network_map' are to networks/subnets on Azure which include the range # of the source networks. Default is true preserve_nic_ips = true # For use with AzureStack, the following ARM Provider API versions must be # configured to API versions supported by the AzureStack. If unset, they will # default to the latest API versions which are supported by the ARM client # libraries bundled with Coriolis. # arm_resource_api_version = 2016-09-01 # arm_compute_api_version = 2016-03-30 # arm_network_api_version = 2015-06-15 # blob_storage_api_version = 2015-04-05 # arm_storage_api_version = 2018-07-01 # The URLs to .zip releases of Cloudbase-init for each supported architecture # The default values are for the official upstream releases available on cloudbase.it cloudbaseinit_x64_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x64.zip cloudbaseinit_x86_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x86.zip 
-
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667 |  [azure_migration_provider] # The default Azure location to which to migrate.  # Can be overridden by the  # 'location' --destination-environment parameter. # ex: westus, eastus, etc... migr_location = westus # Default migrated instance size. This will be used if no # "vm_size" is set in the --destination-environment . # Note: migration will fail if migrated instance size cannot  # accommodate the number of disks that can be migrated. default_vm_size = Standard_A1 # Default migration worker size.This will be used in case no # "worker_size" is set in the --destination-environment. If none is " # provided, Coriolis will list all available flavors on Azure " # and select the smallest available one that can accommodate the number # of disks. # Note: migration will fail if worker size cannot accommodate " # the number of disks that can be migrated." default_worker_size = Standard_D1 # Name of the Azure storage account to create # VHD Page blobs in (only when using Blob storage) storage_account_name = StorageAccountName # The type of storage backing to use for the disks of VMs migrated to Azure. # If set to 'blob_storage', disks will be transferred as VHD Page Blobs inside # a pre-existing Blob Storage Account inside the resource group being migrated # to. If set to 'managed_disks', disks will be transferred as Managed Disks # within the resource group being migrated to. If not set, Coriolis will query # the available Compute API versions to determine if Managed Disks are  # available (2017-03-30 onwards), else it defaults to using Blob Storage. disk_storage_backing_type = managed_disks # Name of the Azure storage container to create # VHD Page blobs in (only when using Blob storage) storage_container_name = coriolis # The parameters of a Linux Azure image to use during disk copy/Linux OSMorphing # Default is the 16.04 image exemplified below linux_migr_image = publisher: Canonical, offer: UbuntuServer, sku: 16.04.0-LTS, version: latest # The parameters of a Windows Azure image to use during Windows OSMorphing # Default is the Server 2016 image exemplified below windows_migr_image = publisher: MicrosoftWindowsServer, offer: WindowsServer, sku: 2016-Datacenter-Server-Core, version: latest # Whether or not to set any IP addresses read from source VM NIC configurations # to destination NICs on Azure. This requires that the network/subnet mappings # in the 'network_map' are to networks/subnets on Azure which include the range # of the source networks. Default is true preserve_nic_ips = true # For use with AzureStack, the following ARM Provider API versions must be # configured to API versions supported by the AzureStack. If unset, they will # default to the latest API versions which are supported by the ARM client # libraries bundled with Coriolis. # arm_resource_api_version = 2016-09-01 # arm_compute_api_version = 2016-03-30 # arm_network_api_version = 2015-06-15 # blob_storage_api_version = 2015-04-05 # arm_storage_api_version = 2018-07-01 # The URLs to .zip releases of Cloudbase-init for each supported architecture # The default values are for the official upstream releases available on cloudbase.it cloudbaseinit_x64_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x64.zip cloudbaseinit_x86_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x86.zip  
----|---  
+```json
+ [azure_migration_provider]
+ # The default Azure location to which to migrate. 
+ # Can be overridden by the 
+ # 'location' --destination-environment parameter.
+ # ex: westus, eastus, etc...
+ migr_location = westus
+  
+ # Default migrated instance size. This will be used if no
+ # "vm_size" is set in the --destination-environment .
+ # Note: migration will fail if migrated instance size cannot 
+ # accommodate the number of disks that can be migrated.
+ default_vm_size = Standard_A1
+  
+ # Default migration worker size.This will be used in case no
+ # "worker_size" is set in the --destination-environment. If none is "
+ # provided, Coriolis will list all available flavors on Azure "
+ # and select the smallest available one that can accommodate the number
+ # of disks.
+ # Note: migration will fail if worker size cannot accommodate "
+ # the number of disks that can be migrated."
+ default_worker_size = Standard_D1
+  
+ # Name of the Azure storage account to create
+ # VHD Page blobs in (only when using Blob storage)
+ storage_account_name = StorageAccountName
+  
+ # The type of storage backing to use for the disks of VMs migrated to Azure.
+ # If set to 'blob_storage', disks will be transferred as VHD Page Blobs inside
+ # a pre-existing Blob Storage Account inside the resource group being migrated
+ # to. If set to 'managed_disks', disks will be transferred as Managed Disks
+ # within the resource group being migrated to. If not set, Coriolis will query
+ # the available Compute API versions to determine if Managed Disks are 
+ # available (2017-03-30 onwards), else it defaults to using Blob Storage.
+ disk_storage_backing_type = managed_disks
+  
+ # Name of the Azure storage container to create
+ # VHD Page blobs in (only when using Blob storage)
+ storage_container_name = coriolis
+  
+ # The parameters of a Linux Azure image to use during disk copy/Linux OSMorphing
+ # Default is the 16.04 image exemplified below
+ linux_migr_image = publisher: Canonical, offer: UbuntuServer, sku: 16.04.0-LTS, version: latest
+  
+ # The parameters of a Windows Azure image to use during Windows OSMorphing
+ # Default is the Server 2016 image exemplified below
+ windows_migr_image = publisher: MicrosoftWindowsServer, offer: WindowsServer, sku: 2016-Datacenter-Server-Core, version: latest
+  
+ # Whether or not to set any IP addresses read from source VM NIC configurations
+ # to destination NICs on Azure. This requires that the network/subnet mappings
+ # in the 'network_map' are to networks/subnets on Azure which include the range
+ # of the source networks. Default is true
+ preserve_nic_ips = true
+  
+ # For use with AzureStack, the following ARM Provider API versions must be
+ # configured to API versions supported by the AzureStack. If unset, they will
+ # default to the latest API versions which are supported by the ARM client
+ # libraries bundled with Coriolis.
+ # arm_resource_api_version = 2016-09-01
+ # arm_compute_api_version = 2016-03-30
+ # arm_network_api_version = 2015-06-15
+ # blob_storage_api_version = 2015-04-05
+ # arm_storage_api_version = 2018-07-01
+  
+ # The URLs to .zip releases of Cloudbase-init for each supported architecture
+ # The default values are for the official upstream releases available on cloudbase.it
+ cloudbaseinit_x64_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x64.zip
+ cloudbaseinit_x86_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x86.zip 
+```
   
 **Coriolis Advanced options for Target Destinations**
 

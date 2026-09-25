@@ -44,10 +44,14 @@ Each parameter represents:
 
 JSON form:
 
-{ "organization_id" : "fd3cc9d1-b08b-433e-8d7b-131a943e4feb", "project_id" : "894bd7f1-572c-4df4-b742-065de62de403", "region_name" : "EU01", "service_account_key" : "ZTlkNWI2ODAtNWM3Yi00..." }
-
-123456 | {  "organization_id" : "fd3cc9d1-b08b-433e-8d7b-131a943e4feb",  "project_id" : "894bd7f1-572c-4df4-b742-065de62de403",  "region_name" : "EU01",  "service_account_key" : "ZTlkNWI2ODAtNWM3Yi00..."}  
----|---  
+```json
+{
+  "organization_id" : "fd3cc9d1-b08b-433e-8d7b-131a943e4feb",
+  "project_id" : "894bd7f1-572c-4df4-b742-065de62de403",
+  "region_name" : "EU01",
+  "service_account_key" : "ZTlkNWI2ODAtNWM3Yi00..."
+}
+```
   
 Make sure that the specified service account has enough privileges to access, create and modify IAAS resources. For example, consider using the “Editor” role.
 

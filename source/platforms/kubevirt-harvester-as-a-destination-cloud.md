@@ -57,10 +57,60 @@ The instructions below describe the process of setting up the Windows worker ima
 
 
 
-##### cloudbase-init.conf [DEFAULT] username=Admin groups=Administrators inject_user_password=true config_drive_cdrom=true config_drive_vfat=true bsdtar_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\bsdtar.exe mtools_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\ verbose=true debug=true log_dir=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\log\ log_file=cloudbase-init.log default_log_levels=comtypes=INFO,suds=INFO,iso8601=WARN,requests=WARN logging_serial_port_settings=COM1,115200,N,8 mtu_use_dhcp_config=true ntp_use_dhcp_config=true local_scripts_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts\ check_latest_version=false metadata_services=cloudbaseinit.metadata.services.nocloudservice.NoCloudConfigDriveService plugins=cloudbaseinit.plugins.common.mtu.MTUPlugin,cloudbaseinit.plugins.windows.ntpclient.NTPClientPlugin,cloudbaseinit.plugins.common.sethostname.SetHostNamePlugin,cloudbaseinit.plugins.windows.extendvolumes.ExtendVolumesPlugin,cloudbaseinit.plugins.windows.winrmlistener.ConfigWinRMListenerPlugin,cloudbaseinit.plugins.common.userdata.UserDataPlugin [config_drive] raw_hdd=true ##### cloudbase-init-unattended.conf [DEFAULT] username=Admin groups=Administrators inject_user_password=true config_drive_cdrom=true config_drive_vfat=true bsdtar_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\bsdtar.exe mtools_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\ verbose=true debug=true log_dir=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\log\ log_file=cloudbase-init-unattend.log default_log_levels=comtypes=INFO,suds=INFO,iso8601=WARN,requests=WARN logging_serial_port_settings= mtu_use_dhcp_config=true ntp_use_dhcp_config=true local_scripts_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts\ check_latest_version=false metadata_services=cloudbaseinit.metadata.services.nocloudservice.NoCloudConfigDriveService,cloudbaseinit.metadata.services.configdrive.ConfigDriveService,cloudbaseinit.metadata.services.httpservice.HttpService,cloudbaseinit.metadata.services.ec2service.EC2Service,cloudbaseinit.metadata.services.maasservice.MaaSHttpService plugins=cloudbaseinit.plugins.common.mtu.MTUPlugin,cloudbaseinit.plugins.common.sethostname.SetHostNamePlugin,cloudbaseinit.plugins.windows.extendvolumes.ExtendVolumesPlugin allow_reboot=false stop_service_on_exit=false [config_drive] raw_hdd=true
 
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051 | ##### cloudbase-init.conf[DEFAULT]username=Admingroups=Administratorsinject_user_password=trueconfig_drive_cdrom=trueconfig_drive_vfat=truebsdtar_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\bsdtar.exemtools_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\verbose=truedebug=truelog_dir=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\log\log_file=cloudbase-init.logdefault_log_levels=comtypes=INFO,suds=INFO,iso8601=WARN,requests=WARNlogging_serial_port_settings=COM1,115200,N,8mtu_use_dhcp_config=truentp_use_dhcp_config=truelocal_scripts_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts\check_latest_version=falsemetadata_services=cloudbaseinit.metadata.services.nocloudservice.NoCloudConfigDriveServiceplugins=cloudbaseinit.plugins.common.mtu.MTUPlugin,cloudbaseinit.plugins.windows.ntpclient.NTPClientPlugin,cloudbaseinit.plugins.common.sethostname.SetHostNamePlugin,cloudbaseinit.plugins.windows.extendvolumes.ExtendVolumesPlugin,cloudbaseinit.plugins.windows.winrmlistener.ConfigWinRMListenerPlugin,cloudbaseinit.plugins.common.userdata.UserDataPlugin [config_drive]raw_hdd=true ##### cloudbase-init-unattended.conf[DEFAULT]username=Admingroups=Administratorsinject_user_password=trueconfig_drive_cdrom=trueconfig_drive_vfat=truebsdtar_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\bsdtar.exemtools_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\verbose=truedebug=truelog_dir=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\log\log_file=cloudbase-init-unattend.logdefault_log_levels=comtypes=INFO,suds=INFO,iso8601=WARN,requests=WARNlogging_serial_port_settings=mtu_use_dhcp_config=truentp_use_dhcp_config=truelocal_scripts_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts\check_latest_version=falsemetadata_services=cloudbaseinit.metadata.services.nocloudservice.NoCloudConfigDriveService,cloudbaseinit.metadata.services.configdrive.ConfigDriveService,cloudbaseinit.metadata.services.httpservice.HttpService,cloudbaseinit.metadata.services.ec2service.EC2Service,cloudbaseinit.metadata.services.maasservice.MaaSHttpServiceplugins=cloudbaseinit.plugins.common.mtu.MTUPlugin,cloudbaseinit.plugins.common.sethostname.SetHostNamePlugin,cloudbaseinit.plugins.windows.extendvolumes.ExtendVolumesPluginallow_reboot=falsestop_service_on_exit=false [config_drive]raw_hdd=true  
----|---  
+```ini
+##### cloudbase-init.conf
+[DEFAULT]
+username=Admin
+groups=Administrators
+inject_user_password=true
+config_drive_cdrom=true
+config_drive_vfat=true
+bsdtar_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\bsdtar.exe
+mtools_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\
+verbose=true
+debug=true
+log_dir=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\log\
+log_file=cloudbase-init.log
+default_log_levels=comtypes=INFO,suds=INFO,iso8601=WARN,requests=WARN
+logging_serial_port_settings=COM1,115200,N,8
+mtu_use_dhcp_config=true
+ntp_use_dhcp_config=true
+local_scripts_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts\
+check_latest_version=false
+metadata_services=cloudbaseinit.metadata.services.nocloudservice.NoCloudConfigDriveService
+plugins=cloudbaseinit.plugins.common.mtu.MTUPlugin,cloudbaseinit.plugins.windows.ntpclient.NTPClientPlugin,cloudbaseinit.plugins.common.sethostname.SetHostNamePlugin,cloudbaseinit.plugins.windows.extendvolumes.ExtendVolumesPlugin,cloudbaseinit.plugins.windows.winrmlistener.ConfigWinRMListenerPlugin,cloudbaseinit.plugins.common.userdata.UserDataPlugin
+
+[config_drive]
+raw_hdd=true
+
+##### cloudbase-init-unattended.conf
+[DEFAULT]
+username=Admin
+groups=Administrators
+inject_user_password=true
+config_drive_cdrom=true
+config_drive_vfat=true
+bsdtar_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\bsdtar.exe
+mtools_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\
+verbose=true
+debug=true
+log_dir=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\log\
+log_file=cloudbase-init-unattend.log
+default_log_levels=comtypes=INFO,suds=INFO,iso8601=WARN,requests=WARN
+logging_serial_port_settings=
+mtu_use_dhcp_config=true
+ntp_use_dhcp_config=true
+local_scripts_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts\
+check_latest_version=false
+metadata_services=cloudbaseinit.metadata.services.nocloudservice.NoCloudConfigDriveService,cloudbaseinit.metadata.services.configdrive.ConfigDriveService,cloudbaseinit.metadata.services.httpservice.HttpService,cloudbaseinit.metadata.services.ec2service.EC2Service,cloudbaseinit.metadata.services.maasservice.MaaSHttpService
+plugins=cloudbaseinit.plugins.common.mtu.MTUPlugin,cloudbaseinit.plugins.common.sethostname.SetHostNamePlugin,cloudbaseinit.plugins.windows.extendvolumes.ExtendVolumesPlugin
+allow_reboot=false
+stop_service_on_exit=false
+
+[config_drive]
+raw_hdd=true
+```
   
   * Save the configuration and shutdown the VM;
   * Delete the Kubevirt VM, but keep the root PVC;
@@ -96,10 +146,73 @@ Depending on the OS release that is being migrated, the following notable steps 
 
 Below is a listing of the configuration section needed when migrating/replicating to KubeVirt/Harvester:
 
-[kubevirt_migration_provider] # Default storage class to use # default_storage_class = # Default snapshot storage class to use # snapshot_storage_class = # The OS migration image map to use. This mapping will be used to spin up the OSMorphing worker migr_image_map = linux: quay.io/containerdisks/ubuntu:22.04, windows: # Namespace in which migrations should happen namespace = default # The maximum number of CPU cores to allocate to instances. This is a hard cap to default to when # migrating huge instances. # max_cpu_cores = # The maximum memory to allocate to instances. This is a hard cap to default to when migrating huge # instances. # max_memory_mb = # On some storage backends, restoring PVCs from snapshots do not work as intended, therefore, for # migrations, volume snapshots can be disabled by enabling this option. disable_volume_snapshots = false # VM network used to deploy the worker VM on. Must be reachable by the Coriolis appliance. If multiple # networks are not supported, the default pod network is used. # migr_network = # What mechanism to use when sending disk data from the Coriolis installation to the temporary VMs on # the target KubeVirt to be written to their respective disk. The HTTPS-based transfer mechanism # (TCP/5566) is faster but might not work if there are firewalls in the way. The SSH-based transfer # mechanism (TCP/22) is more costly but will be allowed by most firewalls since SSH access from the # Coriolis installation to the temporary worker VM is always required. Default is HTTPS. data_transfer_mechanism = HTTPS # Whether or not Coriolis should reconfigure the Migrated VMs to use DHCP on all network interfaces # during the OSMorphing process. set_dhcp = true # CPU core limit to be set to the worker VMs migr_worker_cpu_limit = 2 # Memory limit (in GiB) to be set to the worker VMs migr_worker_memory_limit = 4 # Worker Root Disk size (in GiB) to be created when deploying a worker machine from a VM Image. migr_worker_disk_size = 15 # Location of the virtio-win ISO windows_virtio_iso_url = https://github.com/SUSE/vmdp/releases/download/2.5.4.2/VMDP-WIN-2.5.4.2-Community.iso # Location of the Cloudbase-Init ZIP for amd64 systems cloudbaseinit_x64_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x64.zip # Location of the Cloudbase-Init ZIP for x86 systems cloudbaseinit_x86_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x86.zip # Type of disk device to emulate on the migrated instance. Currently supported values are: # virtio, sata, scsi, usb disk_bus = virtio # Network interface card model to emulate on the migrated instance. Currently supported values # are: e1000, e1000e, ne2k_pci, pcnet, rtl8139, virtio nic_model = virtio
+```json
+[kubevirt_migration_provider]
+# Default storage class to use
+# default_storage_class = 
 
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465 | [kubevirt_migration_provider]# Default storage class to use# default_storage_class =  # Default snapshot storage class to use# snapshot_storage_class =  # The OS migration image map to use. This mapping will be used to spin up the OSMorphing workermigr_image_map = linux: quay.io/containerdisks/ubuntu:22.04, windows: # Namespace in which migrations should happennamespace = default # The maximum number of CPU cores to allocate to instances. This is a hard cap to default to when# migrating huge instances.# max_cpu_cores =  # The maximum memory to allocate to instances. This is a hard cap to default to when migrating huge# instances.# max_memory_mb =  # On some storage backends, restoring PVCs from snapshots do not work as intended, therefore, for# migrations, volume snapshots can be disabled by enabling this option.disable_volume_snapshots = false # VM network used to deploy the worker VM on. Must be reachable by the Coriolis appliance. If multiple# networks are not supported, the default pod network is used.# migr_network =  # What mechanism to use when sending disk data from the Coriolis installation to the temporary VMs on# the target KubeVirt to be written to their respective disk. The HTTPS-based transfer mechanism# (TCP/5566) is faster but might not work if there are firewalls in the way. The SSH-based transfer# mechanism (TCP/22) is more costly but will be allowed by most firewalls since SSH access from the# Coriolis installation to the temporary worker VM is always required. Default is HTTPS.data_transfer_mechanism = HTTPS # Whether or not Coriolis should reconfigure the Migrated VMs to use DHCP on all network interfaces# during the OSMorphing process.set_dhcp = true # CPU core limit to be set to the worker VMsmigr_worker_cpu_limit = 2 # Memory limit (in GiB) to be set to the worker VMsmigr_worker_memory_limit = 4 # Worker Root Disk size (in GiB) to be created when deploying a worker machine from a VM Image.migr_worker_disk_size = 15 # Location of the virtio-win ISOwindows_virtio_iso_url = https://github.com/SUSE/vmdp/releases/download/2.5.4.2/VMDP-WIN-2.5.4.2-Community.iso # Location of the Cloudbase-Init ZIP for amd64 systemscloudbaseinit_x64_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x64.zip # Location of the Cloudbase-Init ZIP for x86 systemscloudbaseinit_x86_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x86.zip # Type of disk device to emulate on the migrated instance. Currently supported values are:# virtio, sata, scsi, usbdisk_bus = virtio # Network interface card model to emulate on the migrated instance. Currently supported values# are: e1000, e1000e, ne2k_pci, pcnet, rtl8139, virtionic_model = virtio  
----|---  
+# Default snapshot storage class to use
+# snapshot_storage_class = 
+
+# The OS migration image map to use. This mapping will be used to spin up the OSMorphing worker
+migr_image_map = linux: quay.io/containerdisks/ubuntu:22.04, windows:
+
+# Namespace in which migrations should happen
+namespace = default
+
+# The maximum number of CPU cores to allocate to instances. This is a hard cap to default to when
+# migrating huge instances.
+# max_cpu_cores = 
+
+# The maximum memory to allocate to instances. This is a hard cap to default to when migrating huge
+# instances.
+# max_memory_mb = 
+
+# On some storage backends, restoring PVCs from snapshots do not work as intended, therefore, for
+# migrations, volume snapshots can be disabled by enabling this option.
+disable_volume_snapshots = false
+
+# VM network used to deploy the worker VM on. Must be reachable by the Coriolis appliance. If multiple
+# networks are not supported, the default pod network is used.
+# migr_network = 
+
+# What mechanism to use when sending disk data from the Coriolis installation to the temporary VMs on
+# the target KubeVirt to be written to their respective disk. The HTTPS-based transfer mechanism
+# (TCP/5566) is faster but might not work if there are firewalls in the way. The SSH-based transfer
+# mechanism (TCP/22) is more costly but will be allowed by most firewalls since SSH access from the
+# Coriolis installation to the temporary worker VM is always required. Default is HTTPS.
+data_transfer_mechanism = HTTPS
+
+# Whether or not Coriolis should reconfigure the Migrated VMs to use DHCP on all network interfaces
+# during the OSMorphing process.
+set_dhcp = true
+
+# CPU core limit to be set to the worker VMs
+migr_worker_cpu_limit = 2
+
+# Memory limit (in GiB) to be set to the worker VMs
+migr_worker_memory_limit = 4
+
+# Worker Root Disk size (in GiB) to be created when deploying a worker machine from a VM Image.
+migr_worker_disk_size = 15
+
+# Location of the virtio-win ISO
+windows_virtio_iso_url = https://github.com/SUSE/vmdp/releases/download/2.5.4.2/VMDP-WIN-2.5.4.2-Community.iso
+
+# Location of the Cloudbase-Init ZIP for amd64 systems
+cloudbaseinit_x64_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x64.zip
+
+# Location of the Cloudbase-Init ZIP for x86 systems
+cloudbaseinit_x86_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x86.zip
+
+# Type of disk device to emulate on the migrated instance. Currently supported values are:
+# virtio, sata, scsi, usb
+disk_bus = virtio
+
+# Network interface card model to emulate on the migrated instance. Currently supported values
+# are: e1000, e1000e, ne2k_pci, pcnet, rtl8139, virtio
+nic_model = virtio
+```
   
 ## Harvester 1.2
 

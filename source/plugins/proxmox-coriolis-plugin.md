@@ -24,10 +24,19 @@ In order to connect to an Proxmox cloud to perform a migration/replica to that c
 
 **Example of connection info JSON to be passed to the Proxmox plugin**
 
-{ "name": "Proxmox", "coriolis_regions": "Public", "host": "10.8.17.240", "port": 8006, "protocol": "https" "username": "root", "password": "SeKr3t", "authentication_realm": "pam" "allow_untrusted": false }
-
-1234567891011 | {     "name": "Proxmox",     "coriolis_regions": "Public",     "host": "10.8.17.240",     "port": 8006,     "protocol": "https"     "username": "root",     "password": "SeKr3t",     "authentication_realm": "pam"     "allow_untrusted": false }  
----|---  
+```json
+{
+     "name": "Proxmox",
+     "coriolis_regions": "Public",
+     "host": "10.8.17.240",
+     "port": 8006,
+     "protocol": "https"
+     "username": "root",
+     "password": "SeKr3t",
+     "authentication_realm": "pam"
+     "allow_untrusted": false
+ }
+```
   
 Each parameter represents:
 

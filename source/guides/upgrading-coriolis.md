@@ -33,10 +33,16 @@ Before initiating the upgrade, verify the following requirements.
 
 
 
-https://registry.cloudbase.it https://bitbucket.org https://github.com https://raw.githubusercontent.com https://pypi.python.org https://pypi.org/simple https://registry-1.docker.io https://docker.io
-
-12345678 | https://registry.cloudbase.ithttps://bitbucket.orghttps://github.comhttps://raw.githubusercontent.comhttps://pypi.python.orghttps://pypi.org/simplehttps://registry-1.docker.iohttps://docker.io  
----|---  
+```text
+https://registry.cloudbase.it
+https://bitbucket.org
+https://github.com
+https://raw.githubusercontent.com
+https://pypi.python.org
+https://pypi.org/simple
+https://registry-1.docker.io
+https://docker.io
+```
   
 * * *
 
@@ -52,10 +58,9 @@ Step 2 - Check the Installed Version
 
 Run the following command and save the version number.
 
+```text
 cat /etc/coriolis/coriolis.release
-
-1 | cat /etc/coriolis/coriolis.release  
----|---  
+```
   
 [![](_static/images/4e97910e-8344-434a-b298-e1ca4bf3cf3d.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/03/4e97910e-8344-434a-b298-e1ca4bf3cf3d.png?ssl=1)
 
@@ -83,15 +88,17 @@ Step 1 - From the Coriolis Console menu, choose:
 
 13) Upgrade Options
 
-1 | 13) Upgrade Options  
----|---  
+```text
+13) Upgrade Options
+```
   
 Step 2 - Choose the option:
 
 1) Upgrade Coriolis Services
 
-1 | 1) Upgrade Coriolis Services  
----|---  
+```text
+1) Upgrade Coriolis Services
+```
   
 Step 3 - Specify Target Version
 
@@ -99,8 +106,9 @@ You will be prompted to enter the **Coriolis version** to upgrade to, for exampl
 
 2608.2
 
-1 | 2608.2  
----|---  
+```text
+2608.2
+```
   
 Important:
 
@@ -128,15 +136,17 @@ Step 1 - From the Coriolis Console menu, choose:
 
 13) Upgrade Options
 
-1 | 13) Upgrade Options  
----|---  
+```text
+13) Upgrade Options
+```
   
 Step 2 - Choose the option:
 
 2) Patch Coriolis Component
 
-1 | 2) Patch Coriolis Component  
----|---  
+```text
+2) Patch Coriolis Component
+```
   
 Step 3 - Specify the Coriolis Component to be upgraded
 
@@ -152,8 +162,9 @@ You will be prompted to enter the **Patch version for Component** to be upgrade 
 
 2608.1.1
 
-1 | 2608.1.1  
----|---  
+```text
+2608.1.1
+```
   
 Important:
 

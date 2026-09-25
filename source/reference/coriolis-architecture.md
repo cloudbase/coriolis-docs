@@ -61,19 +61,18 @@ When exposing the Coriolis REST API for external/remote access, Coriolis will us
 
 Once the Coriolis endpoint is exposed, the user can download the CA certificate by accessing the URL format below:
 
+```text
 http://APPLIANCE_IP:9001/coriolis-ca.crt
-
-1 | http://APPLIANCE_IP:9001/coriolis-ca.crt  
----|---  
+```
   
 When using the**coriolis CLI tool** , besides having to source keystone authentication information, the CA certificate will also need to be passed.
 
 Users can either export the CA’s path in the **OS_CACERT** environment variable using:
 
-export OS_CACERT="/root/coriolis-ca.crt" coriolis endpoint list
-
-12 | export OS_CACERT="/root/coriolis-ca.crt"coriolis endpoint list  
----|---  
+```bash
+export OS_CACERT="/root/coriolis-ca.crt"
+coriolis endpoint list
+```
   
 or have it passed to the client calls using the **- -os-cacert** option:
 

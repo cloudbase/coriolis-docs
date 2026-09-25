@@ -11,19 +11,20 @@ The following commands will install the Coriolis command line client on the loca
 
 **Coriolis CLI installation commands**
 
-$ git clone https://github.com/cloudbase/python-coriolisclient $ pip3 install python-coriolisclient $ # verify client is available in path: $ /usr/bin/env coriolis
-
-1234 | $ git clone https://github.com/cloudbase/python-coriolisclient$ pip3 install python-coriolisclient$ # verify client is available in path:$ /usr/bin/env coriolis  
----|---  
+```bash
+$ git clone https://github.com/cloudbase/python-coriolisclient
+$ pip3 install python-coriolisclient
+$ # verify client is available in path:
+$ /usr/bin/env coriolis
+```
   
 **Expose Coriolis appliance**
 
 By default, all the Coriolis appliance services listen only on localhost. In order to expose all the services from the appliance, execute the following:
 
+```bash
 $ ~/coriolis-docker/expose_coriolis.py 
-
-1 | $ ~/coriolis-docker/expose_coriolis.py  
----|---  
+```
   
 ## Defining a Coriolis endpoint for a given cloud
 
@@ -45,10 +46,16 @@ For instructions on how to create Coriolis Endpoints please check Defining a Cor
 
 Granted all the above, a migration job may be created for an instance by running the following:
 
-source /etc/kolla/admin-openrc.sh coriolis migration create \ \--origin-endpoint $ID_OF_SOURCE_CLOUD_ENDPOINT \ \--destination-endpoint $ID_OF_DESTINATION_CLOUD_ENDPOINT \ \--source-environment '{"the": "source cloud specific params"}' \ \--destination-environment '{"the": "destination cloud specific params"}' \ \--instance $IDENTIFIER_OF_INSTANCE_ON_SOURCE
-
-12345678 | source /etc/kolla/admin-openrc.sh coriolis migration create \\--origin-endpoint $ID_OF_SOURCE_CLOUD_ENDPOINT \\--destination-endpoint $ID_OF_DESTINATION_CLOUD_ENDPOINT \\--source-environment '{"the": "source cloud specific params"}' \\--destination-environment '{"the": "destination cloud specific params"}' \\--instance $IDENTIFIER_OF_INSTANCE_ON_SOURCE  
----|---  
+```text
+source /etc/kolla/admin-openrc.sh
+ 
+coriolis migration create \
+--origin-endpoint $ID_OF_SOURCE_CLOUD_ENDPOINT \
+--destination-endpoint $ID_OF_DESTINATION_CLOUD_ENDPOINT \
+--source-environment '{"the": "source cloud specific params"}' \
+--destination-environment '{"the": "destination cloud specific params"}' \
+--instance $IDENTIFIER_OF_INSTANCE_ON_SOURCE
+```
   
 The above command will create a migration job within Coriolis, which may be later queried or halted by referencing its ID.
 
@@ -56,10 +63,24 @@ The above command will create a migration job within Coriolis, which may be late
 
 In addition to the above create command, the Coriolis command line client also offers the following operations on migration jobs:
 
-source /etc/kolla/admin-openrc.sh # list all registered migration jobs: coriolis migration list # view a particular migration's status: coriolis migration show $MIGRATION_ID # cancel a running migration: coriolis migration cancel $MIGRATION_ID # delete records of a previous migration: # this does not delete the migrated instance on the destination cloud # should that migration have been ended successfully. # the migration must not be running. coriolis migration delete $MIGRATION_ID
-
-12345678910111213141516 | source /etc/kolla/admin-openrc.sh # list all registered migration jobs:coriolis migration list # view a particular migration's status:coriolis migration show $MIGRATION_ID # cancel a running migration:coriolis migration cancel $MIGRATION_ID # delete records of a previous migration:# this does not delete the migrated instance on the destination cloud# should that migration have been ended successfully.# the migration must not be running.coriolis migration delete $MIGRATION_ID  
----|---  
+```text
+source /etc/kolla/admin-openrc.sh
+ 
+# list all registered migration jobs:
+coriolis migration list
+ 
+# view a particular migration's status:
+coriolis migration show $MIGRATION_ID
+ 
+# cancel a running migration:
+coriolis migration cancel $MIGRATION_ID
+ 
+# delete records of a previous migration:
+# this does not delete the migrated instance on the destination cloud
+# should that migration have been ended successfully.
+# the migration must not be running.
+coriolis migration delete $MIGRATION_ID
+```
   
 ## Creating replication (DRaaS) jobs
 
@@ -75,10 +96,17 @@ source /etc/kolla/admin-openrc.sh # list all registered migration jobs: coriolis
 
 Granted all the above, a replication job may be **defined**  (but not yet executed) for an instance by running the following:
 
-source /etc/kolla/admin-openrc.sh coriolis replica create \ \--origin-endpoint $ID_OF_SOURCE_CLOUD_ENDPOINT \ \--destination-endpoint $ID_OF_DESTINATION_CLOUD_ENDPOINT \ \--source-environment '{"the": "source cloud specific params"}' \ \--destination-environment '{"the": "destination cloud specific params"}' \ \--network-map '{"source network name": "name or ID of network on destination"}' \ \--instance $IDENTIFIER_OF_INSTANCE_ON_SOURCE
-
-123456789 | source /etc/kolla/admin-openrc.sh coriolis replica create \\--origin-endpoint $ID_OF_SOURCE_CLOUD_ENDPOINT \\--destination-endpoint $ID_OF_DESTINATION_CLOUD_ENDPOINT \\--source-environment '{"the": "source cloud specific params"}' \\--destination-environment '{"the": "destination cloud specific params"}' \\--network-map '{"source network name": "name or ID of network on destination"}' \\--instance $IDENTIFIER_OF_INSTANCE_ON_SOURCE  
----|---  
+```text
+source /etc/kolla/admin-openrc.sh
+ 
+coriolis replica create \
+--origin-endpoint $ID_OF_SOURCE_CLOUD_ENDPOINT \
+--destination-endpoint $ID_OF_DESTINATION_CLOUD_ENDPOINT \
+--source-environment '{"the": "source cloud specific params"}' \
+--destination-environment '{"the": "destination cloud specific params"}' \
+--network-map '{"source network name": "name or ID of network on destination"}' \
+--instance $IDENTIFIER_OF_INSTANCE_ON_SOURCE
+```
   
 The above command will define a replication job with Coriolis, which may be later have executions (syncs) scheduled, cancelled and deployed by referencing the replication job's ID.
 
@@ -88,10 +116,16 @@ For more information regarding the **Source/Destination cloud specific parameter
 
 The list that is available on **Coriolis Replica/Migration parameters** page can be shown using the following commands on Coriolis machine:
 
-$coriolis endpoint list #listing all available coriolis endpoints $coriolis provider schema list $platform_type source/destination #listing the schema available for the selected type of platform specific for source or destination $coriolis endpoint source/destination options list $ENDPOINT_ID #listing all the available options for the endpoint depending if source or destination was chosen
+```text
+$coriolis endpoint list
+#listing all available coriolis endpoints
 
-12345678 | $coriolis endpoint list#listing all available coriolis endpoints $coriolis provider schema list $platform_type source/destination#listing the schema available for the selected type of platform specific for source or destination $coriolis endpoint source/destination options list $ENDPOINT_ID#listing all the available options for the endpoint depending if source or destination was chosen  
----|---  
+$coriolis provider schema list $platform_type source/destination
+#listing the schema available for the selected type of platform specific for source or destination
+
+$coriolis endpoint source/destination options list $ENDPOINT_ID
+#listing all the available options for the endpoint depending if source or destination was chosen
+```
   
 ### Starting an execution for a replication job
 
@@ -99,10 +133,11 @@ $coriolis endpoint list #listing all available coriolis endpoints $coriolis prov
 
 An existing replica may have a new execution (sync run) started by running the following:
 
-source /etc/kolla/admin-openrc.sh coriolis replica execute $REPLICA_ID
-
-123 | source /etc/kolla/admin-openrc.sh coriolis replica execute $REPLICA_ID  
----|---  
+```text
+source /etc/kolla/admin-openrc.sh
+ 
+coriolis replica execute $REPLICA_ID
+```
   
 The above command will launch a new replica execution, which may later be queried for status, cancelled or deleted by referencing both the ID of the replica, and the ID of the newly-created replica execution.
 
@@ -110,10 +145,33 @@ The above command will launch a new replica execution, which may later be querie
 
 In addition to the above execution command, the Coriolis command line client also offers the following operations on replica executions:
 
-source /etc/kolla/admin-openrc.sh # list all executions of a replica: coriolis replica execution list $REPLICA_ID # view a particular replica execution's status: coriolis replica execution show $REPLICA_ID $REPLICA_EXECUTION_ID # cancel a running replica execution: coriolis replica execution cancel $REPLICA_ID $REPLICA_EXECUTION_ID # delete records of a non-running replica execution: # this will not delete any resources which might have been # replicated on the destination cloud if the replica execution # had completed successfully (such as the replica disks) coriolis replica execution delete $REPLICA_ID $REPLICA_EXECUTION_ID # delete the replica disks: # this will delete the disks on the destination cloud we are # replicating to, but it will not delete replica in Coriolis. # Later executions may be launched for the replica, but the next one # will be a full execution to completely new disks on the destination. coriolis replica disks delete $REPLICA_ID
-
-12345678910111213141516171819202122232425 | source /etc/kolla/admin-openrc.sh # list all executions of a replica:coriolis replica execution list $REPLICA_ID # view a particular replica execution's status:coriolis replica execution show $REPLICA_ID $REPLICA_EXECUTION_ID # cancel a running replica execution:coriolis replica execution cancel $REPLICA_ID $REPLICA_EXECUTION_ID # delete records of a non-running replica execution:# this will not delete any resources which might have been# replicated on the destination cloud if the replica execution# had completed successfully (such as the replica disks)coriolis replica execution delete $REPLICA_ID $REPLICA_EXECUTION_ID # delete the replica disks:# this will delete the disks on the destination cloud we are# replicating to, but it will not delete replica in Coriolis.# Later executions may be launched for the replica, but the next one# will be a full execution to completely new disks on the destination.coriolis replica disks delete $REPLICA_ID  
----|---  
+```text
+source /etc/kolla/admin-openrc.sh
+ 
+# list all executions of a replica:
+coriolis replica execution list $REPLICA_ID
+ 
+# view a particular replica execution's status:
+coriolis replica execution show $REPLICA_ID $REPLICA_EXECUTION_ID
+ 
+# cancel a running replica execution:
+coriolis replica execution cancel $REPLICA_ID $REPLICA_EXECUTION_ID
+ 
+ 
+# delete records of a non-running replica execution:
+# this will not delete any resources which might have been
+# replicated on the destination cloud if the replica execution
+# had completed successfully (such as the replica disks)
+coriolis replica execution delete $REPLICA_ID $REPLICA_EXECUTION_ID
+ 
+ 
+# delete the replica disks:
+# this will delete the disks on the destination cloud we are
+# replicating to, but it will not delete replica in Coriolis.
+# Later executions may be launched for the replica, but the next one
+# will be a full execution to completely new disks on the destination.
+coriolis replica disks delete $REPLICA_ID
+```
   
 ### Deploying a replica on the destination cloud
 
@@ -121,10 +179,11 @@ source /etc/kolla/admin-openrc.sh # list all executions of a replica: coriolis r
 
 An existing replica may be deployed on the destination cloud by running the following:
 
-source /etc/kolla/admin-openrc.sh coriolis migration deploy replica $REPLICA_ID
-
-123 | source /etc/kolla/admin-openrc.sh coriolis migration deploy replica $REPLICA_ID  
----|---  
+```text
+source /etc/kolla/admin-openrc.sh
+ 
+coriolis migration deploy replica $REPLICA_ID
+```
   
 The above command will start a replica migration job which will recreate the instance on the destination cloud with the state of the last replica execution.
 
@@ -140,10 +199,12 @@ In the example **VMware** will be used as **source platform** and**OVM** will be
 
 Below is a listing of the source environment parameters the VMWare plugin supports when migrating/replicating a VM from vSphere/ESXi:
 
-{ "vixdisklib_compatibility_version": "6.7", "automatically_enable_cbt": false }
-
-1234 | {"vixdisklib_compatibility_version": "6.7","automatically_enable_cbt": false}  
----|---  
+```json
+{
+"vixdisklib_compatibility_version": "6.7",
+"automatically_enable_cbt": false
+}
+```
   
 Each Parameter representing:
 
@@ -156,10 +217,21 @@ Each Parameter representing:
 
 Below is a listing of the destination environment parameters the OVM plugin supports when migrating/replicating a VM to OVM:
 
-'{ "network_map": { "source network name": "0a6b0100", }, "storage_mappings": { "backend_mappings": [{"source": "datastor1", "destination": "Main"}], "disk_mappings": [{"disk_id": "2000", "destination": "Main"}] }, "server_pool_name": "Main", "repository_name": "Main", "migr_template_name_map": { "linux": "linux_migration_worker", }, "migr_template_username_map": { "linux": "root" }, "migr_template_password_map": { "linux": "Passw0rd" }, "leave_migrated_vm_off": false, "os_label": "coriolis-migrated", "virtual_disk_clone_type": "THIN_CLONE"'
-
-12345678910111213 | '{      "network_map": {          "source network name": "0a6b0100",      },      "storage_mappings": {          "backend_mappings": [{"source": "datastor1", "destination": "Main"}],          "disk_mappings": [{"disk_id": "2000", "destination": "Main"}]      },      "server_pool_name": "Main",      "repository_name": "Main",      "migr_template_name_map": {          "linux": "linux_migration_worker", }, "migr_template_username_map": { "linux": "root" }, "migr_template_password_map": { "linux": "Passw0rd" }, "leave_migrated_vm_off": false, "os_label": "coriolis-migrated", "virtual_disk_clone_type": "THIN_CLONE"'  
----|---  
+```text
+'{
+      "network_map": {
+          "source network name": "0a6b0100",
+      },
+      "storage_mappings": {
+          "backend_mappings": [{"source": "datastor1", "destination": "Main"}],
+          "disk_mappings": [{"disk_id": "2000", "destination": "Main"}]
+      },
+      "server_pool_name": "Main",
+      "repository_name": "Main",
+      "migr_template_name_map": {
+          "linux": "linux_migration_worker",
+ }, "migr_template_username_map": { "linux": "root" }, "migr_template_password_map": { "linux": "Passw0rd" }, "leave_migrated_vm_off": false, "os_label": "coriolis-migrated", "virtual_disk_clone_type": "THIN_CLONE"'
+```
   
 Each parameter representing:
 
@@ -178,29 +250,96 @@ Each parameter representing:
 
 #### Execution script example
 
-coriolis replica create \ \--origin-endpoint 0b9774fd-c39b-4c7e-acf8-4ba37dad155e \ \--destination-endpoint 807e2f7f-fcd6-4423-a0f6-7550277f2182 \ \--source-environment '{"vixdisklib_compatibility_version": "6.7", "automatically_enable_cbt": true}' \ \--destination-environment '{"network_map": {"vmnetwork": "0a6b0100"}, "storage_mappings": {"backend_mappings": [{"source": "datastore1", "destination": "Main"}], "disk_mappings": [{"disk_id": "2000", "destination": "Main"}]}, "server_pool_name": "Main", "repository_name": "Main", "migr_template_map": {"linux": "linux_migration_worker"}, "migr_template_username_map": { "linux": "root" }, "migr_template_password_map": { "linux": "Passw0rd" }, "leave_migrated_vm_off": false, "os_label": "coriolis-migrated", "virtual_disk_clone_type": "THIN_CLONE"}' \ \--network-map '{"vmnetwork": "0a6b0100"}' \ \--instance ha-datacenter/Ubuntu-Bionic-Demo \
-
-1234567 | coriolis replica create \     \--origin-endpoint 0b9774fd-c39b-4c7e-acf8-4ba37dad155e \     \--destination-endpoint 807e2f7f-fcd6-4423-a0f6-7550277f2182 \     \--source-environment '{"vixdisklib_compatibility_version": "6.7", "automatically_enable_cbt": true}' \     \--destination-environment '{"network_map": {"vmnetwork": "0a6b0100"}, "storage_mappings": {"backend_mappings": [{"source": "datastore1", "destination": "Main"}], "disk_mappings": [{"disk_id": "2000", "destination": "Main"}]}, "server_pool_name": "Main", "repository_name": "Main", "migr_template_map": {"linux": "linux_migration_worker"}, "migr_template_username_map": { "linux": "root" }, "migr_template_password_map": { "linux": "Passw0rd" }, "leave_migrated_vm_off": false, "os_label": "coriolis-migrated", "virtual_disk_clone_type": "THIN_CLONE"}' \      \--network-map '{"vmnetwork": "0a6b0100"}' \      \--instance ha-datacenter/Ubuntu-Bionic-Demo \  
----|---  
+```text
+coriolis replica create \
+     --origin-endpoint 0b9774fd-c39b-4c7e-acf8-4ba37dad155e \
+     --destination-endpoint 807e2f7f-fcd6-4423-a0f6-7550277f2182 \
+     --source-environment '{"vixdisklib_compatibility_version": "6.7", "automatically_enable_cbt": true}' \
+     --destination-environment '{"network_map": {"vmnetwork": "0a6b0100"}, "storage_mappings": {"backend_mappings": [{"source": "datastore1", "destination": "Main"}], "disk_mappings": [{"disk_id": "2000", "destination": "Main"}]}, "server_pool_name": "Main", "repository_name": "Main", "migr_template_map": {"linux": "linux_migration_worker"}, "migr_template_username_map": { "linux": "root" }, "migr_template_password_map": { "linux": "Passw0rd" }, "leave_migrated_vm_off": false, "os_label": "coriolis-migrated", "virtual_disk_clone_type": "THIN_CLONE"}' \
+      --network-map '{"vmnetwork": "0a6b0100"}' \
+      --instance ha-datacenter/Ubuntu-Bionic-Demo \
+```
   
 Verifying the current Replica tasks:
 
-$coriolis replica list #listing all availale coriolis replicas | ID | Instances | Notes | Last Execution Status | Created | 926a49bb-2bd9-4533-87e1-2d0e7505e06d| ha-datacenter/Ubuntu-Bionic-Demo| Ubuntu-Bionic-Demo| COMPLETED| 2021-04-08T07:26:35.000000|
+```text
+$coriolis replica list
+#listing all availale coriolis replicas
 
-123456 | $coriolis replica list#listing all availale coriolis replicas  | ID                                  | Instances                       | Notes             | Last Execution Status | Created  | 926a49bb-2bd9-4533-87e1-2d0e7505e06d| ha-datacenter/Ubuntu-Bionic-Demo| Ubuntu-Bionic-Demo| COMPLETED| 2021-04-08T07:26:35.000000|  
----|---  
+ | ID                                  | Instances                       | Notes             | Last Execution Status | Created
+
+ | 926a49bb-2bd9-4533-87e1-2d0e7505e06d| ha-datacenter/Ubuntu-Bionic-Demo| Ubuntu-Bionic-Demo| COMPLETED| 2021-04-08T07:26:35.000000|
+```
   
 Using the Replica ID, the Replica can be further inspected:
 
-$coriolis replica show 926a49bb-2bd9-4533-87e1-2d0e7505e06d #inspecting the coriolis replica
-
-12 | $coriolis replica show 926a49bb-2bd9-4533-87e1-2d0e7505e06d#inspecting the coriolis replica  
----|---  
+```text
+$coriolis replica show 926a49bb-2bd9-4533-87e1-2d0e7505e06d
+#inspecting the coriolis replica
+```
   
-Field | Value \------------------------------------------------------------------------------------ id | 926a49bb-2bd9-4533-87e1-2d0e7505e06d created | 2021-04-08T07:26:35.000000 last_updated | 2021-04-08T08:29:21.000000 reservation_id | 746a8605-a60f-4475-88d2-d6d4205fa160 instances | ha-datacenter/Ubuntu-Bionic-Demo notes | Ubuntu-Bionic-Demo origin_endpoint_id | 0b9774fd-c39b-4c7e-acf8-4ba37dad155e origin_minion_pool_id | None destination_endpoint_id | 807e2f7f-fcd6-4423-a0f6-7550277f2182 destination_minion_pool_id | None instance_osmorphing_minion_pool_mappings | {} destination_environment | { | "leave_migrated_vm_off": false, | "virtual_disk_clone_type": "THIN_CLONE", | "os_label": "Other Linux", | "repository_name": "Main", | "server_pool_name": "Main", | "migr_template_map": { | "linux": "0004fb0000060000917777556dc30f6c" | }, | "migr_template_password_map": { | "linux": "Passw0rd" | }, | "migr_template_username_map": { | "linux": "root" | }, | "network_map": { | "vmnetwork": "0a6b0100" | }, | "storage_mappings": { | "backend_mappings": [ | { | "source": "datastore1", | "destination": "Main" | } | ], | "disk_mappings": [ | { | "disk_id": "2000", | "destination": "Main" | } | ] | } | } source_environment | { | "automatically_enable_cbt": true, | "vixdisklib_compatibility_version": "6.7" | } network_map | { | "vmnetwork": "0a6b0100" | } disk_storage_mappings | '2000'='Main' storage_backend_mappings | 'datastore1'='Main' default_storage_backend | None user_scripts | {} executions | 9a2cf852-1efd-48b7-aa14-fd08663a0e23 COMPLETED | 7a91d209-5843-4dc2-869d-27e0d5b37ade COMPLETED | 86ce4c6f-7a44-4651-8b43-55744416910e COMPLETED 
-
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960 |   Field                                    | Value       \------------------------------------------------------------------------------------                                      id                                       | 926a49bb-2bd9-4533-87e1-2d0e7505e06d              created                                  | 2021-04-08T07:26:35.000000                        last_updated                             | 2021-04-08T08:29:21.000000                        reservation_id                           | 746a8605-a60f-4475-88d2-d6d4205fa160              instances                                | ha-datacenter/Ubuntu-Bionic-Demo                  notes                                    | Ubuntu-Bionic-Demo                                origin_endpoint_id                       | 0b9774fd-c39b-4c7e-acf8-4ba37dad155e              origin_minion_pool_id                    | None                                              destination_endpoint_id                  | 807e2f7f-fcd6-4423-a0f6-7550277f2182              destination_minion_pool_id               | None                                              instance_osmorphing_minion_pool_mappings | {}                                                destination_environment                  | {                                                                                          |   "leave_migrated_vm_off": false,                                                          |   "virtual_disk_clone_type": "THIN_CLONE",                                                 |   "os_label": "Other Linux",                                                               |   "repository_name": "Main",                                                               |   "server_pool_name": "Main",                                                              |   "migr_template_map": {                                                                   |     "linux": "0004fb0000060000917777556dc30f6c"                                            |   },                                                                                       |   "migr_template_password_map": {                                                          |     "linux": "Passw0rd"                                                                    |   },                                                                                       |   "migr_template_username_map": {                                                          |     "linux": "root"                                                                        |   },                                                                                       |   "network_map": {                                                                         |     "vmnetwork": "0a6b0100"                                                                |   },                                                                                       |   "storage_mappings": {                                                                    |     "backend_mappings": [                                                                  |       {                                                                                    |         "source": "datastore1",                                                            |         "destination": "Main"                                                              |       }                                                                                    |     ],                                                                                     |     "disk_mappings": [                                                                     |       {                                                                                    |         "disk_id": "2000",                                                                 |         "destination": "Main"                                                              |       }                                                                                    |     ]                                                                                      |   }                                                                                        | }                                                 source_environment                       | {                                                                                          |   "automatically_enable_cbt": true,                                                        |   "vixdisklib_compatibility_version": "6.7"                                                | }                                                 network_map                              | {                                                                                          |   "vmnetwork": "0a6b0100"                                                                  | }                                                 disk_storage_mappings                    | '2000'='Main'                                     storage_backend_mappings                 | 'datastore1'='Main'                               default_storage_backend                  | None                                              user_scripts                             | {}                                                executions                               | 9a2cf852-1efd-48b7-aa14-fd08663a0e23 COMPLETED                                             | 7a91d209-5843-4dc2-869d-27e0d5b37ade COMPLETED                                             | 86ce4c6f-7a44-4651-8b43-55744416910e COMPLETED    
----|---  
+```text
+  Field                                    | Value       
+------------------------------------------------------------------------------------                                    
+  id                                       | 926a49bb-2bd9-4533-87e1-2d0e7505e06d            
+  created                                  | 2021-04-08T07:26:35.000000                      
+  last_updated                             | 2021-04-08T08:29:21.000000                      
+  reservation_id                           | 746a8605-a60f-4475-88d2-d6d4205fa160            
+  instances                                | ha-datacenter/Ubuntu-Bionic-Demo                
+  notes                                    | Ubuntu-Bionic-Demo                              
+  origin_endpoint_id                       | 0b9774fd-c39b-4c7e-acf8-4ba37dad155e            
+  origin_minion_pool_id                    | None                                            
+  destination_endpoint_id                  | 807e2f7f-fcd6-4423-a0f6-7550277f2182            
+  destination_minion_pool_id               | None                                            
+  instance_osmorphing_minion_pool_mappings | {}                                              
+  destination_environment                  | {                                               
+                                           |   "leave_migrated_vm_off": false,               
+                                           |   "virtual_disk_clone_type": "THIN_CLONE",      
+                                           |   "os_label": "Other Linux",                    
+                                           |   "repository_name": "Main",                    
+                                           |   "server_pool_name": "Main",                   
+                                           |   "migr_template_map": {                        
+                                           |     "linux": "0004fb0000060000917777556dc30f6c" 
+                                           |   },                                            
+                                           |   "migr_template_password_map": {               
+                                           |     "linux": "Passw0rd"                         
+                                           |   },                                            
+                                           |   "migr_template_username_map": {               
+                                           |     "linux": "root"                             
+                                           |   },                                            
+                                           |   "network_map": {                              
+                                           |     "vmnetwork": "0a6b0100"                     
+                                           |   },                                            
+                                           |   "storage_mappings": {                         
+                                           |     "backend_mappings": [                       
+                                           |       {                                         
+                                           |         "source": "datastore1",                 
+                                           |         "destination": "Main"                   
+                                           |       }                                         
+                                           |     ],                                          
+                                           |     "disk_mappings": [                          
+                                           |       {                                         
+                                           |         "disk_id": "2000",                      
+                                           |         "destination": "Main"                   
+                                           |       }                                         
+                                           |     ]                                           
+                                           |   }                                             
+                                           | }                                               
+  source_environment                       | {                                               
+                                           |   "automatically_enable_cbt": true,             
+                                           |   "vixdisklib_compatibility_version": "6.7"     
+                                           | }                                               
+  network_map                              | {                                               
+                                           |   "vmnetwork": "0a6b0100"                       
+                                           | }                                               
+  disk_storage_mappings                    | '2000'='Main'                                   
+  storage_backend_mappings                 | 'datastore1'='Main'                             
+  default_storage_backend                  | None                                            
+  user_scripts                             | {}                                              
+  executions                               | 9a2cf852-1efd-48b7-aa14-fd08663a0e23 COMPLETED  
+                                           | 7a91d209-5843-4dc2-869d-27e0d5b37ade COMPLETED  
+                                           | 86ce4c6f-7a44-4651-8b43-55744416910e COMPLETED  
+```
   
 #### Defining Coriolis default parameters for Source/Destination environments
 
@@ -208,19 +347,17 @@ Some of the parameters can be set as default by editing the **coriolis.conf** fi
 
 The coriolis.conf file is available on the Coriolis Appliance:
 
+```text
 $cd /etc/coriolis/coriolis.conf
-
-1 | $cd /etc/coriolis/coriolis.conf  
----|---  
+```
   
 For the example above, some parameters that can be set as default are **server_pool_name , repository_name , migr_template_map , migr_template_username_map , migr_template_password_map**.
 
 After the parameters are set as default and the newly edited **coriolis.conf** file is saved, a restart of the **Coriolis Worker container** is required.
 
+```text
 $docker restart coriolis-worker
-
-1 | $docker restart coriolis-worker  
----|---  
+```
   
 Once the Coriolis Worker container is up and running after the restart, the **Replica/Migration command** can be run **without** adding the **parameters** that were set as default in the **coriolis.conf** file.
 
@@ -228,14 +365,51 @@ Once the Coriolis Worker container is up and running after the restart, the **Re
 
 List of Coriolis Replica Schedule commands:
 
-coriolis replica schedule create $replica_ID #creating a new schedule for an existing replica coriolis replica schedule delete $replica_ID #deleting on schedule for a replica coriolis replica schedule list $replica_ID #listing all the available schedules for a replica coriolis replica schedule show $replica_ID $schedule_ID #listing the details of a schedule that is part of a replica coriolis replica schedule update $replica_ID $schedule_ID #updating the configuration of a replica schedule
-
-12345678910 | coriolis replica schedule create $replica_ID#creating a new schedule for an existing replicacoriolis replica schedule delete $replica_ID#deleting on schedule for a replicacoriolis replica schedule list $replica_ID#listing all the available schedules for a replicacoriolis replica schedule show $replica_ID $schedule_ID#listing the details of a schedule that is part of a replicacoriolis replica schedule update $replica_ID $schedule_ID#updating the configuration of a replica schedule  
----|---  
+```text
+coriolis replica schedule create $replica_ID
+#creating a new schedule for an existing replica
+coriolis replica schedule delete $replica_ID
+#deleting on schedule for a replica
+coriolis replica schedule list $replica_ID
+#listing all the available schedules for a replica
+coriolis replica schedule show $replica_ID $schedule_ID
+#listing the details of a schedule that is part of a replica
+coriolis replica schedule update $replica_ID $schedule_ID
+#updating the configuration of a replica schedule
+```
   
 Coriolis Replica Schedule details using the above execution example:
 
-$coriolis replica list #listing all available coriolis replicas | ID | Instances | Notes | Last Execution Status| Created | 926a49bb-2bd9-4533-87e1-2d0e7505e06d| ha-datacenter/Ubuntu-Bionic-Demo| Ubuntu-Bionic-Demo| COMPLETED| 2021-04-08T07:26:35.000000 \------------------------------------------------------------------------------------------------------------------- $coriolis replica schedule list 926a49bb-2bd9-4533-87e1-2d0e7505e06d #listing all schedules for the requested replica | Replica ID | ID | Schedule | | 926a49bb-2bd9-4533-87e1-2d0e7505e06d| 16e3f953-a38d-4235-87e4-b2dac4ee160b| {'hour': 22, 'minute': 0, 'dom': 30} | \------------------------------------------------------------------------------------------------------------------- $coriolis replica schedule show 926a49bb-2bd9-4533-87e1-2d0e7505e06d 16e3f953-a38d-4235-87e4-b2dac4ee160b #inspecting the requested schedule of that replica +-------------------+--------------------------------------+ | Field | Value | +-------------------+--------------------------------------+ | id | 16e3f953-a38d-4235-87e4-b2dac4ee160b | | replica_id | 926a49bb-2bd9-4533-87e1-2d0e7505e06d | | schedule | {'hour': 22, 'minute': 0, 'dom': 30} | | created | 2021-04-09T09:39:44.000000 | | last_updated | 2021-04-09T09:40:25.000000 | enabled | True | | expires | 2021-06-29T21:00:00.000000 | | shutdown_instance | False | +-------------------+--------------------------------------+
+```text
+$coriolis replica list
+#listing all available coriolis replicas
 
-12345678910111213141516171819202122232425262728293031 | $coriolis replica list#listing all available coriolis replicas  | ID                                  | Instances                       | Notes             | Last Execution Status| Created  | 926a49bb-2bd9-4533-87e1-2d0e7505e06d| ha-datacenter/Ubuntu-Bionic-Demo| Ubuntu-Bionic-Demo| COMPLETED| 2021-04-08T07:26:35.000000\------------------------------------------------------------------------------------------------------------------- $coriolis replica schedule list 926a49bb-2bd9-4533-87e1-2d0e7505e06d#listing all schedules for the requested replica | Replica ID                          | ID                                  | Schedule                            |  | 926a49bb-2bd9-4533-87e1-2d0e7505e06d| 16e3f953-a38d-4235-87e4-b2dac4ee160b| {'hour': 22, 'minute': 0, 'dom': 30} | \------------------------------------------------------------------------------------------------------------------- $coriolis replica schedule show 926a49bb-2bd9-4533-87e1-2d0e7505e06d 16e3f953-a38d-4235-87e4-b2dac4ee160b#inspecting the requested schedule of that replica  +-------------------+--------------------------------------+ | Field             | Value                                | +-------------------+--------------------------------------+ | id                | 16e3f953-a38d-4235-87e4-b2dac4ee160b | | replica_id        | 926a49bb-2bd9-4533-87e1-2d0e7505e06d | | schedule          | {'hour': 22, 'minute': 0, 'dom': 30} | | created           | 2021-04-09T09:39:44.000000           | | last_updated      | 2021-04-09T09:40:25.000000           | enabled           | True                                 | | expires           | 2021-06-29T21:00:00.000000           | | shutdown_instance | False                                | +-------------------+--------------------------------------+  
----|---
+ | ID                                  | Instances                       | Notes             | Last Execution Status| Created
+
+ | 926a49bb-2bd9-4533-87e1-2d0e7505e06d| ha-datacenter/Ubuntu-Bionic-Demo| Ubuntu-Bionic-Demo| COMPLETED| 2021-04-08T07:26:35.000000
+-------------------------------------------------------------------------------------------------------------------
+
+$coriolis replica schedule list 926a49bb-2bd9-4533-87e1-2d0e7505e06d
+#listing all schedules for the requested replica
+
+| Replica ID                          | ID                                  | Schedule                            | 
+
+| 926a49bb-2bd9-4533-87e1-2d0e7505e06d| 16e3f953-a38d-4235-87e4-b2dac4ee160b| {'hour': 22, 'minute': 0, 'dom': 30} | 
+-------------------------------------------------------------------------------------------------------------------
+
+$coriolis replica schedule show 926a49bb-2bd9-4533-87e1-2d0e7505e06d 16e3f953-a38d-4235-87e4-b2dac4ee160b
+#inspecting the requested schedule of that replica
+
+ +-------------------+--------------------------------------+
+ | Field             | Value                                |
+ +-------------------+--------------------------------------+
+ | id                | 16e3f953-a38d-4235-87e4-b2dac4ee160b |
+ | replica_id        | 926a49bb-2bd9-4533-87e1-2d0e7505e06d |
+ | schedule          | {'hour': 22, 'minute': 0, 'dom': 30} |
+ | created           | 2021-04-09T09:39:44.000000           |
+ | last_updated      | 2021-04-09T09:40:25.000000           
+ | enabled           | True                                 |
+ | expires           | 2021-06-29T21:00:00.000000           |
+ | shutdown_instance | False                                |
+ +-------------------+--------------------------------------+
+```

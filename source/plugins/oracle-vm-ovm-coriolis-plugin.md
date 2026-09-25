@@ -71,10 +71,15 @@ In order to connect to OVM to perform a migration from it, the following connect
 
 **Example of connection info JSON to be passed to the OVM plugin**
 
-{ "host": "10.7.1.2", "port": "443", "username": "admin", "password": "SuperS3kre7", "allow_untrusted": true } 
-
-1234567 |  {     "host": "10.7.1.2",     "port": "443",     "username": "admin",     "password": "SuperS3kre7",     "allow_untrusted": true }  
----|---  
+```json
+ {
+     "host": "10.7.1.2",
+     "port": "443",
+     "username": "admin",
+     "password": "SuperS3kre7",
+     "allow_untrusted": true
+ } 
+```
   
 Each parameter represents:
 

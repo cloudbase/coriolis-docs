@@ -43,10 +43,23 @@ By keeping Coriolis services up to date, deployments benefit from the latest pla
 
 In order to ensure compatibility with various environments and integrations, the Coriolis appliance's services, by default, accept the following TLS ciphers:
 
-TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 TLS_ECDHE_ECDSA_WITH_AES_128_CCM TLS_ECDHE_ECDSA_WITH_AES_128_CCM_8 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 TLS_ECDHE_ECDSA_WITH_AES_256_CCM TLS_ECDHE_ECDSA_WITH_AES_256_CCM_8 TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_ARIA_128_GCM_SHA256 TLS_ECDHE_ECDSA_WITH_ARIA_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_CAMELLIA_128_CBC_SHA256 TLS_ECDHE_ECDSA_WITH_CAMELLIA_256_CBC_SHA384 TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
-
-123456789101112131415 | TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHATLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256TLS_ECDHE_ECDSA_WITH_AES_128_CCMTLS_ECDHE_ECDSA_WITH_AES_128_CCM_8TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHATLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384TLS_ECDHE_ECDSA_WITH_AES_256_CCMTLS_ECDHE_ECDSA_WITH_AES_256_CCM_8TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384TLS_ECDHE_ECDSA_WITH_ARIA_128_GCM_SHA256TLS_ECDHE_ECDSA_WITH_ARIA_256_GCM_SHA384TLS_ECDHE_ECDSA_WITH_CAMELLIA_128_CBC_SHA256TLS_ECDHE_ECDSA_WITH_CAMELLIA_256_CBC_SHA384TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256  
----|---  
+```text
+TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_128_CCM
+TLS_ECDHE_ECDSA_WITH_AES_128_CCM_8
+TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+TLS_ECDHE_ECDSA_WITH_AES_256_CCM
+TLS_ECDHE_ECDSA_WITH_AES_256_CCM_8
+TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_ECDSA_WITH_ARIA_128_GCM_SHA256
+TLS_ECDHE_ECDSA_WITH_ARIA_256_GCM_SHA384
+TLS_ECDHE_ECDSA_WITH_CAMELLIA_128_CBC_SHA256
+TLS_ECDHE_ECDSA_WITH_CAMELLIA_256_CBC_SHA384
+TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+```
   
 As an additional security measure, administrators may choose to restrict the TLS cipher suites accepted by externally accessible services.
 
@@ -60,10 +73,9 @@ The Coriolis API service is exposed using Apache web server, and its configurati
 
 Inside of the services that are exposed using the Apache web server, the same configuration shall be set. Inside their respective **VirtualHost** sections, the following TLS cipher configuration can be applied:
 
+```text
 SSLCipherSuite HIGH:!aNULL:!MD5:!3DES:!RC4:!SHA1:!kRSA
-
-1 | SSLCipherSuite HIGH:!aNULL:!MD5:!3DES:!RC4:!SHA1:!kRSA  
----|---  
+```
   
 This configuration permits strong cipher suites while excluding legacy algorithms and static RSA key exchange.
 
@@ -81,10 +93,9 @@ The integrated Barbican service is deployed using uWSGI with TLS enabled; a simi
 
 You can add the custom cipher configuration to the existing **https-socket** option:
 
+```text
 https-socket = <appliance_IP>:9311,server.crt,server.key,SSLCipherSuite HIGH:!aNULL:!MD5:!3DES:!RC4:!SHA1:!kRSA
-
-1 | https-socket = <appliance_IP>:9311,server.crt,server.key,SSLCipherSuite HIGH:!aNULL:!MD5:!3DES:!RC4:!SHA1:!kRSA  
----|---  
+```
   
 ## Validation
 
@@ -100,14 +111,12 @@ After applying TLS cipher hardening, you can validate the effective configuratio
 
 For a full TLS handshake overview:
 
+```text
 openssl s_client -connect <host>:<port>
-
-1 | openssl s_client -connect <host>:<port>  
----|---  
+```
   
 Use nmap to list all accepted ciphers by the services:
 
+```text
 nmap --script ssl-enum-ciphers -p <port> <host>
-
-1 | nmap \--script ssl-enum-ciphers -p <port> <host>  
----|---
+```

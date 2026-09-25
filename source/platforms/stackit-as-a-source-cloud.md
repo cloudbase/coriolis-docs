@@ -38,10 +38,19 @@ The source environment parameters are a set of source-cloud-specific parameters 
 
 Below is a listing of the source environment parameters the Stackit plugin supports when migrating/replicating a VM from Stackit:
 
-{ "guest_os_type_override": "linux", "guest_firmware_type_override": "EFI", "export_image": "Ubuntu 22.04", "export_network": "stackit-network", "export_machine_type": "g1.2", "export_worker_use_public_ip": true, "export_worker_volumes_size": 40, "export_worker_volume_performance_class": "storage_premium_perf2", "project": "stackit-source-project" }
-
-1234567891011 | {  "guest_os_type_override": "linux",  "guest_firmware_type_override": "EFI",  "export_image": "Ubuntu 22.04",  "export_network": "stackit-network",  "export_machine_type": "g1.2",  "export_worker_use_public_ip": true,  "export_worker_volumes_size": 40,  "export_worker_volume_performance_class": "storage_premium_perf2",  "project": "stackit-source-project"}  
----|---  
+```json
+{
+  "guest_os_type_override": "linux",
+  "guest_firmware_type_override": "EFI",
+  "export_image": "Ubuntu 22.04",
+  "export_network": "stackit-network",
+  "export_machine_type": "g1.2",
+  "export_worker_use_public_ip": true,
+  "export_worker_volumes_size": 40,
+  "export_worker_volume_performance_class": "storage_premium_perf2",
+  "project": "stackit-source-project"
+}
+```
   
 Each parameter represents:
 

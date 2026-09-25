@@ -21,10 +21,30 @@ A preconfigured BitLocker recovery password must be specified when initiating th
 
 The following sample calls the WMI API through PowerShell to configure a BitLocker recovery password for the OS drive. Its output is easier to parse than that of the **manage-bde** command and more convenient to use as part of automated scripts. Follow these steps on the Windows instance that is about to be migrated.
 
-$osVol = gwmi -ns "Root\CIMV2\Security\MicrosoftVolumeEncryption" ` -class Win32_EncryptableVolume ` -filter "VolumeType = 0" $friendlyName = "temporary-password" # User specified passphrases are usually prohibited by group policies, as such # we'll ask Windows to generate a password for us. $result = $osVol.ProtectKeyWithNumericalPassword($friendlyName, $null) if ($result.ReturnValue) { throw "Operation failed, error code: $($result.ReturnValue))" } # Note down the protector ID so that we can remove it later. $result.VolumeKeyProtectorID {CDD2E562-68F8-4917-804D-6A066F3CCFED} # Retrieve the password $result = $osVol.GetKeyProtectorNumericalPassword($result.VolumeKeyProtectorID) if ($result.ReturnValue) { throw "Operation failed, error code: $($result.ReturnValue))" } $result.NumericalPassword 160248-307032-575553-079750-669064-505142-265243-508409
+```text
+$osVol = gwmi -ns "Root\CIMV2\Security\MicrosoftVolumeEncryption" `
+  -class Win32_EncryptableVolume `
+  -filter "VolumeType = 0"
 
-12345678910111213141516171819202122 | $osVol = gwmi -ns "Root\CIMV2\Security\MicrosoftVolumeEncryption" `  -class Win32_EncryptableVolume `  -filter "VolumeType = 0" $friendlyName = "temporary-password"# User specified passphrases are usually prohibited by group policies, as such# we'll ask Windows to generate a password for us.$result = $osVol.ProtectKeyWithNumericalPassword($friendlyName, $null)if ($result.ReturnValue) {  throw "Operation failed, error code: $($result.ReturnValue))"}# Note down the protector ID so that we can remove it later.$result.VolumeKeyProtectorID{CDD2E562-68F8-4917-804D-6A066F3CCFED} # Retrieve the password$result = $osVol.GetKeyProtectorNumericalPassword($result.VolumeKeyProtectorID)if ($result.ReturnValue) {  throw "Operation failed, error code: $($result.ReturnValue))"}$result.NumericalPassword160248-307032-575553-079750-669064-505142-265243-508409  
----|---  
+$friendlyName = "temporary-password"
+# User specified passphrases are usually prohibited by group policies, as such
+# we'll ask Windows to generate a password for us.
+$result = $osVol.ProtectKeyWithNumericalPassword($friendlyName, $null)
+if ($result.ReturnValue) {
+  throw "Operation failed, error code: $($result.ReturnValue))"
+}
+# Note down the protector ID so that we can remove it later.
+$result.VolumeKeyProtectorID
+{CDD2E562-68F8-4917-804D-6A066F3CCFED}
+
+# Retrieve the password
+$result = $osVol.GetKeyProtectorNumericalPassword($result.VolumeKeyProtectorID)
+if ($result.ReturnValue) {
+  throw "Operation failed, error code: $($result.ReturnValue))"
+}
+$result.NumericalPassword
+160248-307032-575553-079750-669064-505142-265243-508409
+```
   
 When initiating the migration, specify the recovery password like so:
 
@@ -34,10 +54,9 @@ In order for the final VM to be able to launch, Coriolis suspends BitLocker duri
 
 **Important:** make sure that your Windows minion image has the BitLocker feature installed, otherwise it will not be able to unlock the volume.
 
+```text
 Install-WindowsFeature BitLocker
-
-1 | Install-WindowsFeature BitLocker  
----|---  
+```
   
 Feel free to remove the temporary key protector from the source and destination instances after completing the migration.
 

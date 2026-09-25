@@ -9,10 +9,19 @@ For most of the supported plugins, the set of **parameters** related to **Minion
 
 A new minion pool for a given Coriolis Cloud Endpoint can be created using the following: 
 
-coriolis minion pool create \ \--pool-endpoint $ENDPOINT_ID \ \--pool-platform source \ \--pool-os-type linux \ # Available options can be obtained by running the following command: # coriolis endpoint minion pool source/destination options list $ENDPOINT_ID \--environment-options '{"plugin-specific": "env options"}' \ \--minimum-minions 3 \ \--notes "Some optional notes or description on the pool." \ $POOL_NAME
-
-1234567891011 | coriolis minion pool create \  \--pool-endpoint $ENDPOINT_ID \  \--pool-platform source \  \--pool-os-type linux \  # Available options can be obtained by running the following command:  # coriolis endpoint minion pool source/destination options list$ENDPOINT_ID  \--environment-options '{"plugin-specific": "env options"}' \  \--minimum-minions 3 \  \--notes "Some optional notes or description on the pool." \  $POOL_NAME  
----|---  
+```text
+coriolis minion pool create \
+  --pool-endpoint $ENDPOINT_ID \
+  --pool-platform source \
+  --pool-os-type linux \
+  # Available options can be obtained by running the following command:
+  # coriolis endpoint minion pool source/destination options list
+$ENDPOINT_ID
+  --environment-options '{"plugin-specific": "env options"}' \
+  --minimum-minions 3 \
+  --notes "Some optional notes or description on the pool." \
+  $POOL_NAME
+```
   
 The available parameters for minion pools include: 
 
@@ -34,20 +43,80 @@ contain once allocated.
 
 Additional operations on minion pools include: 
 
-#inspect existing pools: coriolis minion pool list coriolis minion pool show $POOL_ID #create a Pool Execution to set up pool VM shared resources for the specific platform and pool type it was configured as (e.g. a shared virtual network) coriolis minion pool set up shared resources $POOL_ID #view and manage Minion Pool Executions: coriolis minion pool execution list $POOL_ID coriolis minion pool execution show $POOL_ID $EXECUTION_ID #allocate minion pool machines: coriolis minion pool allocate machines $POOL_ID #use a Minion Pool for a Replica or Migration coriolis replica/migration create \ # NOTE: additional required parameters listed in their # respective sections further below. \--instance $INSTANCE1 --instance $INSTANCE2 \ \--origin-minion-pool-id $SOURCE_POOL_ID \ \--destination-minion-pool-id $TARGET_POOL_1_ID \ \--osmorphing-minion-pool-mapping $INSTANCE1=$TARGET_POOL_2_ID #deallocate Minion Pool machines: coriolis minion pool deallocate machines $POOL_ID #tear down pool shared resources: coriolis minion pool tear down shared resources $POOL_ID #update a Minion Pool (can be done only if the pool has had its machines deallocated and its shared resources torn down) #coriolis minion pool update \ # NOTE: all the paramters for 'minion pool create' can be modified except # for the selected minion pool --pool-endpoint and --pool-platform. \--arguments-to-update … \ $POOL_ID #delete a minion pool (only if all of its machines/resources were torn down) coriolis minion pool delete $POOL_ID
+```text
+#inspect existing pools:
+ coriolis minion pool list
+ coriolis minion pool show $POOL_ID
 
-1234567891011121314151617181920212223242526272829303132333435363738394041 | #inspect existing pools: coriolis minion pool list coriolis minion pool show $POOL_ID #create a Pool Execution to set up pool VM shared resources for the specific platform and pool type it was configured as (e.g. a shared virtual network) coriolis minion pool set up shared resources $POOL_ID #view and manage Minion Pool Executions: coriolis minion pool execution list $POOL_ID coriolis minion pool execution show $POOL_ID $EXECUTION_ID #allocate minion pool machines: coriolis minion pool allocate machines $POOL_ID #use a Minion Pool for a Replica or Migration coriolis replica/migration create \  # NOTE: additional required parameters listed in their  # respective sections further below.  \--instance $INSTANCE1 \--instance $INSTANCE2 \  \--origin-minion-pool-id $SOURCE_POOL_ID \  \--destination-minion-pool-id $TARGET_POOL_1_ID \  \--osmorphing-minion-pool-mapping $INSTANCE1=$TARGET_POOL_2_ID #deallocate Minion Pool machines: coriolis minion pool deallocate machines $POOL_ID #tear down pool shared resources: coriolis minion pool tear down shared resources $POOL_ID #update a Minion Pool (can be done only if the pool has had its machines deallocated and its shared resources torn down) #coriolis minion pool update \  # NOTE: all the paramters for 'minion pool create' can be modified except  # for the selected minion pool --pool-endpoint and --pool-platform.  \--arguments-to-update … \  $POOL_ID #delete a minion pool (only if all of its machines/resources were torn down) coriolis minion pool delete $POOL_ID  
----|---  
+#create a Pool Execution to set up pool VM shared resources for the specific
+ platform and pool type it was configured as (e.g. a shared virtual network)
+ coriolis minion pool set up shared resources $POOL_ID
+ 
+#view and manage Minion Pool Executions:
+ coriolis minion pool execution list $POOL_ID
+ coriolis minion pool execution show $POOL_ID $EXECUTION_ID
+ 
+#allocate minion pool machines:
+ coriolis minion pool allocate machines $POOL_ID
+ 
+#use a Minion Pool for a Replica or Migration
+ coriolis replica/migration create \
+  # NOTE: additional required parameters listed in their
+  # respective sections further below.
+  --instance $INSTANCE1 --instance $INSTANCE2 \
+  --origin-minion-pool-id $SOURCE_POOL_ID \
+  --destination-minion-pool-id $TARGET_POOL_1_ID \
+  --osmorphing-minion-pool-mapping $INSTANCE1=$TARGET_POOL_2_ID
+
+#deallocate Minion Pool machines:
+ coriolis minion pool deallocate machines $POOL_ID
+ 
+#tear down pool shared resources:
+ coriolis minion pool tear down shared resources $POOL_ID
+ 
+#update a Minion Pool (can be done only if the pool has had its
+ machines deallocated and its shared resources torn down)
+
+#coriolis minion pool update \
+  # NOTE: all the paramters for 'minion pool create' can be modified except
+  # for the selected minion pool --pool-endpoint and --pool-platform.
+  --arguments-to-update … \
+  $POOL_ID
+ 
+#delete a minion pool (only if all of its machines/resources were torn down)
+ coriolis minion pool delete $POOL_ID
+```
   
 ## Minion Pools - Using when creating Migrations/Replicas
 
 Once created, Minion Pools can then be used when creating Migrations or Replica jobs using  
 the **- origin-minion-pool-id**, **- destination-minion-pool-id**, and **- osmorphingminion-pool-mapping** arguments as shown below:
 
-coriolis migration/replica create \ \--origin-endpoint $ENDPOINT_ID_1 \ # NOTE: the origin Minion Pool must be associated with the # above selected --origin-endpoint, and have its --pool-platform # set to 'source' when it was created: \--origin-minion-pool-id $OPTIONAL_SOURCE_MINION_POOL_ID \ \--destination-endpoint $ENDPOINT_ID_2 \ # NOTE: the destination Minion Pool must be associated with the # above selected --destination-endpoint, and have its --pool-platform # set to 'destination' when it was created: \--destination-minion-pool-id $OPTIONAL_DESTINATION_MINION_POOL_ID \ \--source-environment{-file,} "$SOURCE_ENVIRONMENT_{FILE,STRING}" \ \--destination-environment{-file,} "$DESTINATION_ENV_{FILE,STRING}" \ \--network-map{-file,} "$NETWORK_MAP_{FILE,STRING}" \ \--default-storage-backend $DEFAULT_BACKEND \ \--disk-storage-mapping $DISK_STORAGE_MAPPING \ \--storage-backend-mapping $STORAGE_BACKEND_MAPPINGS \ # NOTE: the OSMorphing Minion Pools must be associated with the # above selected --destination-endpoint, and have their --pool-platform # set to 'destination' when they were created: \--osmorphing-minion-pool-mapping $VM_NAME_1=$OPTIONS_DESTINATION_MINION_POOL \ \--instance $VM_NAME_1 --instance $VM_NAME_2
-
-1234567891011121314151617181920212223 | coriolis migration/replica create \  \--origin-endpoint $ENDPOINT_ID_1 \  # NOTE: the origin Minion Pool must be associated with the  # above selected --origin-endpoint, and have its --pool-platform  # set to 'source' when it was created:  \--origin-minion-pool-id $OPTIONAL_SOURCE_MINION_POOL_ID \  \--destination-endpoint $ENDPOINT_ID_2 \  # NOTE: the destination Minion Pool must be associated with the  # above selected --destination-endpoint, and have its --pool-platform  # set to 'destination' when it was created:  \--destination-minion-pool-id $OPTIONAL_DESTINATION_MINION_POOL_ID \  \--source-environment{-file,} "$SOURCE_ENVIRONMENT_{FILE,STRING}" \  \--destination-environment{-file,} "$DESTINATION_ENV_{FILE,STRING}" \  \--network-map{-file,} "$NETWORK_MAP_{FILE,STRING}" \  \--default-storage-backend $DEFAULT_BACKEND \  \--disk-storage-mapping $DISK_STORAGE_MAPPING \  \--storage-backend-mapping $STORAGE_BACKEND_MAPPINGS \  # NOTE: the OSMorphing Minion Pools must be associated with the  # above selected --destination-endpoint, and have their --pool-platform  # set to 'destination' when they were created:  \--osmorphing-minion-pool-mapping $VM_NAME_1=$OPTIONS_DESTINATION_MINION_POOL \  \--instance $VM_NAME_1 \--instance $VM_NAME_2  
----|---  
+```text
+coriolis migration/replica create \
+  --origin-endpoint $ENDPOINT_ID_1 \
+  # NOTE: the origin Minion Pool must be associated with the
+  # above selected --origin-endpoint, and have its --pool-platform
+  # set to 'source' when it was created:
+  --origin-minion-pool-id $OPTIONAL_SOURCE_MINION_POOL_ID \
+  --destination-endpoint $ENDPOINT_ID_2 \
+  # NOTE: the destination Minion Pool must be associated with the
+  # above selected --destination-endpoint, and have its --pool-platform
+  # set to 'destination' when it was created:
+  --destination-minion-pool-id $OPTIONAL_DESTINATION_MINION_POOL_ID \
+  --source-environment{-file,} "$SOURCE_ENVIRONMENT_{FILE,STRING}" \
+  --destination-environment{-file,} "$DESTINATION_ENV_{FILE,STRING}" \
+  --network-map{-file,} "$NETWORK_MAP_{FILE,STRING}" \
+  --default-storage-backend $DEFAULT_BACKEND \
+  --disk-storage-mapping $DISK_STORAGE_MAPPING \
+  --storage-backend-mapping $STORAGE_BACKEND_MAPPINGS \
+  # NOTE: the OSMorphing Minion Pools must be associated with the
+  # above selected --destination-endpoint, and have their --pool-platform
+  # set to 'destination' when they were created:
+  --osmorphing-minion-pool-mapping
+ $VM_NAME_1=$OPTIONS_DESTINATION_MINION_POOL \
+  --instance $VM_NAME_1 --instance $VM_NAME_2
+```
   
 ###  Requirements for using Minion pools for a transfer of N instances 
 

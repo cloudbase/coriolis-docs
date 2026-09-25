@@ -30,10 +30,18 @@ A few configuration settings are needed when using Oracle VM as a target cloud.
 
 Use an editor like _vi_ or _nano_ to edit **/etc/coriolis/coriolis.conf** and replace the following settings accordingly. The parameters refer to the VM templates location and login information, along with the network, pool, and repository to be used when spawning the temporary VMs. The network specified in **migr_network_name** needs to be reachable by Coriolis and the temporary VMs cloned from the templates during a migration need to be able to access Internet resources via HTTP/HTTPS (e.g. yum repositories).
 
-[oracle_vm_migration_provider] migr_template_name_map = linux: OracleLinux7_template, windows: WS2012R2_template migr_template_username = root migr_template_password = coriolis migr_network_name = Management server_pool_name = pool1 repository_name = repo1 # virtual_disk_clone_type can be: THIN_CLONE, SPARSE_COPY, NON_SPARSE_COPY virtual_disk_clone_type = THIN_CLONE windows_pv_drivers_url = https://cloudbase.it/downloads/ovm_win_pv_drivers_all_323.zip
-
-12345678910 | [oracle_vm_migration_provider]migr_template_name_map = linux: OracleLinux7_template, windows: WS2012R2_templatemigr_template_username = rootmigr_template_password = coriolismigr_network_name = Managementserver_pool_name = pool1repository_name = repo1# virtual_disk_clone_type can be: THIN_CLONE, SPARSE_COPY, NON_SPARSE_COPYvirtual_disk_clone_type = THIN_CLONEwindows_pv_drivers_url = https://cloudbase.it/downloads/ovm_win_pv_drivers_all_323.zip  
----|---  
+```json
+[oracle_vm_migration_provider]
+migr_template_name_map = linux: OracleLinux7_template, windows: WS2012R2_template
+migr_template_username = root
+migr_template_password = coriolis
+migr_network_name = Management
+server_pool_name = pool1
+repository_name = repo1
+# virtual_disk_clone_type can be: THIN_CLONE, SPARSE_COPY, NON_SPARSE_COPY
+virtual_disk_clone_type = THIN_CLONE
+windows_pv_drivers_url = https://cloudbase.it/downloads/ovm_win_pv_drivers_all_323.zip
+```
   
 Set **virtual_disk_clone_type** as described above, based on your preferences and infrastructure requirements. If you opt for thin cloning, ensure that it is supported by your Oracle VM storage.
 
@@ -46,10 +54,15 @@ The configuration file contains also other settings, no other changes are needed
 
 The following section in **/etc/coriolis/coriolis.conf** provides the proxy settings for accessing external resources (e.g. yum or apt repositories):
 
-[proxy] url = http://proxy:3128 # Optional proxy credentials # username = # password = # Optional comma separated list of proxy exclusions # no_proxy =
-
-1234567 | [proxy]url = http://proxy:3128# Optional proxy credentials# username =# password =# Optional comma separated list of proxy exclusions# no_proxy =  
----|---  
+```json
+[proxy]
+url = http://proxy:3128
+# Optional proxy credentials
+# username =
+# password =
+# Optional comma separated list of proxy exclusions
+# no_proxy =
+```
   
 ### How to create the Oracle VM worker templates
 
@@ -71,24 +84,27 @@ Perform a minimal system installation. **Do not partition the disk with LVM** , 
 
 Once done, update the system and install the Unbreakable Enterprise Kernel:
 
-yum update -y yum install kernel-uek -y
-
-12 | yum update -yyum install kernel-uek -y  
----|---  
+```bash
+yum update -y
+yum install kernel-uek -y
+```
   
 Install the OVM daemon (**ovmd**) and related dependencies. This is needed for Coriolis to automate the configuration of the VMs deployed from the template and obtain their IP address.
 
-yum install ovmd xenstoreprovider libovmapi ovm-template-config* --enablerepo=ol7_addons -y yum install lvm2 -y systemctl enable ovmd systemctl enable ovm-template-initial-config
-
-1234 | yum install ovmd xenstoreprovider libovmapi ovm-template-config* \--enablerepo=ol7_addons -yyum install lvm2 -ysystemctl enable ovmdsystemctl enable ovm-template-initial-config  
----|---  
+```bash
+yum install ovmd xenstoreprovider libovmapi ovm-template-config* --enablerepo=ol7_addons -y
+yum install lvm2 -y
+systemctl enable ovmd
+systemctl enable ovm-template-initial-config
+```
   
 Once done, shutdown the VM (cleaning the Bash history is optional):
 
 history -c && poweroff
 
-1 | history -c && poweroff  
----|---  
+```text
+history -c && poweroff
+```
   
 Once the VM is powered off, using Oracle VM Manager, disconnect the ISO, clone the VM in a VM template, and provide a name to be used in the Coriolis config file (e.g. _OracleLinux7_template_ in the sample Coriolis config). The VM can now be deleted.
 
@@ -108,10 +124,10 @@ Once the operating system is installed, add the [Oracle Linux PV drivers](https:
 
 Configuring WINRM can be easily achieved with the following PowerShell script:
 
-wget https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1 -UseBasicParsing -OutFile ConfigureRemoting.ps1 powershell -ExecutionPolicy remoteSigned -File ConfigureRemoting.ps1
-
-12 | wget https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1 -UseBasicParsing -OutFile ConfigureRemoting.ps1powershell -ExecutionPolicy remoteSigned -File ConfigureRemoting.ps1  
----|---  
+```text
+wget https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1 -UseBasicParsing -OutFile ConfigureRemoting.ps1
+powershell -ExecutionPolicy remoteSigned -File ConfigureRemoting.ps1
+```
   
 Once done, you can shut down the VM, disconnect the ISO, and clone the VM in a VM template (named _WS2012R2_template_ in the sample Coriolis config) as explained for the Linux case above. The VM can now be deleted.
 

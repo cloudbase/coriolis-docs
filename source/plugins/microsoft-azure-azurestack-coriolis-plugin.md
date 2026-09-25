@@ -54,10 +54,32 @@ In order to connect to Azure to perform a migration/replica to it, the following
 
 **Example of connection info JSON to be passed to the Azure plugin**
 
-{ // ## Shared parameters for both Azure and AzureStack: "subscription_id": "1621bde4-09ee-4904-bea6-cd58316b4bb8", //'service_principal_credentials' are required "service_principal_credentials": { "client_id": "7d9ffca0-be78-4f85-a13f-14e791413068", "client_secret": "7tnshUgXxrA8iCtCB1VpAiJ5LwP/qhe2q6pVhVYOQfs=" }, "default_resource_group": "", "tenant": "", // available profiles: 'AzureCloud', 'AzureChinaCloud', // 'AzureUSGovernment', 'AzureGermanCloud' or 'CustomCloud'. // For AzureStack, set it to 'CustomCloud'. "cloud_profile": "AzureCloud" // ## AzureStack-specific parameters: "custom_cloud_properties": { "endpoints": { "management_endpoint": "" }, "suffixes": { "storage_endpoint": "" } } }
-
-123456789101112131415161718192021222324 | {     // ## Shared parameters for both Azure and AzureStack:     "subscription_id": "1621bde4-09ee-4904-bea6-cd58316b4bb8",     //'service_principal_credentials' are required     "service_principal_credentials": {         "client_id": "7d9ffca0-be78-4f85-a13f-14e791413068",         "client_secret": "7tnshUgXxrA8iCtCB1VpAiJ5LwP/qhe2q6pVhVYOQfs="     },     "default_resource_group": "",     "tenant": "",     // available profiles: 'AzureCloud', 'AzureChinaCloud',     // 'AzureUSGovernment', 'AzureGermanCloud' or 'CustomCloud'.     // For AzureStack, set it to 'CustomCloud'.     "cloud_profile": "AzureCloud"     // ## AzureStack-specific parameters:     "custom_cloud_properties": {         "endpoints": {             "management_endpoint": ""         },         "suffixes": {             "storage_endpoint": ""         }     } }  
----|---  
+```json
+{
+     // ## Shared parameters for both Azure and AzureStack:
+     "subscription_id": "1621bde4-09ee-4904-bea6-cd58316b4bb8",
+     //'service_principal_credentials' are required
+     "service_principal_credentials": {
+         "client_id": "7d9ffca0-be78-4f85-a13f-14e791413068",
+         "client_secret": "7tnshUgXxrA8iCtCB1VpAiJ5LwP/qhe2q6pVhVYOQfs="
+     },
+     "default_resource_group": "",
+     "tenant": "",
+     // available profiles: 'AzureCloud', 'AzureChinaCloud',
+     // 'AzureUSGovernment', 'AzureGermanCloud' or 'CustomCloud'.
+     // For AzureStack, set it to 'CustomCloud'.
+     "cloud_profile": "AzureCloud"
+     // ## AzureStack-specific parameters:
+     "custom_cloud_properties": {
+         "endpoints": {
+             "management_endpoint": ""
+         },
+         "suffixes": {
+             "storage_endpoint": ""
+         }
+     }
+ }
+```
   
 Only **service_principal_credentials** must be provided. Should both be provided, Coriolis will prefer using the user credentials.
 
@@ -84,20 +106,27 @@ Additionally, the Root Certificate of the AzureStack must be imported in the cor
 
 
 
-$exportFileBase = "C:\AzureStackRoot" $certFile = $exportFileBase + ".cer" $pemFile = $exportFileBase + ".pem" $label = "AzureStackSelfSignedRootCert" # get and export certificate: $cert = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1 Export-Certificate -Type CERT -FilePath $certFile -Cert $cert # convert to PEM: certutil.exe -encode $certFile $pemFile 
-
-123456789 |  $exportFileBase = "C:\AzureStackRoot" $certFile = $exportFileBase + ".cer" $pemFile = $exportFileBase + ".pem" $label = "AzureStackSelfSignedRootCert" # get and export certificate: $cert = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1 Export-Certificate -Type CERT -FilePath $certFile -Cert $cert # convert to PEM: certutil.exe -encode $certFile $pemFile  
----|---  
+```powershell
+ $exportFileBase = "C:\AzureStackRoot"
+ $certFile = $exportFileBase + ".cer"
+ $pemFile = $exportFileBase + ".pem"
+ $label = "AzureStackSelfSignedRootCert"
+ # get and export certificate:
+ $cert = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
+ Export-Certificate -Type CERT -FilePath $certFile -Cert $cert
+ # convert to PEM:
+ certutil.exe -encode $certFile $pemFile 
+```
   
   * Import it in Coriolis-worker by just adding the content of cert file to the end of this file _“/usr/local/lib/python3.6/dist-packages/certifi/cacert.pem”.  
 Or _running the following commands on Coriolis host: 
 
 
 
-$ docker cp /path/to/cert.pem coriolis-worker:/root/cert.pem $ docker exec -ti coriolis-worker bash -c 'cat /root/cert.pem >> /usr/local/lib/python3.6/dist-packages/certifi/cacert.pem' 
-
-12 |  $ docker cp /path/to/cert.pem coriolis-worker:/root/cert.pem $ docker exec -ti coriolis-worker bash -c 'cat /root/cert.pem >> /usr/local/lib/python3.6/dist-packages/certifi/cacert.pem'  
----|---  
+```bash
+ $ docker cp /path/to/cert.pem coriolis-worker:/root/cert.pem 
+ $ docker exec -ti coriolis-worker bash -c 'cat /root/cert.pem >> /usr/local/lib/python3.6/dist-packages/certifi/cacert.pem' 
+```
   
 ### Azure Stack endpoint creation
 
@@ -109,10 +138,46 @@ These can be copied into an expandable, optional field in the endpoint creation 
 
 **Obtain Azure Stack cloud details with azure-cli**
 
-$ az cloud register -n <environmentname> \--endpoint-resource-manager "<a href="https://management.local.azurestack.external%22">https://management.local.azurestack.external"</a> \--suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" $ az cloud set -n <environmentname> # depending on the Azure Stack version a different cloud profile could be needed when registering Azure Stack with the cli. $ az cloud update --profile 2018-03-01-hybrid $ az cloud show # Example JSON output with an ASDK registered as the active cloud. { "endpoints": { "activeDirectory": "<a href="https://adfs.local.azurestack.external/adfs%22">https://adfs.local.azurestack.external/adfs"</a>, "activeDirectoryDataLakeResourceId": null, "activeDirectoryGraphResourceId": "<a href="https://graph.local.azurestack.external/%22">https://graph.local.azurestack.external/"</a>, "activeDirectoryResourceId": "<a href="https://management.adfs.azurestack.local/e2bf6aa1-7a8f-4bb9-b8cb-caef446339ec%22">https://management.adfs.azurestack.local/e2bf6aa1-7a8f-4bb9-b8cb-caef446339ec"</a>, "appInsightsResourceId": null, "appInsightsTelemetryChannelResourceId": null, "batchResourceId": null, "gallery": "<a href="https://providers.azurestack.local:30016/%22">https://providers.azurestack.local:30016/"</a>, "logAnalyticsResourceId": null, "management": "<a href="https://management.local.azurestack.external%22">https://management.local.azurestack.external"</a>, "mediaResourceId": null, "microsoftGraphResourceId": null, "ossrdbmsResourceId": null, "resourceManager": "<a href="https://management.local.azurestack.external%22">https://management.local.azurestack.external"</a>, "sqlManagement": null, "vmImageAliasDoc": null }, "isActive": true, "name": "ASDK", "profile": "2018-03-01-hybrid", "suffixes": { "acrLoginServerEndpoint": null, "azureDatalakeAnalyticsCatalogAndJobEndpoint": null, "azureDatalakeStoreFileSystemEndpoint": null, "keyvaultDns": null, "sqlServerHostname": null, "storageEndpoint": null } } 
-
-1234567891011121314151617181920212223242526272829303132333435363738 | $ az cloud register -n <environmentname> \--endpoint-resource-manager "<a href="https://management.local.azurestack.external%22">https://management.local.azurestack.external"</a> \--suffix-storage-endpoint "local.azurestack.external" \--suffix-keyvault-dns ".vault.local.azurestack.external" $ az cloud set -n <environmentname> # depending on the Azure Stack version a different cloud profile could be needed when registering Azure Stack with the cli. $ az cloud update \--profile 2018-03-01-hybrid $ az cloud show # Example JSON output with an ASDK registered as the active cloud. { "endpoints": { "activeDirectory": "<a href="https://adfs.local.azurestack.external/adfs%22">https://adfs.local.azurestack.external/adfs"</a>, "activeDirectoryDataLakeResourceId": null, "activeDirectoryGraphResourceId": "<a href="https://graph.local.azurestack.external/%22">https://graph.local.azurestack.external/"</a>, "activeDirectoryResourceId": "<a href="https://management.adfs.azurestack.local/e2bf6aa1-7a8f-4bb9-b8cb-caef446339ec%22">https://management.adfs.azurestack.local/e2bf6aa1-7a8f-4bb9-b8cb-caef446339ec"</a>, "appInsightsResourceId": null, "appInsightsTelemetryChannelResourceId": null, "batchResourceId": null, "gallery": "<a href="https://providers.azurestack.local:30016/%22">https://providers.azurestack.local:30016/"</a>, "logAnalyticsResourceId": null, "management": "<a href="https://management.local.azurestack.external%22">https://management.local.azurestack.external"</a>, "mediaResourceId": null, "microsoftGraphResourceId": null, "ossrdbmsResourceId": null, "resourceManager": "<a href="https://management.local.azurestack.external%22">https://management.local.azurestack.external"</a>, "sqlManagement": null, "vmImageAliasDoc": null }, "isActive": true, "name": "ASDK", "profile": "2018-03-01-hybrid", "suffixes": { "acrLoginServerEndpoint": null, "azureDatalakeAnalyticsCatalogAndJobEndpoint": null, "azureDatalakeStoreFileSystemEndpoint": null, "keyvaultDns": null, "sqlServerHostname": null, "storageEndpoint": null } }  
----|---  
+```bash
+$ az cloud register -n <environmentname> --endpoint-resource-manager "<a href="https://management.local.azurestack.external%22">https://management.local.azurestack.external"</a> --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external"
+ $ az cloud set -n <environmentname>
+ # depending on the Azure Stack version a different cloud profile could be needed when registering Azure Stack with the cli.
+ $ az cloud update --profile 2018-03-01-hybrid
+ $ az cloud show
+ # Example JSON output with an ASDK registered as the active cloud.
+ {
+   "endpoints": {
+     "activeDirectory": "<a href="https://adfs.local.azurestack.external/adfs%22">https://adfs.local.azurestack.external/adfs"</a>,
+     "activeDirectoryDataLakeResourceId": null,
+     "activeDirectoryGraphResourceId": "<a href="https://graph.local.azurestack.external/%22">https://graph.local.azurestack.external/"</a>,
+     "activeDirectoryResourceId": "<a href="https://management.adfs.azurestack.local/e2bf6aa1-7a8f-4bb9-b8cb-caef446339ec%22">https://management.adfs.azurestack.local/e2bf6aa1-7a8f-4bb9-b8cb-caef446339ec"</a>,
+     "appInsightsResourceId": null,
+     "appInsightsTelemetryChannelResourceId": null,
+     "batchResourceId": null,
+     "gallery": "<a href="https://providers.azurestack.local:30016/%22">https://providers.azurestack.local:30016/"</a>,
+     "logAnalyticsResourceId": null,
+     "management": "<a href="https://management.local.azurestack.external%22">https://management.local.azurestack.external"</a>,
+     "mediaResourceId": null,
+     "microsoftGraphResourceId": null,
+     "ossrdbmsResourceId": null,
+     "resourceManager": "<a href="https://management.local.azurestack.external%22">https://management.local.azurestack.external"</a>,
+     "sqlManagement": null,
+     "vmImageAliasDoc": null
+   },
+   "isActive": true,
+   "name": "ASDK",
+   "profile": "2018-03-01-hybrid",
+   "suffixes": {
+     "acrLoginServerEndpoint": null,
+     "azureDatalakeAnalyticsCatalogAndJobEndpoint": null,
+     "azureDatalakeStoreFileSystemEndpoint": null,
+     "keyvaultDns": null,
+     "sqlServerHostname": null,
+     "storageEndpoint": null
+   }
+ }
+   
+```
   
 More details for registering an Azure Stack in azure cli can be found in [Microsoft's documentation](https://docs.microsoft.com/en-us/azure-stack/user/azure-stack-version-profiles-azurecli2).
 

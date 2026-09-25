@@ -23,10 +23,16 @@ The following steps will guide toward extracting the Oracle Paravirual Drivers f
 
 The end archive created by the below script must contain the files and sub-folders of the "Oracle VM Windows PV Drivers" directory but not the directory itself.
 
-Start-Process -Wait -ArgumentList "/silent" -PassThru -FilePath '$env\Setup.exe' $winnet = "${env:ProgramFiles(x86)}\Oracle Corporation\Oracle VM Windows PV Drivers\winnet" $winlh = "${env:ProgramFiles(x86)}\Oracle Corporation\Oracle VM Windows PV Drivers\winlh" if (!(Test-Path $winnet) -or !(Test-Path $winlh)) { Write-Information -MessageData "OVM PV drivers folder structure is not as expected" -InformationAction Continue } New-Item -ItemType directory -Path $env\pv-drivers Compress-Archive -Path "${env:ProgramFiles(x86)}\Oracle Corporation\Oracle VM Windows PV Drivers\\*" -DestinationPath "$env\pv-drivers\pv-drivers.zip"
-
-12345678 | Start-Process -Wait -ArgumentList "/silent" -PassThru -FilePath '$env\Setup.exe' $winnet = "${env:ProgramFiles(x86)}\Oracle Corporation\Oracle VM Windows PV Drivers\winnet" $winlh = "${env:ProgramFiles(x86)}\Oracle Corporation\Oracle VM Windows PV Drivers\winlh" if (!(Test-Path $winnet) -or !(Test-Path $winlh)) {     Write-Information -MessageData "OVM PV drivers folder structure is not as expected" -InformationAction Continue } New-Item -ItemType directory -Path $env\pv-drivers Compress-Archive -Path "${env:ProgramFiles(x86)}\Oracle Corporation\Oracle VM Windows PV Drivers\\*" -DestinationPath "$env\pv-drivers\pv-drivers.zip"  
----|---  
+```text
+Start-Process -Wait -ArgumentList "/silent" -PassThru -FilePath '$env\Setup.exe'
+ $winnet = "${env:ProgramFiles(x86)}\Oracle Corporation\Oracle VM Windows PV Drivers\winnet"
+ $winlh = "${env:ProgramFiles(x86)}\Oracle Corporation\Oracle VM Windows PV Drivers\winlh"
+ if (!(Test-Path $winnet) -or !(Test-Path $winlh)) {
+     Write-Information -MessageData "OVM PV drivers folder structure is not as expected" -InformationAction Continue
+ }
+ New-Item -ItemType directory -Path $env\pv-drivers
+ Compress-Archive -Path "${env:ProgramFiles(x86)}\Oracle Corporation\Oracle VM Windows PV Drivers\*" -DestinationPath "$env\pv-drivers\pv-drivers.zip"
+```
   
   * copy the PV drivers archive to a web server where Coriolis has access to, or directly on Coriolis Appliance 
     1. for using a webserver: 

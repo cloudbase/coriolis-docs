@@ -115,10 +115,16 @@ To connect to OCI to perform a migration/replica to it, the following connection
 
 **Example of connection info JSON to be passed to the OCI plugin**
 
-{ "region": "", "tenancy": "", "user": "", "private_key_passphrase": "", "private_key_data": "", "fingerprint": "private_key_fingerprint_hex" }
-
-12345678 | {     "region": "",     "tenancy": "",     "user": "",     "private_key_passphrase": "",     "private_key_data": "",     "fingerprint": "private_key_fingerprint_hex" }  
----|---  
+```json
+{
+     "region": "",
+     "tenancy": "",
+     "user": "",
+     "private_key_passphrase": "",
+     "private_key_data": "",
+     "fingerprint": "private_key_fingerprint_hex"
+ }
+```
   
 The parameters representing
 
@@ -141,10 +147,32 @@ Below is a listing of the destination environment parameters the OCI plugin supp
 
 **Example of destination environment JSON to be passed to the OCI plugin**
 
-{ "network_map": { "source_network_1": { "id": "", "security_groups": ["network_secgroup_id_1", …] }, "storage_mapping": { "default": "emulated", "backend_mappings": [{"source": "datastor1", "destination": "iscsi"}], "disk_mappings": [{"disk_id": "", "destination": "paravirtualized"}] }, "use_pv_mode": true, "availability_domain": "", "compartment": "", "vcn_compartment": "", "set_public_ip": true, "migr_subnet_id": "", "migr_image_map": { "linux": "", "windows": "" } "migr_shape_name": "VM.Standard1.2", "shape_name": "VM.Standard2.2", }
-
-123456789101112131415161718192021222324 | {     "network_map": {         "source_network_1": {             "id": "",             "security_groups": ["network_secgroup_id_1", …]     },     "storage_mapping": {         "default": "emulated",         "backend_mappings": [{"source": "datastor1", "destination": "iscsi"}],         "disk_mappings": [{"disk_id": "", "destination": "paravirtualized"}]     },     "use_pv_mode": true,     "availability_domain": "",     "compartment": "",     "vcn_compartment": "",     "set_public_ip": true,     "migr_subnet_id": "",     "migr_image_map": {         "linux": "",         "windows": ""     }     "migr_shape_name": "VM.Standard1.2",     "shape_name": "VM.Standard2.2", }  
----|---  
+```json
+{
+     "network_map": {
+         "source_network_1": {
+             "id": "",
+             "security_groups": ["network_secgroup_id_1", …]
+     },
+     "storage_mapping": {
+         "default": "emulated",
+         "backend_mappings": [{"source": "datastor1", "destination": "iscsi"}],
+         "disk_mappings": [{"disk_id": "", "destination": "paravirtualized"}]
+     },
+     "use_pv_mode": true,
+     "availability_domain": "",
+     "compartment": "",
+     "vcn_compartment": "",
+     "set_public_ip": true,
+     "migr_subnet_id": "",
+     "migr_image_map": {
+         "linux": "",
+         "windows": ""
+     }
+     "migr_shape_name": "VM.Standard1.2",
+     "shape_name": "VM.Standard2.2",
+ }
+```
   
 A short description of the parameters:
 
@@ -170,10 +198,44 @@ Below is a listing of the configuration section needed when migrating/replicatin
 
 **Configuration options for OCI as a destination**
 
-[oci_migration_provider] # Default image names used for worker instances during migrations: migr_image_map = linux: <linux_image_ID>, windows: <windows_image_ID> # Whether to use paravirtualized mode by default for # instances that use BIOS. default_to_pv_mode = true # Default shape name used for final instances: shape_name = VM.Standard2.8 # Default shape name used for worker instances during migration/replica: migr_shape_name = VM.Standard2.8 # Default subnet id used for worker instances during migration/replica: migr_subnet_id = <migr_subnet_id_value> # Default compartment in which the migration/replica should take place: compartment = <compartment_name_value> # Fallback option for determining whether or not to create and # associate a public IP for the Migrated VMs: set_public_ip = true/false # Default attach type to be used when attaching secondary # disks to the migrated instance. Accepted values: # 'iscsi', 'emulated', 'paravirtualized' default_attach_type = iscsi # Windows VMs that are migrated to OCI need virtio drivers. # Please refer to the documentation page of the Coriolis OCI plugin for more # information on how to obtain the .zip file containing the drivers: # https://cloudbase.it/oracle-cloud-infrastructure-oci-coriolis-plugin/ # The downloaded ZIP has to be self-hosted. Paste the ZIP URL to the option below: # windows_virtio_zip_url = https://example.com/virtio-1.1.3.zip 
-
-123456789101112131415161718192021222324252627282930313233343536 |  [oci_migration_provider] # Default image names used for worker instances during migrations: migr_image_map = linux: <linux_image_ID>, windows: <windows_image_ID> # Whether to use paravirtualized mode by default for # instances that use BIOS. default_to_pv_mode = true # Default shape name used for final instances: shape_name = VM.Standard2.8 # Default shape name used for worker instances during migration/replica: migr_shape_name = VM.Standard2.8 # Default subnet id used for worker instances during migration/replica: migr_subnet_id = <migr_subnet_id_value> # Default compartment in which the migration/replica should take place: compartment = <compartment_name_value> # Fallback option for determining whether or not to create and # associate a public IP for the Migrated VMs: set_public_ip = true/false # Default attach type to be used when attaching secondary # disks to the migrated instance. Accepted values: # 'iscsi', 'emulated', 'paravirtualized' default_attach_type = iscsi # Windows VMs that are migrated to OCI need virtio drivers. # Please refer to the documentation page of the Coriolis OCI plugin for more # information on how to obtain the .zip file containing the drivers: # https://cloudbase.it/oracle-cloud-infrastructure-oci-coriolis-plugin/ # The downloaded ZIP has to be self-hosted. Paste the ZIP URL to the option below: # windows_virtio_zip_url = https://example.com/virtio-1.1.3.zip   
----|---  
+```json
+ [oci_migration_provider]
+  
+ # Default image names used for worker instances during migrations:
+ migr_image_map = linux: <linux_image_ID>, windows: <windows_image_ID>
+  
+ # Whether to use paravirtualized mode by default for
+ # instances that use BIOS.
+ default_to_pv_mode = true
+  
+ # Default shape name used for final instances:
+ shape_name = VM.Standard2.8
+  
+ # Default shape name used for worker instances during migration/replica:
+ migr_shape_name = VM.Standard2.8
+  
+ # Default subnet id used for worker instances during migration/replica:
+ migr_subnet_id = <migr_subnet_id_value>
+  
+ # Default compartment in which the migration/replica should take place:
+ compartment = <compartment_name_value>
+  
+ # Fallback option for determining whether or not to create and
+ # associate a public IP for the Migrated VMs:
+ set_public_ip = true/false
+  
+ # Default attach type to be used when attaching secondary
+ # disks to the migrated instance. Accepted values:
+ # 'iscsi', 'emulated', 'paravirtualized'
+ default_attach_type = iscsi
+  
+ # Windows VMs that are migrated to OCI need virtio drivers.
+ # Please refer to the documentation page of the Coriolis OCI plugin for more
+ # information on how to obtain the .zip file containing the drivers:
+ # https://cloudbase.it/oracle-cloud-infrastructure-oci-coriolis-plugin/
+ # The downloaded ZIP has to be self-hosted. Paste the ZIP URL to the option below:
+ # windows_virtio_zip_url = https://example.com/virtio-1.1.3.zip 
+```
   
 **Coriolis Advanced Options for Target Destinations**
 

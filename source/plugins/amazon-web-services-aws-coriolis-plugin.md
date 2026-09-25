@@ -28,10 +28,13 @@ In order to connect to AWS to perform a migration from it, the following connect
 
 **Example of connection info JSON to be passed to the AWS plugin**
 
-{ "region": "us-west-2", "access_key_id": "BKIAKWUNHI3HYZJ7Y3EQ", "secret_access_key": "XuuT6SMN5Ub96AXMEIX9gvPXITK3xnfyRFJOkaSo" }
-
-12345 | {     "region": "us-west-2",     "access_key_id": "BKIAKWUNHI3HYZJ7Y3EQ",     "secret_access_key": "XuuT6SMN5Ub96AXMEIX9gvPXITK3xnfyRFJOkaSo" }  
----|---  
+```json
+{
+     "region": "us-west-2",
+     "access_key_id": "BKIAKWUNHI3HYZJ7Y3EQ",
+     "secret_access_key": "XuuT6SMN5Ub96AXMEIX9gvPXITK3xnfyRFJOkaSo"
+ }
+```
   
 Each parameter represents:
 

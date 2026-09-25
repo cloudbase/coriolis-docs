@@ -46,10 +46,34 @@ In the case of Replicating or Migrating to Oracle VM, there will have to be VM t
 
 **Configuration options for OVM as a destination**
 
-[oracle_vm_migration_provider] # If migrating/replicating a heterogeneous workload with both Linux and # Windows instances, separate template names will need to be provided for the # temporary OSMorphing workers for each OS type. # The 'linux' image will be used for the disk copy worker during the replica # execution process as well # Only accepted keys are 'linux' and 'windows' migr_template_name_map = linux: OracleLinux7_template, windows: WS2016_template # Default migration template guest OS username. migr_template_username_map = linux: root, windows: Administrator # Default migration template guest OS password. migr_template_password_map = linux: S3kre7, windows: M1cr0S3kre7 # Default server pool name. server_pool_name = pool1 # Default repository name. repository_name = repo1 # virtual_disk_clone_type can be: THIN_CLONE, SPARSE_COPY, NON_SPARSE_COPY virtual_disk_clone_type = THIN_CLONE # Whether or not to just create VMs but skip powering them on. leave_migrated_vm_off = false # XEN VM domain type. # can be 'XEN_PVM', 'XEN_HVM', 'XEN_HVM_PV_DRIVERS', 'LDOMS_PVM', 'UNKNOWN' vm_domain_type = XEN_HVM_PV_DRIVERS # virtual_disk_clone_type can be: THIN_CLONE, SPARSE_COPY, NON_SPARSE_COPY virtual_disk_clone_type = THIN_CLONE windows_pv_drivers_url = https://fileserver-address/win_pv_drivers.zip 
-
-1234567891011121314151617181920212223242526 | [oracle_vm_migration_provider] # If migrating/replicating a heterogeneous workload with both Linux and # Windows instances, separate template names will need to be provided for the # temporary OSMorphing workers for each OS type. # The 'linux' image will be used for the disk copy worker during the replica # execution process as well # Only accepted keys are 'linux' and 'windows' migr_template_name_map = linux: OracleLinux7_template, windows: WS2016_template # Default migration template guest OS username. migr_template_username_map = linux: root, windows: Administrator # Default migration template guest OS password. migr_template_password_map = linux: S3kre7, windows: M1cr0S3kre7 # Default server pool name. server_pool_name = pool1 # Default repository name. repository_name = repo1 # virtual_disk_clone_type can be: THIN_CLONE, SPARSE_COPY, NON_SPARSE_COPY virtual_disk_clone_type = THIN_CLONE # Whether or not to just create VMs but skip powering them on. leave_migrated_vm_off = false # XEN VM domain type. # can be 'XEN_PVM', 'XEN_HVM', 'XEN_HVM_PV_DRIVERS', 'LDOMS_PVM', 'UNKNOWN' vm_domain_type = XEN_HVM_PV_DRIVERS # virtual_disk_clone_type can be: THIN_CLONE, SPARSE_COPY, NON_SPARSE_COPY virtual_disk_clone_type = THIN_CLONE windows_pv_drivers_url = https://fileserver-address/win_pv_drivers.zip  
----|---  
+```json
+[oracle_vm_migration_provider]
+ # If migrating/replicating a heterogeneous workload with both Linux and
+ # Windows instances, separate template names will need to be provided for the
+ # temporary OSMorphing workers for each OS type.
+ # The 'linux' image will be used for the disk copy worker during the replica
+ # execution process as well
+ # Only accepted keys are 'linux' and 'windows'
+ migr_template_name_map = linux: OracleLinux7_template, windows: WS2016_template
+ # Default migration template guest OS username.
+ migr_template_username_map = linux: root, windows: Administrator
+ # Default migration template guest OS password.
+ migr_template_password_map = linux: S3kre7, windows: M1cr0S3kre7
+ # Default server pool name.
+ server_pool_name = pool1
+ # Default repository name.
+ repository_name = repo1
+ # virtual_disk_clone_type can be: THIN_CLONE, SPARSE_COPY, NON_SPARSE_COPY
+ virtual_disk_clone_type = THIN_CLONE
+ # Whether or not to just create VMs but skip powering them on.
+ leave_migrated_vm_off = false
+ # XEN VM domain type.
+ # can be 'XEN_PVM', 'XEN_HVM', 'XEN_HVM_PV_DRIVERS', 'LDOMS_PVM', 'UNKNOWN'
+ vm_domain_type = XEN_HVM_PV_DRIVERS
+ # virtual_disk_clone_type can be: THIN_CLONE, SPARSE_COPY, NON_SPARSE_COPY
+ virtual_disk_clone_type = THIN_CLONE
+ windows_pv_drivers_url = https://fileserver-address/win_pv_drivers.zip 
+```
   
 ### OVM destination environment parameters
 
@@ -59,10 +83,31 @@ Below is a listing of the destination environment parameters the OVM plugin supp
 
 **Example of destination environment JSON to be passed to the OVM plugin**
 
-{ "network_map": { "source network name": "name or ID of existing network on destination OVM", }, "storage_mappings": { "default": "default_repository", "backend_mappings": [{"source": "datastor1", "destination": "Main"}], "disk_mappings": [{"disk_id": "", "destination": "Local"}] }, "server_pool_name": "", "repository_name": "", "set_dhcp":"", "migr_template_name_map": { "linux": "OracleLinux7_template", "windows": "Windows2012R2_template" }, "migr_template_username_map": { "linux": "root", "windows": "Administrator" }, "migr_template_password_map": { "linux": "", "windows": "<Administrator password" }, "leave_migrated_vm_off": false, "os_label": "coriolis-migrated", "virtual_disk_clone_type": "THIN_CLONE" } 
-
-1234567891011121314151617181920212223 | { "network_map": { "source network name": "name or ID of existing network on destination OVM", }, "storage_mappings": { "default": "default_repository", "backend_mappings": [{"source": "datastor1", "destination": "Main"}], "disk_mappings": [{"disk_id": "", "destination": "Local"}] }, "server_pool_name": "", "repository_name": "",          "set_dhcp":"", "migr_template_name_map": { "linux": "OracleLinux7_template", "windows": "Windows2012R2_template" }, "migr_template_username_map": { "linux": "root", "windows": "Administrator" }, "migr_template_password_map": { "linux": "", "windows": "<Administrator password" }, "leave_migrated_vm_off": false, "os_label": "coriolis-migrated", "virtual_disk_clone_type": "THIN_CLONE" }  
----|---  
+```json
+{
+      "network_map": {
+          "source network name": "name or ID of existing network on destination OVM",
+      },
+      "storage_mappings": {
+          "default": "default_repository",
+          "backend_mappings": [{"source": "datastor1", "destination": "Main"}],
+          "disk_mappings": [{"disk_id": "", "destination": "Local"}]
+      },
+          "server_pool_name": "",
+          "repository_name": "",
+          "set_dhcp":"",
+          "migr_template_name_map": {
+          "linux": "OracleLinux7_template",
+          "windows": "Windows2012R2_template"
+          },
+          "migr_template_username_map": { "linux": "root", "windows": "Administrator" },
+          "migr_template_password_map": { "linux": "", "windows": "<Administrator password" },
+      "leave_migrated_vm_off": false,
+          "os_label": "coriolis-migrated",
+          "virtual_disk_clone_type": "THIN_CLONE"
+  }
+   
+```
   
 Each parameter represents:
 

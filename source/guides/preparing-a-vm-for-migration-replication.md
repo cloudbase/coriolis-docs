@@ -148,17 +148,19 @@ For the supported guest OSes, Coriolis can handle the default bootloaders.
 
 To check the bootloader on the VM(s) meant to be migrated, run the following command:
 
+```bash
 sudo dd if=/dev/<relevant OS partition/disk> bs=512 count=1 2>/dev/null | strings | grep -Eoi 'grub|lilo'
-
-1 | sudo dd if=/dev/<relevant OS partition/disk> bs=512 count=1 2>/dev/null | strings | grep -Eoi 'grub|lilo'  
----|---  
+```
   
 The command above will check on the selected disk if the bootloader is installed. Please make sure that the selected partition/disk in the one hosting the OS.
 
-##output## root@coriolis:~# sudo dd if=/dev/sda bs=512 count=1 2>/dev/null | strings | grep -Eoi 'grub|lilo' GRUB root@coriolis:~#
+```text
+##output##
 
-12345 | ##output## root@coriolis:~# sudo dd if=/dev/sda bs=512 count=1 2>/dev/null | strings | grep -Eoi 'grub|lilo'GRUBroot@coriolis:~#  
----|---  
+root@coriolis:~# sudo dd if=/dev/sda bs=512 count=1 2>/dev/null | strings | grep -Eoi 'grub|lilo'
+GRUB
+root@coriolis:~#
+```
   
 * * *
 

@@ -37,29 +37,27 @@ The following steps will provide guidance on how to configure and run the Coriol
 
 cd /usr/local/bin/
 
-1 | cd /usr/local/bin/  
----|---  
+```text
+cd /usr/local/bin/
+```
   
 2\. At this point you can choose to **build** Coriolis OVM Exporter yourself or **download** the pre-compiled binary from GitHub. For build information, please refer to the project**[README file](https://github.com/cloudbase/coriolis-ovm-exporter)** available on GitHub. We will focus on using the pre-compiled binary for the remainder of this article:
 
+```text
 wget https://github.com/cloudbase/coriolis-ovm-exporter/releases/download/v0.1/coriolis-ovm-exporter 
-
-1 | wget https://github.com/cloudbase/coriolis-ovm-exporter/releases/download/v0.1/coriolis-ovm-exporter  
----|---  
+```
   
 3\. Set the newly downloaded file as executable
 
+```text
 chmod +x /usr/local/bin/coriolis-ovm-exporter
-
-1 | chmod +x /usr/local/bin/coriolis-ovm-exporter  
----|---  
+```
   
 4\. Create a new configuration directory and navigate to its path
 
+```text
 mkdir /etc/coriolis-ovm-exporter && cd /etc/coriolis-ovm-exporter
-
-1 | mkdir /etc/coriolis-ovm-exporter && cd /etc/coriolis-ovm-exporter  
----|---  
+```
   
 5\. Coriolis uses an encrypted connection to the Coriolis OVM Exporter agent, and thus an SSL certificate is required. If you decide to use **self-signed certificates** , make sure you enable "**Allow insecure** " in the Endpoint connection information for your source cloud (**[Coriolis Endpoint page](https://cloudbase.it/coriolis-endpoints)**).
 
@@ -67,25 +65,66 @@ The certificated from a trusted third-party authority or self-signed user-genera
 
 6\. Under the same directory, create a configuration file named **config.toml** using the following example
 
-vi confing.toml # Path on disk to the database file the exporter will use. db_file = "/etc/coriolis-ovm-exporter/exporter.db" # This is the base URL to your OVM manager. We will use this to # authenticate login requests. Make sure this matches the manager # that this node belongs to. # # NOTE: Setting this is <em>OPTIONAL</em>. If this setting is omitted, the # exporter will attempt to fetch the manager IP from the ovs-agent # database. # ovm_endpoint = "https://your-ovm-api-server.example:7002" [jwt] # Obviously, this secret needs to be changed secret = "yoidthOcBauphFeykCotdidNorjAnAtGhonsabShegAtfexbavlyakPak4SletEd" [api] bind = "0.0.0.0" port = 5544 [api.tls] # These settings are required certificate = "/etc/coriolis-ovm-exporter/srv-pub.pem" key = "/etc/coriolis-ovm-exporter/srv-key.pem" ca_certificate = "/etc/coriolis-ovm-exporter/ca-pub.pem"
+```ini
+vi confing.toml
 
-1234567891011121314151617181920212223242526 | vi confing.toml # Path on disk to the database file the exporter will use. db_file = "/etc/coriolis-ovm-exporter/exporter.db" # This is the base URL to your OVM manager. We will use this to# authenticate login requests. Make sure this matches the manager# that this node belongs to.## NOTE: Setting this is <em>OPTIONAL</em>. If this setting is omitted, the# exporter will attempt to fetch the manager IP from the ovs-agent# database.# ovm_endpoint = "https://your-ovm-api-server.example:7002" [jwt]# Obviously, this secret needs to be changed secret = "yoidthOcBauphFeykCotdidNorjAnAtGhonsabShegAtfexbavlyakPak4SletEd" [api] bind = "0.0.0.0" port = 5544     [api.tls]     # These settings are required     certificate = "/etc/coriolis-ovm-exporter/srv-pub.pem"     key = "/etc/coriolis-ovm-exporter/srv-key.pem"     ca_certificate = "/etc/coriolis-ovm-exporter/ca-pub.pem"  
----|---  
+# Path on disk to the database file the exporter will use.
+ db_file = "/etc/coriolis-ovm-exporter/exporter.db"
+
+# This is the base URL to your OVM manager. We will use this to
+# authenticate login requests. Make sure this matches the manager
+# that this node belongs to.
+#
+# NOTE: Setting this is <em>OPTIONAL</em>. If this setting is omitted, the
+# exporter will attempt to fetch the manager IP from the ovs-agent
+# database.
+# ovm_endpoint = "https://your-ovm-api-server.example:7002"
+
+[jwt]
+# Obviously, this secret needs to be changed
+ secret = "yoidthOcBauphFeykCotdidNorjAnAtGhonsabShegAtfexbavlyakPak4SletEd"
+
+[api]
+ bind = "0.0.0.0"
+ port = 5544
+     [api.tls]
+     # These settings are required
+     certificate = "/etc/coriolis-ovm-exporter/srv-pub.pem"
+     key = "/etc/coriolis-ovm-exporter/srv-key.pem"
+     ca_certificate = "/etc/coriolis-ovm-exporter/ca-pub.pem"
+```
   
 7\. Once the configuration file is created and the parameters are set, install the startup script from one of the examples available **[here](https://github.com/cloudbase/coriolis-ovm-exporter/tree/main/contrib)**
 
 a. If the chosen option is upstart, follow the instructions
 
-#navigate to the following path to create the configuration file cd /etc/init #create the configuration file using the example mentioned above vi coriolis-ovm-exporter.conf #start the Coriolis OVM Exporter service start coriolis-ovm-exporter
+```text
+#navigate to the following path to create the configuration file
+cd /etc/init
 
-12345678 | #navigate to the following path to create the configuration filecd /etc/init #create the configuration file using the example mentioned abovevi coriolis-ovm-exporter.conf #start the Coriolis OVM Exporter servicestart coriolis-ovm-exporter  
----|---  
+#create the configuration file using the example mentioned above
+vi coriolis-ovm-exporter.conf
+
+#start the Coriolis OVM Exporter service
+start coriolis-ovm-exporter
+```
   
 b. If you're running systemd instead of upstart, follow the instructions
 
-#navigate to one of the following paths tp create the configuration file cd /lib/systemd/system or cd /etc/systemd/system #create the configuration file using the example mentioned above vi coriolis-ovm-exporter.service #reload the daemon and start the Coriolis OVM Exporter service systemctl daemon-reload systemctl start coriolis-ovm-exporter
+```bash
+#navigate to one of the following paths tp create the configuration file
+cd /lib/systemd/system
 
-12345678910111213 | #navigate to one of the following paths tp create the configuration filecd /lib/systemd/system or cd /etc/systemd/system #create the configuration file using the example mentioned abovevi coriolis-ovm-exporter.service #reload the daemon and start the Coriolis OVM Exporter servicesystemctl daemon-reloadsystemctl start coriolis-ovm-exporter  
----|---  
+or
+
+cd /etc/systemd/system
+
+#create the configuration file using the example mentioned above
+vi coriolis-ovm-exporter.service
+
+#reload the daemon and start the Coriolis OVM Exporter service
+systemctl daemon-reload
+systemctl start coriolis-ovm-exporter
+```
   
 After the **Coriolis OVM Exporter service** has been configured and is running on the **OVM compute nodes** , you can return to Coriolis and start a Replica/Migration using the OVM Exporter option.

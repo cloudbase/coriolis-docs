@@ -37,10 +37,24 @@ During step 5, the data chunks will be handed directly to the destination cloud 
 
 **Configuration options for OVM as a migration source**
 
-[oracle_vm_migration_provider] # Name of the repository to create the temporary disk Replication VM in. repository_name = repo1 # For export we may need to use a different template than the linux one # specified in the template map. We specify that here export_template_name = OracleLinux7_template # Credentials for the export template export_template_username = root export_template_password = Passw0rd # What cloning method to use when cloning the source disks to be migrated. # The 'Thin Clone' option is recommended, though it may not be supported by # all OVM storage repository types. virtual_disk_clone_type = "THIN_CLONE 
+```json
+[oracle_vm_migration_provider]
+ # Name of the repository to create the temporary disk Replication VM in.
+ repository_name = repo1
 
-12345678910111213141516 | [oracle_vm_migration_provider] # Name of the repository to create the temporary disk Replication VM in. repository_name = repo1  # For export we may need to use a different template than the linux one # specified in the template map. We specify that here export_template_name = OracleLinux7_template  # Credentials for the export template export_template_username = root export_template_password = Passw0rd  # What cloning method to use when cloning the source disks to be migrated.  # The 'Thin Clone' option is recommended, though it may not be supported by  # all OVM storage repository types. virtual_disk_clone_type = "THIN_CLONE  
----|---  
+ # For export we may need to use a different template than the linux one
+ # specified in the template map. We specify that here
+ export_template_name = OracleLinux7_template
+
+ # Credentials for the export template
+ export_template_username = root
+ export_template_password = Passw0rd
+
+ # What cloning method to use when cloning the source disks to be migrated. 
+ # The 'Thin Clone' option is recommended, though it may not be supported by 
+ # all OVM storage repository types.
+ virtual_disk_clone_type = "THIN_CLONE 
+```
   
   
 The **export_template_name** parameter which is used for the **temporary worker** must use an Oracle Linux VM (**recommended version 7.x or newer**) for the template.
@@ -57,10 +71,16 @@ Below is a listing of the source environment parameters the OVM plugin supports 
 
 **Example of source environment JSON to be passed to the OVM plugin**
 
-{ "repository_name": "", "export_template_name": "", "export_template_username": "", "export_template_password": "", "virtual_disk_clone_types": "THIN_CLONE" } 
-
-12345678 |  { "repository_name": "", "export_template_name": "", "export_template_username": "", "export_template_password": "", "virtual_disk_clone_types": "THIN_CLONE" }     
----|---  
+```json
+ {
+          "repository_name": "",
+          "export_template_name": "",
+          "export_template_username": "",
+          "export_template_password": "",
+          "virtual_disk_clone_types": "THIN_CLONE"
+  }
+    
+```
   
 Each parameter represents:
 

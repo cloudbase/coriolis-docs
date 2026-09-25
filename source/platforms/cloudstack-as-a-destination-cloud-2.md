@@ -158,10 +158,22 @@ Edit both files on the golden VM (keep **metadata_services  **and **plugins  **a
 
 
 
-[DEFAULT] username=Administrator groups=Administrators inject_user_password=false first_logon_behaviour=no metadata_services=cloudbaseinit.metadata.services.configdrive.ConfigDriveService,cloudbaseinit.metadata.services.cloudstack.CloudStack plugins=cloudbaseinit.plugins.common.mtu.MTUPlugin,cloudbaseinit.plugins.common.sethostname.SetHostNamePlugin,cloudbaseinit.plugins.windows.networkconfig.NetworkConfigPlugin,cloudbaseinit.plugins.windows.licensing.WindowsLicensingPlugin,cloudbaseinit.plugins.common.userdata.UserDataPlugin,cloudbaseinit.plugins.windows.winrmlistener.ConfigWinRMListenerPlugin winrm_configure_https_listener=true winrm_configure_http_listener=false winrm_enable_basic_auth=true
 
-12345678910111213 | [DEFAULT]username=Administratorgroups=Administratorsinject_user_password=falsefirst_logon_behaviour=no metadata_services=cloudbaseinit.metadata.services.configdrive.ConfigDriveService,cloudbaseinit.metadata.services.cloudstack.CloudStack plugins=cloudbaseinit.plugins.common.mtu.MTUPlugin,cloudbaseinit.plugins.common.sethostname.SetHostNamePlugin,cloudbaseinit.plugins.windows.networkconfig.NetworkConfigPlugin,cloudbaseinit.plugins.windows.licensing.WindowsLicensingPlugin,cloudbaseinit.plugins.common.userdata.UserDataPlugin,cloudbaseinit.plugins.windows.winrmlistener.ConfigWinRMListenerPlugin winrm_configure_https_listener=truewinrm_configure_http_listener=falsewinrm_enable_basic_auth=true  
----|---  
+```json
+[DEFAULT]
+username=Administrator
+groups=Administrators
+inject_user_password=false
+first_logon_behaviour=no
+
+metadata_services=cloudbaseinit.metadata.services.configdrive.ConfigDriveService,cloudbaseinit.metadata.services.cloudstack.CloudStack
+
+plugins=cloudbaseinit.plugins.common.mtu.MTUPlugin,cloudbaseinit.plugins.common.sethostname.SetHostNamePlugin,cloudbaseinit.plugins.windows.networkconfig.NetworkConfigPlugin,cloudbaseinit.plugins.windows.licensing.WindowsLicensingPlugin,cloudbaseinit.plugins.common.userdata.UserDataPlugin,cloudbaseinit.plugins.windows.winrmlistener.ConfigWinRMListenerPlugin
+
+winrm_configure_https_listener=true
+winrm_configure_http_listener=false
+winrm_enable_basic_auth=true
+```
   
 Setting| Why  
 ---|---  
@@ -175,10 +187,13 @@ The minion guest network offering must deliver userdata via CloudStack metadata 
 
 At deploy, Coriolis sends base64 **#cloud-config**  userdata like:
 
-#cloud-config users: \- name: Administrator passwd: '<generated>' primary_group: Administrators
-
-12345 | #cloud-configusers:  - name: Administrator    passwd: '<generated>'    primary_group: Administrators  
----|---  
+```yaml
+#cloud-config
+users:
+  - name: Administrator
+    passwd: '<generated>'
+    primary_group: Administrators
+```
   
 #### Seal the template (sysprep)
 
@@ -194,10 +209,11 @@ Remove-Item -Force -Recurse 'HKLM:\SOFTWARE\Cloudbase Solutions' -ErrorAction Si
   
 Validate after a test deploy from the template:
 
-winrm enumerate winrm/config/listener Get-Content 'C:\Program Files\Cloudbase Solutions\Cloudbase-Init\log\cloudbase-init.log'
 
-12 | winrm enumerate winrm/config/listenerGet-Content 'C:\Program Files\Cloudbase Solutions\Cloudbase-Init\log\cloudbase-init.log'  
----|---  
+```powershell
+winrm enumerate winrm/config/listener
+Get-Content 'C:\Program Files\Cloudbase Solutions\Cloudbase-Init\log\cloudbase-init.log'
+```
   
 Expect an **HTTPS listener on 5986** , **UserDataPlugin**  applying the Administrator password, and no **SetUserPasswordPlugin**  errors.
 

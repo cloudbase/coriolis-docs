@@ -45,14 +45,16 @@ User scripts will run with elevated privileges, so they will have the same acces
 
 Example of a PowerShell User Script for a Windows VM, this lists all 3rd party drivers from the migrated OS disk of the instance:
 
-$OS=$args[0] dism.exe /Image:$OS /Get-Drivers 
-
-12 | $OS=$args[0]dism.exe /Image:$OS /Get-Drivers  
----|---  
+```powershell
+$OS=$args[0]
+dism.exe /Image:$OS /Get-Drivers 
+```
   
 This is a Linux User Script snippet that will download a file to the /var folder on the migrated instance disk:
 
-#!/bin/bash #$1 represents the root disk path root_disk="$1" wget https://url -O "$root_disk/var" 
-
-1234 | #!/bin/bash#$1 represents the root disk pathroot_disk="$1"wget https://url -O "$root_disk/var"  
----|---
+```bash
+#!/bin/bash
+#$1 represents the root disk path
+root_disk="$1"
+wget https://url -O "$root_disk/var" 
+```

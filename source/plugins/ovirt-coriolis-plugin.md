@@ -49,10 +49,9 @@ To connect to oVirt to perform a migration from it, the following connection par
 
 **Example of connection info JSON to be passed to the oVirt plugin**
 
-{<br> "url": "https://manager.olvm.local/ovirt-engine/api",<br> "username": "admin",<br> "password": "Password",<br> "allow_untrusted": true<br> } 
-
-1 | {<br>     "url": "https://manager.olvm.local/ovirt-engine/api",<br>     "username": "admin",<br>     "password": "Password",<br>     "allow_untrusted": true<br> }  
----|---  
+```json
+{<br>     "url": "https://manager.olvm.local/ovirt-engine/api",<br>     "username": "admin",<br>     "password": "Password",<br>     "allow_untrusted": true<br> } 
+```
   
 Each parameter represents:
 

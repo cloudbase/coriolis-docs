@@ -48,10 +48,15 @@ To connect to vSphere/ESXi to perform a migration/replica from that cloud, the f
 
 **Example of connection info JSON to be passed to the VMWare vSphere plugin**
 
-{ "host": "10.7.1.2", "port": 443, "username": "jack@vsphere.local", "password": "SeKr3t", "allow_untrusted": false }
-
-1234567 | {     "host": "10.7.1.2",     "port": 443,     "username": "jack@vsphere.local",     "password": "SeKr3t",     "allow_untrusted": false }  
----|---  
+```json
+{
+     "host": "10.7.1.2",
+     "port": 443,
+     "username": "jack@vsphere.local",
+     "password": "SeKr3t",
+     "allow_untrusted": false
+ }
+```
   
 Each parameter represents:
 

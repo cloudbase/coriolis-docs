@@ -99,10 +99,18 @@ Setting **proxy_host** does not affect **proxy_worker** and vice versa.
   
 Setting both variables to false will remove proxy configurations from both the host and the coriolis-worker container.
 
-[proxy] proxy_host = true proxy_worker = true # Define your proxy endpoints http_proxy = http://10.0.0.1:3128 https_proxy = http://10.0.0.1:3128 # Specify additional exclusions no_proxy =
+```json
+[proxy]
+proxy_host = true
+proxy_worker = true
 
-12345678910 | [proxy]proxy_host = trueproxy_worker = true # Define your proxy endpointshttp_proxy = http://10.0.0.1:3128https_proxy = http://10.0.0.1:3128 # Specify additional exclusionsno_proxy =  
----|---  
+# Define your proxy endpoints
+http_proxy = http://10.0.0.1:3128
+https_proxy = http://10.0.0.1:3128
+
+# Specify additional exclusions
+no_proxy =
+```
   
 Modify the file variables as required for your network architecture, as in the example below:
 

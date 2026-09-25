@@ -47,10 +47,29 @@ The instructions below describe the process of setting up the Windows worker ima
 
 
 
-[DEFAULT] username=Admin groups=Administrators inject_user_password=true config_drive_raw_hhd=true config_drive_cdrom=true config_drive_vfat=true bsdtar_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\bsdtar.exe mtools_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\ verbose=true debug=true log_dir=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\log\ log_file=cloudbase-init.log default_log_levels=comtypes=INFO,suds=INFO,iso8601=WARN,requests=WARN logging_serial_port_settings=COM1,115200,N,8 mtu_use_dhcp_config=true ntp_use_dhcp_config=true local_scripts_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts\ check_latest_version=false metadata_services=cloudbaseinit.metadata.services.nocloudservice.NoCloudConfigDriveService plugins=cloudbaseinit.plugins.common.mtu.MTUPlugin,cloudbaseinit.plugins.windows.ntpclient.NTPClientPlugin,cloudbaseinit.plugins.common.sethostname.SetHostNamePlugin,cloudbaseinit.plugins.windows.extendvolumes.ExtendVolumesPlugin,cloudbaseinit.plugins.windows.winrmlistener.ConfigWinRMListenerPlugin,cloudbaseinit.plugins.common.userdata.UserDataPlugin
-
-123456789101112131415161718192021 | [DEFAULT]username=Admingroups=Administratorsinject_user_password=trueconfig_drive_raw_hhd=trueconfig_drive_cdrom=trueconfig_drive_vfat=truebsdtar_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\bsdtar.exemtools_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\verbose=truedebug=truelog_dir=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\log\log_file=cloudbase-init.logdefault_log_levels=comtypes=INFO,suds=INFO,iso8601=WARN,requests=WARNlogging_serial_port_settings=COM1,115200,N,8mtu_use_dhcp_config=truentp_use_dhcp_config=truelocal_scripts_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts\check_latest_version=falsemetadata_services=cloudbaseinit.metadata.services.nocloudservice.NoCloudConfigDriveServiceplugins=cloudbaseinit.plugins.common.mtu.MTUPlugin,cloudbaseinit.plugins.windows.ntpclient.NTPClientPlugin,cloudbaseinit.plugins.common.sethostname.SetHostNamePlugin,cloudbaseinit.plugins.windows.extendvolumes.ExtendVolumesPlugin,cloudbaseinit.plugins.windows.winrmlistener.ConfigWinRMListenerPlugin,cloudbaseinit.plugins.common.userdata.UserDataPlugin  
----|---  
+```json
+[DEFAULT]
+username=Admin
+groups=Administrators
+inject_user_password=true
+config_drive_raw_hhd=true
+config_drive_cdrom=true
+config_drive_vfat=true
+bsdtar_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\bsdtar.exe
+mtools_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\
+verbose=true
+debug=true
+log_dir=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\log\
+log_file=cloudbase-init.log
+default_log_levels=comtypes=INFO,suds=INFO,iso8601=WARN,requests=WARN
+logging_serial_port_settings=COM1,115200,N,8
+mtu_use_dhcp_config=true
+ntp_use_dhcp_config=true
+local_scripts_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts\
+check_latest_version=false
+metadata_services=cloudbaseinit.metadata.services.nocloudservice.NoCloudConfigDriveService
+plugins=cloudbaseinit.plugins.common.mtu.MTUPlugin,cloudbaseinit.plugins.windows.ntpclient.NTPClientPlugin,cloudbaseinit.plugins.common.sethostname.SetHostNamePlugin,cloudbaseinit.plugins.windows.extendvolumes.ExtendVolumesPlugin,cloudbaseinit.plugins.windows.winrmlistener.ConfigWinRMListenerPlugin,cloudbaseinit.plugins.common.userdata.UserDataPlugin
+```
   
   4. Save the configuration and start a sysprep process, shutdown the Windows VM afterward
   5. Save the LXD VM as an image using the publish command:  
@@ -58,10 +77,9 @@ The instructions below describe the process of setting up the Windows worker ima
 
 
 
-lxc publish <vm_name> \--alias windows-worker --reuse description="Windows Worker Image" release="<Windows release version>" type=disk os=windows
-
-1 | lxc publish <vm_name> \--alias windows-worker \--reuse description="Windows Worker Image" release="<Windows release version>" type=disk os=windows  
----|---  
+```text
+lxc publish <vm_name> --alias windows-worker --reuse description="Windows Worker Image" release="<Windows release version>" type=disk os=windows
+```
   
 ## Configuration Options
 
@@ -71,10 +89,44 @@ Below is a listing of the configuration section needed when migrating/replicatin
 
 #### Configuration options for LXD as destination
 
-[lxd_migration_provider] # Default network name used for worker instances during migrations. # migr_network = # Images used for worker instances during migrations # migr_image_map = linux: <fingerprint>, windows: <fingerprint> # Default storage pool used for replica disks. # default_storage_pool = # CPU limit of the replica VM # migr_worker_cpu_limit = 2 # Memory limit (in GiB) of the replica VM # migr_worker_memory_limit = 4 # Whether or not Coriolis should reconfigure cloud-init during OSMorphing to prevent # it from creating a new system user or disabling the root user and other existing users, # including by disabling password-based SSH authentication, or locking the user by # changing/removing its password completely. # retain_user_credentials = false # What mechanism to use when sending disk data from the Coriolis installation to the # temporary VMs on the target OCI to be written to their respective disk. # The HTTPS-based transfer mechanism (TCP/5566) is faster but might not work if there # are firewalls in the way. The SSH-based transfer mechanism (TCP/22) is more costly but # will be allowed by most firewalls since SSH access from the Coriolis installation to the # temporary worker VM is always required. Coriolis automatically sets security groups rules # for the temporary VMs accordingly. Default is HTTPS. Accepted values are: HTTPS, SSH # data_transfer_mechanism = HTTPS # Use network forward address on the worker's interface, for Coriolis to externally gain access. # The address is randomly chosen from the selected migration network's uplink. # Only available on bridged networks. # use_network_forwarding = false 
+```json
+[lxd_migration_provider]
 
-123456789101112131415161718192021222324252627282930313233343536 | [lxd_migration_provider] # Default network name used for worker instances during migrations.# migr_network = # Images used for worker instances during migrations# migr_image_map = linux: <fingerprint>, windows: <fingerprint> # Default storage pool used for replica disks.# default_storage_pool = # CPU limit of the replica VM# migr_worker_cpu_limit = 2 # Memory limit (in GiB) of the replica VM# migr_worker_memory_limit = 4 # Whether or not Coriolis should reconfigure cloud-init during OSMorphing to prevent# it from creating a new system user or disabling the root user and other existing users,# including by disabling password-based SSH authentication, or locking the user by# changing/removing its password completely.# retain_user_credentials = false # What mechanism to use when sending disk data from the Coriolis installation to the# temporary VMs on the target OCI to be written to their respective disk.# The HTTPS-based transfer mechanism (TCP/5566) is faster but might not work if there# are firewalls in the way. The SSH-based transfer mechanism (TCP/22) is more costly but# will be allowed by most firewalls since SSH access from the Coriolis installation to the# temporary worker VM is always required. Coriolis automatically sets security groups rules# for the temporary VMs accordingly. Default is HTTPS. Accepted values are: HTTPS, SSH# data_transfer_mechanism = HTTPS # Use network forward address on the worker's interface, for Coriolis to externally gain access.# The address is randomly chosen from the selected migration network's uplink.# Only available on bridged networks.# use_network_forwarding = false    
----|---  
+# Default network name used for worker instances during migrations.
+# migr_network =
+
+# Images used for worker instances during migrations
+# migr_image_map = linux: <fingerprint>, windows: <fingerprint>
+
+# Default storage pool used for replica disks.
+# default_storage_pool =
+
+# CPU limit of the replica VM
+# migr_worker_cpu_limit = 2
+
+# Memory limit (in GiB) of the replica VM
+# migr_worker_memory_limit = 4
+
+# Whether or not Coriolis should reconfigure cloud-init during OSMorphing to prevent
+# it from creating a new system user or disabling the root user and other existing users,
+# including by disabling password-based SSH authentication, or locking the user by
+# changing/removing its password completely.
+# retain_user_credentials = false
+
+# What mechanism to use when sending disk data from the Coriolis installation to the
+# temporary VMs on the target OCI to be written to their respective disk.
+# The HTTPS-based transfer mechanism (TCP/5566) is faster but might not work if there
+# are firewalls in the way. The SSH-based transfer mechanism (TCP/22) is more costly but
+# will be allowed by most firewalls since SSH access from the Coriolis installation to the
+# temporary worker VM is always required. Coriolis automatically sets security groups rules
+# for the temporary VMs accordingly. Default is HTTPS. Accepted values are: HTTPS, SSH
+# data_transfer_mechanism = HTTPS
+
+# Use network forward address on the worker's interface, for Coriolis to externally gain access.
+# The address is randomly chosen from the selected migration network's uplink.
+# Only available on bridged networks.
+# use_network_forwarding = false  
+```
   
 ## OSMorphing steps taken when migrating to LXD
 

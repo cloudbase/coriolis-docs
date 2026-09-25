@@ -38,26 +38,45 @@ For the Windows template VM used by Coriolis' worker on all supported Cloud Endp
 
 
 
+```text
 $winrm quickconfig -transport:https
-
-1 | $winrm quickconfig -transport:https  
----|---  
+```
   
   * the above command can be tested afterward with the following:
 
 
 
-#Check if WinRM is enabled and configured $winrm get winrm/config #Locate WinRM listeners and addresses $winrm enumerate winrm/config/listener #Display WinRM Firewall rules $Get-NetFirewallRule -DisplayGroup "Windows Remote Management" | Get-NetFirewallPortFilter | Format-Table #Output Protocol LocalPort RemotePort IcmpType DynamicTarget TCP 5986 Any Any Any TCP 5986 Any Any Any
+```powershell
+#Check if WinRM is enabled and configured
+$winrm get winrm/config
 
-12345678910111213 | #Check if WinRM is enabled and configured$winrm get winrm/config #Locate WinRM listeners and addresses$winrm enumerate winrm/config/listener #Display WinRM Firewall rules$Get-NetFirewallRule -DisplayGroup "Windows Remote Management" | Get-NetFirewallPortFilter | Format-Table#OutputProtocol LocalPort RemotePort IcmpType DynamicTarget TCP      5986      Any        Any      Any TCP      5986      Any        Any      Any  
----|---  
+#Locate WinRM listeners and addresses
+$winrm enumerate winrm/config/listener
+
+#Display WinRM Firewall rules
+$Get-NetFirewallRule -DisplayGroup "Windows Remote Management" | Get-NetFirewallPortFilter | Format-Table
+#Output
+Protocol LocalPort RemotePort IcmpType DynamicTarget
+ 
+ TCP      5986      Any        Any      Any
+ TCP      5986      Any        Any      Any
+```
   
 Enable the basic authentication for WinRM from the command prompt using the following command:
 
-$ winrm set winrm/config/service/auth '@{Basic="true"}' # Validate the service settings $ winrm get winrm/config/service/Auth Auth Basic = true Kerberos = true Negotiate = true Certificate = false CredSSP = false CbtHardeningLevel = Relaxed
+```bash
+$ winrm set winrm/config/service/auth '@{Basic="true"}'
 
-1234567891011 | $ winrm set winrm/config/service/auth '@{Basic="true"}' # Validate the service settings$ winrm get winrm/config/service/AuthAuth    Basic = true    Kerberos = true    Negotiate = true    Certificate = false    CredSSP = false    CbtHardeningLevel = Relaxed  
----|---  
+# Validate the service settings
+$ winrm get winrm/config/service/Auth
+Auth
+    Basic = true
+    Kerberos = true
+    Negotiate = true
+    Certificate = false
+    CredSSP = false
+    CbtHardeningLevel = Relaxed
+```
   
 ### Manual configuration of WinRM with a self-signed SSL certificate
 
@@ -69,28 +88,33 @@ Note that this method is not recommended, and newer Windows editions no longer s
 
 
 
+```text
 New-SelfSignedCertificate -Subject 'CN=servername.domain.com' -TextExtension '2.5.29.37={text}1.3.6.1.5.5.7.3.1'
-
-1 | New-SelfSignedCertificate -Subject 'CN=servername.domain.com' -TextExtension '2.5.29.37={text}1.3.6.1.5.5.7.3.1'  
----|---  
+```
   
   * Configuring the server’s WinRM web server (listener) to use the self-signed certificate for authentication.
 
 
 
+```text
 winrm create winrm/config/Listener?Address=*+Transport=HTTPS '@{Hostname="servername.domain.com"; CertificateThumbprint="<cert thumbprint here>"}'
-
-1 | winrm create winrm/config/Listener?Address=*+Transport=HTTPS '@{Hostname="servername.domain.com"; CertificateThumbprint="<cert thumbprint here>"}'  
----|---  
+```
   
   * Opening the appropriate ports on the destination machine’s Windows firewall**:**
 
 
 
-$FirewallParam = @{ DisplayName = 'Windows Remote Management (HTTPS-In)' Direction = 'Inbound' LocalPort = 5986 Protocol = 'TCP' Action = 'Allow' Program = 'System' } New-NetFirewallRule @FirewallParam
-
-123456789 | $FirewallParam = @{       DisplayName = 'Windows Remote Management (HTTPS-In)'      Direction = 'Inbound'       LocalPort = 5986       Protocol = 'TCP'       Action = 'Allow'       Program = 'System' } New-NetFirewallRule @FirewallParam  
----|---  
+```text
+$FirewallParam = @{ 
+      DisplayName = 'Windows Remote Management (HTTPS-In)'
+      Direction = 'Inbound' 
+      LocalPort = 5986 
+      Protocol = 'TCP' 
+      Action = 'Allow' 
+      Program = 'System' 
+} 
+New-NetFirewallRule @FirewallParam
+```
   
   * Executing a command to initiate a remote connection on the client using a PowerShell cmdlet like **Enter-PSSession**.
 
@@ -104,10 +128,9 @@ More details regarding **WinRM** are available on the **[Microsoft documentation
 
 winrs tool from Windows can be used to test the connection, recommended to be done from another Windows instance against the running Windows OS to be set as a template.
 
+```text
 winrs -r:https://servername:5986 -u:user_name -p:password servername
-
-1 | winrs -r:https://servername:5986 -u:user_name -p:password servername  
----|---  
+```
   
 ### Helper script to enable WinRM with a self-signed SSL certificate
 
@@ -117,10 +140,13 @@ WinRM can also be enabled by running one of our Coriolis helper scripts. Keep in
 
 
 
-$URL="https://raw.githubusercontent.com/cloudbase/coriolis-resources/master/windows/winrm-gen.ps1" $Path="C:\<Path-to-file>\winrm-gen.ps1" Invoke-Webrequest -URI $URL -OutFile $Path
+```text
+$URL="https://raw.githubusercontent.com/cloudbase/coriolis-resources/master/windows/winrm-gen.ps1"
 
-12345 | $URL="https://raw.githubusercontent.com/cloudbase/coriolis-resources/master/windows/winrm-gen.ps1" $Path="C:\<Path-to-file>\winrm-gen.ps1" Invoke-Webrequest -URI $URL -OutFile $Path  
----|---  
+$Path="C:\<Path-to-file>\winrm-gen.ps1"
+
+Invoke-Webrequest -URI $URL -OutFile $Path
+```
   
   * Next, navigate to the directory where the script resides and run it
 
@@ -128,8 +154,11 @@ $URL="https://raw.githubusercontent.com/cloudbase/coriolis-resources/master/wind
 
 cd C:\<Path-to-file>\ .\winrm-gen.ps1
 
-123 | cd C:\<Path-to-file>\ .\winrm-gen.ps1  
----|---  
+```text
+cd C:\<Path-to-file>\
+
+.\winrm-gen.ps1
+```
   
 During the installation process, outputs are provided with the current status of the running task.  
 Once it finishes, the message 'Done' will be shown.

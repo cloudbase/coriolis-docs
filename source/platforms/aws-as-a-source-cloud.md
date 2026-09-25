@@ -38,10 +38,15 @@ Below is a listing of the configuration section needed when migrating from AWS:
 
 [![](_static/images/AWS-source.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/04/AWS-source.jpg?ssl=1)
 
-[aws_migration_provider] #Name of the instance type to be used for the disk copy workers. #Default is t2.medium. worker_instance_type = t2.medium #Indicate whether or not to shut the VM down during the #migration process in order to ensure data consitency. #shutdown_migrated_instance = false 
-
-1234567 | [aws_migration_provider] #Name of the instance type to be used for the disk copy workers. #Default is t2.medium. worker_instance_type = t2.medium #Indicate whether or not to shut the VM down during the #migration process in order to ensure data consitency. #shutdown_migrated_instance = false   
----|---  
+```json
+[aws_migration_provider]
+ #Name of the instance type to be used for the disk copy workers.
+ #Default is t2.medium.
+ worker_instance_type = t2.medium
+ #Indicate whether or not to shut the VM down during the
+ #migration process in order to ensure data consitency.
+ #shutdown_migrated_instance = false 
+```
   
 ### OSMorphing steps taken when migrating from AWS
 
@@ -82,10 +87,13 @@ Below is a listing of the destination environment parameters the AWS plugin supp
 
 **Example of source environment JSON to be passed to the AWS plugin**
 
-{ "migr_image_map": {"linux": "ami-50946030", "windows": "ami-50946031"}, "worker_instance_type": "t2.medium", "shutdown_migrated_instance": false }
-
-12345 | {     "migr_image_map": {"linux": "ami-50946030", "windows": "ami-50946031"},     "worker_instance_type": "t2.medium",     "shutdown_migrated_instance": false }  
----|---  
+```json
+{
+     "migr_image_map": {"linux": "ami-50946030", "windows": "ami-50946031"},
+     "worker_instance_type": "t2.medium",
+     "shutdown_migrated_instance": false
+ }
+```
   
 Each parameter represents:
 

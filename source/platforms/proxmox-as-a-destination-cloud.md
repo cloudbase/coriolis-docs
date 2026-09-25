@@ -40,10 +40,12 @@ In the case of Replicating or Migrating to Proxmox VE, images will need to be cr
 
 
 
-apt update && apt -y install qemu-guest-agent systemctl enable qemu-guest-agent systemctl start qemu-guest-agent systemctl status qemu-guest-agent
-
-1234 | apt update && apt -y install qemu-guest-agentsystemctl enable qemu-guest-agentsystemctl start qemu-guest-agentsystemctl status qemu-guest-agent  
----|---  
+```bash
+apt update && apt -y install qemu-guest-agent
+systemctl enable qemu-guest-agent
+systemctl start qemu-guest-agent
+systemctl status qemu-guest-agent
+```
   
   * Configuration to a **network** with a **DHCP server** , a network which the Coriolis appliance can reach.
 

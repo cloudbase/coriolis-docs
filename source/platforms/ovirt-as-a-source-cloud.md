@@ -51,10 +51,11 @@ Below is a listing of the source environment parameters the oVirt plugin support
 
 #### Example of source environment JSON to be passed to oVirt plugin
 
-{ "automatically_enable_incremental_backups": true }
-
-123 | {    "automatically_enable_incremental_backups": true}  
----|---  
+```json
+{
+    "automatically_enable_incremental_backups": true
+}
+```
   
   * **automatically_enable_incremental_backups** (boolean) - Whether or not Coriolis should attempt to automatically enable incremental backups on the VM before Replication.
 
@@ -78,7 +79,9 @@ Below is a listing of the configuration section needed when migrating from oVirt
 
 **Configuration options for oVirt as a source**
 
-[ovirt_migration_provider] # Whether or not Coriolis should attempt to automatically enable incremental # backups on the VM before data replication. auto_enable_incremental_backups = false
-
-1234 | [ovirt_migration_provider]# Whether or not Coriolis should attempt to automatically enable incremental# backups on the VM before data replication.auto_enable_incremental_backups = false  
----|---
+```json
+[ovirt_migration_provider]
+# Whether or not Coriolis should attempt to automatically enable incremental
+# backups on the VM before data replication.
+auto_enable_incremental_backups = false
+```

@@ -30,26 +30,23 @@ The LXD Coriolis endpoint uses the client key pairs, which can be generated usin
 
 Run the command below to generate a new keypair:
 
+```text
 openssl req -x509 -newkey rsa:2048 -keyout lxd_coriolis.key -nodes -out lxd_coriolis.crt -subj "/CN=lxd.local" -days +3650
-
-1 | openssl req -x509 -newkey rsa:2048 -keyout lxd_coriolis.key -nodes -out lxd_coriolis.crt -subj "/CN=lxd.local" -days +3650  
----|---  
+```
   
 Add the certificate to be trusted in LXD:
 
+```text
 lxc config trust add lxd_coriolis.crt
-
-1 | lxc config trust add lxd_coriolis.crt  
----|---  
+```
   
 #### Endpoint authentication
 
 After generating the client keypair, input it into the Coriolis Endpoint in **base64** format.
 
+```text
 base64 -w0 lxd_coriolis.crt<br>base64 -w0 lxd_coriolis.key
-
-1 | base64 -w0 lxd_coriolis.crt<br>base64 -w0 lxd_coriolis.key  
----|---  
+```
   
 ## LXD platform specifics
 
@@ -64,10 +61,16 @@ Network identification scheme| Names of VM Networks| How the plugin identifies n
   
 #### Example of connection info JSON to be passed to the LXD plugin
 
-{ "host": "10.8.1.227", "trust_password": "S3kret", "port": 8443, "client_certificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURDVENDQWZHZ0F3SUJBZ0lVQWZQejU0cnJLSzQydlhDQnJOemdaMnh4Q0lFd0RRWUpLb1pJa...", "client_key": "LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0JSUV2UUlCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQktjd2dnU2pBZ0VBQW9JQkFRQ2s4UDRXWVI1a0tjOHAKOTRQRUZMN0dQcUwvc3...", "allow_untrusted": true }
-
-12345678 | {  "host": "10.8.1.227",  "trust_password": "S3kret",  "port": 8443,  "client_certificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURDVENDQWZHZ0F3SUJBZ0lVQWZQejU0cnJLSzQydlhDQnJOemdaMnh4Q0lFd0RRWUpLb1pJa...",  "client_key": "LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0JSUV2UUlCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQktjd2dnU2pBZ0VBQW9JQkFRQ2s4UDRXWVI1a0tjOHAKOTRQRUZMN0dQcUwvc3...",  "allow_untrusted": true  }  
----|---  
+```json
+{
+  "host": "10.8.1.227",
+  "trust_password": "S3kret",
+  "port": 8443,
+  "client_certificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURDVENDQWZHZ0F3SUJBZ0lVQWZQejU0cnJLSzQydlhDQnJOemdaMnh4Q0lFd0RRWUpLb1pJa...",
+  "client_key": "LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0JSUV2UUlCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQktjd2dnU2pBZ0VBQW9JQkFRQ2s4UDRXWVI1a0tjOHAKOTRQRUZMN0dQcUwvc3...",
+  "allow_untrusted": true  
+}
+```
   
 Each parameter represents:
 

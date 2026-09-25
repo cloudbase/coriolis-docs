@@ -177,10 +177,17 @@ Below is a listing of the source environment parameters the VMware plugin suppor
 
 **Example of source environment JSON to be passed to the VMWare plugin**
 
-{ "export_transfer_mechanism": "openvixdisklib", "vixdisklib_compatibility_version": "8.0", "automatically_enable_cbt": false, "verify_disk_integrity": false, "export_hostname_as_instance_name": false, "enable_transfer_compression": false, "skip_nfc_validation": false }
-
-123456789 | {  "export_transfer_mechanism": "openvixdisklib",  "vixdisklib_compatibility_version": "8.0",  "automatically_enable_cbt": false,  "verify_disk_integrity": false,  "export_hostname_as_instance_name": false,  "enable_transfer_compression": false,  "skip_nfc_validation": false}  
----|---  
+```json
+{
+  "export_transfer_mechanism": "openvixdisklib",
+  "vixdisklib_compatibility_version": "8.0",
+  "automatically_enable_cbt": false,
+  "verify_disk_integrity": false,
+  "export_hostname_as_instance_name": false,
+  "enable_transfer_compression": false,
+  "skip_nfc_validation": false
+}
+```
   
   * **export_transfer_mechanism** (string) - Which mechanism to use to read VM disk data during export. 'vddk' reads directly via the VDDK library (must be provided by the user). 'openvixdisklib' uses an alternative implementation included with Coriolis.
   * **vixdisklib_compatibility_version** (string) - The vSphere version for which to initialize vixDiskLib.

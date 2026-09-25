@@ -21,24 +21,24 @@ The following steps will offer guidance for downloading and extracting the file:
 
 2\. Download the file 
 
-cd ~ wget https://github.com/cloudbase/coriolis-snapshot-agent/releases/download/1.1.1/coriolis-snapshot-agent.tar.gz
-
-12 | cd ~wget https://github.com/cloudbase/coriolis-snapshot-agent/releases/download/1.1.1/coriolis-snapshot-agent.tar.gz  
----|---  
+```text
+cd ~
+wget https://github.com/cloudbase/coriolis-snapshot-agent/releases/download/1.1.1/coriolis-snapshot-agent.tar.gz
+```
   
 3\. Extract the downloaded file
 
+```text
 tar -xvzf coriolis-snapshot-agent.tar.gz
-
-1 | tar -xvzf coriolis-snapshot-agent.tar.gz  
----|---  
+```
   
 4\. Now the script is ready to run from the following path on the server
 
 ~/coriolis-snapshot-agent/
 
-1 | ~/coriolis-snapshot-agent/  
----|---  
+```text
+~/coriolis-snapshot-agent/
+```
   
 #### Install the Coriolis Snapshot Agent
 
@@ -51,10 +51,9 @@ tar -xvzf coriolis-snapshot-agent.tar.gz
 
 
 
+```text
 ./coriolis-snapshot-agent -install
-
-1 | ./coriolis-snapshot-agent -install  
----|---  
+```
   
 [![](_static/images/install-1.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/10/install-1.jpg?ssl=1)
 

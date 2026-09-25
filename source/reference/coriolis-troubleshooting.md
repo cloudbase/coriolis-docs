@@ -85,24 +85,21 @@ For example, if the error is seen when using t3.medium, try to use c5.large inst
 
 The following command can be used to change the password for the admin user:
 
-$ openstack user set --password-prompt admin 
-
-1 |  $ openstack user set \--password-prompt admin  
----|---  
+```bash
+ $ openstack user set --password-prompt admin 
+```
   
 Once done, consider setting also the corresponding password in **/etc/kolla/admin-openrc.sh** :
 
-$ export OS_PASSWORD=YourNewPassword 
-
-1 |  $ export OS_PASSWORD=YourNewPassword  
----|---  
+```bash
+ $ export OS_PASSWORD=YourNewPassword 
+```
   
 For multi-tenant configurations, the following command can be used to change the password for any user:
 
-$ openstack user set --name admin --domain Default --project admin --project-domain Default --password "new password" admin 
-
-1 |  $ openstack user set \--name admin \--domain Default \--project admin \--project-domain Default \--password "new password" admin  
----|---  
+```bash
+ $ openstack user set --name admin --domain Default --project admin --project-domain Default --password "new password" admin 
+```
   
 ### Migrated guest VM fails to boot with a message that root volume or partition not found
 
