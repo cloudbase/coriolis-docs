@@ -89,7 +89,15 @@ Below is a listing of the source environment parameters the Nutanix plugin suppo
 
 For automation and integration, here is the JSON form:
 
-> { "host" : "10.11.12.13", "port" : 9440, "username" : "admin", "password" : "SuperSecretPassword", "allow_untrusted": true, }
+```json
+{
+  "host": "10.11.12.13",
+  "port": 9440,
+  "username": "admin",
+  "password": "SuperSecretPassword",
+  "allow_untrusted": true
+}
+```
 
 ### Nutanix platform specifics
 
