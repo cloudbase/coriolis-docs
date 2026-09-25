@@ -26,9 +26,9 @@ $ git clone https://github.com/cloudbase/python-coriolisclient
 ![](_static/images/cli1.png)
 
 ```bash
-$ pip3 install python-coriolisclient
-$ # verify client is available in path:
-$ /usr/bin/env coriolis
+$ pip3 install python-coriolisclient
+$ # verify client is available in path:
+$ /usr/bin/env coriolis
 ```
 
 ![](_static/images/cli2.png)
@@ -319,23 +319,48 @@ As a generic workflow, before sending out API requests to Coriolis, you will nee
   1. Make sure the Coriolis API service is reachable from where you make the requests.
   2. Get authorization from Keystone for the API user.
 
-Coriolis services running on the appliance are bound to localhost by default. To expose them to the appliance VM's IP address, head to its console and execute the option `**6) Expose Coriolis Services Endpoints**`.
+Coriolis services running on the appliance are bound to localhost by default. To expose them to the appliance VM's IP address, head to its console and execute the option **6) Expose Coriolis Services Endpoints**.
 
 This will redeploy the services run inside Coriolis to the IP address; therefore, API calls should be made to that IP address from this point on. 
 
 After the service exposure is done, you will need to prepare the authentication body. This will look similar to standard Keystone authentication. In this example, we will use scoped authentication to scope authorization inside a project. The request body should look something like this: 
 
-Where OS_USERNAME is the login user for Coriolis (usually 'admin'), OS_PASSWORD is the login password, and OS_TENANT_NAME is the project name (also usually 'admin'). Save this as a JSON file in order to pass it to curl as shown below:
+Where OS_USERNAME is the login user for Coriolis (usually 'admin'), OS_PASSWORD is the login password, and OS_TENANT_NAME is the project name (also usually 'admin'). Save this as `curl-auth.json` in order to pass it to curl as shown below:
 
-// curl-auth.json {"auth": {"identity": {"methods": ["password"], "password": {"user": {"name": "__OS_USERNAME__", "domain": { "name": "Default" }, "password": "__OS_PASSWORD__" } } }, "scope": { "project": { "domain": { "name": "Default" }, "name": "__OS_TENANT_NAME__" } } } }
+```json
+{
+  "auth": {
+    "identity": {
+      "methods": ["password"],
+      "password": {
+        "user": {
+          "name": "__OS_USERNAME__",
+          "domain": { "name": "Default" },
+          "password": "__OS_PASSWORD__"
+        }
+      }
+    },
+    "scope": {
+      "project": {
+        "domain": { "name": "Default" },
+        "name": "__OS_TENANT_NAME__"
+      }
+    }
+  }
+}
+```
 
-export OS_TOKEN=$(curl -ik -H "Content-Type: application/json" -d @./curl-auth.json [https://$](https://$/){APPLIANCE_IP}:5000/v3/auth/tokens 2> /dev/null | grep X-Subject-Token | cut -d' ' -f2 | tr -d '\t\r\n ')  
----
+```bash
+export OS_TOKEN=$(curl -ik -H "Content-Type: application/json" -d @./curl-auth.json https://${APPLIANCE_IP}:5000/v3/auth/tokens 2> /dev/null | grep X-Subject-Token | cut -d' ' -f2 | tr -d '\t\r\n ')
+```
+
 This will save the token in `$OS_TOKEN`, so you can pass it to all of your API calls.
 
 Once we have the token, we can go ahead and execute some calls, like listing endpoints:
 
-> curl -s -X GET -H "Accept: application/json" -H "X-Auth-Token: $OS_TOKEN" -k [https://$](https://$/){APPLIANCE_IP}:7667/v1/${PROJECT_ID}/endpoints
+```bash
+curl -s -X GET -H "Accept: application/json" -H "X-Auth-Token: $OS_TOKEN" -k https://${APPLIANCE_IP}:7667/v1/${PROJECT_ID}/endpoints
+```
 
 You can get your PROJECT_ID from the UI URL or from the console by executing **#openstack project list** , after entering option 3. 
 
@@ -345,6 +370,8 @@ In order to make verified calls, you will need to download Coriolis' CA certific
 
 Then, you can run the same API call by running as follows:
 
-> curl -s -X GET -H "Accept: application/json" -H "X-Auth-Token: $OS_TOKEN" -cacert coriolis-ca.crt [https://$](https://$/){APPLIANCE_IP}:7667/v1/${PROJECT_ID}/endpoints
+```bash
+curl -s -X GET -H "Accept: application/json" -H "X-Auth-Token: $OS_TOKEN" --cacert coriolis-ca.crt https://${APPLIANCE_IP}:7667/v1/${PROJECT_ID}/endpoints
+```
 
 For the API reference, please refer to this page: [GitHub - cloudbase/coriolis: Cloud Migration as a Service](https://github.com/cloudbase/coriolis?tab=readme-ov-file#api-documentation)
