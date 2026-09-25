@@ -133,28 +133,33 @@ While the Migration/Replication processes treat the VM as a black box and are ag
 
 Coriolis aims to support the OSMorphing process for the following guest operating system releases:
 
-Linux distributions 
-
-  1. ![](_static/images/ubuntu.svg)Ubuntu Server LTS 18.04+
-  2. ![](_static/images/oracle.jpg)Oracle Linux 7+
-  3. ![](_static/images/redhat.jpg)Red Hat Enterprise Linux 7+
-  4. ![](_static/images/centos.svg)CentOS & CentOS Stream 7+
-  5. ![](_static/images/fedora-logo-icon.png)Rocky Linux 8+
-  6. ![](_static/images/suse.jpg)SUSE Linux Enterprise Server 12+
-  7. ![](_static/images/opensuse.svg)openSUSE 15+
-  8. ![](_static/images/debian.jpg)Debian 9+
-  9. ![](_static/images/AlmaLinux Icon.png)AlmaLinux 8+
-  10. ![](_static/images/al2.png)Amazon Linux 2
-
-
-
-Windows releases 
-
-  1. ![](_static/images/ws2022.png)Windows Server 2025
-  2. ![](_static/images/ws2022.png)Windows Server 2022
-  3. ![](_static/images/ws2022.png)Windows Server 2019
-  4. ![](_static/images/ws2016.png)Windows Server 2016
-  5. ![](_static/images/ws2022.png)Windows Client 11 / 10
+<div class="platform-row">
+<div class="source-platform">
+<p>Linux distributions</p>
+<ol>
+<li class="platform"><img src="../_static/images/ubuntu.svg" alt=""><span>Ubuntu Server LTS 18.04+</span></li>
+<li class="platform"><img src="../_static/images/oracle.jpg" alt=""><span>Oracle Linux 7+</span></li>
+<li class="platform"><img src="../_static/images/redhat.jpg" alt=""><span>Red Hat Enterprise Linux 7+</span></li>
+<li class="platform"><img src="../_static/images/centos.svg" alt=""><span>CentOS &amp; CentOS Stream 7+</span></li>
+<li class="platform"><img src="../_static/images/fedora-logo-icon.png" alt=""><span>Rocky Linux 8+</span></li>
+<li class="platform"><img src="../_static/images/suse.jpg" alt=""><span>SUSE Linux Enterprise Server 12+</span></li>
+<li class="platform"><img src="../_static/images/opensuse.svg" alt=""><span>openSUSE 15+</span></li>
+<li class="platform"><img src="../_static/images/debian.jpg" alt=""><span>Debian 9+</span></li>
+<li class="platform"><img src="../_static/images/AlmaLinux%20Icon.png" alt=""><span>AlmaLinux 8+</span></li>
+<li class="platform"><img src="../_static/images/al2.png" alt=""><span>Amazon Linux 2</span></li>
+</ol>
+</div>
+<div class="destination-platform">
+<p>Windows releases</p>
+<ol>
+<li class="platform"><img src="../_static/images/ws2022.png" alt=""><span>Windows Server 2025</span></li>
+<li class="platform"><img src="../_static/images/ws2022.png" alt=""><span>Windows Server 2022</span></li>
+<li class="platform"><img src="../_static/images/ws2022.png" alt=""><span>Windows Server 2019</span></li>
+<li class="platform"><img src="../_static/images/ws2016.png" alt=""><span>Windows Server 2016</span></li>
+<li class="platform"><img src="../_static/images/ws2022.png" alt=""><span>Windows Client 11 / 10</span></li>
+</ol>
+</div>
+</div>
 
 
 
@@ -174,26 +179,33 @@ To use the Coriolis Endpoints, please follow the **[Endpoints guide](https://clo
 
 For more information regarding each supported platform, please check the corresponding page of the plugin:
 
-  * ![](_static/images/Blank-diagram.png) [Bare Metal Migrations](https://cloudbase.it/coriolis-bare-metal-hub-plugin/ "Bare Metal p2v")
-  * ![](_static/images/Vmware.svg.png) [VMWare vSphere](https://cloudbase.it/vmware-coriolis-plugin/ "VMWare Coriolis Plugin")
-  * ![](_static/images/openstack.png) [OpenStack](https://cloudbase.it/openstack-coriolis-plugin/ "OpenStack Coriolis Plugin")
-  * ![](_static/images/aws.png) [Amazon Web Services (AWS)](https://cloudbase.it/amazon-web-services-aws-coriolis-plugin/ "AWS Coriolis Plugin")
-  * ![](_static/images/azure.svg) [Microsoft Azure and AzureStack Hub](https://cloudbase.it/microsoft-azure-azurestack-coriolis-plugin/ "Microsoft Azure Coriolis Plugin")
-  * ![](_static/images/ws2022.png) [Microsoft Hyper-V](https://cloudbase.it/hyper-v-coriolis-plugin/ "Microsoft Hyper-V Coriolis Plugin")
-  * ![](_static/images/nutanix-128.svg) [Nutanix AHV](https://cloudbase.it/nutanix-as-a-source-cloud/ "Nutanix AHV Coriolis Plugin")
-  * ![](_static/images/18700703.png) [SUSE Virtualization](https://cloudbase.it/kubevirt-harvester-coriolis-plugin/ "SUSE Virtualization")
-  * ![](_static/images/18700703.png) [SUSE Linux (KVM)](https://cloudbase.it/suse-linux-kvm-target-platform/ "SUSE Linux \(KVM\)")
-
-
-
-  * ![](_static/images/lxd-logo.png) [ Canonical MicroCloud (LXD)](https://cloudbase.it/microcloud-lxd-coriolis-plugin/ "MicroCloud \(LXD\) Coriolis Plugin")
-  * ![](_static/images/proxmox-logo-stacked-color.svg) [Proxmox VE](https://cloudbase.it/proxmox-coriolis-plugin/ "Proxmox VE Coriolis Plugin")
-  * ![](_static/images/oracle2022.png) [Oracle VM Server (OVM)](https://cloudbase.it/oracle-vm-ovm-coriolis-plugin/ "Oracle VM Coriolis Plugin")
-  * ![](_static/images/oracle2022.png) [Oracle Cloud Infrastructure (OCI)](https://cloudbase.it/oracle-cloud-infrastructure-oci-coriolis-plugin/ "OCI Coriolis Plugin")
-  * ![](_static/images/oracle2022.png) [Oracle Linux Virtualization Manager (OLVM)](https://cloudbase.it/ovirt-coriolis-plugin/ "OLVM Coriolis Plugin")
-  * ![](_static/images/oracle2022.png) [Oracle PCA solutions](https://cloudbase.it/oracle-cloud-infrastructure-oci-coriolis-plugin/ "Oracle PCA Coriolis Plugin")
-  * ![](_static/images/virt-icon1.png) [Red Hat OpenShift Virtualization](https://cloudbase.it/kubevirt-harvester-coriolis-plugin/ "Red Hat OpenShift Virtualization")
-  * ![](_static/images/redhat.jpg) [Red Hat Virtualization (legacy RHV)](https://cloudbase.it/ovirt-coriolis-plugin/ "Red Hat Virtualization") 
+<div class="platform-row">
+<div class="source-platform">
+<ul>
+<li class="platform"><img src="../_static/images/Blank-diagram.png" alt=""><a href="../plugins/coriolis-bare-metal-hub-plugin.html" title="Bare Metal p2v">Bare Metal Migrations</a></li>
+<li class="platform"><img src="../_static/images/Vmware.svg.png" alt=""><a href="../plugins/vmware-coriolis-plugin.html" title="VMWare Coriolis Plugin">VMWare vSphere</a></li>
+<li class="platform"><img src="../_static/images/openstack.png" alt=""><a href="../plugins/openstack-coriolis-plugin.html" title="OpenStack Coriolis Plugin">OpenStack</a></li>
+<li class="platform"><img src="../_static/images/aws.png" alt=""><a href="../plugins/amazon-web-services-aws-coriolis-plugin.html" title="AWS Coriolis Plugin">Amazon Web Services (AWS)</a></li>
+<li class="platform"><img src="../_static/images/azure.svg" alt=""><a href="../plugins/microsoft-azure-azurestack-coriolis-plugin.html" title="Microsoft Azure Coriolis Plugin">Microsoft Azure and AzureStack Hub</a></li>
+<li class="platform"><img src="../_static/images/ws2022.png" alt=""><a href="../plugins/hyper-v-coriolis-plugin.html" title="Microsoft Hyper-V Coriolis Plugin">Microsoft Hyper-V</a></li>
+<li class="platform"><img src="../_static/images/nutanix-128.svg" alt=""><a href="../platforms/nutanix-as-a-source-cloud.html" title="Nutanix AHV Coriolis Plugin">Nutanix AHV</a></li>
+<li class="platform"><img src="../_static/images/18700703.png" alt=""><a href="../plugins/kubevirt-harvester-coriolis-plugin.html" title="SUSE Virtualization">SUSE Virtualization</a></li>
+<li class="platform"><img src="../_static/images/18700703.png" alt=""><a href="../platforms/suse-linux-kvm-target-platform.html" title="SUSE Linux (KVM)">SUSE Linux (KVM)</a></li>
+</ul>
+</div>
+<div class="destination-platform">
+<ul>
+<li class="platform"><img src="../_static/images/lxd-logo.png" alt=""><a href="../plugins/microcloud-lxd-coriolis-plugin.html" title="MicroCloud (LXD) Coriolis Plugin">Canonical MicroCloud (LXD)</a></li>
+<li class="platform"><img src="../_static/images/proxmox-logo-stacked-color.svg" alt=""><a href="../plugins/proxmox-coriolis-plugin.html" title="Proxmox VE Coriolis Plugin">Proxmox VE</a></li>
+<li class="platform"><img src="../_static/images/oracle2022.png" alt=""><a href="../plugins/oracle-vm-ovm-coriolis-plugin.html" title="Oracle VM Coriolis Plugin">Oracle VM Server (OVM)</a></li>
+<li class="platform"><img src="../_static/images/oracle2022.png" alt=""><a href="../plugins/oracle-cloud-infrastructure-oci-coriolis-plugin.html" title="OCI Coriolis Plugin">Oracle Cloud Infrastructure (OCI)</a></li>
+<li class="platform"><img src="../_static/images/oracle2022.png" alt=""><a href="../plugins/ovirt-coriolis-plugin.html" title="OLVM Coriolis Plugin">Oracle Linux Virtualization Manager (OLVM)</a></li>
+<li class="platform"><img src="../_static/images/oracle2022.png" alt=""><a href="../plugins/oracle-cloud-infrastructure-oci-coriolis-plugin.html" title="Oracle PCA Coriolis Plugin">Oracle PCA solutions</a></li>
+<li class="platform"><img src="../_static/images/virt-icon1.png" alt=""><a href="../plugins/kubevirt-harvester-coriolis-plugin.html" title="Red Hat OpenShift Virtualization">Red Hat OpenShift Virtualization</a></li>
+<li class="platform"><img src="../_static/images/redhat.jpg" alt=""><a href="../plugins/ovirt-coriolis-plugin.html" title="Red Hat Virtualization">Red Hat Virtualization (legacy RHV)</a></li>
+</ul>
+</div>
+</div> 
 
 
 For Virtuozzo's VHI platform, please refer to the OpenStack Coriolis plugin pages.
