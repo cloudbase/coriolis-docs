@@ -152,7 +152,7 @@ New-NetFirewallRule @FirewallParam
 
 More details regarding **WinRM** are available on the **[Microsoft documentation page](https://docs.microsoft.com/en-us/windows/win32/winrm/portal)**.
 
-**Make sure that WinRM Basic Authentication is enabled, using the following steps:**
+#### Make sure that WinRM Basic Authentication is enabled, using the following steps
 
   * Check if it is enabled: "winrm get winrm/config/Service”  
 The output should be similar to this:
@@ -194,7 +194,7 @@ Migrations from Hyper-V operate in the same way Replicas do and thus entail the 
 
 NOTE! Please consider reviewing the general steps recommended to be performed before creating a migration for a VM from Hyper-V in the dedicated documentation titled "Preparing a VM for migration/replication".
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. read the configuration of the instance on the source Hyper-V (compute specs, disks, etc…) using PowerShell cmdlets through WinRM
   2. create an app-consistent snapshot (Checkpoint) of the VM
@@ -208,14 +208,14 @@ After the above steps are completed, the migration process proceeds with the ste
 
 For exported VMs, Coriolis will take the following OSMorphing steps as part of the migration process from Hyper-V:
 
-**Linux:**
+#### Linux
 
   * refer to the destination cloud for the tools that are being installed
   * optionally, the user can remove the LIS components from the destination instance, if no longer required by the platform
 
 
 
-**Windows:**
+#### Windows
 
   * no OSMorphing steps are taken as the integration services are part of the Windows guest OS itself
 
@@ -231,7 +231,7 @@ As prerequisites, the Windows machine must have the Hyper-V features enabled.
 
 #### Download the binary and extract the .zip file
 
-**RCT binary download**
+#### RCT binary download
 
 > [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12  
 >     
@@ -255,7 +255,7 @@ Download the generator and extract the files:
 
 #### Generate certificates and store them into _$env:USERPROFILE\rct_
 
-**Generate X509 certificates**
+#### Generate X509 certificates
 
 ```text
 & "$env:USERPROFILE\rct\gen-certs.exe" -certificate-hosts "127.0.0.1,localhost" -output-dir "$env:USERPROFILE\rct" 
@@ -265,7 +265,7 @@ Download the generator and extract the files:
 
 1) Note down the full path to the X509 certificates folder
 
-**Get certificates full path**
+#### Get certificates full path
 
 ls $env:USERPROFILE\rct 
 
@@ -275,7 +275,7 @@ ls $env:USERPROFILE\rct
   
 In our case, it is _C:/Users/Administrator/rct/_
 
-**Create an array variable**
+#### Create an array variable
 
 2) create a config file array variable and replace accordingly the desired _auth_key/ port/ certs &key path_, as follows:
 
@@ -295,7 +295,7 @@ key = "C:/Users/Administrator/rct/srv-key.pem"
   
 #### Generate the config file
 
-**Create Rocket.toml file**
+#### Create Rocket.toml file
 
 ```powershell
 Set-Content C:\Rocket.toml $config
@@ -307,7 +307,7 @@ Depending on your client, you may need to concatenate the **ca-pub.pem** with **
 
 #### Allow RCT service and port in Firewall
 
-**Enable RCT port in the firewall**
+#### Enable RCT port in the firewall
 
 ```text
 New-NetFirewallRule -DisplayName rct -Direction Inbound -LocalPort 6677 -Protocol TCP -Action Allow 
@@ -338,7 +338,7 @@ Instance identification scheme| Name or GUID| How instances to migrate/replicate
 Network identification scheme| Names of Virtual Switches| How networks are identified by the plugin. Required for the **network_map** field of the **- destination-environment**  
 Storage identification scheme| IDs of QoS Policies| How storage backends are identified by the plugin. Required for the **storage_map** field of the **- destination-environment**  
   
-**Example of connection info JSON to be passed to the Hyper-V plugin**
+#### Example of connection info JSON to be passed to the Hyper-V plugin
 
 To connect to Hyper-V to perform a migration/replica from it, the following connection parameters are required:
 

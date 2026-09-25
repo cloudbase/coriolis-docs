@@ -9,7 +9,7 @@ wp_id: 40005
 
 The following commands will install the Coriolis command line client on the local machine.
 
-**Coriolis CLI installation commands**
+### Coriolis CLI installation commands
 
 ```bash
 $ git clone https://github.com/cloudbase/python-coriolisclient
@@ -18,7 +18,7 @@ $ # verify client is available in path:
 $ /usr/bin/env coriolis
 ```
   
-**Expose Coriolis appliance**
+### Expose Coriolis appliance
 
 By default, all the Coriolis appliance services listen only on localhost. In order to expose all the services from the appliance, execute the following:
 
@@ -34,7 +34,7 @@ For instructions on how to create Coriolis Endpoints please check Defining a Cor
 
 ## Creating migration jobs
 
-**Prerequisites** :
+### Prerequisites
 
   * an existing Coriolis endpoint for the migration source cloud (granted the source cloud has a Coriolis platform plugin available)
   * an existing Coriolis endpoint for the migration destination cloud (granted the source cloud has a Coriolis platform plugin available)
@@ -84,7 +84,7 @@ coriolis migration delete $MIGRATION_ID
   
 ## Creating replication (DRaaS) jobs
 
-**Prerequisites** :
+### Prerequisites
 
   * an existing Coriolis endpoint for the replication source cloud (granted the source cloud has a Coriolis platform plugin available)
   * an existing Coriolis endpoint for the replication destination cloud (granted the source cloud has a Coriolis platform plugin available)

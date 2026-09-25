@@ -26,7 +26,7 @@ Currently,**only HVM guests are supported** , with support for PV guests in adva
 
 In order to connect to AWS to perform a migration from it, the following connection parameters are required:
 
-**Example of connection info JSON to be passed to the AWS plugin**
+#### Example of connection info JSON to be passed to the AWS plugin
 
 ```json
 {

@@ -18,7 +18,7 @@ Both modes of operation use the same underlying Coriolis mechanisms to achieve t
 
 **Scenario addressed** : continuous background sync of a running workload's storage from a source cloud directly to a destination cloud ("executing a Replica"), and the ability to create a new VM on the destination cloud using the previously-synced storage elements should disaster strike on the source ("deploying a Replica")
 
-**Architectural overview**
+#### Architectural overview
 
 [![](_static/images/Diagram0.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2020/05/Diagram0.png?ssl=1)
 
@@ -26,7 +26,7 @@ Both modes of operation use the same underlying Coriolis mechanisms to achieve t
 
 The replica execution process consists of a single sync between the workload's storage on the source cloud to storage elements on the destination cloud.
 
-**Inputs** :
+#### Inputs
 
   * non-privileged user credentials for both the source and destination platforms
   * [optional] a mechanism available on the source platform to live-snapshot/live-backup a running instance's storage (ex: CBT on VMWare, or Cinder-backup if replicating a VM from OpenStack). The system may optionally support guest filesystem quiescing. For the exact requirements of replica a source/destination platform, please review the documentation for that particular platform.
@@ -37,7 +37,7 @@ The replica execution process consists of a single sync between the workload's s
 
 If no disk diff-ing/export mechanism is available on the source platform, Coriolis can make use of source-side temporary VM to perform the diff operation itself. This process is considerably less efficient than native implementations like CBT/RCT, as time scales with the sizes of disks involved, as well as the read throughput possible within the source environment.
 
-**Result** :
+#### Result
 
   * first replica execution for an instance: new disks on the destination cloud with the exact state of the original instance's disks during the last live-snapshot (the original instance may have a slightly more advanced state due to it having been running while the replica process has been executing in the background)
   * later replica executions for the same instance: only the differences between the previous live-snapshot and a new one are applied to the disks on the destination cloud
@@ -45,7 +45,7 @@ If no disk diff-ing/export mechanism is available on the source platform, Coriol
 
 
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. read the configuration of the instance on the source cloud (CPU, RAM, attached NICs, disks, etc…)
   2. if this is the first replica execution for the VM, create empty disks on the destination cloud, each matching the specifications of a disk the VM had on the source.  
@@ -63,7 +63,7 @@ This temporary VM will then run Coriolis' disk Replication engine in order to co
 
 [![](_static/images/Diagram1.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2020/05/Diagram1.png?ssl=1)
 
-**Observations** :
+#### Observations
 
   * during a replica execution, the VM on the source is left running and whatever workload it was hosting will be unaffected by the process
   * changes to the VM's configuration on the source cloud (increased compute resources, new disks/NICs were attached, size increases of existing disks, etc…) are properly handled by Coriolis. The state changes are registered during the immediately following replica execution.
@@ -77,7 +77,7 @@ The above describes the steps Coriolis takes in general terms. If you would like
 
 #### Replica deployments:
 
-**Inputs** :
+#### Inputs
 
   * an existing Coriolis replica with one or more executions successfully completed
   * the source platform may suffer a complete outage and be unreachable while a replica deployment process is being run
@@ -86,7 +86,7 @@ The above describes the steps Coriolis takes in general terms. If you would like
 
 **Result:** a new instance on the destination cloud booted with the state of the instance during the last successful replica execution
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. [optional] create snapshots and clones-from-snapshots of the replicated disks on the destination cloud in order to be able to rollback any changes. By default, new disks are created from these snapshots, leaving the original replica disks intact for future replica executions
   2. depending on the OS of the VM whose replica is being deployed, boot a temporary worker VM (the "OSMorphing worker") with the same OS type on the destination cloud, and attach the disks from step 1 to it
@@ -98,7 +98,7 @@ The above describes the steps Coriolis takes in general terms. If you would like
 
 [![](_static/images/Diagram2.1.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2020/05/Diagram2.1.png?ssl=1)
 
-**Observations** :
+#### Observations
 
   * the resulting VM's state is not identical to the VM on the source, but merely identical to the source VM's state during the last replica execution (which, considering replicas are user-scheduled, should be as often as possible to have closest possible state the source VM had when the platform went down)
   * should the source and destination platforms be identical (ex: if replicating between two KVM-based OpenStack systems), the OSMorphing process (steps 2 through 4) is redundant and may be skipped entirely
@@ -111,7 +111,7 @@ The above describes the steps Coriolis takes in general terms. If you would like
 
 **Scenario addressed** : "lift-and-shift" type migrations, where the goal is to move the storage of an existing instance on the source cloud to the destination cloud and boot a new instance with identical settings 
 
-**Inputs** :
+#### Inputs
 
   * [optional] a mechanism available on the source platform to live-snapshot/live-backup a running instance's storage (ex: CBT on VMWare, or Cinder-backup if replicating a VM from OpenStack). The system may optionally support guest filesystem quiescing. For the exact requirements of replica a source/destination platform, please review the documentation for that particular platform.
   * a name/identifier of the existing instance on the source cloud which needs migrating. The instance may need explicit enabling of the live-snapshot mechanism (ex: enabling CBT on all disks if performing DRaaS for a VM from VMWare)
@@ -119,7 +119,7 @@ The above describes the steps Coriolis takes in general terms. If you would like
 
 
 
-**Steps performed by Coriolis:**
+#### Steps performed by Coriolis
 
   * the steps performed by Coriolis during a one-off Migration are the same as performing a Replica execution and deployment
   * the number of sync executions is configurable so as to minimize RPO (the default number is 2, the maximum is 10)
@@ -129,7 +129,7 @@ The above describes the steps Coriolis takes in general terms. If you would like
 
 **Result:** a migrated instance on the destination cloud with the same storage elements as the original instance and booted with the same configuration
 
-**Observations** :
+#### Observations
 
   * the images used by Coriolis for the temporary worker VMs (the disk copy and OSMorphing workers) can be standard cloud images already available in the destination cloud. In most cases, should the environment support user-specified metadata, they may have to have the cloud initialization tool particular to the platform in question installed (ex: cloud-init for Linux workers if migrating to OpenStack). Please review the documentation of the particular destination cloud you are migrating to for the exact specifications of the worker images
   * at step 6, only the written chunks of a disk are transferred to the destination cloud, making the process as fast as possible for VMs with large but mostly unused disk space

@@ -46,7 +46,7 @@ For more information on using vSphere/ESXi as a **destination cloud** for Replic
 
 To connect to vSphere/ESXi to perform a migration/replica from that cloud, the following connection parameters are required:
 
-**Example of connection info JSON to be passed to the VMWare vSphere plugin**
+#### Example of connection info JSON to be passed to the VMWare vSphere plugin
 
 ```json
 {

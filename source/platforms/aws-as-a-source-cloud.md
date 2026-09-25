@@ -13,7 +13,7 @@ Migrations from AWS operate in the same way Replicas do and thus entail the same
 
 **Input** : the ID or "Name" tag of the instance. The instance must be in the same **region** parameter supplied in the connection info used to create the AWS Coriolis endpoint.
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
 Considering there are no publicly-available APIs for fetching the contents of disks of instances off of AWS, the AWS Coriolis plugin must bypass the issue by booting a temporary machine to read the contents of the disks through.
 
@@ -34,7 +34,7 @@ During step 5, the changed blocks are transferred and written to disks on the de
 
 Below is a listing of the configuration section needed when migrating from AWS:
 
-**Configuration options for AWS as a migration source**
+#### Configuration options for AWS as a migration source
 
 [![](_static/images/AWS-source.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/04/AWS-source.jpg?ssl=1)
 
@@ -52,7 +52,7 @@ Below is a listing of the configuration section needed when migrating from AWS:
 
 For HVM guests, Coriolis will take the following OSMorphing steps as part of the migration process from AWS:
 
-**Linux:**
+#### Linux
 
   * uninstalling cloud-init
 
@@ -64,7 +64,7 @@ During the disk export and OSMorphing processes, Coriolis will create temporary 
 
 The images do **NOT** require any special Coriolis agent running in them and can be images already available in the AWS marketplace, granted the following requirements:
 
-**Linux** :
+#### Linux
 
   * needs to be Ubuntu 16.04 or 18.04 (using official Canonical 18.04 images is recommended)
   * AMI must have only one disk (regardless of instance storage or EBS-backed)
@@ -72,7 +72,7 @@ The images do **NOT** require any special Coriolis agent running in them and can
 
 
 
-**Windows** :
+#### Windows
 
   * for OSMorphing, must be of at least the same version as the guest of the VM being migrated
   * the Windows image should have the AWS Windows agent tools configured for the first boot
@@ -85,7 +85,7 @@ The source environment parameters are a set of source-cloud-specific parameters 
 
 Below is a listing of the destination environment parameters the AWS plugin supports when migrating/replicating a VM from AWS:
 
-**Example of source environment JSON to be passed to the AWS plugin**
+#### Example of source environment JSON to be passed to the AWS plugin
 
 ```json
 {

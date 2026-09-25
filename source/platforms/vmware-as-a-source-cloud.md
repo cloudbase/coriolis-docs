@@ -31,7 +31,7 @@ The following requirements apply when replicating VMs from VMware vSphere/ESXi:
 
 
 
-**Steps performed by Coriolis:**
+#### Steps performed by Coriolis
 
   1. read the instance configuration on the source vSphere (hardware information, disks, etc…)
   2. if configured to enable CBT itself, Coriolis will create and remove a temporary snapshot for the CBT data to be refreshed
@@ -89,14 +89,14 @@ Before creating and executing a Replica or Migration from vSphere, review the re
 
 The following notable steps will be performed as part of the OSMorphing process when migrating/replicating an instance away from VMWare:
 
-**Linux:**
+#### Linux
 
   * uninstall the VMWare guest tools
   * rebuild **initrd** on RHEL-based systems
 
 
 
-**Windows:**
+#### Windows
 
   * uninstall the VMWare guest tools and drivers
 
@@ -137,7 +137,7 @@ Allow read-only disk access| The disks of the VM(s) which are to be migrated| re
 
 Below is a listing of the configuration section needed when migrating from VMWare vSphere/ESXi:
 
-**Configuration options for VMWare vSphere/ESXi as a DRaaS source**
+#### Configuration options for VMWare vSphere/ESXi as a DRaaS source
 
 ```ini
 # Which mechanism to use to read VM disk data during export. 'vddk'
@@ -175,7 +175,7 @@ The source environment parameters are a set of source-cloud-specific parameters 
 
 Below is a listing of the source environment parameters the VMware plugin supports when migrating/replicating a VM from vSphere/ESXi:
 
-**Example of source environment JSON to be passed to the VMWare plugin**
+#### Example of source environment JSON to be passed to the VMWare plugin
 
 ```json
 {

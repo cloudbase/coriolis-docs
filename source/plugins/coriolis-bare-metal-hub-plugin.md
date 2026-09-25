@@ -50,7 +50,7 @@ The following Linux distributions have been validated, and based on the kernel m
 ![](_static/images/ubuntu.svg)   
 **Ubuntu Server**|  16.04 - 22.04| 5.15.0-83  
 ![](_static/images/redhat.jpg)  
-**Red Hat Enterprise**  
+#### Red Hat Enterprise
 **Linux**|  7.0 - 8.3| 4.18.0-240  
 ![](_static/images/centos.svg)  
 **CentOS**|  7.0 - 8.3| 4.18.0-240.22  

@@ -124,7 +124,7 @@ More details regarding **WinRM** are available on the **[Microsoft documentation
 
 * * *
 
-**Test the connection**
+#### Test the connection
 
 winrs tool from Windows can be used to test the connection, recommended to be done from another Windows instance against the running Windows OS to be set as a template.
 

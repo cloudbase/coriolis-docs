@@ -225,7 +225,7 @@ Once the migration is completed, your VM will be up and running in Oracle VM!
 
  
 
-**Troubleshooting**
+#### Troubleshooting
 
 In a complex environment involving multiple clouds it becomes useful to get detailed information about possible issues. Coriolis logs all errors, warnings and other details in the **/var/log/coriolis** folder.
 

@@ -22,7 +22,7 @@ In order to connect to an Proxmox cloud to perform a migration/replica to that c
 
 ![](_static/images/proxmox_endpoint.png)
 
-**Example of connection info JSON to be passed to the Proxmox plugin**
+#### Example of connection info JSON to be passed to the Proxmox plugin
 
 ```json
 {

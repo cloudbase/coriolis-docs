@@ -17,7 +17,7 @@ The following outlines running the Coriolis CLI client from the Coriolis applian
 
 The following commands will install the Coriolis command-line client on the local machine.
 
-**Coriolis CLI installation commands**
+### Coriolis CLI installation commands
 
 ```bash
 $ git clone https://github.com/cloudbase/python-coriolisclient
@@ -33,7 +33,7 @@ $ /usr/bin/env coriolis
   
 ![](_static/images/cli2.png)
 
-**Expose the Coriolis appliance**
+### Expose the Coriolis appliance
 
 By default, all the Coriolis appliance services listen only on localhost. In order to expose all the services from the appliance, you will use the respective option from the Coriolis console menu.
 
@@ -83,7 +83,7 @@ Coriolis endpoints are a type of resource definable in Coriolis that simply decl
 
 Below is an example of creating an endpoint for a fictitious "CloudX"
 
-**Endpoint creation example**
+### Endpoint creation example
 
 ```text
 #the example of the RC file is reffering to the one on the Coriolis Appliance
@@ -103,7 +103,7 @@ Coriolis features integration with Barbican, the OpenStack project dedicated to 
 
 Instead of providing the plaintext JSON **- connection** directly to Coriolis, one might first store it in Barbican and only provide Coriolis with a reference to it.
 
-**Endpoint creation example with Barbican secret**
+#### Endpoint creation example with Barbican secret
 
 ```text
 #the example of the RC file is reffering to the one on the Coriolis Appliance
@@ -123,7 +123,7 @@ Once a cloud endpoint has been created for the specific platform we are dealing 
 
 From the command line client, this may be done by running the following:
 
-**Endpoint validation example**
+#### Endpoint validation example
 
 ```text
 #the example of the RC file is reffering to the one on the Coriolis Appliance
@@ -139,7 +139,7 @@ If Coriolis supports migrating/replicating _from_ a particular platform, then th
 
 From the command line client, the following may be run to list instances available for export:
 
-**Endpoint instance list example**
+#### Endpoint instance list example
 
 ```text
 #the example of the RC file is reffering to the one on the Coriolis Appliance
@@ -171,7 +171,7 @@ $coriolis endpoint delete $ENDPOINT_ID
   
 ## Creating migration jobs
 
-**Prerequisites** :
+### Prerequisites
 
   * an existing Coriolis endpoint for the migration source cloud (granted the source cloud has a Coriolis platform plugin available)
   * an existing Coriolis endpoint for the migration destination cloud (granted the source cloud has a Coriolis platform plugin available)
@@ -183,7 +183,7 @@ $coriolis endpoint delete $ENDPOINT_ID
 
 Granted all the above, a migration job may be created for an instance by running the following:
 
-**Creating a Coriolis migration**
+### Creating a Coriolis migration
 
 ```text
 #the example of the RC file is reffering to the one on the Coriolis Appliance
@@ -221,7 +221,7 @@ $coriolis migration delete $MIGRATION_ID
   
 ## Creating replication (DRaaS) jobs
 
-**Prerequisites** :
+### Prerequisites
 
   * an existing Coriolis endpoint for the replication source cloud (granted the source cloud has a Coriolis platform plugin available)
   * an existing Coriolis endpoint for the replication destination cloud (granted the source cloud has a Coriolis platform plugin available)
@@ -233,7 +233,7 @@ $coriolis migration delete $MIGRATION_ID
 
 Granted all the above, a replication job may be **defined** (but not yet executed) for an instance by running the following:
 
-**Creating a Coriolis replica**
+### Creating a Coriolis replica
 
 ```text
 #the example of the RC file is reffering to the one on the Coriolis Appliance
@@ -255,7 +255,7 @@ The above command will define a replication job with Coriolis, which may later h
 
 An existing replica may have a new execution (sync run) started by running the following:
 
-**Executing a Coriolis replica**
+#### Executing a Coriolis replica
 
 ```text
 #the example of the RC file is reffering to the one on the Coriolis Appliance
@@ -297,7 +297,7 @@ $coriolis replica disks delete $REPLICA_ID
 
 An existing replica may be deployed on the destination cloud by running the following:
 
-**Deploying a Coriolis replica**
+#### Deploying a Coriolis replica
 
 ```text
 #the example of the RC file is reffering to the one on the Coriolis Appliance

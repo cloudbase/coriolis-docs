@@ -5,8 +5,8 @@ wp_id: 40972
 
 # Coriolis® EULA
 
-**CORIOLIS® END-USER LICENSE AGREEMENT**  
-**(Click Through License)**
+## CORIOLIS® END-USER LICENSE AGREEMENT
+## (Click Through License)
 
 This End-User License Agreement (“EULA”) is a legal agreement between you (either an individual or a legal entity) and Cloudbase Solutions S.R.L., a Romanian LLC with legal address at Memorandului Street, no. 76-78-80, apt. 38, Timisoara, Timiș County, Romania, (“Licensor”) for the software, which may also include associated media, printed materials, and “online” or electronic documentation (collectively the “Software”). “Software” shall also include all related documentation.
 

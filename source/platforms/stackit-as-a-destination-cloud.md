@@ -13,7 +13,7 @@ Transfer Migrations to Stackit operate in the same way Transfer Replicas do and 
 
 #### Replica executions:
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. if this is the first replica execution for the VM, create empty Stackit volumes on the destination side, each matching the specifications of a disk the VM had on the source.  
 If this is a later replica execution, the previously created Stackit volumes are used
@@ -27,7 +27,7 @@ If this is a later replica execution, create a new live snapshot based on the on
 
 #### Replica deployments:
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. create snapshots of the replicated Stackit volumes on the destination side to be able to roll back any changes. By default, new volumes are created from these snapshots, leaving the original replica volumes intact for future replica executions
   2. depending on the OS of the VM whose replica is being deployed, boot a temporary worker VM (“the OSMorphing worker”) with the same OS type on the destination cloud, and attach the Stackit volumes from step 1 to it
@@ -39,7 +39,7 @@ If this is a later replica execution, create a new live snapshot based on the on
 
 ### Configuration Options
 
-**Advanced Target options for Stackit target destination**
+#### Advanced Target options for Stackit target destination
 
 When migrating or replicating instances to Stackit, the user must specify which images to use for Linux and Windows temporary migration workers. We recommend using the public Stackit images.
 
@@ -53,14 +53,14 @@ The worker image OS version must be the same as or newer than the migrated insta
 
 The following notable steps will be performed as part of the OSMorphing process:
 
-**Linux:**
+#### Linux
 
   * installing cloud-init
   * rebuilding initrd to add the virtIO drivers
 
 
 
-**Windows:**
+#### Windows
 
   * installing cloudbase-init and enabling cloudbase-init service
   * installing the VirtIO drivers
@@ -93,7 +93,7 @@ It’s enabled by default and as a result Coriolis will configure each interface
 
 If disabled, Coriolis expects the guest to have static network configuration. Depending on the guest operating system, the following steps will be taken:
 
-**Linux:**
+#### Linux
 
   * disable cloud-init network configuration
   * set udev rules to preserve the interface names 
@@ -101,13 +101,13 @@ If disabled, Coriolis expects the guest to have static network configuration. De
 
 
 
-**Windows**
+#### Windows
 
   * define static network configuration through a script that will be invoked by cloudbase-init during the first replica boot
 
 
 
-**Configuration options for Stackit as a destination**
+#### Configuration options for Stackit as a destination
 
 Below is a listing of the configuration section needed when migrating/replicating to Stackit:
 
@@ -275,7 +275,7 @@ cloudbaseinit_x64_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x6
   
 [/crayon] 
 
-**Example of destination environment JSON to be passed to the Stackit plugin**
+#### Example of destination environment JSON to be passed to the Stackit plugin
 
 
 ```json

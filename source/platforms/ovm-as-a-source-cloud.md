@@ -15,7 +15,7 @@ Migrations to OVM operate in the same way Replicas do and thus entail the same r
 
 **Input** : the names of the instances.
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
 Considering that in OCI there are no publicly available APIs for fetching the contents of disks of instances off of OVM, the OVM Coriolis plugin must bypass the issue by booting a temporary machine to Replicate the contents of the disks through.
 
@@ -35,7 +35,7 @@ During step 5, the data chunks will be handed directly to the destination cloud 
 
 [![](_static/images/ovm-source.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/04/ovm-source.jpg?ssl=1)
 
-**Configuration options for OVM as a migration source**
+#### Configuration options for OVM as a migration source
 
 ```json
 [oracle_vm_migration_provider]
@@ -69,7 +69,7 @@ The source environment parameters are a set of source-cloud-specific parameters 
 
 Below is a listing of the source environment parameters the OVM plugin supports when migrating/replicating a VM from OVM:
 
-**Example of source environment JSON to be passed to the OVM plugin**
+#### Example of source environment JSON to be passed to the OVM plugin
 
 ```json
  {
@@ -100,13 +100,13 @@ NOTE! In case a DHCP server is not available in the network, a static IP can be 
 
 For OVM guests, Coriolis will take the following OSMorphing steps as part of the migration process from OVM:
 
-**Linux:**
+#### Linux
 
   * uninstalling OVMd (if applicable)
 
 
 
-**Windows:**
+#### Windows
 
   * removing Windows PV drivers
 

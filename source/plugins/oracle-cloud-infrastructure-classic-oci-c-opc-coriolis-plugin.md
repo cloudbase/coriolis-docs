@@ -60,7 +60,7 @@ Migrations from OCI-C operate in the same way Replicas do, and thus entail the s
 
  Please consider reviewing the general steps recommended to be performed before creating migration for an instance from OCI-C [here](https://cloudbasedev.atlassian.net/wiki/spaces/COR/pages/1845333/Preparing+a+VM+for+migration+replication).
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
 Considering there are unfortunately no publicly-available APIs for fetching the contents of disks of instances off of OCI-C, the OCI-C Coriolis plugin must bypass the issue by booting a temporary machine in order to Replicate the contents of the disks through.
 
@@ -80,13 +80,13 @@ During step 5, the data chunks will be handed directly to the destination cloud 
 
 For OCI-C guests, Coriolis will take the following OSMorphing steps as part of the migration process from OCI-C:
 
-**Linux:**
+#### Linux
 
   * uninstalling OVMd (if applicable)
 
 
 
-**Windows:**
+#### Windows
 
   * removing Windows PV drivers
 
@@ -98,7 +98,7 @@ The source environment parameters are a set of source-cloud-specific parameters 
 
 Below is a listing of the source environment parameters the OCI-C plugin supports when migrating/replicating a VM from OCI:
 
-**Example of source environment JSON to be passed to the OCI-C plugin**
+#### Example of source environment JSON to be passed to the OCI-C plugin
 
 ```json
 {
@@ -124,7 +124,7 @@ Most source environment parameters can also be found in the global configuration
 
 Below is a listing of the configuration section needed when migrating from OCI-C:
 
-**Configuration options for OCI-C as a migration source**
+#### Configuration options for OCI-C as a migration source
 
 ```json
 [opc_migration_provider]
@@ -154,7 +154,7 @@ Migrations to OCI-C operate in the same way Replicas do, and thus entail the sam
 
 #### Replica executions:
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. if this is the first replica execution for the VM, create empty volumes on OCI-C, each matching the specifications of a disk the VM had on the source. If this is a later replica execution, the previously-created volumes are used
   2. if this is the first replica execution of the VM, create a new live-snapshot of the disks of the VM on the source cloud (handled by whatever source cloud plugin we are using). Is this is a later replica execution, create a new live-snapshot based on the one from the last successful replica execution
@@ -166,7 +166,7 @@ Migrations to OCI-C operate in the same way Replicas do, and thus entail the sam
 
 #### Replica deployments:
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. create snapshots of the previously-replicated volumes on the OCI-C in order to be able to rollback any changes. By default, new volumes are created from these snapshots, leaving the original replica volumes intact for future replica executions
   2. depending on the OS of the VM whose replica is being deployed, boot a temporary worker VM ("the OSMorphing worker") with the same OS type on the destination cloud, and attach the volumes from step 1 to it
@@ -180,14 +180,14 @@ Migrations to OCI-C operate in the same way Replicas do, and thus entail the sam
 
 Depending on the OS release being migrated/replicated, the following notable steps will be performed as part of the OSMorphing process:
 
-**Linux:**
+#### Linux
 
   * installing cloud-init/OVMd
   * rebuilding initrd on RHEL-based systems
 
 
 
-**Windows:**
+#### Windows
 
   * installing cloudbase-init and enabling cloudbase-init service
   * installing the VirtIO drivers
@@ -217,7 +217,7 @@ The destination environment parameters are a set of destination-cloud-specific p
 
 Below is a listing of the destination environment parameters the OCI-C plugin supports when migrating/replicating a VM to OCI-C:
 
-**Example of destination environment JSON to be passed to the OCI-C plugin**
+#### Example of destination environment JSON to be passed to the OCI-C plugin
 
 ```json
 {
@@ -261,7 +261,7 @@ Most destination environment parameters can also be found in the global configur
 
 Below is a listing of the configuration section needed when migrating/replicating to an OCI-C:
 
-**Configuration options for OCI-C as a destination**
+#### Configuration options for OCI-C as a destination
 
 ```json
 [opc_migration_provider]
@@ -285,7 +285,7 @@ Below is a listing of the configuration section needed when migrating/replicatin
  windows_pv_drivers_url = https://cloudbase.it/downloads/ovm_win_pv_drivers_all_323.zip 
 ```
   
-**Coriolis Advanced options for Target Destinations**
+#### Coriolis Advanced options for Target Destinations
 
 In the case of Replicating or Migrating to Oracle Cloud Infrastructure Classic, there are the following requirements for the worker images: 
 
@@ -316,7 +316,7 @@ Set Public IP | set_public_ip | whether or not the migrated instance will have a
 
 In order to connect to OCI-C to perform a migration from it, the following connection parameters are required:
 
-**Example of connection info JSON to be passed to the OCI-C plugin**
+### Example of connection info JSON to be passed to the OCI-C plugin
 
 ```json
 {

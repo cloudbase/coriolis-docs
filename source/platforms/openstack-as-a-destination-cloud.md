@@ -13,7 +13,7 @@ Transfer Migrations to OpenStack operate in the same way Transfer Replicas do an
 
 #### Replica executions:
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. if this is the first replica execution for the VM, create empty Cinder volumes on the destination cloud, each matching the specifications of a disk the VM had on the source.  
 If this is a later replica execution, the previously created Cinder volumes are used
@@ -27,7 +27,7 @@ If this is a later replica execution, create a new live snapshot based on the on
 
 #### Replica deployments:
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. create snapshots of the replicated Cinder volumes on the destination cloud to be able to roll back any changes. By default, new volumes are created from these snapshots, leaving the original replica volumes intact for future replica executions
   2. depending on the OS of the VM whose replica is being deployed, boot a temporary worker VM ("the OSMorphing worker") with the same OS type on the destination cloud, and attach the Cinder volumes from step 1 to it
@@ -39,7 +39,7 @@ If this is a later replica execution, create a new live snapshot based on the on
 
 ### Configuration Options
 
-**Advanced Target options for OpenStack target destination******
+#### Advanced Target options for OpenStack target destination
 
 In the case of Replicating or Migrating to OpenStack, there will need to be images that the worker will use to create temporary VMs to perform the tasks, for both Linux and Windows machines.
 
@@ -57,7 +57,7 @@ The Floating IP Pool network must also carry the "router:external" property set,
 
 Depending on the virtualization technology used and the OS release we are migrating/replicating, the following notable steps will be performed as part of the OSMorphing process:
 
-**Linux:**
+#### Linux
 
   * installing cloud-init
   * installing Hyper-V integration tools, if destination OpenStack is based on Hyper-V
@@ -65,7 +65,7 @@ Depending on the virtualization technology used and the OS release we are migrat
 
 
 
-**Windows:**
+#### Windows
 
   * installing cloudbase-init and enabling cloudbase-init service
   * installing the VirtIO drivers if OpenStack is KVM-based
@@ -94,7 +94,7 @@ Note that the "Preserve Fixed IPs" option requires that the subnet(s) on the Neu
 
 - said Neutron subnet which includes the IPs needs to have the "dhcp" flag enabled on it
 
-**Configuration options for OpenStack as a destination**
+#### Configuration options for OpenStack as a destination
 
 Below is a listing of the configuration section needed when migrating/replicating to an OpenStack:
 
@@ -258,7 +258,7 @@ The destination environment parameters are a set of destination-cloud-specific p
 
 Below is a listing of the destination environment parameters the OpenStack plugin supports when migrating/replicating a VM to OpenStack:
 
-**Example of destination environment JSON to be passed to the OpenStack plugin**
+#### Example of destination environment JSON to be passed to the OpenStack plugin
 
 ```json
 {

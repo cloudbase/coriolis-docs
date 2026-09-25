@@ -21,11 +21,11 @@ OSMorphing always occurs on the destination platform, where Coriolis will create
 
 Considering that OSMorphing errors may be a direct result of an incompatibility between the specific setup of the guest OS and Coriolis or the destination platform, they are relatively more common during a Migration, and the only concrete way to debug the issues would be to login to the temporary OSMorphing VM Coriolis is controlling to see exactly what Coriolis sees.
 
-**Configuration:**
+#### Configuration
 
 There is a dedicated 'debug_os_morphing_errors' flag in the '[conductor]' section of /etc/coriolis/coriolis.conf:
 
-**debug_os_morphing_errors example**
+#### debug_os_morphing_errors example
 
 ```ini
 # NOTE: this option must be appended within the '[conductor]' section:
@@ -43,7 +43,7 @@ NOTE please remember to run a `docker restart Coriolis-conductor` for any change
 
 Below is a sample of the connection info for the temporary worker VM as seen in `Coriolis-conductor.log`:
 
-**debug_os_morphing_errors log output example**
+#### debug_os_morphing_errors log output example
 
 ```text
 # NOTE: the private keys for the worker VMs may have the passphrase
@@ -155,7 +155,7 @@ This usually happens on OLVM versions older than 4.5. Newer versions may have th
 
 ## Troubleshooting LUKS-encrypted migrations
 
-### **" No key available with this passphrase"**
+### " No key available with this passphrase"
 
 **Command "sudo cryptsetup luksOpen -disable-keyring -key-file /tmp/coriolis_sdb3.key /dev/sdb3 coriolis_sdb3" failed on host '10.8.29.225:22' with exit code: 2 stdout: No key available with this passphrase.**
 
@@ -163,13 +163,13 @@ Make sure you have provided the correct passphrase in Coriolis, and that you re-
 
 * * *
 
-### **VM never reboots itself after first boot**
+### VM never reboots itself after first boot
 
 An issue might have occurred during the first VM boot: either the LUKS device did not auto-unlock (and thus, the first boot script could not launch), or an error occurred during the first boot script. If the LUKS device did not auto-unlock, it may be possible to unlock it manually using the migration passphrase, but this issue should still be reported to your Coriolis provider in order to be properly fixed. Check the VM's own console / serial log for that specific boot attempt and report this issue, along with the console log.
 
 * * *
 
-### **VM reboots but doesn 't come back up**
+### VM reboots but doesn 't come back up
 
 If the VM was rebooted, it means that the LUKS first boot script has completed, meaning that the TPM2 keyslot has been updated and the migration passphrase keyslot has been removed (and thus, the passphrase is no longer usable to unlock the LUKS devices). However, on reboot, the LUKS device could not be auto-unlocked using the attached TPM2 device.
 
@@ -177,7 +177,7 @@ The only useful diagnostic here is the VM's own console / serial log for that sp
 
 * * *
 
-### **" The VM has encrypted disks (…), which require a TPM device"**
+### " The VM has encrypted disks (…), which require a TPM device"
 
 **The VM has encrypted disks ( 'encrypted_disks_passphrase' given), which require a TPM device. The add_tpm_device config option is False.**
 
@@ -189,19 +189,19 @@ Fix: set the proper configuration options in coriolis-worker's **coriolis.conf**
 
 * * *
 
-### **" \<device\> is LUKS-encrypted, but no passphrase is provided"**
+### " \<device\> is LUKS-encrypted, but no passphrase is provided"
 
 The deployment / migration fails outright with this error if Coriolis detects a LUKS container on a source disk but no **Encrypted Disks Passphrase** was set on the transfer's target options. Add the migration passphrase (see Prerequisites above) and re-run.
 
 * * *
 
-### **" No initramfs tool found in OS at '\<path\>'"**
+### " No initramfs tool found in OS at '\<path\>'"
 
 Raised when neither **update-initramfs** nor **dracut** can be found inside the guest OS being migrated. This means either the guest distro isn't one of the supported families, or its filesystem wasn't fully mounted / detected before this check ran. This is not something you can fix from the client side, report the source OS distro / version to your Coriolis provider.
 
 * * *
 
-### **" No /etc/crypttab entries matched LUKS UUIDs in '\<path\>'; cannot configure initramfs auto-unlock"**
+### " No /etc/crypttab entries matched LUKS UUIDs in '\<path\>'; cannot configure initramfs auto-unlock"
 
 Coriolis matches LUKS devices to **/etc/crypttab** entries by UUID (**UUID= …** or **/dev/disk/by-uuid/ …**). If the source VM's **/etc/crypttab** references the encrypted device some other way (e.g. a raw **/dev/sdaX** path, an LVM path, or a missing entry entirely), Coriolis cannot determine which keyfile / options to wire up and fails instead of guessing. Fix the source VM's **/etc/crypttab** to reference the device by UUID before migrating, or report the case to your Coriolis provider if UUID-based crypttab entries should be supported but aren't being recognized.
 

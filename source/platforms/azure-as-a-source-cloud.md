@@ -11,7 +11,7 @@ Migrations from Azure operate in the same way Replicas do and thus entail the sa
 
 ### Replicating (DRaaS) from Azure
 
-**Inputs** :
+#### Inputs
 
   * some parameters related to the ARM environment to aid in locating the VM (example: location, resource group name, etc…)
   * the name of the VM on Azure
@@ -20,7 +20,7 @@ Migrations from Azure operate in the same way Replicas do and thus entail the sa
 
 Please consider reviewing the general steps recommended to be performed before creating migration for an instance from Azure [here](https://cloudbase.it/preparing-a-vm-for-migration-replication/).
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
 Considering there are no publicly-available APIs for fetching the contents of disks of instances off of Azure, the Azure Coriolis plugin must bypass the issue by booting a temporary machine to read the contents of the disks through.
 
@@ -38,7 +38,7 @@ If this is incremental sync, only the chunks which have changed from the previou
 
 During step 6, the changed blocks are transferred and written to disks on the destination platform via the destination cloud plugin.
 
-**Example of source environment JSON to be passed to the Azure plugin**
+#### Example of source environment JSON to be passed to the Azure plugin
 
 ```json
 {

@@ -52,7 +52,7 @@ the resource group which is being migrated to/from
 
 In order to connect to Azure to perform a migration/replica to it, the following connection parameters must be supplied:
 
-**Example of connection info JSON to be passed to the Azure plugin**
+#### Example of connection info JSON to be passed to the Azure plugin
 
 ```json
 {
@@ -136,7 +136,7 @@ The additional parameters required by Coriolis for the Azure Stack endpoint can 
 
 These can be copied into an expandable, optional field in the endpoint creation window "Paste Configuration"
 
-**Obtain Azure Stack cloud details with azure-cli**
+#### Obtain Azure Stack cloud details with azure-cli
 
 ```bash
 $ az cloud register -n <environmentname> --endpoint-resource-manager "<a href="https://management.local.azurestack.external%22">https://management.local.azurestack.external"</a> --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external"

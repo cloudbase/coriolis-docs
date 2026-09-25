@@ -9,7 +9,7 @@ The Coriolis VMWare vSphere plugin allows for Migrating (CMaaS) or Replicating (
 
 Coriolis achieves this by leveraging the vixDiskLib library from the official VMWare Virtual Disk Development Kit (VDDK) to call into the CBT subsystem to diff and fetch the blocks of the virtual disks of the VMWare VM(s) being migrated.
 
-**vixDiskLib-related deployment configuration options**
+## vixDiskLib-related deployment configuration options
 
 Before setting up the vixDiskLib SOs in use, please double-check the location where Coriolis is configured to search for the library:
 
@@ -28,7 +28,7 @@ vixdisklib_library_directory = /opt/coriolis/vmware-vix-disklib
 
 After identifying the correct directory path for the library ("/opt/coriolis/vmware-vix-disklib" in this example), as well as the URL of the archive file containing the desired version of vixDiskLib, you may install it by running the following:
 
-**Installing a different`vixDiskLib` version**
+## Installing a different`vixDiskLib` version
 
 ```bash
 $ VIX_DIR_PATH="/opt/coriolis/vmware-vix-disklib"

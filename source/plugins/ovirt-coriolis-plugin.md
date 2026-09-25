@@ -47,7 +47,7 @@ Storage identification scheme| Names of storage domains hosting the virtual disk
 
 To connect to oVirt to perform a migration from it, the following connection parameters are required:
 
-**Example of connection info JSON to be passed to the oVirt plugin**
+#### Example of connection info JSON to be passed to the oVirt plugin
 
 ```json
 {<br>     "url": "https://manager.olvm.local/ovirt-engine/api",<br>     "username": "admin",<br>     "password": "Password",<br>     "allow_untrusted": true<br> } 

@@ -19,7 +19,7 @@ In the process of replicating from an OpenStack, Coriolis will clone locally the
 
 NOTE please consider reviewing the general steps recommended to be performed before creating and executing a replica of an instance from OpenStack [her](https://cloudbase.it/preparing-a-vm-for-migration-replication/)[e](https://cloudbase.it/preparing-a-vm-for-migration-replication/).
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. read the configuration of the instance on the source OpenStack (flavor information, disks, etc…)
   2. if the instance was booted from a Glance image, a Nova snapshot is created for the instance, and the resulting Glance image is downloaded into a Cinder volume
@@ -48,7 +48,7 @@ In the process of replicating from an OpenStack, Coriolis will use Cinder-backup
 
 NOTE please consider reviewing the general steps recommended to be performed before creating and executing a replica of an instance from OpenStack [here](https://cloudbase.it/preparing-a-vm-for-migration-replication/).
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. read the configuration of the instance on the source OpenStack (flavor information, disks, etc…)
   2. create Cinder backups of all of the volumes of the instance with the Cinder backup API. If this is not the first replica, incremental backups/snapshots are performed
@@ -75,7 +75,7 @@ In the process of replicating from an OpenStack, Coriolis will use Cinder-snapsh
 
 NOTE please consider reviewing the general steps recommended to be performed before creating and executing a replica of an instance from OpenStack [here](https://cloudbase.it/preparing-a-vm-for-migration-replication).
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. read the configuration of the instance on the source OpenStack (flavor information, disks, etc…)
   2. create Cinder snapshots of all of the volumes of the instance using the standard Cinder snapshotting API
@@ -89,7 +89,7 @@ After the above steps are completed, the contents of the RBD images representing
 
 Depending on the virtualization technology used and the OS release we are migrating/replicating, the following notable steps will be performed as part of the OSMorphing process:
 
-**Linux** :
+#### Linux
 
   * uninstalling cloud-init, if present
   * uninstalling Hyper-V integration tools, if source OpenStack is based on Hyper-V
@@ -109,7 +109,7 @@ The source environment parameters are a set of source-cloud-specific parameters 
 
 Below is a listing of the source environment parameters the OpenStack plugin supports when migrating/replicating a VM from OpenStack:
 
-**Source environment for OpenStack plugin**
+#### Source environment for OpenStack plugin
 
 ```json
 {
@@ -155,7 +155,7 @@ Below is a listing of the source environment parameters the OpenStack plugin sup
 
 Below is a listing of the configuration section needed when replicating from an OpenStack:
 
-**Configuration options for OpenStack as a DRaaS source**
+#### Configuration options for OpenStack as a DRaaS source
 
 ```json
 [openstack_migration_provider]

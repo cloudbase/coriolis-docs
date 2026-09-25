@@ -132,7 +132,7 @@ Below is a listing of the configuration section needed when migrating/replicatin
 
 Depending on the OS release we are migrating, the following notable steps will be performed as part of the OSMorphing process:
 
-**Linux:**
+### Linux
 
   * installing cloud-init
   * where supported, installing guest agent (lxd-agent)
@@ -140,7 +140,7 @@ Depending on the OS release we are migrating, the following notable steps will b
 
 
 
-**Windows:**
+### Windows
 
   * installing the VirtIO drivers
   * installing cloudbase-init and enabling cloudbase-init service

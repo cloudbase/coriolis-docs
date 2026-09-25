@@ -50,7 +50,7 @@ Transfer Migrations from Nutanix operate in the same way Transfer Replicas do an
 
 Please consider reviewing the general steps recommended to be performed before creating and executing a replica of an instance from Nutanix [_here_](https://cloudbase.it/preparing-a-vm-for-migration-replication/).
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. create a vm recovery point (snapshot)
   2. create a temporary volume group, used to expose the snapshots via iSCSI
@@ -72,14 +72,14 @@ Note that open-iscsi is used to establish iSCSI sessions and the logs are availa
 
 The following notable steps will be performed as part of the OSMorphing process when migrating/replicating an instance away from Nutanix:
 
-**Linux:**
+#### Linux
 
   * uninstall the Nutanix guest tools
   * rebuild **initrd**  on RHEL-based systems
 
 
 
-**Windows:**
+#### Windows
 
   * uninstall the Nutanix guest tools
 

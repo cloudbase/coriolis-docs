@@ -18,7 +18,7 @@ In order to **Replicate** to VMWare vSphere, **VM templates** for temporary Cori
   
 The templates need the following:
 
-**Linux:**
+#### Linux
 
   * **Ubuntu Server 18.04/20.04** (recommended) 
   * **sudo** must be configured to work as **passwordless**
@@ -29,7 +29,7 @@ The templates need the following:
 
 
 
-**Windows:**
+#### Windows
 
   * OS used for the image must be the same version or newer than the VM to be **replicated/migrated**
   * **VMWare tools** need to be installed
@@ -39,9 +39,9 @@ The templates need the following:
 
 
 
-#### **Replica executions:**
+#### Replica executions
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. if this is the first replica execution for the VM, create an empty volume disk on the destination cloud, each matching the specifications of a disk the VM had on the source.  
 If this is a later replica execution, the previously created volume disks are used
@@ -53,9 +53,9 @@ If this is a later replica execution, create a new live snapshot based on the on
 
 
 
-#### **Replica deployments:**
+#### Replica deployments
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. create snapshots of the replicated volumes on the destination cloud in order to be able to roll back any changes. By default, new volumes are made from these snapshots, leaving the original replica volumes intact for future replica executions
   2. depending on the OS of the VM whose replica is being deployed, boot a temporary worker VM ("the OSMorphing worker") with the same OS type on the destination cloud, and attach the Cinder volumes from step 1 to it
@@ -67,7 +67,7 @@ If this is a later replica execution, create a new live snapshot based on the on
 
 ### Configuration Options
 
-**Advanced Target options for VMWare target destination**
+#### Advanced Target options for VMWare target destination
 
 In the case of Replicating or Migrating to VMWare vSphere, there will need to be images that the worker will use to create temporary VMs in order to perform the tasks, for both Linux and Windows machines. 
 
@@ -100,7 +100,7 @@ Change configuration -> Add or remove device | Adding required buses, migrated N
 Edit Inventory -> Create new | Creating final VM  
 **Resource** | The host object(s) to be migrated to | Assign virtual machine to resource pool | Assigning created worker or final VM to a resource pool  
   
-**Configuration options for VMWare vSphere as a destination**
+#### Configuration options for VMWare vSphere as a destination
 
   * **Title** = The name that will be listed in Coriolis' Dashboard. The default will be the name of the machine on the source platform
   * **Execute Now** = Whether or not the Replica/Migration will be executed at the end of its configuration. Default is set to true
@@ -138,13 +138,13 @@ In the situation of creating a **Replica Deployment** using an existing **Replic
 
 ### OSMorphing steps taken when migrating/replicating to VMWare vSphere
 
-**Linux:**
+#### Linux
 
   * install the VMWare drivers
 
 
 
-**Windows:**
+#### Windows
 
   * install the VMWare drivers 
     * required tools and drivers. Instructions are found on the **[OS Morphing tools and drivers](https://cloudbase.it/vmware-tools-and-drivers-for-osmorphing)** page.

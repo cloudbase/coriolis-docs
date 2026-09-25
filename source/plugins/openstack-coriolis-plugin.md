@@ -141,7 +141,7 @@ Storage identification scheme |  Names or IDs of Cinder volume types |  How stor
 
 To connect to an OpenStack cloud to perform a migration/replica to/from that cloud, the following connection parameters are required:
 
-**Example of connection info JSON to be passed to the OpenStack plugin**
+#### Example of connection info JSON to be passed to the OpenStack plugin
 
 ```json
  {

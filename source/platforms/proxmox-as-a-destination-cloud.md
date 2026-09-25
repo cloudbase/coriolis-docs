@@ -22,7 +22,7 @@ In the case of Replicating or Migrating to Proxmox VE, images will need to be cr
 
 **NOTE!** When Replicating/Migrating a **Windows VM** , both **Linux and Windows templates**  have to be specified, as **Disk cloning**  is performed using the Linux template and **OSMorphing**  is performed using the Windows template.
 
-**Linux:**
+#### Linux
 
   * **Ubuntu Server 22.04** LTS (recommended) or higher
 
@@ -51,7 +51,7 @@ systemctl status qemu-guest-agent
 
 
 
-**Windows:**
+#### Windows
 
   * OS used for the image must be the same version or newer than the VM to be **replicated/migrated**
     * example: when migrating a Windows Server 2019 VM, the temporary worker image must be at least WS2019 or newer.
@@ -95,7 +95,7 @@ PVESDNUser| Coriolis may use SDN networks when creating worker or migratied VMs 
   
 #### Replica executions:
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. if this is the first replica execution for the VM, create empty volumes on the destination cloud, each matching the specifications of a disk the VM had on the source.  
 If this is a later replica execution, the previously created volumes are used
@@ -109,7 +109,7 @@ If this is a later replica execution, create a new live snapshot based on the on
 
 #### Replica deployments:
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. create snapshots of the replicated volumes on the destination cloud in order to be able to roll back any changes. By default, new volumes are created from these snapshots, leaving the original replica volumes intact for future replica executions
   2. depending on the OS of the VM whose replica is being deployed, boot a temporary worker VM ("the OSMorphing worker") with the same OS type on the destination cloud, and attach the volumes from step 1 to it
@@ -123,13 +123,13 @@ If this is a later replica execution, create a new live snapshot based on the on
 
 Depending on the OS release being migrated/replicated, the following notable steps will be performed as part of the OSMorphing process:
 
-**Linux:**
+#### Linux
 
   * install guest agent (ovirt-guest-agent or qemu-guest-agent)
 
 
 
-**Windows:**
+#### Windows
 
   * install the VirtIO drivers
   * install the QEMU guest agent
@@ -139,7 +139,7 @@ Depending on the OS release being migrated/replicated, the following notable ste
 
 ### Configuration Options
 
-**Configuration options for Proxmox VE as a destination**
+#### Configuration options for Proxmox VE as a destination
 
   * **Title** = The name that will be listed in Coriolis’ Dashboard. The default will be the name of the machine on the source platform
   * **Skip OS Morphing** = Whether or not to skip the OS Morphing process (installing platform-specific drivers)

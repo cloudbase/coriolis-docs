@@ -127,7 +127,7 @@ raw_hdd=true
 
 Depending on the OS release that is being migrated, the following notable steps will be performed as part of the OSMorphing process:
 
-**Linux:**
+### Linux
 
   * installing cloud-init
   * where supported, installing the guest agent (qemu-guest-agent)
@@ -135,7 +135,7 @@ Depending on the OS release that is being migrated, the following notable steps 
 
 
 
-**Windows:**
+### Windows
 
   * installing the VirtIO drivers
   * installing cloudbase-init

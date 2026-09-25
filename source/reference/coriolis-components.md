@@ -5,7 +5,7 @@ wp_id: 38854
 
 # Working with the Coriolis All-in-One Appliance
 
-## **Login and API access**
+## Login and API access
 
 The containers in the appliance are configured to use localhost networking, which means they all share the host's network interface(s), and can thus be reached on the hosts' IP address(es) at the following ports:
 
@@ -17,7 +17,7 @@ HTTPS certificate is unique to the appliance
 
 
 
-## **Technical details and container components**
+## Technical details and container components
 
 The Coriolis appliance is built on top of an Ubuntu Server LTS host, with all of the services required to run or support Coriolis being deployed and run as Docker containers.
 
@@ -53,7 +53,7 @@ The rest of the supporting services are also deployed as containers using Kolla:
 
 
 
-## **Changing the SSL certificates used by Coriolis**
+## Changing the SSL certificates used by Coriolis
 
 To configure an SSL certificate on your Coriolis server, the following certificate files must be prepared:
 

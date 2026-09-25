@@ -52,7 +52,7 @@ This option offers the capability of restarting the services without interacting
 
 [![](_static/images/option-5-restart.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/04/option-5-restart.jpg?ssl=1)
 
-**Proxy settings**  
+## Proxy settings
 The Proxy options set here will apply to the Coriolis appliance itself, including the internal Coriolis worker that communicates with the cloud endpoints.
 
 For changing the proxy settings to be used during OSMorphing stage, the coriolis.conf [proxy] section will have to be changed.

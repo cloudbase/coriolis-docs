@@ -11,10 +11,9 @@ NOTE! Support for OVM as a target platform in Coriolis has been deprecated. This
 
 ### Replicating (DRaaS) to OVM
 
-####   
-Replica executions:
+#### Replica executions
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. if this is the first replica execution for the VM, create empty disks on OVM, each matching the specifications of a disk the VM had on the source. If this is a later replica execution, the previously-created volumes are used
   2. if this is the first replica execution of the VM, create a new live snapshot of the disks of the VM on the source cloud (handled by whatever source cloud plugin we are using). If this is a later replica execution, create a new live snapshot based on the one from the last successful replica execution
@@ -26,7 +25,7 @@ Replica executions:
 
 #### Replica deployments:
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. create snapshots of the previously-replicated volumes on the OVM in order to be able to roll back any changes. By default, new volumes are created from these snapshots, leaving the original replica volumes intact for future replica executions
   2. depending on the OS of the VM whose replica is being deployed, boot a temporary worker VM ("the OSMorphing worker") with the same OS type on the destination cloud, and attach the volumes from step 1 to it
@@ -38,13 +37,13 @@ Replica executions:
 
 ### Configuration Options
 
-**Coriolis Advanced options for Target Destinations**
+#### Coriolis Advanced options for Target Destinations
 
 In the case of Replicating or Migrating to Oracle VM, there will have to be VM templates on the destination platform having set username and password for the Coriolis worker to access it and use it as a temporary VM.  This is valid for both Windows and Linux machines, and the template OS version must be at least the same as the OS of the VM that needs to be Replicated or Migrated.
 
 [![](_static/images/ovm-dest.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/04/ovm-dest.jpg?ssl=1)
 
-**Configuration options for OVM as a destination**
+#### Configuration options for OVM as a destination
 
 ```json
 [oracle_vm_migration_provider]
@@ -81,7 +80,7 @@ The destination environment parameters are a set of destination-cloud-specific p
 
 Below is a listing of the destination environment parameters the OVM plugin supports when migrating/replicating a VM to OVM:
 
-**Example of destination environment JSON to be passed to the OVM plugin**
+#### Example of destination environment JSON to be passed to the OVM plugin
 
 ```json
 {
@@ -131,14 +130,14 @@ Most destination environment parameters can also be found in the global configur
 
 Depending on the OS release being migrated/replicated, the following notable steps will be performed as part of the OSMorphing process:
 
-**Linux:**
+#### Linux
 
   * installing cloud-init/OVMd
   * rebuilding initrd on RHEL-based systems
 
 
 
-**Windows:**
+#### Windows
 
   * installing the VirtIO drivers
   * installing Cloudbase-init and enabling the Cloudbase-init service

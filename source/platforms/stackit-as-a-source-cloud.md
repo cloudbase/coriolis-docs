@@ -19,7 +19,7 @@ In the process of replicating from Stackit, Coriolis will clone locally the volu
 
 NOTE please consider reviewing the general steps recommended to be performed before creating and executing a replica of an instance from Stackit [_here_](https://cloudbase.it/preparing-a-vm-for-migration-replication/).
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. read the configuration of the instance on the source Stackit (e.g. machine type information, disks, NICs)
   2. snapshot and clone the attached volumes

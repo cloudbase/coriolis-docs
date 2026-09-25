@@ -13,7 +13,7 @@ Migrations to Azure operate in the same way Replicas do and thus entail the same
 
 #### Replica executions:
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. if this is the first replica execution for the VM, create empty disks (configurable to either Managed Disks or blob-storage-based VHDs) on Azure, each matching the specifications of a disk the VM had on the source. If this is a later replica execution, the previously-created disks are used
   2. if this is the first replica execution of the VM, create a new live-snapshot the disks of the VM on the source cloud (handled by whatever source cloud plugin we are using). Is this is a later replica execution, create a new live-snapshot based on the one from the last successful replica execution
@@ -25,7 +25,7 @@ Migrations to Azure operate in the same way Replicas do and thus entail the same
 
 #### Replica deployments:
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. create snapshots of the replicate disks on the destination cloud in order to be able to roll back any changes. By default, new disks are created from these snapshots, leaving the original replica volumes intact for future replica executions.  
 This is an Azure disk snapshot, and not related to the Coriolis option of Clone disk(s)
@@ -42,7 +42,7 @@ The destination environment parameters are a set of destination-cloud-specific p
 
 Below is a listing of the destination environment parameters the Azure plugin supports when migrating/replicating a VM to Azure:
 
-**Example of destination environment JSON to be passed to the Azure plugin**
+#### Example of destination environment JSON to be passed to the Azure plugin
 
 ```json
 {
@@ -105,7 +105,7 @@ Most destination environment parameters can also be found in the global configur
 
 Below is a listing of the configuration section needed when migrating/replicating from Azure:
 
-**Configuration options for Azure as a source**
+#### Configuration options for Azure as a source
 
 ```json
  [azure_migration_provider]
@@ -138,7 +138,7 @@ Below is a listing of the configuration section needed when migrating/replicatin
   
 Below is a listing of the configuration section needed when migrating/replicating to Azure:
 
-**Configuration options for Azure as a destination**
+#### Configuration options for Azure as a destination
 
 ```json
  [azure_migration_provider]
@@ -210,7 +210,7 @@ Below is a listing of the configuration section needed when migrating/replicatin
  cloudbaseinit_x86_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x86.zip 
 ```
   
-**Coriolis Advanced options for Target Destinations**
+#### Coriolis Advanced options for Target Destinations
 
 In the case of Replicating/Migration to Azure, Worker images have the following requirements: 
 
@@ -249,7 +249,7 @@ The OSMorphing process for Azure mandatorily consists of setting all interfaces 
 
 The following other notable steps will be performed as part of the OSMorphing process:
 
-**Linux:**
+#### Linux
 
   * installing the walinuxagent for supported guest OS releases
   * installing Hyper-V integration tools
@@ -259,7 +259,7 @@ The following other notable steps will be performed as part of the OSMorphing pr
 
 
 
-**Windows:**
+#### Windows
 
   * installing Cloudbase-init and enabling the Cloudbase-init service
 

@@ -31,7 +31,7 @@ If an SSH private key is provided in the connection info, it must be base64-enco
 
 ![](_static/images/target-options.png)
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. If this is the first execution of the VM transfer, create empty storage volumes on the destination Libvirt host, each matching the size of a disk the VM had on the source. If this is a later replica execution, update the existing volumes — resizing any that have grown on the source and deleting any that no longer exist.
   2. Create a temporary worker VM (minion machine) on the destination Libvirt host, booting from the worker image specified. The worker VM receives its SSH key and metadata via a cloud-init config drive using the no-cloud metadata format.
@@ -43,7 +43,7 @@ If an SSH private key is provided in the connection info, it must be base64-enco
 
 #### Transfer deployment
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. Optionally, clone the transferred volumes to produce a clean set of volumes as the starting point for deployment, leaving the originals intact in case of a rerun.
   2. Create a temporary worker VM (OS morphing minion) and hot-attach the replica volumes to it.
@@ -104,7 +104,7 @@ For more information regarding the Coriolis Worker image, please check the [_Cor
 
 Depending on the OS being migrated, the following notable steps are performed as part of the OSMorphing process:
 
-**Linux:**
+### Linux
 
   * Installing cloud-init
   * Installing qemu-guest-agent (where supported by the distribution)
@@ -114,7 +114,7 @@ Depending on the OS being migrated, the following notable steps are performed as
 
 
 
-**Windows:**
+### Windows
 
   * Downloading the VirtIO driver ISO and injecting the drivers.
   * Downloading and installing Cloudbase-Init

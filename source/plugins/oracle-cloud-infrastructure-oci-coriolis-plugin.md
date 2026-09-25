@@ -39,7 +39,7 @@ Coriolis' Oracle Cloud Infrastructure plugin supports both migrating (CMaaS) and
 
 ### Migrating (CMaaS) to Oracle Cloud Infrastructure
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
 Migrations to OCI operate like Replicas do and thus entail the same requirements and steps described below.
 
@@ -47,7 +47,7 @@ Migrations to OCI operate like Replicas do and thus entail the same requirements
 
 #### Replica executions:
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. if this is the first replica execution for the VM, create an empty boot volume (this is achieved by creating a VM with an all-zeros image and tearing it down) as well as empty data disks on OCI, each matching the specifications of a disk the VM had on the source. If this is a later replica execution, the previously created boot volume and disks are used
   2. if this is the first replica execution of the VM, create a new live snapshot of the disks of the VM on the source cloud (handled by whatever source cloud plugin we are using). If this is a later replica execution, create a new live snapshot based on the one from the last successful replica execution
@@ -59,7 +59,7 @@ Migrations to OCI operate like Replicas do and thus entail the same requirements
 
 #### Replica deployments:
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. create snapshots of the already-replicated boot volume and data disks on OCI. By default, new disks are created from these snapshots, leaving the original replica volumes intact for future replica executions
   2. depending on the OS of the VM getting migrated, boot another temporary worker VM ("the OSMorphing worker") with the same OS type on the destination cloud, and attach the boot volume and data disks from steps 1 and 2 to it
@@ -82,7 +82,7 @@ For more information, please check the **[Minion Pools page](https://cloudbase.i
 
 The following other notable steps will be performed as part of the OSMorphing process:
 
-**Linux:**
+#### Linux
 
   * rebuilding initrd on RHEL-based systems
   * install the latest available kernel for Oracle Linux and Ubuntu Server 
@@ -92,7 +92,7 @@ The following other notable steps will be performed as part of the OSMorphing pr
 
 
 
-**Windows:**
+#### Windows
 
   * due to worker image initialization issues as well as increased complexity during OSMorphing, migrating/replicating Windows VMs to OCI is currently unsupported as **Native**
   * migrations are supported only for **Emulated or Paravirtualized instances**.
@@ -113,7 +113,7 @@ Coriolis allows users to choose two compartments when migrating to OCI, for more
 
 To connect to OCI to perform a migration/replica to it, the following connection parameters must be supplied:
 
-**Example of connection info JSON to be passed to the OCI plugin**
+#### Example of connection info JSON to be passed to the OCI plugin
 
 ```json
 {
@@ -145,7 +145,7 @@ The destination environment parameters are a set of key-value pairs (some may ha
 
 Below is a listing of the destination environment parameters the OCI plugin supports when migrating/replicating a VM to OCI:
 
-**Example of destination environment JSON to be passed to the OCI plugin**
+#### Example of destination environment JSON to be passed to the OCI plugin
 
 ```json
 {
@@ -196,7 +196,7 @@ Destination environment parameters are also exposed in the **[oci_migration_prov
 
 Below is a listing of the configuration section needed when migrating/replicating to OCI:
 
-**Configuration options for OCI as a destination**
+#### Configuration options for OCI as a destination
 
 ```json
  [oci_migration_provider]
@@ -237,7 +237,7 @@ Below is a listing of the configuration section needed when migrating/replicatin
  # windows_virtio_zip_url = https://example.com/virtio-1.1.3.zip 
 ```
   
-**Coriolis Advanced Options for Target Destinations**
+#### Coriolis Advanced Options for Target Destinations
 
 In the case of Replicating or Migrating to Oracle Cloud Infrastructure, the required parameters are to be selected from the ones available in the OCI environment, also select the correct versions for Windows and Linux “Migration Image Map”. The template OS version must be at least the same as the OS of the VM that needs to be migrated. 
 

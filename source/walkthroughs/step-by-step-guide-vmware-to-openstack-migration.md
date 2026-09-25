@@ -35,7 +35,7 @@ The About pop-up will show you some details regarding your license (if there is 
 
 ![](_static/images/license1.png)
 
-**Installing a Coriolis License**
+#### Installing a Coriolis License
 
 After you receive a new Coriolis license file, it needs to be added to the Coriolis installation.
 
@@ -53,7 +53,7 @@ To do so, please follow the steps below within the Coriolis Web UI:
 
 The following ports must be allowed in any firewall(s) present in the network where the source platform - Coriolis virtual appliance - target platform reside.
 
-**OpenStack**
+#### OpenStack
 
 **Service**| **Default Port**| **Protocol**  
 ---|---|---  
@@ -70,7 +70,7 @@ Temporary Migration Worker - Destination| 22
 5986  
 5566| TCP  
   
-**VMware**
+#### VMware
 
 **Service**| **Default** **Port**| **Protocol**  
 ---|---|---  
@@ -94,7 +94,7 @@ From the new pop-up, select the Endpoint that is to be used
 
 In the new pop-up, fill in the details for your Endpoint.
 
-**For VMware:**
+#### For VMware
 
   1. Give a name to the new endpoint
   2. Enter the credentials for a user with the permissions required for Coriolis to migrate off VMware
@@ -119,7 +119,7 @@ After the details are filled in, click “Validate and save”. Coriolis will th
 
 If the validation step fails, please review all of the provided details to ensure that they are correct.
 
-**For OpenStack:**
+#### For OpenStack
 
   1. Give a name to the new endpoint
   2. Provide the login username and its password
@@ -154,11 +154,11 @@ In a situation of Replicating/Migrating a Linux VM, only Linux templates are req
 
 NOTE! When migrating a **Windows VM** , both **Linux and Windows templates** have to be specified. The **Disk cloning** is performed using the Linux template, and **OSMorphing** is performed using the Windows template.
 
-**Linux Temporary Migration Worker**
+#### Linux Temporary Migration Worker
 
 For Linux OS images, we recommend using **Ubuntu Server 20.04 LTS (or newer)** , or **Oracle Linux Server 8 (or newer).** Both distributions have cloud images provided by their vendors, which can be used as-is, without any modifications.
 
-**Windows Temporary Migration Worker**
+#### Windows Temporary Migration Worker
 
 When Migrating Windows VMs, the Windows VM template must be based on the same version of the VM to be migrated
 

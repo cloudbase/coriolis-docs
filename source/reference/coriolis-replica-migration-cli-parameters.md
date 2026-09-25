@@ -11,7 +11,7 @@ The source environment parameters are a set of source-cloud-specific parameters 
 
 Below is a listing of the source environment parameters the VMWare plugin supports when migrating/replicating a VM from vSphere/ESXi:
 
-**Example of source environment JSON to be passed to VMWAre plugin**
+### Example of source environment JSON to be passed to VMWAre plugin
 
 ```json
 {"vixdisklib_compatibility_version": "6.7","automatically_enable_cbt": false}
@@ -28,7 +28,7 @@ The source environment parameters are a set of source-cloud-specific parameters 
 
 Below is a listing of the source environment parameters the OpenStack plugin supports when migrating/replicating a VM from OpenStack:
 
-**Source environment for Openstack plugin**
+### Source environment for Openstack plugin
 
 ```json
 {"custom_os_type_map": { "redhat": "linux" },"replica_export_mechanism": "swift_backups","swift_backups_options": {"volume_backups_container": "coriolis"},"coriolis_backups_options": {"export_interim_volume_type": "default-volume-type","export_image": "bionic","export_worker_use_config_drive": true,"export_network": "admin-net","export_flavor_name": "m1.small","export_worker_use_fip": true,"export_fip_pool_name": "floating-ip-net","export_worker_boot_from_volume": false,"export_worker_volume_type": "default-volume-type","export_worker_volume_size": 20,}}
@@ -58,7 +58,7 @@ The destination environment parameters are a set of destination-cloud-specific p
 
 Below is a listing of the destination environment parameters the OpenStack plugin supports when migrating/replicating a VM to OpenStack:
 
-**Example of destination environment JSON to be passed to the OpenStack plugin**
+### Example of destination environment JSON to be passed to the OpenStack plugin
 
 ```json
 {"network_map": {"source network name": "name or ID of existing Neutron network in destination OpenStack",},"storage_mappings": {"default": "cinder-volume-type-0","backend_mappings": [{"source": "datastor1", "destination": "cinder-volume-type-1"}],"disk_mappings": [{"disk_id": "<ID of disk>", "destination": "cinder-volume-type-2"}]},"hypervisor_type": "kvm","flavor_name": "m1.small","keypair_name": "new-key","delete_disks_on_vm_termination": false,"security_groups": ["name of existing secgroup on destination OpenStack", "and another one"],// parameters relating to the temporary worker instances, used in both migrations and replicas:"migr_image_map": {"linux": "Linux migration worker Image name/ID","windows": "63d8f1a4-3192-4edc-b113-0d099b4bc458"},"migr_network": "private","migr_worker_use_fip": true,"migr_fip_pool_name": "external_network/external_subnet","migr_flavor_name": "m1.small","migr_worker_boot_from_volume": true,"migr_worker_volume_size": 1,"migr_worker_volume_type": "cinder-voltype","list_all_destination_networks": true,"migr_worker_use_config_drive": true,// parameters relating to the migration process:"port_reuse_policy": "keep_mac","volumes_are_zeroed": true,"preserve_fixed_ips": true,"server_group": "name or ID of Nova server group","use_floating_ip": true,"floating_ip_pool": "external_network/external_subnet",// parameters relating to the OSMorphing process, used in both migrations and replica deployments:"set_dhcp": true,"instance_tags": {"tag1": "value1","tag2": "value2"}}
@@ -99,7 +99,7 @@ The source environment parameters are a set of source-cloud-specific parameters 
 
 Below is a listing of the destination environment parameters the AWS plugin supports when migrating/replicating a VM from AWS:
 
-**Example of source environment JSON to be passed to the AWS plugin**
+### Example of source environment JSON to be passed to the AWS plugin
 
 ```json
 {"migr_image_map": {"linux": "ami-50946030", "windows": "ami-50946031"},"worker_instance_type": "t2.medium","shutdown_migrated_instance": false}
@@ -115,7 +115,7 @@ Below is a listing of the destination environment parameters the AWS plugin supp
 
 The source environment parameters are a set of source-cloud-specific parameters which offer some extra options and configurability to the migration/replication process on a per-VM basis.
 
-**Example of source environment JSON to be passed to the Hyper-V plugin**
+### Example of source environment JSON to be passed to the Hyper-V plugin
 
 ```json
 {"fallback_to_crash_consistent_snapshots": true,"verify_rct_server": false}
@@ -132,7 +132,7 @@ The source environment parameters are a set of destination-cloud-specific parame
 
 Below is a listing of the destination environment parameters the Azure plugin supports when migrating/replicating a VM from Azure:
 
-**Example of source environment JSON to be passed to the Azure plugin**
+### Example of source environment JSON to be passed to the Azure plugin
 
 ```json
 {"location": "westus","resource_group": "coriolis-testgroup","export_worker_size": "Standard_A1","export_worker_image": {"publisher": "Canonical","offer": "UbuntuServer","sku": "16.04.0-LTS","version": "latest"},// Below options are for Blob storage-based scenarios:"storage_account_name": "storage-account","storage_container_name": "coriolis"}
@@ -153,7 +153,7 @@ The destination environment parameters are a set of destination-cloud-specific p
 
 Below is a listing of the destination environment parameters the Azure plugin supports when migrating/replicating a VM to Azure:
 
-**Example of destination environment JSON to be passed to the Azure plugin**
+### Example of destination environment JSON to be passed to the Azure plugin
 
 ```json
 {"location": "westus","resource_group": "Migrations","network_map":{"source network name": "azure-network-name/test-subnet-name"},"storage_map": {"default": "Standard_LRS","backend_mappings": [{"source": "source_backend", "destination": "Premium_LRS"}],"disk_mappings": [{"disk_id": "source_disk_id", "destination": "Premium_SSD"}]},"vm_size": "Standard_D1",// parameters relating to the temporary worker instances, used in both migrations and replicas:"worker_size": "Standard_D1","linux_migr_image": {"publisher": "Canonical","offer": "UbuntuServer","sku": "16.04.0-LTS","version": "latest"},"windows_migr_image": {"publisher": "MicrosoftWindowsServer","offer": "WindowsServer","sku": "2016-Datacenter-Server-Core","version": "latest"},// Below options are for Blob storage-based scenarios:"storage_account_name": "storage-account","storage_container_name": "coriolis","preserve_nic_ips": false}
@@ -179,7 +179,7 @@ The destination environment parameters are a set of key-value pairs (some may ha
 
 Below is a listing of the destination environment parameters the OCI plugin supports when migrating/replicating a VM to OCI:
 
-**Example of destination environment JSON to be passed to the OCI plugin**
+### Example of destination environment JSON to be passed to the OCI plugin
 
 ```json
 {"network_map": {"source_network_1": {"id": "<ID of destination OCI subnet>","security_groups": ["network_secgroup_id_1", ...]},"storage_mapping": {"default": "emulated","backend_mappings": [{"source": "datastor1", "destination": "iscsi"}],"disk_mappings": [{"disk_id": "<ID of disk>", "destination": "paravirtualized"}]},"use_pv_mode": true,"availability_domain": "<availability_domain>","compartment": "<compartment_ID>","vcn_compartment": "<compartment_ID>","set_public_ip": true,"migr_subnet_id": "<migrsubnet>","migr_image_map": {"linux": "<linux_image_id>","windows": "<windows image ID>"}"migr_shape_name": "VM.Standard1.2","shape_name": "VM.Standard2.2"}
@@ -205,7 +205,7 @@ The source environment parameters are a set of source-cloud-specific parameters 
 
 Below is a listing of the source environment parameters the OCI-C plugin supports when migrating/replicating a VM from OCI:
 
-**Example of source environment JSON to be passed to the OCI-C plugin**
+### Example of source environment JSON to be passed to the OCI-C plugin
 
 ```json
 {"export_image_name": "/oracle/public/OL_7.2_UEKR4_x86_64","export_img_username": "cloud-user","export_shape_name": "oc3","export_root_disk_size": 20}
@@ -224,7 +224,7 @@ The destination environment parameters are a set of destination-cloud-specific p
 
 Below is a listing of the destination environment parameters the OCI-C plugin supports when migrating/replicating a VM to OCI-C:
 
-**Example of destination environment JSON to be passed to the OCI-C plugin**
+### Example of destination environment JSON to be passed to the OCI-C plugin
 
 ```json
 {"network_map": {"source network name": "name of an existing IP network on destination OPC"},"storage_mappings": {"default": ""/oracle/public/storage/default"","backend_mappings": [{"source": "datastor1", "destination": "/oracle/public/storage/default"}],"disk_mappings": [{"disk_id": "<ID of disk>", "destination": "/oracle/public/storage/latency"}]},"migr_image_map": {"linux": "/oracle/public/OL_7.2_UEKR4_x86_64",// NOTE: syntax for custom images:"windows": "/Compute-a488347/user@mail.com/Windows_2012_R2"},"migr_shape_name": "oc3","shape_name": "oc3","default_volume_pool": "/oracle/public/storage/default","keypair_name": "key1","set_public_ip": true}
@@ -247,7 +247,7 @@ The source environment parameters are a set of source-cloud-specific parameters 
 
 Below is a listing of the source environment parameters the OVM plugin supports when migrating/replicating a VM from OVM:
 
-**Example of source environment JSON to be passed to the OVM plugin**
+### Example of source environment JSON to be passed to the OVM plugin
 
 ```json
 {"repository_name": "<name of the repository to create temporary worker VMs in>","export_template_name": "<name of Linux template to use for the temporary disk export VMs>","export_template_username": "<username to the temporary VM template>","export_template_password": "<password to the temporary VM template>","virtual_disk_clone_types": "THIN_CLONE"}
@@ -267,7 +267,7 @@ The destination environment parameters are a set of destination-cloud-specific p
 
 Below is a listing of the destination environment parameters the OVM plugin supports when migrating/replicating a VM to OVM:
 
-**Example of destination environment JSON to be passed to the OVM plugin**
+### Example of destination environment JSON to be passed to the OVM plugin
 
 ```json
 {"network_map": {"source network name": "name or ID of existing network on destination OVM",},"storage_mappings": {"default": "default_repository","backend_mappings": [{"source": "datastor1", "destination": "Main"}],"disk_mappings": [{"disk_id": "<ID of disk>", "destination": "Local"}]},"server_pool_name": "<name of server pool>","repository_name": "<name of storage repository>","migr_template_name_map": {"linux": "OracleLinux7_template","windows": "Windows2012R2_template"},"migr_template_username_map": { "linux": "root", "windows": "Administrator" },"migr_template_password_map": { "linux": "<root password>", "windows": "<Administrator password" },"leave_migrated_vm_off": false,"os_label": "coriolis-migrated","virtual_disk_clone_type": "THIN_CLONE"}

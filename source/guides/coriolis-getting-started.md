@@ -17,11 +17,11 @@ Both options are available in Coriolis Dashboard under **Transfers**.
 
 ![](_static/images/m1.png)
 
-**Replicas (DRaaS)**
+#### Replicas (DRaaS)
 
 **Replicas** are continuous background sync of a running workload's storage from a source cloud directly to a destination cloud ("executing a replica"), and the ability to create a new VM on the destination cloud with the synced storage elements should disaster strike on the source ("deploying a replica").
 
-**Migrations (CMaaS)**
+#### Migrations (CMaaS)
 
 **Migrations** represent "lift-and-shift" operations, where the goal is to copy the storage of an existing instance on the source cloud to the destination cloud and boot a new instance with identical settings.
 
@@ -65,8 +65,7 @@ It will offer you options to inspect or modify the credentials, networks, and co
 
 For more information, please check the **[Coriolis Console Menu](https://cloudbase.it/coriolis-console-menu)** page.
 
-##    
-Coriolis License
+## Coriolis License
 
 Coriolis Licenses are required to perform Replicas/Migrations. 
 

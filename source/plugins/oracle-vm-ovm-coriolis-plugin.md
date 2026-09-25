@@ -69,7 +69,7 @@ For more information regarding the Coriolis Worker template, please check the **
 
 In order to connect to OVM to perform a migration from it, the following connection parameters are required:
 
-**Example of connection info JSON to be passed to the OVM plugin**
+#### Example of connection info JSON to be passed to the OVM plugin
 
 ```json
  {

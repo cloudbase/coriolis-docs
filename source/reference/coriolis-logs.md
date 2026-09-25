@@ -11,13 +11,13 @@ This allows easy streaming of logs to any web sockets enabled destination (WebUI
 
 Conceivably, this can be used with any application that logs to Syslog, and data-store packages can be written for it to allow sending logs to any backend. The following writers and data stores are supported:
 
-**Datastores:**
+## Datastores
 
   * InfluxDB
 
 
 
-**Writers:**
+## Writers
 
   * Web Sockets
   * Standard out (for testing purposes mostly)
@@ -48,7 +48,7 @@ When streaming logs, you have the option to either filter by component or receiv
 
 You can also choose the severity of the logging output you wish to see. Coriolis logger uses standard Syslog severity values.
 
-## **Coriolis CLI client**
+## Coriolis CLI client
 
 Logs can be streamed or downloaded from the Coriolis-logger backend by using the Coriolis CLI client.
 
@@ -60,7 +60,7 @@ Please see for usage info:
 #coriolis log --help 
 ```
   
-## **Coriolis Log Rotation**
+## Coriolis Log Rotation
 
 Log Rotation provides the option to set log intervals with values that are available for **coriolis-api** , **coriolis-conductor** and **coriolis-worker**.  
 It can be enabled by editing the ***-logging.conf** file for each of the 3 components mentioned above, the ***-logging.conf** files are available on Coriolis' Appliance, under **/etc/coriolis/** ***-logging.conf**

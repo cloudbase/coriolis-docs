@@ -13,7 +13,7 @@ Migrations to AWS operate in the same way Replicas do, and thus entail the same 
 
 #### Replica executions:
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. if this is the first replica execution for the VM, create empty EBS volumes on the destination cloud, each matching the specifications of a disk the VM had on the source  
 If this is a later replica execution, the previously-created EBS volumes are used
@@ -27,7 +27,7 @@ If this is a later replica execution, create a new live snapshot based on the on
 
 #### Replica deployments:
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. [optional] create snapshots of the replicated EBS volumes on the destination cloud in order to be able to roll back any changes.  
 By default, new volumes are created from these snapshots, leaving the original replica volumes intact for future replica executions
@@ -42,7 +42,7 @@ By default, new volumes are created from these snapshots, leaving the original r
 
 Below is a listing of the configuration section needed when migrating from AWS:
 
-**Configuration options for AWS as a destination**
+#### Configuration options for AWS as a destination
 
 [![](_static/images/ASW-destination.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/04/ASW-destination.jpg?ssl=1)
 
@@ -98,7 +98,7 @@ During the disk export and OSMorphing processes, Coriolis will create temporary 
 
 The images do **NOT** require any special Coriolis agent running in them and can be images already available in the AWS marketplace, granted the following requirements:
 
-**Linux** :
+#### Linux
 
   * needs to be Ubuntu 18.04 or later (using official Canonical 18.04 images is recommended)
   * AMI must have only one disk (regardless if instance storage or EBS-backed)
@@ -106,7 +106,7 @@ The images do **NOT** require any special Coriolis agent running in them and can
 
 
 
-**Windows** :
+#### Windows
 
   * for OSMorphing, must be of at least the same version as the guest of the VM being migrated
   * the Windows image should have the AWS Windows agent tools configured for the first boot
@@ -119,7 +119,7 @@ The destination environment parameters are a set of destination-cloud-specific p
 
 Below is a listing of the destination environment parameters the AWS plugin supports when migrating/replicating a VM to AWS:****
 
-**Example of destination environment JSON to be passed to the AWS plugin**
+#### Example of destination environment JSON to be passed to the AWS plugin
 
 ```json
 {

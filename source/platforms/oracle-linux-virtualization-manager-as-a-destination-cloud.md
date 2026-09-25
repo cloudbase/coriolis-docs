@@ -7,15 +7,15 @@ wp_id: 43526
 
 **NOTE: Both OLVM and RHEV are considered oVirt platforms in the Coriolis documentation pages and therefore all notes about the oVirt platform will apply to both the OLVM and RHEV providers.**  
   
-### **Migrating (CMaaS) to oVirt**
+### Migrating (CMaaS) to oVirt
 
 Migrations to oVirt operate like Replicas do and thus entail the same requirements and steps described below.
 
-### **Replicating (DRaaS) to oVirt**
+### Replicating (DRaaS) to oVirt
 
 #### Replica executions:
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. if this is the first replica execution for the VM, create empty disks on oVirt, each matching the specifications of a disk the VM had on the source. If this is a later replica execution, the previously created volumes are used
   2. if this is the first replica execution of the VM, create a new live snapshot of the disks of the VM on the source cloud (handled by whatever source cloud plugin we are using). If this is a later replica execution, create a new live snapshot based on the one from the last successful replica execution
@@ -27,7 +27,7 @@ Migrations to oVirt operate like Replicas do and thus entail the same requiremen
 
 #### Replica deployments:
 
-**Steps performed by Coriolis** :
+#### Steps performed by Coriolis
 
   1. create snapshots of the previously replicated volumes on the oVirt to be able to roll back any changes. By default, new volumes are made from these snapshots, leaving the original replica volumes intact for future replica executions
   2. depending on the OS of the VM whose replica is being deployed, boot a temporary worker VM (“the OSMorphing worker”) with the same OS type on the destination cloud, and attach the volumes from step 1 to it
@@ -90,13 +90,13 @@ After completing the **qemu-guest-agent** install, depending on the OS type sele
 
 Depending on the OS release being migrated/replicated, the following notable steps will be performed as part of the OSMorphing process:
 
-**Linux:**
+#### Linux
 
   * install guest agent (ovirt-guest-agent or qemu-guest-agent)
 
 
 
-**Windows:**
+#### Windows
 
   * installing the VirtIO drivers - as per the below section
 
@@ -138,7 +138,7 @@ For VirtIO drivers, please follow the **[official page](https://docs.fedoraproje
 
 Below is a listing of the configuration section needed when migrating/replicating to oVirt:
 
-**Configuration options for oVirt as a destination**
+### Configuration options for oVirt as a destination
 
 ```json
 [ovirt_migration_provider]
