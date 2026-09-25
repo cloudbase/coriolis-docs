@@ -7,8 +7,7 @@ wp_id: 37594
 
 Coriolis® performs software-defined migrations of virtual workloads among different clouds and virtualization solutions at scale, supporting also DRaaS (disaster recovery as a service) scenarios. More information on Coriolis is available [here](https://cloudbase.it/coriolis).
 
-This guide explains how to configure Coriolis for Oracle VM.  
-Note: all the actions executed by Coriolis leverage the standard API provided by the cloud infrastructure, no admin access is required.
+This guide explains how to configure Coriolis for Oracle VM. Note: all the actions executed by Coriolis leverage the standard API provided by the cloud infrastructure, no admin access is required.
 
 ### Oracle VM templates
 
@@ -42,11 +41,10 @@ repository_name = repo1
 virtual_disk_clone_type = THIN_CLONE
 windows_pv_drivers_url = https://cloudbase.it/downloads/ovm_win_pv_drivers_all_323.zip
 ```
-  
+
 Set **virtual_disk_clone_type** as described above, based on your preferences and infrastructure requirements. If you opt for thin cloning, ensure that it is supported by your Oracle VM storage.
 
-The **windows_pv_drivers_url** setting is the URL of a zip archive containing the Windows Oracle VM PV drivers to be automatically installed by Coriolis in the Windows VMs migrated from other clouds or virtualization solutions (e.g. VMware).  
-The driver drivers can be obtained from any Windows instance with the Oracle VM PV drivers already installed. The sample URL included here is for reference only.
+The **windows_pv_drivers_url** setting is the URL of a zip archive containing the Windows Oracle VM PV drivers to be automatically installed by Coriolis in the Windows VMs migrated from other clouds or virtualization solutions (e.g. VMware). The driver drivers can be obtained from any Windows instance with the Oracle VM PV drivers already installed. The sample URL included here is for reference only.
 
 The configuration file contains also other settings, no other changes are needed for this starting guide.
 
@@ -63,7 +61,7 @@ url = http://proxy:3128
 # Optional comma separated list of proxy exclusions
 # no_proxy =
 ```
-  
+
 ### How to create the Oracle VM worker templates
 
 Two VM templates are needed, one for migrating Linux VMs (any distro) and one for Windows VMs (any version).
@@ -88,7 +86,7 @@ Once done, update the system and install the Unbreakable Enterprise Kernel:
 yum update -y
 yum install kernel-uek -y
 ```
-  
+
 Install the OVM daemon (**ovmd**) and related dependencies. This is needed for Coriolis to automate the configuration of the VMs deployed from the template and obtain their IP address.
 
 ```bash
@@ -97,7 +95,7 @@ yum install lvm2 -y
 systemctl enable ovmd
 systemctl enable ovm-template-initial-config
 ```
-  
+
 Once done, shutdown the VM (cleaning the Bash history is optional):
 
 history -c && poweroff
@@ -105,7 +103,7 @@ history -c && poweroff
 ```text
 history -c && poweroff
 ```
-  
+
 Once the VM is powered off, using Oracle VM Manager, disconnect the ISO, clone the VM in a VM template, and provide a name to be used in the Coriolis config file (e.g. _OracleLinux7_template_ in the sample Coriolis config). The VM can now be deleted.
 
 #### Windows
@@ -128,7 +126,7 @@ Configuring WINRM can be easily achieved with the following PowerShell script:
 wget https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1 -UseBasicParsing -OutFile ConfigureRemoting.ps1
 powershell -ExecutionPolicy remoteSigned -File ConfigureRemoting.ps1
 ```
-  
+
 Once done, you can shut down the VM, disconnect the ISO, and clone the VM in a VM template (named _WS2012R2_template_ in the sample Coriolis config) as explained for the Linux case above. The VM can now be deleted.
 
 Notes:

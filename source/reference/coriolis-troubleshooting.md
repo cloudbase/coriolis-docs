@@ -5,8 +5,8 @@ wp_id: 40662
 
 # Coriolis Troubleshooting
 
-This page outlines different situations that a user might encounter when using Coriolis.  
-  
+This page outlines different situations that a user might encounter when using Coriolis.
+
 ### No matching migration image type found for OS type 'windows'
 
 When Replicating/Migrating a **Windows VM** , the above error can be seen if a Windows template has not been specified for the Temporary migration worker. in the Target options menu, under the Advanced screen, both **Linux and Windows templates**  have to be specified. This is required as **Disk cloning**  is performed using the Linux template and **OSMorphing**  is performed using the Windows template.
@@ -32,7 +32,7 @@ There is a dedicated 'debug_os_morphing_errors' flag in the '[conductor]' sectio
 [conductor]
 debug_os_morphing_errors = false
 ```
-  
+
 If set to 'true', the Coriolis Conductor will skip performing the cleanup steps on the temporary resources on the destination platform and will log out the connection info for the temporary VM in the Coriolis-conductor.log.
 
 NOTE please remember to run a `docker restart Coriolis-conductor` for any changes to `debug_os_morphing_errors` to take effect.
@@ -54,9 +54,8 @@ temp_keypair_password = qJDxLBbdFCvRKP3J8qTxcvuh
 $ grep "have been cancelled to allow for OSMorphing debugging." /var/log/coriolis/coriolis-conductor.log
 2019-10-16 21:53:53.007 WARNING coriolis.conductor.rpc.server [req-05f6b9fa-6d78-45fc-9bee-a1e4de05ac49 ] All subtasks for Migration 'ece4b02d-4ab8-405c-b33e-c36c63a20993' have been cancelled to allow for OSMorphing debugging. The connection info for the worker VM is: {'ip': '138.91.73.150', 'port': 22, 'username': 'coriolis', 'password': None, 'pkey': '<pkey_data>'}
 ```
-  
-WARNING if 'debug_os_morphing_errors' is set, the lifecycle of the temporary OSMorphing worker VM and all of its associated resources (disks, NICs, public IPs, etc…) will no longer be managed by Coriolis.  
-**All the temporary OSMorphing resources on the destination platform will need to be manually cleaned up after investigations have concluded.**
+
+WARNING if 'debug_os_morphing_errors' is set, the lifecycle of the temporary OSMorphing worker VM and all of its associated resources (disks, NICs, public IPs, etc…) will no longer be managed by Coriolis. **All the temporary OSMorphing resources on the destination platform will need to be manually cleaned up after investigations have concluded.**
 
 After logging into the temp VM, the following things to check may be of importance:
 
@@ -88,19 +87,19 @@ The following command can be used to change the password for the admin user:
 ```bash
  $ openstack user set --password-prompt admin 
 ```
-  
+
 Once done, consider setting also the corresponding password in **/etc/kolla/admin-openrc.sh** :
 
 ```bash
  $ export OS_PASSWORD=YourNewPassword 
 ```
-  
+
 For multi-tenant configurations, the following command can be used to change the password for any user:
 
 ```bash
  $ openstack user set --name admin --domain Default --project admin --project-domain Default --password "new password" admin 
 ```
-  
+
 ### Migrated guest VM fails to boot with a message that root volume or partition not found
 
 A guest VM with the root partition using LABEL paths in /etc/fstab**** might fail to migrate under Coriolis.
@@ -129,14 +128,14 @@ From the console menu, go to the option to edit the network settings.
 
 You can set a static IP in this format:
 
-> network:  
->   version: 2  
->   ethernets:  
->     enp0s3:  
->       dhcp4: no  
->       addresses: [192.168.0.123/24]  
->       gateway4: 192.168.1.1  
->       nameservers:  
+> network:
+>   version: 2
+>   ethernets:
+>     enp0s3:
+>       dhcp4: no
+>       addresses: [192.168.0.123/24]
+>       gateway4: 192.168.1.1
+>       nameservers:
 >         addresses: [8.8.8.8,8.8.4.4]
 
 Once the configuration file is saved, exit the Coriolis console edit session by typing "exit", which will prompt to restart the network services in order to apply the configuration change.
@@ -150,7 +149,7 @@ To overcome this, log onto the ovirt server, and run the following command, so t
 ```bash
 semodule -i swtpm_local.pp
 ```
-  
+
 This usually happens on OLVM versions older than 4.5. Newer versions may have this issue resolved. After setting this, Coriolis should be able to power on migrated machines when finalizing the migration process. The previously-migrated machines will also be able to be powered on.
 
 ## Troubleshooting LUKS-encrypted migrations

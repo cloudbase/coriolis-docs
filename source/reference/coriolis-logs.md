@@ -59,11 +59,10 @@ Please see for usage info:
 ```text
 #coriolis log --help 
 ```
-  
+
 ## Coriolis Log Rotation
 
-Log Rotation provides the option to set log intervals with values that are available for **coriolis-api** , **coriolis-conductor** and **coriolis-worker**.  
-It can be enabled by editing the ***-logging.conf** file for each of the 3 components mentioned above, the ***-logging.conf** files are available on Coriolis' Appliance, under **/etc/coriolis/** ***-logging.conf**
+Log Rotation provides the option to set log intervals with values that are available for **coriolis-api** , **coriolis-conductor** and **coriolis-worker**. It can be enabled by editing the ***-logging.conf** file for each of the 3 components mentioned above, the ***-logging.conf** files are available on Coriolis' Appliance, under **/etc/coriolis/** ***-logging.conf**
 
 After the values are modified in the ***-logging.conf** , the container for the respective component has to be restarted for the changes to apply.
 

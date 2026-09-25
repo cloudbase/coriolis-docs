@@ -15,10 +15,8 @@ Migrations to AWS operate in the same way Replicas do, and thus entail the same 
 
 #### Steps performed by Coriolis
 
-  1. if this is the first replica execution for the VM, create empty EBS volumes on the destination cloud, each matching the specifications of a disk the VM had on the source  
-If this is a later replica execution, the previously-created EBS volumes are used
-  2. if this is the first replica execution of the VM, create a new live-snapshot the disks of the VM on the source cloud (handled by whatever source cloud plugin we are using)  
-If this is a later replica execution, create a new live snapshot based on the one from the last successful replica execution
+  1. if this is the first replica execution for the VM, create empty EBS volumes on the destination cloud, each matching the specifications of a disk the VM had on the source If this is a later replica execution, the previously-created EBS volumes are used
+  2. if this is the first replica execution of the VM, create a new live-snapshot the disks of the VM on the source cloud (handled by whatever source cloud plugin we are using) If this is a later replica execution, create a new live snapshot based on the one from the last successful replica execution
   3. create a temporary Linux worker VM (the "disk copy worker") on AWS cloud and attach the EBSvolumes from step 1 to it
   4. read the contents of the snapshot created at step 2 via the source platform's snapshot/backup APIs (handled by whatever source cloud plugin we are using), transferring the written chunks to the temporary VM created in step 3, which then writes the chunks at the appropriate index/offset of the disks created at step 1
   5. once the contents of all the disks have been synced to the EBS volumes created during step 1, detach the volumes and delete the disk copy worker created at step 3
@@ -29,8 +27,7 @@ If this is a later replica execution, create a new live snapshot based on the on
 
 #### Steps performed by Coriolis
 
-  1. [optional] create snapshots of the replicated EBS volumes on the destination cloud in order to be able to roll back any changes.  
-By default, new volumes are created from these snapshots, leaving the original replica volumes intact for future replica executions
+  1. [optional] create snapshots of the replicated EBS volumes on the destination cloud in order to be able to roll back any changes. By default, new volumes are created from these snapshots, leaving the original replica volumes intact for future replica executions
   2. depending on the OS of the VM whose replica is being deployed, boot a temporary worker VM ("the OSMorphing worker") with the same OS type on the destination cloud, and attach the EBS volumes from step 1 to it
   3. perform the "OSMorphing process", where Coriolis commands the OSMorphing worker created during step 2 to scan all attached disks for the OS installation of the VM we are migrating, mount and perform the steps needed to prepare the installation for the new platform (ex: uninstalling the VMWare guest tools if migrating away from VMWare)
   4. detach the EBS volumes created at step 1 from the OSMorphing worker created at step 2 and delete the temporary worker VM 
@@ -75,7 +72,7 @@ default_storage_type = standard
 # Default instance type used for final migrated instances.
 # instance_type = t2.medium
 ```
-  
+
 ### OSMorphing steps taken when migrating to AWS
 
 For HVM guests, Coriolis will take the following OSMorphing steps as part of the migration process to AWS:
@@ -138,7 +135,7 @@ Below is a listing of the destination environment parameters the AWS plugin supp
 	"retain_source_ip": true
 }
 ```
-  
+
 Each parameter represents:
 
   * **network_map** - a mapping between the names of networks on the source cloud and names or IDs of corresponding pre-existing networks on AWS. For each NIC of the instance on the source cloud, Coriolis will lookup the mapped network on the destination and ensure the NIC will be attached to the mapped network

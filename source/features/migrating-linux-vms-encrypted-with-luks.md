@@ -32,7 +32,7 @@ Verify passphrase:
 cloudbase@ubuntu24luks:~$ sudo cryptsetup luksDump /dev/sda3
 # here we confirm another keyslot was added
 ```
-  
+
 2\. Users pass the migration passphrase from step 1 to Coriolis when creating the transfer. It does not need to be memorable long-term; it is deleted automatically after the first boot of the migrated VM.
 
 [![](_static/images/image-1.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/08/image-1.png?ssl=1)

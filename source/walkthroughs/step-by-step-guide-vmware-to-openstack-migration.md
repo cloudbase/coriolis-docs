@@ -66,10 +66,9 @@ Swift| 8080| TCP
 Ceph| 6789| TCP  
 Temporary Migration Worker - Source| 22, 4433| TCP  
 Temporary Migration Worker - Destination| 22  
-443  
-5986  
+443 5986
 5566| TCP  
-  
+
 #### VMware
 
 **Service**| **Default** **Port**| **Protocol**  
@@ -77,11 +76,10 @@ Temporary Migration Worker - Destination| 22
 Management| 443| TCP  
 CBT Source| 443| TCP  
 Temporary Migration Worker - Destination| 22  
-4433  
-5986  
+4433 5986
 5566| TCP  
 Management (to all ESXi nodes)| 902| TCP  
-  
+
 ### Endpoints creation for VMware and OpenStack platforms
 
 A Coriolis endpoint represents the connection information that Coriolis will use to interact with the platforms that are part of the migration.

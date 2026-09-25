@@ -5,8 +5,7 @@ wp_id: 39836
 
 # VMware as a source cloud
 
-### Migrating (CMaaS) from vSphere/ESXi  
-  
+### Migrating (CMaaS) from vSphere/ESXi
 Migrations from VMware vSphere or VMware ESXi operate in the same way Replicas do and thus entail the same requirements and steps described below.
 
 ### Replicating (DRaaS) from vSphere/ESXi
@@ -127,7 +126,7 @@ Power Off| The VM(s) which are to be migrated| optional| Required for automatica
 Create/Remove Snapshot| The VM(s) which are to be migrated| required| Required for the creation and cleanup of temporary VM snapshots  
 **Disk**|  Virtual Machine >  
 Allow read-only disk access| The disks of the VM(s) which are to be migrated| required| Required for exporting the data of the VMs' disk(s)  
-  
+
   * * for most resource types, "Read Only" access is implicitly obtained by simply assigning any role to the user on the object in question. (regardless of the privileges declared within the role)
   * ** The privilege labels and PyVMOMI privilege IDs are for VMware 6.7. Older VMWare releases may have slightly different permission name labels.
 
@@ -170,7 +169,7 @@ export_hostname_as_instance_name = false
 # NBD/NBDSSL snapshot transfers. (boolean value)
 skip_nfc_validation = false
 ```
-  
+
 The source environment parameters are a set of source-cloud-specific parameters that offer some extra options to the migration/replication process on a per-VM basis.
 
 Below is a listing of the source environment parameters the VMware plugin supports when migrating/replicating a VM from vSphere/ESXi:
@@ -188,7 +187,7 @@ Below is a listing of the source environment parameters the VMware plugin suppor
   "skip_nfc_validation": false
 }
 ```
-  
+
   * **export_transfer_mechanism** (string) - Which mechanism to use to read VM disk data during export. 'vddk' reads directly via the VDDK library (must be provided by the user). 'openvixdisklib' uses an alternative implementation included with Coriolis.
   * **vixdisklib_compatibility_version** (string) - The vSphere version for which to initialize vixDiskLib.
   * **automatically_enable_cbt** (boolean) - Whether or not Coriolis should attempt to automatically enable CBT on the VM before Replication.

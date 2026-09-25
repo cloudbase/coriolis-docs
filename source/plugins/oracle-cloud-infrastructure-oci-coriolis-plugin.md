@@ -5,8 +5,7 @@ wp_id: 38527
 
 # Oracle Cloud Infrastructure (OCI) Coriolis Plugin
 
-**Coriolis** integrates the platform Plugin on the Appliance itself, this way there is no need for agents to be deployed on platforms to establish the communication between the platform and the Coriolis components. Using this type of architecture, Coriolis guarantees the connection to the supported platform set up to be used as either Source or Destination, as long as the requirements are met.  
-  
+**Coriolis** integrates the platform Plugin on the Appliance itself, this way there is no need for agents to be deployed on platforms to establish the communication between the platform and the Coriolis components. Using this type of architecture, Coriolis guarantees the connection to the supported platform set up to be used as either Source or Destination, as long as the requirements are met.
 This section describes the functionality available via Coriolis' OCI plugin, enabling Coriolis to migrate (CMaaS) and replicate (DRaaS) instances to OCI.
 
 [![](_static/images/image-3.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2020/04/image-3.png?ssl=1)
@@ -125,7 +124,7 @@ To connect to OCI to perform a migration/replica to it, the following connection
      "fingerprint": "private_key_fingerprint_hex"
  }
 ```
-  
+
 The parameters representing
 
   * **region (string)** - the name of the OCI region (example: us-phoenix-1)
@@ -173,7 +172,7 @@ Below is a listing of the destination environment parameters the OCI plugin supp
      "shape_name": "VM.Standard2.2",
  }
 ```
-  
+
 A short description of the parameters:
 
   * **availability_domain (string)** - ID of the availability domain on OCI 
@@ -236,7 +235,7 @@ Below is a listing of the configuration section needed when migrating/replicatin
  # The downloaded ZIP has to be self-hosted. Paste the ZIP URL to the option below:
  # windows_virtio_zip_url = https://example.com/virtio-1.1.3.zip 
 ```
-  
+
 #### Coriolis Advanced Options for Target Destinations
 
 In the case of Replicating or Migrating to Oracle Cloud Infrastructure, the required parameters are to be selected from the ones available in the OCI environment, also select the correct versions for Windows and Linux “Migration Image Map”. The template OS version must be at least the same as the OS of the VM that needs to be migrated. 
@@ -251,7 +250,7 @@ Migration Shape Name | migr_shape_name | name of the OCI shape to be used for th
 VCN Compartment ID | vcn_compartment | this option allows the selection of VCNs from a different compartment   
 Set Public IP | set_public_ip | whether to set a public IP address for the migrated VM   
 Shape Name | shape_name | name of the OCI shape used when creating the final migrated instance.   
-  
+
 ### Storage Mapping Limitations
 
 When migrating VMs to OCI, source cloud data disks are mapped to OCI-specific [attachment types](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/overview.htm#iSCSI). Coriolis will use this mapping when attaching the replicated data disks to the migrated instance. 
@@ -269,7 +268,7 @@ More about custom images and launch modes: <https://docs.cloud.oracle.com/iaas/C
 Native| UEFI| Directly Attached| iSCSI| Paravirtualized| iSCSI, Paravirtualized| All VM and bare-metal shapes supported  
 Paravirtualized| BIOS| Paravirtualized NIC| Paravirtualized SCSI| Paravirtualized SCSI| iSCSI, Paravirtualized| Only VM shapes supported  
 Emulated| BIOS| Emulated NIC| IDE| Emulated SCSI| iSCSI, Emulated| Only VM shapes supported  
-  
+
 ### OCI platform specifics
 
 Supported Actions: | Migration Destination - Replica Destination| Comments  

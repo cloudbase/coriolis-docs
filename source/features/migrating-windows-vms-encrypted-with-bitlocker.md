@@ -5,8 +5,8 @@ wp_id: 44099
 
 # Migrating Windows VMs encrypted with BitLocker
 
-Follow this guide to learn how Coriolis can be used to migrate Windows instances that have BitLocker-encrypted disks.  
-  
+Follow this guide to learn how Coriolis can be used to migrate Windows instances that have BitLocker-encrypted disks.
+
 ## BitLocker key protectors
 
 BitLocker key protectors define how the encrypted drives will be unlocked. TPM protectors store the keys on the **Trusted Platform Module** device and may be used in conjunction with other methods, such as PIN and/or startup keys stored on unencrypted drives, usually USB drives.
@@ -45,7 +45,7 @@ if ($result.ReturnValue) {
 $result.NumericalPassword
 160248-307032-575553-079750-669064-505142-265243-508409
 ```
-  
+
 When initiating the migration, specify the recovery password like so:
 
 ![](_static/images/image.png)
@@ -57,7 +57,7 @@ In order for the final VM to be able to launch, Coriolis suspends BitLocker duri
 ```text
 Install-WindowsFeature BitLocker
 ```
-  
+
 Feel free to remove the temporary key protector from the source and destination instances after completing the migration.
 
 ## Alternative Migration Methods

@@ -41,7 +41,7 @@ Deployment requirements| Coriolis worker component(s) need network access to the
 DRaaS source requirements| Kubevirt is not currently supported as a DRaaS source| Requirements to use the replica export (DRaaS source) features  
 Instance identification scheme| Names must be unique| How instances to migrate/replicate are identified on a cloud handled by the plugin  
 Network identification scheme| Names of VM Networks| How the plugin identifies networks. Required for the **network_map** field of the **- destination-environment**  
-  
+
 ## KubeVirt migration user required permissions
 
 This table will describe the minimum role requirements of a migration user to bind to migrate instances to a destination KubeVirt platform:
@@ -49,15 +49,15 @@ This table will describe the minimum role requirements of a migration user to bi
 **Role Type**| **Resource**| **Access Level**| **API Group**  
 ---|---|---|---  
 Cluster| virtualmachineimages| Read| harvesterhci.io  
- | volumesnapshotclasses| Read| snapshot.storage.k8s.io  
- | storageclasses| Read| storage.k8s.io  
- | namespaces| Read|    
- | network-attachment-definitions| Read| k8s.cni.cncf.io  
- | customresourcedefinitions| Read| apiextensions.k8s.io  
+| volumesnapshotclasses| Read| snapshot.storage.k8s.io  
+| storageclasses| Read| storage.k8s.io  
+| namespaces| Read|    
+| network-attachment-definitions| Read| k8s.cni.cncf.io  
+| customresourcedefinitions| Read| apiextensions.k8s.io  
 Namespace| persistentvolumeclaims| Read/Write|    
- | pods| Read/Write|    
- | virtualmachineinstances| Read/Write| kubevirt.io  
- | volumesnapshots| Read/Write| apiextensions.k8s.io  
- | volumesnapshots/status| Read| apiextensions.k8s.io  
- | virtualmachines| Read/Write| kubevirt.io  
- | virtualmachines/start| Read/Write| subresources.kubevirt.io
+| pods| Read/Write|    
+| virtualmachineinstances| Read/Write| kubevirt.io  
+| volumesnapshots| Read/Write| apiextensions.k8s.io  
+| volumesnapshots/status| Read| apiextensions.k8s.io  
+| virtualmachines| Read/Write| kubevirt.io  
+| virtualmachines/start| Read/Write| subresources.kubevirt.io

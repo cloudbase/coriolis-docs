@@ -5,16 +5,15 @@ wp_id: 43473
 
 # How to create a Migration
 
-To create a Migration from the Coriolis Web UI, select from the top right, “**New** ” and then select “**Transfers** ” from the drop-down.  
-  
+To create a Migration from the Coriolis Web UI, select from the top right, “**New** ” and then select “**Transfers** ” from the drop-down.
+
 [![](_static/images/new01.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/05/new01.png?ssl=1)
 
 Coriolis defaults to Migrations by default:
 
 [![](_static/images/Screenshot_10-7-2025_17534_10.8.254.69.jpeg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2025/07/Screenshot_10-7-2025_17534_10.8.254.69.jpeg?ssl=1)
 
-Select the desired source and destination clouds.  
-In this example, the chosen source platform will be a VMWare vSphere.
+Select the desired source and destination clouds. In this example, the chosen source platform will be a VMWare vSphere.
 
 [![](_static/images/source_cloud.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/05/source_cloud.png?ssl=1)
 
@@ -25,8 +24,7 @@ After selecting the source Endpoint and selecting next, the new window will be �
 
 
 
-Changed Block Tracking, or **CBT** , is required by Coriolis to create the VM disk on the destination side during the Replica process. It can be enabled from VM attributes on VMware or using Coriolis' **Source options**.  
-Automatically enabling CBT will **NOT** work if the VM that is to be migrated has pre-created snapshots, in which case Coriolis will provide a clear warning.
+Changed Block Tracking, or **CBT** , is required by Coriolis to create the VM disk on the destination side during the Replica process. It can be enabled from VM attributes on VMware or using Coriolis' **Source options**. Automatically enabling CBT will **NOT** work if the VM that is to be migrated has pre-created snapshots, in which case Coriolis will provide a clear warning.
 
 [![](_static/images/create-replica-4.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2023/02/create-replica-4.jpg?ssl=1)
 
@@ -59,13 +57,11 @@ In the Target options page, “Simple” will be selected as the default, with a
 
 
 
-The more fine-grained OpenStack options under the "Advanced" section will also be shown shortly.  
-Select “Next” after the above steps.
+The more fine-grained OpenStack options under the "Advanced" section will also be shown shortly. Select “Next” after the above steps.
 
 [![](_static/images/create-replica-8.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2023/02/create-replica-8.jpg?ssl=1)
 
-The next window will allow for the selection of a network on the destination OpenStack corresponding to each network the VM was attached to on the source VMWare.  
-Once every mapping is assigned, click “Next”
+The next window will allow for the selection of a network on the destination OpenStack corresponding to each network the VM was attached to on the source VMWare. Once every mapping is assigned, click “Next”
 
 [![](_static/images/create-replica-9.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2023/02/create-replica-9.jpg?ssl=1)
 
@@ -111,8 +107,7 @@ In the last column, the is an “Options” dialog which will allow some additio
 
 ### Review Migration settings and start the job
 
-As the last step of the configuration, a summary of it will be shown with all the configurations made in the previous steps.  
-If any options seem missing or incorrect, one may click "Back" to return and edit them. Clicking “Finish” will start the process of creating the Replica.
+As the last step of the configuration, a summary of it will be shown with all the configurations made in the previous steps. If any options seem missing or incorrect, one may click "Back" to return and edit them. Clicking “Finish” will start the process of creating the Replica.
 
 [![](_static/images/create-replica-13.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2023/02/create-replica-13.jpg?ssl=1)
 

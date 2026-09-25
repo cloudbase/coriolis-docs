@@ -60,7 +60,7 @@ TLS_ECDHE_ECDSA_WITH_CAMELLIA_128_CBC_SHA256
 TLS_ECDHE_ECDSA_WITH_CAMELLIA_256_CBC_SHA384
 TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
 ```
-  
+
 As an additional security measure, administrators may choose to restrict the TLS cipher suites accepted by externally accessible services.
 
 Cipher hardening helps ensure that service communications use modern cryptographic algorithms while reducing exposure to older or less secure cipher suites.
@@ -76,7 +76,7 @@ Inside of the services that are exposed using the Apache web server, the same co
 ```text
 SSLCipherSuite HIGH:!aNULL:!MD5:!3DES:!RC4:!SHA1:!kRSA
 ```
-  
+
 This configuration permits strong cipher suites while excluding legacy algorithms and static RSA key exchange.
 
 The Apache-based services are listed in the table below:
@@ -86,7 +86,7 @@ The Apache-based services are listed in the table below:
 Coriolis API service| /etc/coriolis/wsgi-coriolis.conf| VirtualHost _< APPLIANCE_IP>_:7667  
 Coriolis Web UI Service| /etc/coriolis/coriolis-web-vhost.conf| VirtualHost *:443  
 Keystone| /etc/kolla/keystone/wsgi-keystone.conf| VirtualHost *:5000  
-  
+
 ### Barbican Service
 
 The integrated Barbican service is deployed using uWSGI with TLS enabled; a similar cipher policy can be configured for the HTTPS listener. The configuration file for this service can be found at **/etc/kolla/barbican-api/vassals/barbican-api.ini**.
@@ -96,7 +96,7 @@ You can add the custom cipher configuration to the existing **https-socket** opt
 ```text
 https-socket = <appliance_IP>:9311,server.crt,server.key,SSLCipherSuite HIGH:!aNULL:!MD5:!3DES:!RC4:!SHA1:!kRSA
 ```
-  
+
 ## Validation
 
 Make sure to exit the console, which will prompt for a restart of all the running services. This will make sure that all the configuration changes apply.
@@ -114,7 +114,7 @@ For a full TLS handshake overview:
 ```text
 openssl s_client -connect <host>:<port>
 ```
-  
+
 Use nmap to list all accepted ciphers by the services:
 
 ```text

@@ -5,8 +5,7 @@ wp_id: 42651
 
 # MicroCloud (LXD) Coriolis Plugin
 
-**Coriolis** integrates the platform Plugin on the Appliance itself, this way there is no need for agents to be deployed on platforms to establish the communication between the platform and the Coriolis components.  
-Coriolis guarantees the connection to the supported platform set up to be used as a Destination, as long as the requirements are met.
+**Coriolis** integrates the platform Plugin on the Appliance itself, this way there is no need for agents to be deployed on platforms to establish the communication between the platform and the Coriolis components. Coriolis guarantees the connection to the supported platform set up to be used as a Destination, as long as the requirements are met.
 
 [![](_static/images/lxc-options.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2023/08/lxc-options.png?ssl=1)
 
@@ -33,13 +32,13 @@ Run the command below to generate a new keypair:
 ```text
 openssl req -x509 -newkey rsa:2048 -keyout lxd_coriolis.key -nodes -out lxd_coriolis.crt -subj "/CN=lxd.local" -days +3650
 ```
-  
+
 Add the certificate to be trusted in LXD:
 
 ```text
 lxc config trust add lxd_coriolis.crt
 ```
-  
+
 #### Endpoint authentication
 
 After generating the client keypair, input it into the Coriolis Endpoint in **base64** format.
@@ -47,7 +46,7 @@ After generating the client keypair, input it into the Coriolis Endpoint in **ba
 ```text
 base64 -w0 lxd_coriolis.crt<br>base64 -w0 lxd_coriolis.key
 ```
-  
+
 ## LXD platform specifics
 
 **Supported Actions:**| **Migration Destination - Replica Destination**| **Comments**  
@@ -58,7 +57,7 @@ Deployment requirements| Coriolis worker component(s) need network access to the
 DRaaS source requirements| LXD is not currently supported as a DRaaS source| Requirements to use the replica export (DRaaS source) features  
 Instance identification scheme| Names must be unique| How instances to migrate/replicate are identified on a source cloud handled by this plugin  
 Network identification scheme| Names of VM Networks| How the plugin identifies networks. Required for the **network_map** field of the **- destination-environment**  
-  
+
 #### Example of connection info JSON to be passed to the LXD plugin
 
 ```json
@@ -71,7 +70,7 @@ Network identification scheme| Names of VM Networks| How the plugin identifies n
   "allow_untrusted": true  
 }
 ```
-  
+
 Each parameter represents:
 
   * **host (string)** - The MicroCloud/LXD hostname

@@ -11,9 +11,7 @@ The containers in the appliance are configured to use localhost networking, whic
 
   * Keystone - 5000
   * Coriolis API - 7667
-  * Web UI -  
-80/443 - port 80 automatically escalates to HTTPS on 443, the **self-signed**  
-HTTPS certificate is unique to the appliance
+  * Web UI - 80/443 - port 80 automatically escalates to HTTPS on 443, the **self-signed** HTTPS certificate is unique to the appliance
 
 
 

@@ -10,7 +10,7 @@ After installing the Coriolis Snapshot Agent, there will be a default configurat
 ```text
 /etc/coriolis-snapshot-agent/config.toml
 ```
-  
+
 This config file will contain all the options that were set during the installation process and some agent defaults as follows:
 
 ```toml
@@ -66,7 +66,7 @@ device = "vda"
 # option above.
 location = "/mnt/snapstores/snapstore_files"
 ```
-  
+
 **NOTE:** If there are multiple disks on the server, there is a possibility to use separate snapshot locations for each snapshotted disk, by modifying **config.toml** as follows:
 
   1. add more entries for the parameter '**snapstore_destinations** '

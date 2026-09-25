@@ -5,8 +5,7 @@ wp_id: 38342
 
 # Coriolis &#8211; Getting Started
 
-### About Coriolis  
-  
+### About Coriolis
 **Coriolis®** is a fully distributed and scalable system that provides with the use of Transfers both **" lift-and-shift" migration services (CMaaS)** and cross-site **disaster recovery features (DRaaS)** between a source cloud platform and an independent destination cloud platform.
 
 Coriolis operates without needing agents to be installed on the guest VM, relying only on the public APIs exposed by the cloud platforms to query the compute and network-related parameters of the VMs and perform data transfers. For **physical-to-virtual (p2v) migrations,** an agent must be installed on the bare-metal server in order to facilitate the ability to live-migrate it.
@@ -60,8 +59,7 @@ For the deployment tutorial, please follow the [**Installation guide**](https://
 
 ## Coriolis Console Menu
 
-The Coriolis Console Menu is an Interactive User Console that can be accessed using the serial console of the Coriolis Appliance once the installation is complete.  
-It will offer you options to inspect or modify the credentials, networks, and configuration files, as well as use Coriolis via CLI.
+The Coriolis Console Menu is an Interactive User Console that can be accessed using the serial console of the Coriolis Appliance once the installation is complete. It will offer you options to inspect or modify the credentials, networks, and configuration files, as well as use Coriolis via CLI.
 
 For more information, please check the **[Coriolis Console Menu](https://cloudbase.it/coriolis-console-menu)** page.
 
@@ -212,8 +210,7 @@ For Virtuozzo's VHI platform, please refer to the OpenStack Coriolis plugin page
 
 ## Preparing a VM for Migration/Replication
 
-Before starting the migration process, there is a list of recommended steps to take on a VM running on a supported source platform that is planned to be migrated/replicated with Coriolis.  
-While these steps are not mandatory, they are recommended to ensure the smoothest migration possible.
+Before starting the migration process, there is a list of recommended steps to take on a VM running on a supported source platform that is planned to be migrated/replicated with Coriolis. While these steps are not mandatory, they are recommended to ensure the smoothest migration possible.
 
 For information regarding the steps for preparing a VM, please check the **[Preparing a VM for Replica/Migration page](https://cloudbase.it/preparing-a-vm-for-migration-replication/)**.
 
@@ -266,8 +263,7 @@ Support for additional destination platforms will be added in future releases.
 
 ## Coriolis Minion Pools
 
-Coriolis Minion Pool feature will allow the creation of **worker VMs (Minions)** on Source/Destination clouds that will act as Coriolis **temporary resources** during the **Replica/Migration** process.  
-**Minion Pools** will improve the **time efficiency** for the Replica/Migration process, as Coriolis will no longer need to create the temporary resources and clean up when the process finishes.
+Coriolis Minion Pool feature will allow the creation of **worker VMs (Minions)** on Source/Destination clouds that will act as Coriolis **temporary resources** during the **Replica/Migration** process. **Minion Pools** will improve the **time efficiency** for the Replica/Migration process, as Coriolis will no longer need to create the temporary resources and clean up when the process finishes.
 
 For more information, please check the **[Coriolis Minion Pools Operation and Usage](https://cloudbase.it/coriolis-minion-pools-operations-and-usage)** page.
 
@@ -283,13 +279,11 @@ For more information, please check the **[Coriolis Projects and Users documentat
 
 ## Coriolis CLI and API
 
-Besides the Coriolis Dashboard, a command-line interface is available for all the Coriolis operations, as well as an API  
-Please find more information on the **[Coriolis CLI page](https://cloudbase.it/coriolis-cli)**.
+Besides the Coriolis Dashboard, a command-line interface is available for all the Coriolis operations, as well as an API Please find more information on the **[Coriolis CLI page](https://cloudbase.it/coriolis-cli)**.
 
 ## Troubleshooting
 
-When encountering any issue during one of the above processes, the **Coriolis Logs** option is available from both **Coriolis CLI** and**Coriolis GUI**. For more information on logs, please check the **[Coriolis Logs page](https://cloudbase.it/coriolis-logs/)**.  
-For more information regarding Coriolis Troubleshooting, check the **[Troubleshooting page](https://cloudbase.it/coriolis-troubleshooting)**.
+When encountering any issue during one of the above processes, the **Coriolis Logs** option is available from both **Coriolis CLI** and**Coriolis GUI**. For more information on logs, please check the **[Coriolis Logs page](https://cloudbase.it/coriolis-logs/)**. For more information regarding Coriolis Troubleshooting, check the **[Troubleshooting page](https://cloudbase.it/coriolis-troubleshooting)**.
 
 * * *
 

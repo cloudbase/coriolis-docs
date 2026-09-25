@@ -22,7 +22,7 @@ The following commands will install the Coriolis command-line client on the loca
 ```bash
 $ git clone https://github.com/cloudbase/python-coriolisclient
 ```
-  
+
 ![](_static/images/cli1.png)
 
 ```bash
@@ -30,7 +30,7 @@ $ pip3 install python-coriolisclient
 $ # verify client is available in path:
 $ /usr/bin/env coriolis
 ```
-  
+
 ![](_static/images/cli2.png)
 
 ### Expose the Coriolis appliance
@@ -46,7 +46,7 @@ By default, the Coriolis RC file for the admin account is to be found under /etc
 ```text
 #select option '3) Edit/Inspect Coriolis Configuration'
 ```
-  
+
 ![](_static/images/coriolis-options.png)
 
 $cat /etc/kolla/admin-openrc.sh
@@ -54,7 +54,7 @@ $cat /etc/kolla/admin-openrc.sh
 ```text
 $cat /etc/kolla/admin-openrc.sh
 ```
-  
+
 ![](_static/images/coriolis-rc-file1.png)
 
 It will also need to be copied to the machine where the Coriolis client has been installed.
@@ -62,7 +62,7 @@ It will also need to be copied to the machine where the Coriolis client has been
 ```text
 $scp /etc/kolla/admin-openc.sh adrian@<IP address>:/mnt/c/coriolis/
 ```
-  
+
 After copying it, the file needs to be sourced on the machine where the client runs, and Coriolis commands can be performed afterwards.
 
 Please modify the OS_AUTH_URL with the corresponding IP of the Coriolis appliance. A ping test can confirm the connectivity from the client machine where you have installed the CLI to the Coriolis remote-facing IP address.
@@ -72,7 +72,7 @@ $source admin-openrc.sh
 
 $coriolis endpoint list
 ```
-  
+
 ![](_static/images/coriolis-apply-rc.png)
 
 ## Defining a Coriolis endpoint for a given cloud
@@ -92,7 +92,7 @@ $coriolis endpoint create \
       --name cloudx --description "CloudX endpoint" \
       --provider cloudx --connection '{"username": "iamtheowner", "password": "SeKr37"}'
 ```
-  
+
 The cloud plugin identifier given through the **- provider** parameter is unique to each plugin. Please review the documentation of the respective platform's Coriolis plugin to find the correct plugin identifier for it.
 
 Later on, when we want to start migration jobs to/from CloudX, we will be able to simply reference the endpoint created above by its ID instead of having to fill in the credentials of the clouds involved at each and every new task.
@@ -114,7 +114,7 @@ $coriolis endpoint create \
  --name cloudx --description "CloudX endpoint" \
  --provider cloudx --connection-secret "$URL_OF_ABOVE_BARBICAN_SECRET"
 ```
-  
+
 Barbican will encrypt the connection info before storing it in the database, and Coriolis will only access the credentials and pass them to the respective Coriolis platform plugin when it uses its services.
 
 ### Validating a Coriolis endpoint 
@@ -130,7 +130,7 @@ From the command line client, this may be done by running the following:
 $source /etc/kolla/admin-openrc.sh
 $coriolis endpoint validate connection $ENDPOINT_ID
 ```
-  
+
 Should the credentials be in order, the command will terminate with no output and error code 0. Otherwise, a descriptive error message received back from the Coriolis service will be displayed.
 
 ### Listing instances available for migration/replication from a source platform
@@ -146,14 +146,13 @@ From the command line client, the following may be run to list instances availab
 $source /etc/kolla/admin-openrc.sh
 $coriolis endpoint instance list --source-environment '{"source": "parameters"}' $ENDPOINT_ID
 ```
-  
-The parameters for the **- source-environment** are source cloud-specific and will aid Coriolis in listing instances (e.g: 'resource_group' for Azure/AzureStack). Please review the documentation of the Coriolis platform plugin of the source cloud for the exact parameters that are expected. 
+
+The parameters for the **- source-environment** are source cloud-specific and will aid Coriolis in listing instances (e.g: 'resource_group' for Azure/AzureStack). Please review the documentation of the Coriolis platform plugin of the source cloud for the exact parameters that are expected.
 
 For starting migrations/replicas for a given instance, whether or not it may be identified via its name and/or its ID depends on the implementation of the Coriolis platform plugin for that particular cloud. Please review the documentation of the respective platform's Coriolis plugin for exact instance referencing requirements.
 
 ### Additional operations for Coriolis endpoints
 
-  
 In addition to the above notable commands, the Coriolis command line client also offers the following operations on cloud endpoints:
 
 ```text
@@ -168,7 +167,7 @@ $coriolis endpoint update --param "updated value for --param" $ENDPOINT_ID
  #delete a specific endpoint:
 $coriolis endpoint delete $ENDPOINT_ID
 ```
-  
+
 ## Creating migration jobs
 
 ### Prerequisites
@@ -196,7 +195,7 @@ $coriolis migration create \
  --network-map '{"source network name": "name or ID of network on destination"}' \
  --instance $IDENTIFIER_OF_INSTANCE_ON_SOURCE
 ```
-  
+
 The above command will create a migration job within Coriolis, which may later be queried or halted by referencing its ID.
 
 ### Additional operations for Coriolis migrations
@@ -218,7 +217,7 @@ $coriolis migration cancel $MIGRATION_ID
  #the migration must not be running.
 $coriolis migration delete $MIGRATION_ID
 ```
-  
+
 ## Creating replication (DRaaS) jobs
 
 ### Prerequisites
@@ -246,7 +245,7 @@ $coriolis replica create \
  --network-map '{"source network name": "name or ID of network on destination"}' \
  --instance $IDENTIFIER_OF_INSTANCE_ON_SOURCE
 ```
-  
+
 The above command will define a replication job with Coriolis, which may later have executions (syncs) scheduled, canceled, and deployed by referencing the replication job's ID.
 
 ### Starting an execution for a replication job
@@ -262,7 +261,7 @@ An existing replica may have a new execution (sync run) started by running the f
 $source /etc/kolla/admin-openrc.sh
 $coriolis replica execute $REPLICA_ID
 ```
-  
+
 The above command will launch a new replica execution, which may later be queried for status, canceled, or deleted by referencing both the ID of the Replica, and the ID of the newly-created replica execution.
 
 ### Additional operations for Coriolis replica executions
@@ -290,7 +289,7 @@ $coriolis replica execution delete $REPLICA_ID $REPLICA_EXECUTION_ID
  #will be a full execution to completely new disks on the destination.
 $coriolis replica disks delete $REPLICA_ID
 ```
-  
+
 ### Deploying a replica on the destination cloud
 
 **Prerequisite** : a pre-existing Coriolis replica that has at least one successful replica execution
@@ -304,7 +303,7 @@ An existing replica may be deployed on the destination cloud by running the foll
 $source /etc/kolla/admin-openrc.sh
 $coriolis migration deploy replica $REPLICA_ID
 ```
-  
+
 The above command will start a replica migration job that will recreate the instance on the destination cloud with the state of the last replica execution.
 
 Using the replica migration job's ID to reference it, you may run the same "Coriolis migration …" operations detailed in the section on creating migration jobs.
@@ -336,12 +335,11 @@ After the service exposure is done, you will need to prepare the authentication 
 
 Where OS_USERNAME is the login user for Coriolis (usually 'admin'), OS_PASSWORD is the login password, and OS_TENANT_NAME is the project name (also usually 'admin'). Save this as a JSON file in order to pass it to curl as shown below:
 
-// curl-auth.json {"auth": {"identity": {"methods": ["password"], "password": {"user": {"name": "__OS_USERNAME__", "domain": { "name": "Default" }, "password": "__OS_PASSWORD__" } } }, "scope": { "project": { "domain": { "name": "Default" }, "name": "__OS_TENANT_NAME__" } } } }  
-  
+// curl-auth.json {"auth": {"identity": {"methods": ["password"], "password": {"user": {"name": "__OS_USERNAME__", "domain": { "name": "Default" }, "password": "__OS_PASSWORD__" } } }, "scope": { "project": { "domain": { "name": "Default" }, "name": "__OS_TENANT_NAME__" } } } }
+
 export OS_TOKEN=$(curl -ik -H "Content-Type: application/json" -d @./curl-auth.json [https://$](https://$/){APPLIANCE_IP}:5000/v3/auth/tokens 2> /dev/null | grep X-Subject-Token | cut -d' ' -f2 | tr -d '\t\r\n ')  
----  
-  
-This will save the token in `$OS_TOKEN`, so you can pass it to all of your API calls. 
+---
+This will save the token in `$OS_TOKEN`, so you can pass it to all of your API calls.
 
 Once we have the token, we can go ahead and execute some calls, like listing endpoints:
 

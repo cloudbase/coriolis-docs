@@ -5,9 +5,7 @@ wp_id: 38520
 
 # Microsoft Azure/AzureStack Coriolis Plugin
 
-**Coriolis** integrates the platform Plugin on the Appliance itself, this way there is no need for agents to be deployed on platforms to establish the communication between the platform and the Coriolis components. Using this type of architecture,  
-Coriolis guarantees the connection to the supported platform set up to be used as either Source or Destination, as long as the requirements are met.  
-  
+**Coriolis** integrates the platform Plugin on the Appliance itself, this way there is no need for agents to be deployed on platforms to establish the communication between the platform and the Coriolis components. Using this type of architecture, Coriolis guarantees the connection to the supported platform set up to be used as either Source or Destination, as long as the requirements are met.
 Only**Azure Stack Hub** is supported. Other Azure Stack offerings (including Azure Stack HCI, Azure Local, or similar solutions) are not available in Coriolis.
 
 [![](_static/images/image-2.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2020/04/image-2.png?ssl=1)
@@ -38,13 +36,8 @@ For more information regarding **[Azure as a destination cloud](https://cloudbas
 
 The Azure account whose credentials are given to Coriolis must have permissions to:
 
-  * read  
-access on the properties of the source VMs and associated resources   
-(VMs, disks, NICs, Public IPs, and virtual networks) within the resource  
-group which is being migrated from
-  * create temporary compute   
-resources (VMs, disks, NICs, Public IPs, and virtual networks) within   
-the resource group which is being migrated to/from
+  * read access on the properties of the source VMs and associated resources (VMs, disks, NICs, Public IPs, and virtual networks) within the resource group which is being migrated from
+  * create temporary compute resources (VMs, disks, NICs, Public IPs, and virtual networks) within the resource group which is being migrated to/from
 
 
 
@@ -80,7 +73,7 @@ In order to connect to Azure to perform a migration/replica to it, the following
      }
  }
 ```
-  
+
 Only **service_principal_credentials** must be provided. Should both be provided, Coriolis will prefer using the user credentials.
 
 The parameters representing:
@@ -117,9 +110,8 @@ Additionally, the Root Certificate of the AzureStack must be imported in the cor
  # convert to PEM:
  certutil.exe -encode $certFile $pemFile 
 ```
-  
-  * Import it in Coriolis-worker by just adding the content of cert file to the end of this file _“/usr/local/lib/python3.6/dist-packages/certifi/cacert.pem”.  
-Or _running the following commands on Coriolis host: 
+
+  * Import it in Coriolis-worker by just adding the content of cert file to the end of this file _“/usr/local/lib/python3.6/dist-packages/certifi/cacert.pem”. Or _running the following commands on Coriolis host:
 
 
 
@@ -127,7 +119,7 @@ Or _running the following commands on Coriolis host:
  $ docker cp /path/to/cert.pem coriolis-worker:/root/cert.pem 
  $ docker exec -ti coriolis-worker bash -c 'cat /root/cert.pem >> /usr/local/lib/python3.6/dist-packages/certifi/cacert.pem' 
 ```
-  
+
 ### Azure Stack endpoint creation
 
 In the endpoint creation window for the Azure provider "Custom Cloud" must be selected under the cloud profile.
@@ -178,7 +170,7 @@ $ az cloud register -n <environmentname> --endpoint-resource-manager "<a href="h
  }
    
 ```
-  
+
 More details for registering an Azure Stack in azure cli can be found in [Microsoft's documentation](https://docs.microsoft.com/en-us/azure-stack/user/azure-stack-version-profiles-azurecli2).
 
 ### Azure/AzureStack platform specifics

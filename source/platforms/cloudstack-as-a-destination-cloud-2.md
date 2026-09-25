@@ -19,7 +19,7 @@ Offerings| Disk, minion, and migrated VM offerings must each be pre-created and 
 Minion offering| One minion compute offering is used for data replication and for OS morphing (Linux and Windows)  
 Disk offering| Must be a custom (flexible-size) offering; fixed-size disk offerings are **not supported**  
 OS morphing| Supported for common Linux distributions and Windows; validate in your environment before production use  
-  
+
 ## Transfer executions
 
 Steps performed by Coriolis during each transfer execution to CloudStack:
@@ -55,7 +55,7 @@ Offerings| Custom disk offering plus compute offerings for minion and migrated V
 Templates| Linux: zone cloud-init template (defaults work); Windows: custom WS2022+ template for morphing — see [Recommended Minions](https://cloudbase.it/?page_id=44185#Recommended_minions)  
 Primary storage| KVM storage pools mapped in Coriolis storage mappings  
 Public IPs| Account can allocate public IPs for temporary workers in the target zone  
-  
+
 ### Required CloudStack Permissions
 
 Coriolis requires a CloudStack user with the native **Admin - Read-Only** role, supplemented with the following additional permissions.
@@ -64,27 +64,12 @@ These permissions allow Coriolis to perform the operations required for virtual 
 
 Virtual Machine| Storage| Network  
 ---|---|---  
-deployVirtualMachine  
-startVirtualMachine  
-stopVirtualMachine  
-updateVirtualMachine  
-destroyVirtualMachine  
-expungeVirtualMachine  
-addNicToVirtualMachine  
+deployVirtualMachine startVirtualMachine stopVirtualMachine updateVirtualMachine destroyVirtualMachine expungeVirtualMachine addNicToVirtualMachine
 listGuestOsMapping| createVolume  
-deleteVolume  
-resizeVolume  
-attachVolume  
-detachVolume  
-createSnapshot  
-deleteSnapshot  
+deleteVolume resizeVolume attachVolume detachVolume createSnapshot deleteSnapshot
 listStoragePools| associateIpAddress  
-disassociateIpAddress  
-enableStaticNat  
-disableStaticNat  
-createFirewallRule  
-deleteFirewallRule  
-  
+disassociateIpAddress enableStaticNat disableStaticNat createFirewallRule deleteFirewallRule
+
 > **Note:** The **Admin - Read-Only** role provides the baseline read-only access. The permissions listed above must be granted in addition to that role to enable Coriolis migration operations.
 
 ## Endpoint connection
@@ -98,7 +83,7 @@ Field| Value
 API Endpoint| CloudStack API URL (for example **https://cloudstack.example.com/client/api**)  
 API Key| API key for the migration account  
 API Secret| Matching API secret  
-  
+
 ## Networking and connectivity
 
   * Temporary minions use a **public IP**  with static NAT. Plan guest networks and IP capacity accordingly.
@@ -110,7 +95,7 @@ Port| When needed
 TCP 22| All migrations (Linux temporary minion)  
 TCP 4433, 5566| Disk replication (default data path uses 5566)  
 TCP 5986| Windows OS morphing only  
-  
+
 ## Recommended minions
 
 Coriolis deploys **temporary minion VMs**  in CloudStack during Transfers and OS morphing. For Linux, pick an existing cloud-init template already available in the zone — custom image build is not required. For Windows OS morphing, prepare and register a dedicated minion template.
@@ -128,7 +113,6 @@ Item| Requirement
 Template source| Built-in or vendor-supplied CloudStack Linux cloud-init template in the target zone  
 OS version| Ubuntu 24.04 LTS or newer; at least as recent as migrated Linux guests when possible  
 Used for| Disk replication (all migrations), Linux OS morphing, final VM shell deploy  
-  
 In Coriolis, set **Linux template**  to the template name or UUID from your zone dropdown. See [CloudStack cloud-init templates](https://docs.cloudstack.apache.org/en/latest/adminguide/templates/_cloud_init.html) if your zone has no suitable template yet.
 
 ### Windows temporary worker
@@ -144,7 +128,6 @@ Cloudbase-init| Required — userdata via CloudStack metadata and/or config driv
 WinRM HTTPS| Required on TCP 5986 for OS morphing  
 QEMU guest agent| Recommended (included with VirtIO driver pack)  
 Used for| Windows OS morphing only — not used for disk replication  
-  
 Prepare the golden image, configure cloudbase-init as below, sysprep, and register the template in CloudStack.
 
 #### Cloudbase-init configuration
@@ -174,7 +157,7 @@ winrm_configure_https_listener=true
 winrm_configure_http_listener=false
 winrm_enable_basic_auth=true
 ```
-  
+
 Setting| Why  
 ---|---  
 **username=Administrator**|  Coriolis WinRM login is always Administrator  
@@ -182,7 +165,6 @@ Setting| Why
 **ConfigWinRMListenerPlugin**  \+ HTTPS| Coriolis requires **https:// <ip>:5986/wsman**; HTTP/5985 is not used  
 **winrm_enable_basic_auth=true**|  Required for Coriolis WSMan authentication  
 CloudStack + ConfigDrive metadata| Userdata must reach the guest; order services to match your network offering  
-  
 The minion guest network offering must deliver userdata via CloudStack metadata (virtual router), config drive (**config-2**  ISO), or both. If you use config drive only, enable **ConfigDrive**  on the network offering.
 
 At deploy, Coriolis sends base64 **#cloud-config**  userdata like:
@@ -194,7 +176,7 @@ users:
     passwd: '<generated>'
     primary_group: Administrators
 ```
-  
+
 #### Seal the template (sysprep)
 
 After configuring cloudbase-init, run sysprep with cloudbase-init’s **Unattend.xml**  and register the stopped VM as a CloudStack template. If cloudbase-init already ran on the golden VM during testing, clear its registry state first so the next deploy is treated as a true first boot (otherwise WinRM may stay on HTTP/5985 only).
@@ -206,7 +188,7 @@ Remove-Item -Force -Recurse 'HKLM:\SOFTWARE\Cloudbase Solutions' -ErrorAction Si
 & 'C:\Windows\System32\Sysprep\sysprep.exe' /generalize /oobe /shutdown `
   '/unattend:C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\Unattend.xml'
 ```
-  
+
 Validate after a test deploy from the template:
 
 
@@ -214,7 +196,7 @@ Validate after a test deploy from the template:
 winrm enumerate winrm/config/listener
 Get-Content 'C:\Program Files\Cloudbase Solutions\Cloudbase-Init\log\cloudbase-init.log'
 ```
-  
+
 Expect an **HTTPS listener on 5986** , **UserDataPlugin**  applying the Administrator password, and no **SetUserPasswordPlugin**  errors.
 
 ### Recommended compute and disk offerings
@@ -226,14 +208,13 @@ Role| Suggested name| Type| Notes
 Replica disks| **Coriolis custom disk**|  Custom disk offering| Flexible size; one offering for all replica volumes  
 Temporary workers| **Coriolis minion**|  Custom compute offering| Flexible CPU/RAM; bounds ≥ 2 vCPU / 2048 MB  
 Final migrated VM| **Coriolis migrated VM**|  Custom compute offering| Flexible CPU/RAM; bounds for your largest source VMs  
-  
+
 ### Deploy sizing (flexible custom offerings)
 
 Role| CPU / RAM at deploy  
 ---|---  
 Linux or Windows temporary minion| 2 vCPU, 2048 MB RAM  
 Final migrated VM| Matches the source VM  
-  
 Fixed-size compute offerings use CloudStack’s configured CPU and RAM. Fixed-size **disk**  offerings cannot be used for replica volumes.
 
 ## Disk and compute offerings
@@ -247,7 +228,6 @@ Coriolis setting| Create in CloudStack| Purpose
 Disk offering| Custom (flexible-size) disk offering| Replica volumes during data replication  
 Minion service offering| Compute offering| Temporary workers (replication and OS morphing)  
 Migrated VM service offering| Compute offering| Final migrated VM after cutover  
-  
 See [Recommended minions](https://cloudbase.it/?page_id=44185#Recommended_minions) for template choices, suggested offering names, and deploy sizing.
 
 ## Target environment options

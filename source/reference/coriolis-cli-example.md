@@ -17,7 +17,7 @@ $ pip3 install python-coriolisclient
 $ # verify client is available in path:
 $ /usr/bin/env coriolis
 ```
-  
+
 ### Expose Coriolis appliance
 
 By default, all the Coriolis appliance services listen only on localhost. In order to expose all the services from the appliance, execute the following:
@@ -25,7 +25,7 @@ By default, all the Coriolis appliance services listen only on localhost. In ord
 ```bash
 $ ~/coriolis-docker/expose_coriolis.py 
 ```
-  
+
 ## Defining a Coriolis endpoint for a given cloud
 
 Defining Endpoints in Coriolis represent a one time job, once stored Coriolis will be able to use the Endpoint details to further perform Replica/Migration jobs.
@@ -56,7 +56,7 @@ coriolis migration create \
 --destination-environment '{"the": "destination cloud specific params"}' \
 --instance $IDENTIFIER_OF_INSTANCE_ON_SOURCE
 ```
-  
+
 The above command will create a migration job within Coriolis, which may be later queried or halted by referencing its ID.
 
 ### Additional operations for Coriolis migrations
@@ -81,7 +81,7 @@ coriolis migration cancel $MIGRATION_ID
 # the migration must not be running.
 coriolis migration delete $MIGRATION_ID
 ```
-  
+
 ## Creating replication (DRaaS) jobs
 
 ### Prerequisites
@@ -107,7 +107,7 @@ coriolis replica create \
 --network-map '{"source network name": "name or ID of network on destination"}' \
 --instance $IDENTIFIER_OF_INSTANCE_ON_SOURCE
 ```
-  
+
 The above command will define a replication job with Coriolis, which may be later have executions (syncs) scheduled, cancelled and deployed by referencing the replication job's ID.
 
 #### Cloud specific parameters for Source/Destination environments
@@ -126,7 +126,7 @@ $coriolis provider schema list $platform_type source/destination
 $coriolis endpoint source/destination options list $ENDPOINT_ID
 #listing all the available options for the endpoint depending if source or destination was chosen
 ```
-  
+
 ### Starting an execution for a replication job
 
 **Prerequisites** : an already defined replication job which does not already have a running execution
@@ -138,7 +138,7 @@ source /etc/kolla/admin-openrc.sh
  
 coriolis replica execute $REPLICA_ID
 ```
-  
+
 The above command will launch a new replica execution, which may later be queried for status, cancelled or deleted by referencing both the ID of the replica, and the ID of the newly-created replica execution.
 
 ### Additional operations for Coriolis replica executions
@@ -172,7 +172,7 @@ coriolis replica execution delete $REPLICA_ID $REPLICA_EXECUTION_ID
 # will be a full execution to completely new disks on the destination.
 coriolis replica disks delete $REPLICA_ID
 ```
-  
+
 ### Deploying a replica on the destination cloud
 
 **Prerequisite** : a pre-existing Coriolis replica which has at least one successful replica execution
@@ -184,7 +184,7 @@ source /etc/kolla/admin-openrc.sh
  
 coriolis migration deploy replica $REPLICA_ID
 ```
-  
+
 The above command will start a replica migration job which will recreate the instance on the destination cloud with the state of the last replica execution.
 
 Using the replica migration job's ID to reference it, you may run the same "**coriolis migration …**" operations detailed in the section on creating migration jobs.
@@ -205,7 +205,7 @@ Below is a listing of the source environment parameters the VMWare plugin suppor
 "automatically_enable_cbt": false
 }
 ```
-  
+
 Each Parameter representing:
 
   * **vixdisklib_compatibility_version**  (string) - The vSphere version for which to initialize vixDiskLib.
@@ -232,7 +232,7 @@ Below is a listing of the destination environment parameters the OVM plugin supp
           "linux": "linux_migration_worker",
  }, "migr_template_username_map": { "linux": "root" }, "migr_template_password_map": { "linux": "Passw0rd" }, "leave_migrated_vm_off": false, "os_label": "coriolis-migrated", "virtual_disk_clone_type": "THIN_CLONE"'
 ```
-  
+
 Each parameter representing:
 
   * **network_map**  (string-string mapping) - a mapping between the names of networks on the source cloud and names or of corresponding pre-existing networks on the destination OVM
@@ -259,7 +259,7 @@ coriolis replica create \
       --network-map '{"vmnetwork": "0a6b0100"}' \
       --instance ha-datacenter/Ubuntu-Bionic-Demo \
 ```
-  
+
 Verifying the current Replica tasks:
 
 ```text
@@ -270,14 +270,14 @@ $coriolis replica list
 
  | 926a49bb-2bd9-4533-87e1-2d0e7505e06d| ha-datacenter/Ubuntu-Bionic-Demo| Ubuntu-Bionic-Demo| COMPLETED| 2021-04-08T07:26:35.000000|
 ```
-  
+
 Using the Replica ID, the Replica can be further inspected:
 
 ```text
 $coriolis replica show 926a49bb-2bd9-4533-87e1-2d0e7505e06d
 #inspecting the coriolis replica
 ```
-  
+
 ```text
   Field                                    | Value       
 ------------------------------------------------------------------------------------                                    
@@ -340,7 +340,7 @@ $coriolis replica show 926a49bb-2bd9-4533-87e1-2d0e7505e06d
                                            | 7a91d209-5843-4dc2-869d-27e0d5b37ade COMPLETED  
                                            | 86ce4c6f-7a44-4651-8b43-55744416910e COMPLETED  
 ```
-  
+
 #### Defining Coriolis default parameters for Source/Destination environments
 
 Some of the parameters can be set as default by editing the **coriolis.conf** file.
@@ -350,7 +350,7 @@ The coriolis.conf file is available on the Coriolis Appliance:
 ```text
 $cd /etc/coriolis/coriolis.conf
 ```
-  
+
 For the example above, some parameters that can be set as default are **server_pool_name , repository_name , migr_template_map , migr_template_username_map , migr_template_password_map**.
 
 After the parameters are set as default and the newly edited **coriolis.conf** file is saved, a restart of the **Coriolis Worker container** is required.
@@ -358,7 +358,7 @@ After the parameters are set as default and the newly edited **coriolis.conf** f
 ```text
 $docker restart coriolis-worker
 ```
-  
+
 Once the Coriolis Worker container is up and running after the restart, the **Replica/Migration command** can be run **without** adding the **parameters** that were set as default in the **coriolis.conf** file.
 
 #### Coriolis Replica Schedule
@@ -377,7 +377,7 @@ coriolis replica schedule show $replica_ID $schedule_ID
 coriolis replica schedule update $replica_ID $schedule_ID
 #updating the configuration of a replica schedule
 ```
-  
+
 Coriolis Replica Schedule details using the above execution example:
 
 ```text

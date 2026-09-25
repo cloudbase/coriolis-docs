@@ -21,8 +21,7 @@ Considering there are no publicly-available APIs for fetching the contents of di
   2. create EBS snapshots of all the volumes of the instance and create new volumes from them
   3. create a temporary instance on AWS (the "disk replication worker") and attach the volumes created in step 2
   4. compute the state of the disks (i.e. hash the disk chunks)
-  5. if this is the first Replica execution, read all non-zero disk chunks and pass them to the destination plugin  
-If this is incremental sync, only the chunks which have changed from the previous Replica execution are transferred.
+  5. if this is the first Replica execution, read all non-zero disk chunks and pass them to the destination plugin If this is incremental sync, only the chunks which have changed from the previous Replica execution are transferred.
   6. delete the temporary replication  created at step 3 and its attached disks
   7. remove the volume snapshots created at step 2, along with any other temporary resources used in the disk copy process (such as the key pair for the disk copy worker)
 
@@ -47,7 +46,7 @@ Below is a listing of the configuration section needed when migrating from AWS:
  #migration process in order to ensure data consitency.
  #shutdown_migrated_instance = false 
 ```
-  
+
 ### OSMorphing steps taken when migrating from AWS
 
 For HVM guests, Coriolis will take the following OSMorphing steps as part of the migration process from AWS:
@@ -94,7 +93,7 @@ Below is a listing of the destination environment parameters the AWS plugin supp
      "shutdown_migrated_instance": false
  }
 ```
-  
+
 Each parameter represents:
 
   * **migr_image_map (string-string mapping)** - a mapping specifying the ID of an AMI to use for temporary worker VMs. Supported keys are Linux and windows.

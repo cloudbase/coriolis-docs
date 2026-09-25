@@ -5,9 +5,8 @@ wp_id: 38516
 
 # Amazon Web Services (AWS) Coriolis Plugin
 
-**Coriolis** integrates the platform Plugin on the Appliance itself, this way there is no need for agents to be deployed on platforms to establish the communication between the platform and the Coriolis components. Using this type of architecture,  
-Coriolis guarantees the connection to the supported platform set up to be used as either Source or Destination, as long as the requirements are met.  
-  
+**Coriolis** integrates the platform Plugin on the Appliance itself, this way there is no need for agents to be deployed on platforms to establish the communication between the platform and the Coriolis components. Using this type of architecture, Coriolis guarantees the connection to the supported platform set up to be used as either Source or Destination, as long as the requirements are met.
+
 [![](_static/images/AWS-source.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/04/AWS-source.jpg?ssl=1)[![](_static/images/ASW-destination.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/04/ASW-destination.jpg?ssl=1)
 
 ### Deployment requirements and supported AWS instances
@@ -35,7 +34,7 @@ In order to connect to AWS to perform a migration from it, the following connect
      "secret_access_key": "XuuT6SMN5Ub96AXMEIX9gvPXITK3xnfyRFJOkaSo"
  }
 ```
-  
+
 Each parameter represents:
 
   * **region (string)** - the AWS region from which to migrate the selected instances. For a complete table of the available regions and their identifiers, please review the "Available Regions" section of [this](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html) article of Amazon's documentation
@@ -63,5 +62,4 @@ Source disk export requirements| VM disks must be EBS-backed. Disk export is don
 Instance identification scheme| ID or "Name" tag| How instances to migrate/replicate are identified on a source cloud handled by this plugin  
 Network identification scheme| IDs of VPCs| How networks are identified by the plugin. Required for the **network_map** field of the **- destination-environment**  
 Storage identification scheme| EBS volume types| How storage backends are identified by the plugin. Required for the **storage_map** field of the **- destination-environment**  
-  
 For more information regarding Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](https://cloudbase.it/coriolis-temporary-migration-worker) **page.

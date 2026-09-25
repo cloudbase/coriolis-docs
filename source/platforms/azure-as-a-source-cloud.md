@@ -29,8 +29,7 @@ Considering there are no publicly-available APIs for fetching the contents of di
   3. create snapshots of all the disks of the instance and create new disks from them
   4. create a temporary instance on Azure (the "disk replication worker") and attach the volumes created in step 3
   5. compute the state of the disks (i.e. hash the disk chunks)
-  6. if this is the first Replica execution, read all non-zero disk chunks and pass them to the destination plugin  
-If this is incremental sync, only the chunks which have changed from the previous Replica execution are transferred.
+  6. if this is the first Replica execution, read all non-zero disk chunks and pass them to the destination plugin If this is incremental sync, only the chunks which have changed from the previous Replica execution are transferred.
   7. delete the temporary replication created at step 4 and its attached disks
   8. remove the volume snapshots created at step 3, along with any other temporary resources used in the disk copy process (such as the NIC or public IP)
 
@@ -55,7 +54,7 @@ During step 6, the changed blocks are transferred and written to disks on the de
      "storage_container_name": "coriolis"
  }
 ```
-  
+
 Each parameter representing:
 
   * **location (string)** - the Azure location where to search for the VM to migrate/replicate (ex: westus, eastus, etc…)

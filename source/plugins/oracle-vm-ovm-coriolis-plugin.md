@@ -5,8 +5,7 @@ wp_id: 38466
 
 # Oracle VM (OVM) Coriolis Plugin
 
-**Coriolis** integrates the platform Plugin on the Appliance itself, this way there is no need for agents to be deployed on platforms to establish the communication between the platform and the Coriolis components. Using this type of architecture,  
-Coriolis guarantees the connection to the supported platform set up to be used as either Source or Destination, as long as the requirements are met.
+**Coriolis** integrates the platform Plugin on the Appliance itself, this way there is no need for agents to be deployed on platforms to establish the communication between the platform and the Coriolis components. Using this type of architecture, Coriolis guarantees the connection to the supported platform set up to be used as either Source or Destination, as long as the requirements are met.
 
 This section describes the functionality available via Coriolis' Oracle VM (OVM) plugin, which enables Coriolis to migrate (CMaaS) instances from OVM, as well as both migrate and replicate to OVM.
 
@@ -80,7 +79,7 @@ In order to connect to OVM to perform a migration from it, the following connect
      "allow_untrusted": true
  } 
 ```
-  
+
 Each parameter represents:
 
   * **host (string)** - the IP address or hostname of the OVM API server

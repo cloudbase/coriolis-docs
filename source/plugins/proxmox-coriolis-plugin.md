@@ -5,8 +5,7 @@ wp_id: 42897
 
 # Proxmox Coriolis Plugin
 
-**Coriolis** integrates the platform Plugin on the Appliance itself, this way there is no need for agents to be deployed on platforms to establish the communication between the platform and the Coriolis components. Using this type of architecture,  
-Coriolis guarantees the connection to the supported platform set up to be used as Destination, as long as the requirements are met.
+**Coriolis** integrates the platform Plugin on the Appliance itself, this way there is no need for agents to be deployed on platforms to establish the communication between the platform and the Coriolis components. Using this type of architecture, Coriolis guarantees the connection to the supported platform set up to be used as Destination, as long as the requirements are met.
 
 Coriolis supports Proxmox VE environments starting from version 8.0 and is compatible with newer releases up to 9.1. From these, the EOL versions are not actively tested and may experience issues.
 
@@ -37,7 +36,7 @@ In order to connect to an Proxmox cloud to perform a migration/replica to that c
      "allow_untrusted": false
  }
 ```
-  
+
 Each parameter represents:
 
   * **Name(string)** - the name that will be known only to Coriolis

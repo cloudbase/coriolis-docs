@@ -19,8 +19,7 @@ Coriolis truly excels in automating cloud migration in a scalable and reliable w
 
 [/vc_column_text][/vc_column_inner][/vc_row_inner][/vc_column][/vc_row][vc_row type="vc_default"][vc_column][vc_empty_space height="50px"][vc_empty_space height="50px"][/vc_column][/vc_row][vc_row type="vc_default" anchor="features"][vc_column offset="vc_col-lg-offset-1 vc_col-lg-10 vc_col-md-offset-0 vc_col-md-12 vc_col-sm-offset-0″][vc_row_inner gap="35″][vc_column_inner width="1/3″][vc_column_text css_animation="fadeIn"]
 
-### ![Icon Agentless](/wp-content/uploads/2019/02/Icon-Agentless.svg)  
-Agentless
+### ![Icon Agentless](/wp-content/uploads/2019/02/Icon-Agentless.svg) Agentless
 
 [/vc_column_text][vc_empty_space height="1px"][vc_column_text]
 
@@ -28,8 +27,7 @@ No Coriolis component is needed to be pre-installed on guest VMs for them to be 
 
 [/vc_column_text][/vc_column_inner][vc_column_inner width="1/3″][vc_column_text css_animation="fadeIn"]
 
-### ![Icon Secure](/wp-content/uploads/2019/02/Icon-Secure.svg)  
-Secure
+### ![Icon Secure](/wp-content/uploads/2019/02/Icon-Secure.svg) Secure
 
 [/vc_column_text][vc_empty_space height="1px"][vc_column_text]
 
@@ -37,8 +35,7 @@ All external API/data transfer operations Coriolis performs are done through sec
 
 [/vc_column_text][/vc_column_inner][vc_column_inner width="1/3″][vc_column_text css_animation="fadeIn"]
 
-### ![Icon Coriolis Scalable](/wp-content/uploads/2019/02/Icon-Scalable.svg)  
-Scalable Architecture
+### ![Icon Coriolis Scalable](/wp-content/uploads/2019/02/Icon-Scalable.svg) Scalable Architecture
 
 [/vc_column_text][vc_column_text]
 
@@ -46,8 +43,7 @@ Any number of migrations/replicas can be performed at a given time, limited only
 
 [/vc_column_text][vc_empty_space height="1px"][/vc_column_inner][/vc_row_inner][vc_empty_space height="20px"][vc_row_inner gap="35″][vc_column_inner width="1/3″][vc_column_text css_animation="fadeIn"]
 
-### ![Icon Live Migration](/wp-content/uploads/2019/02/Icon-Migr.svg)  
-Data Replication with Zero Downtime
+### ![Icon Live Migration](/wp-content/uploads/2019/02/Icon-Migr.svg) Data Replication with Zero Downtime
 
 [/vc_column_text][vc_empty_space height="1px"][vc_column_text]
 
@@ -55,8 +51,7 @@ Running VMs can be replicated with zero impact on business continuity given the 
 
 [/vc_column_text][/vc_column_inner][vc_column_inner width="1/3″][vc_column_text css_animation="fadeIn"]
 
-### ![Icon Schedule](/wp-content/uploads/2019/02/Icon-Sched.svg)  
-Integrated Scheduler
+### ![Icon Schedule](/wp-content/uploads/2019/02/Icon-Sched.svg) Integrated Scheduler
 
 [/vc_column_text][vc_empty_space height="1px"][vc_column_text]
 
@@ -64,8 +59,7 @@ Replicas can be scheduled to be executed automatically at fixed times or with a 
 
 [/vc_column_text][/vc_column_inner][vc_column_inner width="1/3″][vc_column_text css_animation="fadeIn"]
 
-### ![Icon API](/wp-content/uploads/2019/02/Icon-API.svg)  
-REST API and a friendly UI
+### ![Icon API](/wp-content/uploads/2019/02/Icon-API.svg) REST API and a friendly UI
 
 [/vc_column_text][vc_empty_space height="1px"][vc_column_text]
 
@@ -85,17 +79,17 @@ For **OpenStack** , **Coriolis** is compatible with the vanilla OpenStack projec
 
  
 
-  
+
 
 
 ![Canonical OpenStack](_static/images/Canonical-Openstack-logo2x-1.jpg)
 
-  
+
 
 
 ![Virtuozzo](_static/images/virtuozzo-Copy.png)
 
-  
+
 
 
 ![Red Hat OpenStack Platform](_static/images/Logo-RH-Openstack-Platform-RGB.png)

@@ -55,8 +55,7 @@ During step 5, the data chunks will be handed directly to the destination cloud 
  # all OVM storage repository types.
  virtual_disk_clone_type = "THIN_CLONE 
 ```
-  
-  
+
 The **export_template_name** parameter which is used for the **temporary worker** must use an Oracle Linux VM (**recommended version 7.x or newer**) for the template.
 
 Please ensure that the Oracle VM Guest Additions Daemon, **ovmd** , is installed on the guest OS that will be used as the template. This will allow Coriolis to fetch the IP address of the temporary worker once it is spawned. Refer to the Oracle VM documentation for the required steps.
@@ -81,7 +80,7 @@ Below is a listing of the source environment parameters the OVM plugin supports 
   }
     
 ```
-  
+
 Each parameter represents:
 
   * **repository_name (string)** - name of the repository to create temporary worker VMs in

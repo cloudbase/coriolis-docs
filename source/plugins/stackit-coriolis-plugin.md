@@ -5,8 +5,7 @@ wp_id: 44258
 
 # StackIt Coriolis Plugin
 
-**Coriolis** integrates the platform Plugin on the Appliance itself, this way there is no need for agents to be deployed on platforms to establish the communication between the platform and the Coriolis components. Using this type of architecture,  
-**Coriolis** guarantees the connection to the supported platform set up to be used as either Source or Destination, as long as the requirements are met.
+**Coriolis** integrates the platform Plugin on the Appliance itself, this way there is no need for agents to be deployed on platforms to establish the communication between the platform and the Coriolis components. Using this type of architecture, **Coriolis** guarantees the connection to the supported platform set up to be used as either Source or Destination, as long as the requirements are met.
 
 [![](_static/images/image-4.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/09/image-4.png?ssl=1) [![](_static/images/image-5.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/09/image-5.png?ssl=1)
 
@@ -52,7 +51,7 @@ JSON form:
   "service_account_key" : "ZTlkNWI2ODAtNWM3Yi00..."
 }
 ```
-  
+
 Make sure that the specified service account has enough privileges to access, create and modify IAAS resources. For example, consider using the “Editor” role.
 
 ### Stackit platform specifics
@@ -66,7 +65,7 @@ Source disk export requirements| The VMs must be booted from volume and not use 
 Instance identification scheme| By name or ID.| How instances to migrate/replicate are identified on a source cloud handled by this plugin  
 Network identification scheme| By name or ID.| How the plugin identifies networks. Required for the **network_map** field of the **–destination-environment**  
 Storage identification scheme| By the name or ID of the Stackit storage performance class.| How the plugin identifies storage backends. Required for the **storage_map** field of the **–destination-environment**  
-  
+
 ### Stackit Coriolis plugin known issues and limitations
 
 #### Automatic machine type selection for Windows instances
@@ -77,13 +76,11 @@ Stackit machine types returned by the API do not currently contain any Windows r
 
 #### vTPM
 
-Stackit does not support vTPM devices, as such we cannot migrate VMs that use  
-guest side encryption (e.g. BitLocker, LUKS). This may also affect other Windows hardening features that require a vTPM device.
+Stackit does not support vTPM devices, as such we cannot migrate VMs that use guest side encryption (e.g. BitLocker, LUKS). This may also affect other Windows hardening features that require a vTPM device.
 
 #### Migrating instances that have ephemeral root disks
 
-Stackit instances that were not booted from volume and have ephemeral root disks  
-cannot be migrated.
+Stackit instances that were not booted from volume and have ephemeral root disks cannot be migrated.
 
 #### IPv6
 

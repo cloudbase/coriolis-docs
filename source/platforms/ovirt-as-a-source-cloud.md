@@ -17,7 +17,7 @@ In the process of replicating from oVirt, Coriolis will use Incremental Backups 
 
   * the oVirt must have Incremental Backups available to the user whose credentials were given to Coriolis
   * the oVirt user whose credentials are given to Coriolis must be able to access VM information and image transfer data, and it should be able to create backups and snapshots on the VM
-  * the VM to be replicated has all the storage elements hosted on Incremental-compatible storage domains (network and LUN-based domains are NOT supported)  
+  * the VM to be replicated has all the storage elements hosted on Incremental-compatible storage domains (network and LUN-based domains are NOT supported)
 Coriolis can automatically enable the incremental backup for a virtual disk on OLVM / SUSE Virtualization - oVirt-based. The technical reference for this functionality can be found here: [Incremental Backup | oVirt](https://www.ovirt.org/develop/incremental-backup-guide/incremental-backup-guide.html#disk-format)
   * the VM to be replicated must have Incremental Backups enabled on all of its disks
   * Coriolis can optionally be configured to enable Incremental Backups on the VM automatically
@@ -56,7 +56,7 @@ Below is a listing of the source environment parameters the oVirt plugin support
     "automatically_enable_incremental_backups": true
 }
 ```
-  
+
   * **automatically_enable_incremental_backups** (boolean) - Whether or not Coriolis should attempt to automatically enable incremental backups on the VM before Replication.
 
 

@@ -65,7 +65,7 @@ Shared disks and disks in Independent disk modes:
 
   1. **Cannot use CBT / incremental sync** : those disks transfer **in full on every Transfer Execution**.
   2. **Require the source VM to be powered off:** power off during the Transfer Execution so the export is consistent. Enable Shutdown Instances on the execution so Coriolis can shut clustered members down together (do not leave shared / Independent-disk guests powered on).
-  3. **Other disks on the same VM can still sync incrementally:**  the guest is still powered off for the run. That does not disable CBT: between executions VMware tracks changes, and the next cold run copies only those blocks for CBT-capable disks. Shared / Independent disks remain full copies every time.  
+  3. **Other disks on the same VM can still sync incrementally:**  the guest is still powered off for the run. That does not disable CBT: between executions VMware tracks changes, and the next cold run copies only those blocks for CBT-capable disks. Shared / Independent disks remain full copies every time.
 
 
 

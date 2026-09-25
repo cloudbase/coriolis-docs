@@ -5,8 +5,7 @@ wp_id: 38777
 
 # Preparing a VM for migration/replication
 
-When migrating VMs, it is important to verify that the source VM guest OS version is still supported by the vendor itself or ensure that the package repositories are properly maintained on the source VM.  
-  
+When migrating VMs, it is important to verify that the source VM guest OS version is still supported by the vendor itself or ensure that the package repositories are properly maintained on the source VM.
 When attempting to migrate an EOL distro release, additional manual steps might be required, as Coriolis will require installing some packages for the migrated VM and the repositories will have to be present. Otherwise, such packages will have to be manually pre-installed on the source VM prior to the migration. Please refer to the official list of supported guest OSes and versions, older ones might not work as part of the migration and are not supported by Coriolis
 
 Please refer to the vendor's pages for the supported version, or consider upgrading the source VM prior to starting the migration.
@@ -70,12 +69,11 @@ Depending on the destination platform's limitations (such as supported bus types
 
 ### Recommended steps for Linux VMs
 
-  * **update /etc/fstab to use filesystem UUIDs** to identify partitions to be mounted. Any other naming scheme may be unreliable due to limitations on some supported destination platforms  
-The UUIDs of the partitions can be found by using the "**blkid** " command, and then the **/etc/fstab** file has to be edited to replace the references with the **UUID=value** or **LABEL=value** instead  
+  * **update /etc/fstab to use filesystem UUIDs** to identify partitions to be mounted. Any other naming scheme may be unreliable due to limitations on some supported destination platforms The UUIDs of the partitions can be found by using the "**blkid** " command, and then the **/etc/fstab** file has to be edited to replace the references with the **UUID=value** or **LABEL=value** instead
 
-  * update/remove any udev rules describing block device naming that rely on a disk's physical aspects, such as a vendor ID, bus ID, and so on. Depending on the limitations of the destination platform, Coriolis may not be able to guarantee that such specific aspects relating to the disk devices will be preserved  
+  * update/remove any udev rules describing block device naming that rely on a disk's physical aspects, such as a vendor ID, bus ID, and so on. Depending on the limitations of the destination platform, Coriolis may not be able to guarantee that such specific aspects relating to the disk devices will be preserved
 
-  * **if replicating, install the guest agent** of the respective platform hosting the VM, in the case of platforms that rely on an agent to support filesystem quiescing. During the replication process, Coriolis will always attempt to quiesce the filesystems of a running instance to ensure the consistency of the filesystems of the replica after a replica execution  
+  * **if replicating, install the guest agent** of the respective platform hosting the VM, in the case of platforms that rely on an agent to support filesystem quiescing. During the replication process, Coriolis will always attempt to quiesce the filesystems of a running instance to ensure the consistency of the filesystems of the replica after a replica execution
 
   * ensure that the **/boot** partition has enough free disk space to accommodate rebuilding all existing installed kernels' initramfs image. This is a step in the OSMorphing process before the instance is booted onto the destination cloud.
 
@@ -84,8 +82,7 @@ The UUIDs of the partitions can be found by using the "**blkid** " command, and 
 ### Recommended steps for Windows VMs
 
   1. Just as for Linux VMs, for Windows VMs, ensure that the latest virtualization guest agent (such as the Windows VirtIO agent) is installed and running on the Windows guest system. The guest agent is specific to the respective platform hosting the VM for platforms that rely on an agent to support filesystem quiescing. During the replication process, Coriolis will always attempt to quiesce the filesystems of a running instance to ensure the consistency of the replica filesystems after a replica execution.
-  2. **For Windows VMs, ensure that the latest Windows updates are installed** and that the guest OS is rebooted to finish the installation of the updates.  
-This is due to all the components involved in the snapshotting process, such as VSS, related to the Windows OS, and used as part of the migration process.
+  2. **For Windows VMs, ensure that the latest Windows updates are installed** and that the guest OS is rebooted to finish the installation of the updates. This is due to all the components involved in the snapshotting process, such as VSS, related to the Windows OS, and used as part of the migration process.
 
 
 
@@ -102,7 +99,7 @@ This table will outline all the supported virtualization/cloud platforms by Cori
 ![](_static/images/Vmware.svg.png)| ![:check_mark:](_static/images/check_mark_32.png)| ![:check_mark:](_static/images/check_mark_32.png)  
 ![](_static/images/aws.png)| ![:ballot_box_with_check:](_static/images/2611.png)| ![:ballot_box_with_check:](_static/images/2611.png)  
 ![](_static/images/Microsoft_Azure.svg_.png)  
- **Microsoft Azure**| ![:ballot_box_with_check:](_static/images/2611.png)| ![:ballot_box_with_check:](_static/images/2611.png)  
+**Microsoft Azure**| ![:ballot_box_with_check:](_static/images/2611.png)| ![:ballot_box_with_check:](_static/images/2611.png)  
 ![](_static/images/Blank-diagram.png)  
 **Linux servers**| ![:check_mark:](_static/images/check_mark_32.png)| ![:heavy_minus_sign:](_static/images/2796.png)  
 ![](_static/images/oracle2022.png)  
@@ -119,7 +116,6 @@ This table will outline all the supported virtualization/cloud platforms by Cori
 ![](_static/images/18700703.png)  
 **SUSE Virtualization (Harvester)**| ![:heavy_minus_sign:](_static/images/2796.png)| ![:check_mark:](_static/images/check_mark_32.png)  
 ![](_static/images/proxmox-logo-stacked-color.svg)| ![:heavy_minus_sign:](_static/images/2796.png)| ![:check_mark:](_static/images/check_mark_32.png)  
-  
 *OpenStack instances do not have an exact way of telling if they’re UEFI instances or not, besides reading instance metadata, which may not always be available. In those cases, the Firmware type can be overridden by a source environment option
 
 ![:check_mark:](_static/images/check_mark_32.png) : fully supports UEFI with Secure Boot
@@ -128,8 +124,7 @@ This table will outline all the supported virtualization/cloud platforms by Cori
 
 ![:x:](_static/images/274c.png): the underlying platform does not support UEFI or Secure Boot
 
-Secure Boot is not yet fully supported on AWS, only on Windows instances, but Coriolis will not be enabling it until proper support is added.  
-Coriolis does not yet support Secure Boot for Azure.
+Secure Boot is not yet fully supported on AWS, only on Windows instances, but Coriolis will not be enabling it until proper support is added. Coriolis does not yet support Secure Boot for Azure.
 
 ### Bootloader checks on the source VM
 
@@ -151,7 +146,7 @@ To check the bootloader on the VM(s) meant to be migrated, run the following com
 ```bash
 sudo dd if=/dev/<relevant OS partition/disk> bs=512 count=1 2>/dev/null | strings | grep -Eoi 'grub|lilo'
 ```
-  
+
 The command above will check on the selected disk if the bootloader is installed. Please make sure that the selected partition/disk in the one hosting the OS.
 
 ```text
@@ -161,7 +156,7 @@ root@coriolis:~# sudo dd if=/dev/sda bs=512 count=1 2>/dev/null | strings | grep
 GRUB
 root@coriolis:~#
 ```
-  
+
 * * *
 
 ## On-demand Linux images subscription in Public Clouds

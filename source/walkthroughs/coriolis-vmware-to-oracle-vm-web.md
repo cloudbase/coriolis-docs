@@ -14,7 +14,7 @@ To begin with, just point the browser (Firefox, Chrome, Safari or Edge) to the a
 ```text
 grep OS_PASSWORD /etc/kolla/admin-openrc.sh
 ```
-  
+
 Once logged in, click on “**Cloud Endpoints** ”:
 
 [![](_static/images/Coriolis-Web-Endpoints.png)](https://cloudbase.it/coriolis-how-to-migrate-vms-from-vmware-to-oracle-vm-using-the-web-interface/coriolis-web-endpoints/)

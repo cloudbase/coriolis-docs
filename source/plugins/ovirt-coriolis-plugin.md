@@ -42,7 +42,7 @@ DRaaS source requirements| All VM disks must be normal virtual disks located on 
 Instance identification scheme| Names must be unique| How instances to migrate/replicate are identified on a source cloud handled by this plugin  
 Network identification scheme| IDs of VM Networks| How the plugin identifies networks. Required for the **network_map** field of the **- destination-environment**  
 Storage identification scheme| Names of storage domains hosting the virtual disk(s)| How the plugin identifies storage backends. Required for the **storage_map** field of the **- destination-environment**  
-  
+
 ### oVirt Endpoint Connection Parameters
 
 To connect to oVirt to perform a migration from it, the following connection parameters are required:
@@ -52,7 +52,7 @@ To connect to oVirt to perform a migration from it, the following connection par
 ```json
 {<br>     "url": "https://manager.olvm.local/ovirt-engine/api",<br>     "username": "admin",<br>     "password": "Password",<br>     "allow_untrusted": true<br> } 
 ```
-  
+
 Each parameter represents:
 
   * **url (string)** - the full URL (including protocol, port number and endpoint subpath (e.g. /ovirt-engine/api))

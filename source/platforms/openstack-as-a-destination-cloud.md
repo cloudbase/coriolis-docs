@@ -15,10 +15,8 @@ Transfer Migrations to OpenStack operate in the same way Transfer Replicas do an
 
 #### Steps performed by Coriolis
 
-  1. if this is the first replica execution for the VM, create empty Cinder volumes on the destination cloud, each matching the specifications of a disk the VM had on the source.  
-If this is a later replica execution, the previously created Cinder volumes are used
-  2. if this is the first replica execution of the VM, create a new live snapshot of the disks of the VM on the source cloud (handled by whatever source cloud plugin we are using).  
-If this is a later replica execution, create a new live snapshot based on the one from the last successful replica execution
+  1. if this is the first replica execution for the VM, create empty Cinder volumes on the destination cloud, each matching the specifications of a disk the VM had on the source. If this is a later replica execution, the previously created Cinder volumes are used
+  2. if this is the first replica execution of the VM, create a new live snapshot of the disks of the VM on the source cloud (handled by whatever source cloud plugin we are using). If this is a later replica execution, create a new live snapshot based on the one from the last successful replica execution
   3. create a temporary Linux worker VM in Nova (the "disk copy worker") on the destination cloud and attach the Cinder volumes from Step 1 to it
   4. read the contents of the snapshot created at step 2 via the source platform's snapshot/backup APIs (handled by whatever source cloud plugin we are using), transferring the written chunks to the temporary VM created in step 3, which then writes the chunks at the appropriate index/offset of the disks created at step 1
   5. once the contents of all the disks have been synced to the Cinder volumes created in Step 1, detach the Cinder volumes and delete the disk copy worker created in Step 3
@@ -251,7 +249,7 @@ windows_virtio_iso_url = https://fedorapeople.org/groups/virt/virtio-win/direct-
 cloudbaseinit_x64_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x64.zip
 cloudbaseinit_x86_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x86.zip
 ```
-  
+
 ### OpenStack destination environment parameters
 
 The destination environment parameters are a set of destination-cloud-specific parameters that offer additional options to the migration/replication process on a per-VM basis.
@@ -305,7 +303,7 @@ Below is a listing of the destination environment parameters the OpenStack plugi
          }
  }
 ```
-  
+
 Each parameter represents:
 
   * **network_map (string-string mapping)** - a mapping between the names of networks on the source cloud and names or IDs of corresponding pre-existing networks on the destination Openstack. For each NIC of the instance on the source cloud, Coriolis will look at the mapped network on the destination OpenStack and ensure the Neutron port corresponding to that NIC is attached to that Neutron network

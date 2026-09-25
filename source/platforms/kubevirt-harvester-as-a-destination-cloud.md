@@ -111,7 +111,7 @@ stop_service_on_exit=false
 [config_drive]
 raw_hdd=true
 ```
-  
+
   * Save the configuration and shutdown the VM;
   * Delete the Kubevirt VM, but keep the root PVC;
   * Considerations: 
@@ -213,7 +213,7 @@ disk_bus = virtio
 # are: e1000, e1000e, ne2k_pci, pcnet, rtl8139, virtio
 nic_model = virtio
 ```
-  
+
 ## Harvester 1.2
 
 When migrating to a **Harvester version 1.2** environment, the volume snapshots created as Replica backups by Coriolis might fail to provision.

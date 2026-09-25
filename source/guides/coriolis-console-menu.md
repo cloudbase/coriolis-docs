@@ -11,21 +11,17 @@ Coriolis Console Menu is represented by the **Interactive User Console** , acces
 
 The Console Menu has several options available:
 
-  * **Show Appliance Stats**  
-This option will provide the system status and stats for all docker containers, which run all the Coriolis components
+  * **Show Appliance Stats** This option will provide the system status and stats for all docker containers, which run all the Coriolis components
 
 
 
 [![](_static/images/stats.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/04/stats.jpg?ssl=1)
 
-  * **Show UI Login Details**  
-This option will provide the necessary information (**URL, username and password**) to access the Coriolis UI.
+  * **Show UI Login Details** This option will provide the necessary information (**URL, username and password**) to access the Coriolis UI.
 
 
 
-  * **Edit/Inspect Coriolis Configuration**  
-This option will open a shell session called **Coriolis Appliance Editing Environment** which will allow access to configuration files and logs.  
-A list will be shown upon opening the shell session, providing the files and directories of interest.
+  * **Edit/Inspect Coriolis Configuration** This option will open a shell session called **Coriolis Appliance Editing Environment** which will allow access to configuration files and logs. A list will be shown upon opening the shell session, providing the files and directories of interest.
 
 
 
@@ -37,16 +33,14 @@ After editing any Coriolis files, it is mandatory to restart the Coriolis Servic
 
 [![](_static/images/restart.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/04/restart.jpg?ssl=1)
 
-  * **Edit/Inspect Network Settings**  
-This option will again open the shell session called **Coriolis Appliance Editing Environment** , which offers the option of editing network configurations.  
+  * **Edit/Inspect Network Settings** This option will again open the shell session called **Coriolis Appliance Editing Environment** , which offers the option of editing network configurations.
 
 
 
 
 NOTE: The **Network Settings** are only applied **after** you edit the configurations and the **Coriolis Services** are **restarted** , so to validate them, please use the **Edit/Inspect Coriolis Configuration** option.
 
-  * **Restart Coriolis Service**  
-This option offers the capability of restarting the services without interacting with other menus.
+  * **Restart Coriolis Service** This option offers the capability of restarting the services without interacting with other menus.
 
 
 

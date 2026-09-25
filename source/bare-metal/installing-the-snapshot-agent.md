@@ -25,13 +25,13 @@ The following steps will offer guidance for downloading and extracting the file:
 cd ~
 wget https://github.com/cloudbase/coriolis-snapshot-agent/releases/download/1.1.1/coriolis-snapshot-agent.tar.gz
 ```
-  
+
 3\. Extract the downloaded file
 
 ```text
 tar -xvzf coriolis-snapshot-agent.tar.gz
 ```
-  
+
 4\. Now the script is ready to run from the following path on the server
 
 ~/coriolis-snapshot-agent/
@@ -39,7 +39,7 @@ tar -xvzf coriolis-snapshot-agent.tar.gz
 ```text
 ~/coriolis-snapshot-agent/
 ```
-  
+
 #### Install the Coriolis Snapshot Agent
 
 1\. To install the snapshot agent, you will need to run the interactive installation script, and provide any information it requires:
@@ -54,7 +54,7 @@ tar -xvzf coriolis-snapshot-agent.tar.gz
 ```text
 ./coriolis-snapshot-agent -install
 ```
-  
+
 [![](_static/images/install-1.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/10/install-1.jpg?ssl=1)
 
   * Once the script runs, you will be prompted to enter the IP address or Hostname (by using the same DNS servers from your infrastructure, which will be able to resolve both Coriolis' Bare Metal Servers Hostname/s) of the Coriolis Appliance
@@ -96,8 +96,7 @@ tar -xvzf coriolis-snapshot-agent.tar.gz
 
 #### Coriolis Snapshot Agent Config
 
-With the installation complete, **Coriolis Snapshot Agent** will create a config file containing the selected options and the agent defaults.   
-For more information on the **config file** , check the **[Coriolis Snapshot Agent Config](https://cloudbase.it/coriolis-snapshot-agent-config)** page.
+With the installation complete, **Coriolis Snapshot Agent** will create a config file containing the selected options and the agent defaults. For more information on the **config file** , check the **[Coriolis Snapshot Agent Config](https://cloudbase.it/coriolis-snapshot-agent-config)** page.
 
 #### Other considerations
 

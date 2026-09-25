@@ -23,7 +23,7 @@ $ cat /etc/coriolis/coriolis.conf
 ## option shown above
 vixdisklib_library_directory = /opt/coriolis/vmware-vix-disklib
 ```
-  
+
 **NOTE:** The archive file containing the desired version of vixDiskLib should have been provided alongside your ESXi license(s), but it can also be downloaded from [VMWare's code distribution service](https://code.vmware.com/web/sdk/60/vddk). Depending on the source used, you may need to download/extract the VDDK as a whole in order to find the actual file(s) containing vixDiskLib.
 
 After identifying the correct directory path for the library ("/opt/coriolis/vmware-vix-disklib" in this example), as well as the URL of the archive file containing the desired version of vixDiskLib, you may install it by running the following:

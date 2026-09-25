@@ -5,8 +5,7 @@ wp_id: 38511
 
 # Microsoft Hyper-V Coriolis Plugin
 
-**Coriolis** integrates the platform Plugin on the Appliance itself, this way there is no need for agents to be deployed on platforms to establish the communication between the platform and the Coriolis components. Using this type of architecture,  
-Coriolis guarantees the connection to the supported platform set up to be used as either Source or Destination, as long as the requirements are met.
+**Coriolis** integrates the platform Plugin on the Appliance itself, this way there is no need for agents to be deployed on platforms to establish the communication between the platform and the Coriolis components. Using this type of architecture, Coriolis guarantees the connection to the supported platform set up to be used as either Source or Destination, as long as the requirements are met.
 
 This section describes the functionality available via Coriolis' Hyper-V plugin, which enables Coriolis to both migrate (CMaaS) and replicate (DRaaS) instances from Hyper-V.
 
@@ -52,7 +51,7 @@ $Path="C:\<Path-to-file>\winrm-gen.ps1"
 
 Invoke-Webrequest -URI $URL -OutFile $Path
 ```
-  
+
   * Next, navigate to the directory where the script resides and run it
 
 
@@ -64,9 +63,8 @@ cd C:\<Path-to-file>\
 
 .\winrm-gen.ps1
 ```
-  
-During the installation process, outputs are provided with the current status of the running task.  
-Once it finishes, the message 'Done' will be shown. Optionally when using**SSL** the **computer name** can be specified.
+
+During the installation process, outputs are provided with the current status of the running task. Once it finishes, the message 'Done' will be shown. Optionally when using**SSL** the **computer name** can be specified.
 
 ### Manual configuration of WinRM with self-signed SSL certificate
 
@@ -77,23 +75,23 @@ This can be achieved by running:
 ```text
 $winrm quickconfig -transport:https
 ```
-  
+
 The above command can be tested afterward with the following:
 
-> #Check if WinRM is enabled and configured  
->  $winrm get winrm/config  
->    
->  #Locate WinRM listeners and addresses  
->  $winrm enumerate winrm/config/listener  
->    
->  #Display WinRM Firewall rules  
+> #Check if WinRM is enabled and configured
+>  $winrm get winrm/config
+>
+>  #Locate WinRM listeners and addresses
+>  $winrm enumerate winrm/config/listener
+>
+>  #Display WinRM Firewall rules
 >  Get-NetFirewallPortFilter | Where-Object -Property LocalPort -EQ 5986  
->    
->  #Expected output  
->  Protocol : TCP  
->  LocalPort : 5986  
->  RemotePort : Any  
->  IcmpType : Any  
+>
+>  #Expected output
+>  Protocol : TCP
+>  LocalPort : 5986
+>  RemotePort : Any
+>  IcmpType : Any
 >  DynamicTarget : Any
 
 Enable the basic authentication for WinRM, from the command prompt using the following command:
@@ -111,7 +109,7 @@ Auth
     CredSSP = false
     CbtHardeningLevel = Relaxed
 ```
-  
+
 In a test environment, **WinRM** can be used with **self-signed SSL certificates**.
 
   * Creating the self-signed certificate on the destination machine.
@@ -121,7 +119,7 @@ In a test environment, **WinRM** can be used with **self-signed SSL certificates
 ```text
 New-SelfSignedCertificate -Subject 'CN=servername.domain.com' -TextExtension '2.5.29.37={text}1.3.6.1.5.5.7.3.1'
 ```
-  
+
   * Configuring the server’s WinRM web server (listener) to use the self-signed certificate for authentication.
 
 
@@ -129,7 +127,7 @@ New-SelfSignedCertificate -Subject 'CN=servername.domain.com' -TextExtension '2.
 ```text
 winrm create winrm/config/Listener?Address=*+Transport=HTTPS '@{Hostname="servername.domain.com"; CertificateThumbprint="<cert thumbprint here>"}'
 ```
-  
+
   * Opening the appropriate ports on the destination machine’s Windows firewall**:**
 
 
@@ -145,7 +143,7 @@ $FirewallParam = @{
 } 
 New-NetFirewallRule @FirewallParam
 ```
-  
+
   * Executing a command to initiate a remote connection on the client using a PowerShell cmdlet like **Enter-PSSession**.
 
 
@@ -154,8 +152,7 @@ More details regarding **WinRM** are available on the **[Microsoft documentation
 
 #### Make sure that WinRM Basic Authentication is enabled, using the following steps
 
-  * Check if it is enabled: "winrm get winrm/config/Service”  
-The output should be similar to this:
+  * Check if it is enabled: "winrm get winrm/config/Service” The output should be similar to this:
 
 
 
@@ -177,8 +174,7 @@ The output should be similar to this:
 
  
 
-  * Enable the auth Basic authentication: "winrm set winrm/config/Service/auth @{Basic="true”}”  
-Now, if we check again, it should be “Basic = true” and the validation should pass.
+  * Enable the auth Basic authentication: "winrm set winrm/config/Service/auth @{Basic="true”}” Now, if we check again, it should be “Basic = true” and the validation should pass.
 
 
 
@@ -233,11 +229,11 @@ As prerequisites, the Windows machine must have the Hyper-V features enabled.
 
 #### RCT binary download
 
-> [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12  
->     
->  $cli = New-Object "System.Net.WebClient"  
->  $cli.DownloadFile("[https://cloudbase.it/downloads/app/hyper-v/rct-service.zip"](https://cloudbase.it/downloads/app/hyper-v/rct-service.zip%22), "$env:USERPROFILE\rct-service.zip")  
->     
+> [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+>
+>  $cli = New-Object "System.Net.WebClient"
+>  $cli.DownloadFile("[https://cloudbase.it/downloads/app/hyper-v/rct-service.zip"](https://cloudbase.it/downloads/app/hyper-v/rct-service.zip%22), "$env:USERPROFILE\rct-service.zip")
+>
 >  Expand-Archive $env:USERPROFILE\rct-service.zip -DestinationPath $env:USERPROFILE\rct 
 
 #### Generating the certificates
@@ -250,7 +246,7 @@ Download the generator and extract the files:
 
 > $cli.DownloadFile("[http://wiki.cloudbase.it/_media/gen-certs.zip"](http://wiki.cloudbase.it/_media/gen-certs.zip%22), "$env:USERPROFILE\gen-certs.zip")
 > 
->   
+>
 > Expand-Archive "$env:USERPROFILE\gen-certs.zip" -DestinationPath "$env:USERPROFILE\rct"
 
 #### Generate certificates and store them into _$env:USERPROFILE\rct_
@@ -260,7 +256,7 @@ Download the generator and extract the files:
 ```text
 & "$env:USERPROFILE\rct\gen-certs.exe" -certificate-hosts "127.0.0.1,localhost" -output-dir "$env:USERPROFILE\rct" 
 ```
-  
+
 #### Generate Rocket.toml file
 
 1) Note down the full path to the X509 certificates folder
@@ -272,7 +268,7 @@ ls $env:USERPROFILE\rct
 ```text
 ls $env:USERPROFILE\rct 
 ```
-  
+
 In our case, it is _C:/Users/Administrator/rct/_
 
 #### Create an array variable
@@ -292,7 +288,7 @@ certs = "C:/Users/Administrator/rct/srv-pub.pem"
 key = "C:/Users/Administrator/rct/srv-key.pem"
 "@
 ```
-  
+
 #### Generate the config file
 
 #### Create Rocket.toml file
@@ -300,7 +296,7 @@ key = "C:/Users/Administrator/rct/srv-key.pem"
 ```powershell
 Set-Content C:\Rocket.toml $config
 ```
-  
+
 We are using forward slashes in the config!
 
 Depending on your client, you may need to concatenate the **ca-pub.pem** with **srv-pub.pem**
@@ -312,17 +308,17 @@ Depending on your client, you may need to concatenate the **ca-pub.pem** with **
 ```text
 New-NetFirewallRule -DisplayName rct -Direction Inbound -LocalPort 6677 -Protocol TCP -Action Allow 
 ```
-  
+
 #### Create the RCT service
 
 Enable RCT service to start automatically, and manually start the service for first-time use:
 
-> $params = @{  
-> Name = "rct-service"  
-> BinaryPathName = '"C:\Users\Administrator\rct\OpenStackService.exe" rct-service "C:\Users\Administrator\rct\rct-service.exe"'  
-> DisplayName = "rct-service"  
-> StartupType = "Automatic"  
-> }  
+> $params = @{
+> Name = "rct-service"
+> BinaryPathName = '"C:\Users\Administrator\rct\OpenStackService.exe" rct-service "C:\Users\Administrator\rct\rct-service.exe"'
+> DisplayName = "rct-service"
+> StartupType = "Automatic"
+> }
 > New-Service @params
 
 ### Hyper-V connection parameters
@@ -337,19 +333,19 @@ Source disk export requirements| A lightweight RCT service must be installed and
 Instance identification scheme| Name or GUID| How instances to migrate/replicate are identified on a source cloud handled by this plugin  
 Network identification scheme| Names of Virtual Switches| How networks are identified by the plugin. Required for the **network_map** field of the **- destination-environment**  
 Storage identification scheme| IDs of QoS Policies| How storage backends are identified by the plugin. Required for the **storage_map** field of the **- destination-environment**  
-  
+
 #### Example of connection info JSON to be passed to the Hyper-V plugin
 
 To connect to Hyper-V to perform a migration/replica from it, the following connection parameters are required:
 
-> {  
->  "host": "10.7.200.100",  
->  "username": "Administrator",  
->  "password": "Passw0rd",  
->  "port": 5986,  
->  "allow_untrusted": true,  
->  "rct_port": 6677,  
->  "rct_password": "swordfish"  
+> {
+>  "host": "10.7.200.100",
+>  "username": "Administrator",
+>  "password": "Passw0rd",
+>  "port": 5986,
+>  "allow_untrusted": true,
+>  "rct_port": 6677,
+>  "rct_password": "swordfish"
 >  }
 
 Each parameter represents:
@@ -372,7 +368,7 @@ For replication, the following can be used:
      "verify_rct_server": false
  }
 ```
-  
+
 Each parameter represents:
 
   * **fallback_to_crash_consistent_snapshots (string)** - Use crash-consistent snapshots if Hyper-V enablement is not installed in the guest VM

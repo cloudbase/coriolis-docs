@@ -5,8 +5,7 @@ wp_id: 38904
 
 # Coriolis Temporary Migration Worker
 
-## Introduction  
-  
+## Introduction
 The Coriolis Temporary Migration worker is a temporary VM created on the destination platform to perform tasks such as transferring data and installing platform-specific drivers. After the process is complete, the temporary worker VM is deleted.
 
 Linux and Windows OS images must be present on the destination platform for the temporary worker to boot and perform the tasks.
@@ -41,7 +40,7 @@ For the Windows template VM used by Coriolis' worker on all supported Cloud Endp
 ```text
 $winrm quickconfig -transport:https
 ```
-  
+
   * the above command can be tested afterward with the following:
 
 
@@ -61,7 +60,7 @@ Protocol LocalPort RemotePort IcmpType DynamicTarget
  TCP      5986      Any        Any      Any
  TCP      5986      Any        Any      Any
 ```
-  
+
 Enable the basic authentication for WinRM from the command prompt using the following command:
 
 ```bash
@@ -77,7 +76,7 @@ Auth
     CredSSP = false
     CbtHardeningLevel = Relaxed
 ```
-  
+
 ### Manual configuration of WinRM with a self-signed SSL certificate
 
 In a test environment, **WinRM** can be used with **self-signed SSL certificates**.
@@ -91,7 +90,7 @@ Note that this method is not recommended, and newer Windows editions no longer s
 ```text
 New-SelfSignedCertificate -Subject 'CN=servername.domain.com' -TextExtension '2.5.29.37={text}1.3.6.1.5.5.7.3.1'
 ```
-  
+
   * Configuring the server’s WinRM web server (listener) to use the self-signed certificate for authentication.
 
 
@@ -99,7 +98,7 @@ New-SelfSignedCertificate -Subject 'CN=servername.domain.com' -TextExtension '2.
 ```text
 winrm create winrm/config/Listener?Address=*+Transport=HTTPS '@{Hostname="servername.domain.com"; CertificateThumbprint="<cert thumbprint here>"}'
 ```
-  
+
   * Opening the appropriate ports on the destination machine’s Windows firewall**:**
 
 
@@ -115,7 +114,7 @@ $FirewallParam = @{
 } 
 New-NetFirewallRule @FirewallParam
 ```
-  
+
   * Executing a command to initiate a remote connection on the client using a PowerShell cmdlet like **Enter-PSSession**.
 
 
@@ -131,7 +130,7 @@ winrs tool from Windows can be used to test the connection, recommended to be do
 ```text
 winrs -r:https://servername:5986 -u:user_name -p:password servername
 ```
-  
+
 ### Helper script to enable WinRM with a self-signed SSL certificate
 
 WinRM can also be enabled by running one of our Coriolis helper scripts. Keep in mind that this will work **only** **with Self Signed Certificates**.
@@ -147,7 +146,7 @@ $Path="C:\<Path-to-file>\winrm-gen.ps1"
 
 Invoke-Webrequest -URI $URL -OutFile $Path
 ```
-  
+
   * Next, navigate to the directory where the script resides and run it
 
 
@@ -159,9 +158,8 @@ cd C:\<Path-to-file>\
 
 .\winrm-gen.ps1
 ```
-  
-During the installation process, outputs are provided with the current status of the running task.  
-Once it finishes, the message 'Done' will be shown.
+
+During the installation process, outputs are provided with the current status of the running task. Once it finishes, the message 'Done' will be shown.
 
 Optionally, when using **SSL** ,**** the **computer name** can be specified.
 

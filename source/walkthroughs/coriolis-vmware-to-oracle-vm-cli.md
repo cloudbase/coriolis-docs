@@ -22,7 +22,7 @@ OS_TENANT_NAME=admin
 OS_USERNAME=admin
 OS_USER_DOMAIN_NAME=default
 ```
-  
+
  
 
 ### Creating an endpoint for Oracle VM
@@ -32,7 +32,7 @@ To begin with, we need to store in Barbican the Oracle VM Manager credentials an
 ```text
 openstack secret store -p '{"username":"admin", "password":"your_password", "host":"your_ovm_host", "port": 7002, "allow_untrusted":true}'
 ```
-  
+
 Replace username, password, host and port to match your Oracle VM Manager endpoint. Allow_untrusted is needed if your endpoint uses a self signed certificate for HTTPS.
 
 The above call will return an output similar to:
@@ -53,13 +53,13 @@ The above call will return an output similar to:
 | Expiration    | None                                                                  |
 +---------------+-----------------------------------------------------------------------+
 ```
-  
+
 Copy the “Secret href” in order to create the Coriolis endpoint along with a name, a description and the provider type (oracle_vm in this case):
 
 ```text
 coriolis endpoint create --provider oracle_vm --name OVM --description "My Oracle VM" --connection-secret http://127.0.0.1:9311/v1/secrets/eb3e0343-671e-4b8e-bfe2-1d7ef9848575
 ```
-  
+
 You can now list the endpoints with:
 
 coriolis endpoint list
@@ -67,7 +67,7 @@ coriolis endpoint list
 ```text
 coriolis endpoint list
 ```
-  
+
 The output will look like this:
 
 ```text
@@ -77,13 +77,13 @@ The output will look like this:
 | 1769beb7-0fdf-4211-b47e-8d9056e757a5 | OVM1    | oracle_vm      | My Oracle VM      |
 +--------------------------------------+---------+----------------+-------------------+
 ```
-  
+
 It is recommended to validate the connection to make sure coriolis can properly connect to your Oracle VM Manager, using the ID of the connection:
 
 ```text
 coriolis endpoint validate connection 1769beb7-0fdf-4211-b47e-8d9056e757a5
 ```
-  
+
 In case of success, the command will exit with 0. In case of connection problems, you will get an error message for troubleshooting the issue.
 
 Connections can be managed with **coriolis endpoint show <id>**, **coriolis endpoint update <id>** and **coriolis endpoint delete <id>**
@@ -97,15 +97,15 @@ Similarly to the Oracle VM case, an endpoint can be created for your VMware vSph
 ```text
 openstack secret store -p '{"username": "your_user@vsphere.local", "password": "your_password", "host": "your_vsphere_host", "port": 443, "allow_untrusted": true}’
 ```
-  
+
 ```text
 coriolis endpoint create --provider vmware_vsphere --name VMware --description "My VMware vSphere" --connection-secret <secret_href>
 ```
-  
+
 ```text
 coriolis endpoint validate connection <id>
 ```
-  
+
  
 
 ### Configuring a replica for a VM from vSphere to Oracle VM
@@ -117,7 +117,7 @@ coriolis endpoint list
 ```text
 coriolis endpoint list
 ```
-  
+
 ```text
 +--------------------------------------+---------+----------------+-------------------+
 | ID                                   | Name    | Type           | Description       |
@@ -126,7 +126,7 @@ coriolis endpoint list
 | 9f4ee75c-215d-48e8-9a0f-e337fbdf4581 | VMware  | vmware_vsphere | My VMware vSphere |
 +--------------------------------------+---------+----------------+-------------------+
 ```
-  
+
 If you don’t know the name of the VMs to replicate, you can just list them with **coriolis endpoint instance list**.
 
 For example the following command will list the first 10 VMs with a name containing “oracle”:
@@ -134,7 +134,7 @@ For example the following command will list the first 10 VMs with a name contain
 ```text
 coriolis endpoint instance list 9f4ee75c-215d-48e8-9a0f-e337fbdf4581 --limit 10 --name 'oracle'
 ```
-  
+
 ```text
 +---------+-----------------------+--------+-----------+-------+---------+
 | ID      | Name                  | Flavor | Memory MB | Cores | OS Type |
@@ -142,13 +142,13 @@ coriolis endpoint instance list 9f4ee75c-215d-48e8-9a0f-e337fbdf4581 --limit 10 
 | vm-157  | Oracle Linux 7        |        | 2048      | 4     | linux   |
 +---------+-----------------------+--------+-----------+-------+---------+
 ```
-  
+
 We need to let Coriolis know about how to map the networks between origin (VMware) and destination (Oracle VM) and what server pool to use:
 
 ```text
 REPLICA_ENV='{"network_map": {"VM Network": "management"}, "server_pool_name": "pool1"}'
 ```
-  
+
 In this example, the VMware network is called “VM Network” and the corresponding network on Oracle VM is called “management”. Beside the Oracle VM server pool name, you can also pass a repository name with the “repository_name” option.
 
 We can now create the replica:
@@ -156,7 +156,7 @@ We can now create the replica:
 ```text
 coriolis replica create --origin-endpoint 9f4ee75c-215d-48e8-9a0f-e337fbdf4581 --destination-endpoint 1769beb7-0fdf-4211-b47e-8d9056e757a5 --instance "Your VM Name” --destination-environment "$REPLICA_ENV"
 ```
-  
+
 Note: to replicate a group of VMs, just add more “**- instance <VM name>**” clauses.
 
 You can list the replicas with:
@@ -166,7 +166,7 @@ coriolis replica list
 ```text
 coriolis replica list
 ```
-  
+
  
 
 ### Performing the replica
@@ -176,7 +176,7 @@ Now it’s time to get Coriolis copy all the VM data from VMware to Oracle VM. T
 ```text
 coriolis replica execute <replica_id>
 ```
-  
+
 Add **- shutdown-instances** in case you would like Coriolis to shutdown the VMs before the replica starts.
 
 This will return an ID that identifies this particular execution along with info about all the tasks that will need to be completed as part of the process.
@@ -186,7 +186,7 @@ You can now check the status of the execution:
 ```text
 coriolis replica execution show <replica_id> <execution_id>
 ```
-  
+
 Depending on the size of the VM, this might take a while, so this is a perfect time to grab a coffee and periodically check on the status.
 
 In case of errors, Coriolis will also give you all the information available, for example letting you know if Change Block Tracking (CBT) is not enabled on the VMware VM.
@@ -204,7 +204,7 @@ Since the replica execution completed, we can now get the VM to run on Oracle VM
 ```text
 coriolis migration deploy replica <replica id>
 ```
-  
+
 The command will return a migration id and info about the tasks that are going to be executed.
 
 Like for the replica case, you can check the status of the migration:
@@ -212,7 +212,7 @@ Like for the replica case, you can check the status of the migration:
 ```text
 coriolis migration show <migration_id>
 ```
-  
+
 You can also list all migrations at once to get an overview of the status:
 
 coriolis migration list
@@ -220,7 +220,7 @@ coriolis migration list
 ```text
 coriolis migration list
 ```
-  
+
 Once the migration is completed, your VM will be up and running in Oracle VM!
 
  

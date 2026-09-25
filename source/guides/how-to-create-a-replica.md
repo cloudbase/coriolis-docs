@@ -13,8 +13,7 @@ Coriolis Migration will be selected as the default; toggle the button to **Corio
 
 [![](_static/images/Screenshot_11-5-2026_165123_10.8.254.141.jpeg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/05/Screenshot_11-5-2026_165123_10.8.254.141.jpeg?ssl=1)
 
-Select the desired source and destination clouds.  
-In this example, the chosen source platform will be a VMWare vSphere installation. 
+Select the desired source and destination clouds. In this example, the chosen source platform will be a VMWare vSphere installation.
 
 [![](_static/images/source_cloud.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/05/source_cloud.png?ssl=1)
 
@@ -25,8 +24,7 @@ After selecting the source Endpoint and selecting next, the new window will be �
 
 
 
-Changed Block Tracking, or **CBT** , is required by Coriolis to create the VM disk on the destination side during the Replica process. It can be enabled from VM attributes on VMWare or using Coriolis' **Source options**.  
-Automatically enabling CBT will **NOT** work if the VM that is to be migrated has pre-created snapshots, in which case Coriolis will provide a clear warning.
+Changed Block Tracking, or **CBT** , is required by Coriolis to create the VM disk on the destination side during the Replica process. It can be enabled from VM attributes on VMWare or using Coriolis' **Source options**. Automatically enabling CBT will **NOT** work if the VM that is to be migrated has pre-created snapshots, in which case Coriolis will provide a clear warning.
 
 The default Coriolis version of **vixDiskLib** will also be compatible with later versions, so matching it to the VMWare version is not mandatory, but is recommended.
 
@@ -61,13 +59,11 @@ In the Target options page, “Simple” will be selected as the default, with a
 
 
 
-The more fine-grained Oracle VM options under the "Advanced" section will also be shown shortly.  
-Select “Next” after the above steps.
+The more fine-grained Oracle VM options under the "Advanced" section will also be shown shortly. Select “Next” after the above steps.
 
 [![](_static/images/create-replica-8.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2023/02/create-replica-8.jpg?ssl=1)
 
-The next window will allow for the selection of a network on the destination OVM corresponding to each network the VM was attached to on the source VMWare.  
-Once every mapping is assigned, click “Next” 
+The next window will allow for the selection of a network on the destination OVM corresponding to each network the VM was attached to on the source VMWare. Once every mapping is assigned, click “Next”
 
 [![](_static/images/create-replica-9.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2023/02/create-replica-9.jpg?ssl=1)
 
@@ -113,8 +109,7 @@ In the last column, there is an “Options” dialog which will allow some addit
 
 ### Review Replica settings and start the job
 
-As the last step of the configuration, a summary of it will be shown with all the configurations made in the previous steps.  
-If any options seem missing or incorrect, one may click "Back" to return and edit them. Clicking “Finish” will start the process of creating the Replica.
+As the last step of the configuration, a summary of it will be shown with all the configurations made in the previous steps. If any options seem missing or incorrect, one may click "Back" to return and edit them. Clicking “Finish” will start the process of creating the Replica.
 
 [![](_static/images/create-replica-13.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2023/02/create-replica-13.jpg?ssl=1)
 
@@ -138,12 +133,9 @@ The next pop-up will have the **Clone Disks** option. This tells Coriolis to clo
 
 The **Force** option that comes as "No" by default will forcibly attempt to start the Replica Deployment process despite the Replica not having any successful Executions. This is risky and will most likely lead to a failed deployment if the Replica has not been successfully executed at least once prior.
 
-**Skip OS Morphing** tells Coriolis to skip performing the **OS Morphing** process. The **OS Morphing process** includes numerous steps required to ensure that the guest OS being deployed can boot and function correctly on the target platform. Notable examples include removing any platform-specific drivers or agents that were only used on the source platform and installing the drivers/agent required by the destination platform.  
-OS Morphing can be skipped in situations where both the source and destination platforms are using the same underlying hypervisor, such as when performing a Migration between two KVM-based OpenStack installations.  
-For more specific details regarding the actions taken during the **OS Morphing** process for each platform, please check the **Coriolis Plugins** **pages** for the source/destination platforms you are interested in.
+**Skip OS Morphing** tells Coriolis to skip performing the **OS Morphing** process. The **OS Morphing process** includes numerous steps required to ensure that the guest OS being deployed can boot and function correctly on the target platform. Notable examples include removing any platform-specific drivers or agents that were only used on the source platform and installing the drivers/agent required by the destination platform. OS Morphing can be skipped in situations where both the source and destination platforms are using the same underlying hypervisor, such as when performing a Migration between two KVM-based OpenStack installations. For more specific details regarding the actions taken during the **OS Morphing** process for each platform, please check the **Coriolis Plugins** **pages** for the source/destination platforms you are interested in.
 
-The **User Scripts** option will allow uploading a script for installations/modifications on the guest OS being migrated. These scripts are executed right before the OS Morphing process is performed by Coriolis, thus allowing for custom modifications to the guest OS before it is booted on the destination platform.  
-For more information, please check the **[User Scripts page](https://cloudbase.it/coriolis-user-scripts/)**. 
+The **User Scripts** option will allow uploading a script for installations/modifications on the guest OS being migrated. These scripts are executed right before the OS Morphing process is performed by Coriolis, thus allowing for custom modifications to the guest OS before it is booted on the destination platform. For more information, please check the **[User Scripts page](https://cloudbase.it/coriolis-user-scripts/)**.
 
 [![](_static/images/Screenshot-2021-08-31-at-13.06.19.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2021/08/Screenshot-2021-08-31-at-13.06.19.png?ssl=1)
 

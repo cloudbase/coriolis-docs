@@ -9,8 +9,7 @@ wp_id: 38531
 
 This platform is no longer supported by Oracle and has been archived in Coriolis.
 
-**Coriolis** integrates the platform Plugin on the Appliance itself, this way there is no need for agents to be deployed on platforms to establish the communication between the platform and the Coriolis components. Using this type of architecture,  
-Coriolis guarantees the connection to the supported platform set up to be used as either Source or Destination, as long as the requirements are met.
+**Coriolis** integrates the platform Plugin on the Appliance itself, this way there is no need for agents to be deployed on platforms to establish the communication between the platform and the Coriolis components. Using this type of architecture, Coriolis guarantees the connection to the supported platform set up to be used as either Source or Destination, as long as the requirements are met.
 
 In concordance with the legacy naming scheme, Coriolis's OCI-C plugin was initially labeled as the "OPC" (Oracle Public Cloud) plugin. For operations on "modern" OCI, please refer to the documentation section on the vanilla Oracle Cloud Infrastructure (OCI) Coriolis plugin.
 
@@ -58,7 +57,7 @@ Migrations from OCI-C operate in the same way Replicas do, and thus entail the s
 
 **Input** : the names of the instances. The instance must be in the same region parameter supplied in the connection info used to create the OCI-C Coriolis endpoint.
 
- Please consider reviewing the general steps recommended to be performed before creating migration for an instance from OCI-C [here](https://cloudbasedev.atlassian.net/wiki/spaces/COR/pages/1845333/Preparing+a+VM+for+migration+replication).
+Please consider reviewing the general steps recommended to be performed before creating migration for an instance from OCI-C [here](https://cloudbasedev.atlassian.net/wiki/spaces/COR/pages/1845333/Preparing+a+VM+for+migration+replication).
 
 #### Steps performed by Coriolis
 
@@ -108,7 +107,7 @@ Below is a listing of the source environment parameters the OCI-C plugin support
      "export_root_disk_size": 20
  }
 ```
-  
+
 Each parameter represents:
 
   * **export_image_name (string)** - name of a Linux image on OCI-C to use for the temporary VMs which will be exporting disk data from OCI-C
@@ -141,7 +140,7 @@ Below is a listing of the configuration section needed when migrating from OCI-C
  # Admin username for the export_image_name. Default username is 'opc'.
  # export_img_username = 
 ```
-  
+
 ## OCI-C as a destination cloud
 
 Coriolis' OCI-C plugin supports both migrating (CMaaS) and replicating (DRaaS) to OCI-C.
@@ -241,7 +240,7 @@ Below is a listing of the destination environment parameters the OCI-C plugin su
      "set_public_ip": true
  }
 ```
-  
+
 Each parameter represents:
 
   * **network_map (string-object mapping)** - a mapping between the names of networks on the source cloud and names of corresponding pre-existing IP networks on the destination OPC
@@ -284,7 +283,7 @@ Below is a listing of the configuration section needed when migrating/replicatin
  # URL of a zip file with the Windows PV drivers:
  windows_pv_drivers_url = https://cloudbase.it/downloads/ovm_win_pv_drivers_all_323.zip 
 ```
-  
+
 #### Coriolis Advanced options for Target Destinations
 
 In the case of Replicating or Migrating to Oracle Cloud Infrastructure Classic, there are the following requirements for the worker images: 
@@ -293,7 +292,7 @@ In the case of Replicating or Migrating to Oracle Cloud Infrastructure Classic, 
 
 
 
-The image used for the Disk Copy and OSMorphing worker instance might need a user called opc. The OCI-C plugin defaults to this user when setting up and sending SSH commands because most of the Oracle public images have opc-init installed, which include the opc user.  
+The image used for the Disk Copy and OSMorphing worker instance might need a user called opc. The OCI-C plugin defaults to this user when setting up and sending SSH commands because most of the Oracle public images have opc-init installed, which include the opc user.
 
   * **Windows image requirements**
 
@@ -311,7 +310,7 @@ Shape Name | shape_name | name of the shape to use for migrated VM(s) on OCI-C (
 Volume Pool | volume_pool | name of the default OPC storage pool if none is selected for a source disk or backend   
 Keypair Name | keypair_name | name of the pre-created keypair of the account to use when creating the final migrated instance   
 Set Public IP | set_public_ip | whether or not the migrated instance will have a public IP attached to its first vNIC   
-  
+
 ## OCI-C connection parameters
 
 In order to connect to OCI-C to perform a migration from it, the following connection parameters are required:
@@ -329,7 +328,7 @@ In order to connect to OCI-C to perform a migration from it, the following conne
      "storage_auth_endpoint": "https://Storage-6264247ef814462f8dd4908f3eaaf288.storage.oraclecloud.com/auth/v1.0",
  }
 ```
-  
+
 Each parameter representing:
 
   * **identity_domain (string)** - the OCI identity domain ID

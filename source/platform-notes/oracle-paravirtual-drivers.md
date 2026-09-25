@@ -33,7 +33,7 @@ Start-Process -Wait -ArgumentList "/silent" -PassThru -FilePath '$env\Setup.exe'
  New-Item -ItemType directory -Path $env\pv-drivers
  Compress-Archive -Path "${env:ProgramFiles(x86)}\Oracle Corporation\Oracle VM Windows PV Drivers\*" -DestinationPath "$env\pv-drivers\pv-drivers.zip"
 ```
-  
+
   * copy the PV drivers archive to a web server where Coriolis has access to, or directly on Coriolis Appliance 
     1. for using a webserver: 
        * using **Coriolis CLI** , navigate to **/etc/coriolis**

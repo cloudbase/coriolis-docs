@@ -132,7 +132,7 @@ Below is a listing of the source environment parameters the OpenStack plugin sup
          }
  }
 ```
-  
+
   * **custom_os_type_map (string)** - Custom mapping between the 'os_type' or 'os_distro' of Glance images on the source OpenStack. Mapping values must be one of the supported OS types in Coriolis.
   * **replica_export_mechanism (string)** - Replica export mechanism to use. Available mechanisms are "swift_backups", "ceph_backups", "ceph_snapshots", "coriolis_backups"
   * **swift_backups_options (object)** - Custom options for the "swift_backups" replica export mechanism

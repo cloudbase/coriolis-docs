@@ -73,7 +73,7 @@ In the case of Replicating or Migrating to Oracle VM, there will have to be VM t
  virtual_disk_clone_type = THIN_CLONE
  windows_pv_drivers_url = https://fileserver-address/win_pv_drivers.zip 
 ```
-  
+
 ### OVM destination environment parameters
 
 The destination environment parameters are a set of destination-cloud-specific parameters that offer additional options to the migration/replication process on a per-VM basis.
@@ -107,7 +107,7 @@ Below is a listing of the destination environment parameters the OVM plugin supp
   }
    
 ```
-  
+
 Each parameter represents:
 
   * **network_map** - a mapping between the names of networks on the source cloud and names or of corresponding pre-existing networks on the destination OVM

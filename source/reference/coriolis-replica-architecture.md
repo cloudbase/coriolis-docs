@@ -5,8 +5,8 @@ wp_id: 38724
 
 # Coriolis Replica/Migration Architecture
 
-This document describes the two broader feature sets offered by Coriolis Transfers, and namely:  
-  
+This document describes the two broader feature sets offered by Coriolis Transfers, and namely:
+
   * Disaster Recovery as a Service (**DRaaS**) through **Coriolis Replicas**
   * Cloud Migration as a Service (**CMaaS**) through **Coriolis Migrations**
 
@@ -48,13 +48,10 @@ If no disk diff-ing/export mechanism is available on the source platform, Coriol
 #### Steps performed by Coriolis
 
   1. read the configuration of the instance on the source cloud (CPU, RAM, attached NICs, disks, etc…)
-  2. if this is the first replica execution for the VM, create empty disks on the destination cloud, each matching the specifications of a disk the VM had on the source.  
-If this is a later replica execution, the previously-created disks are used (with necessary updates such as resizing, reordering and so on applied to them)
+  2. if this is the first replica execution for the VM, create empty disks on the destination cloud, each matching the specifications of a disk the VM had on the source. If this is a later replica execution, the previously-created disks are used (with necessary updates such as resizing, reordering and so on applied to them)
   3. [configurable] turn off the source VM before doing the sync to ensure consistency
-  4. if this is the first replica execution of the VM, create a new live-snapshot of the disks of the VM on the source cloud.  
-If this is a later replica execution, create a new live-snapshot based on the one from the last successful replica execution (also referred to as an "incremental snapshot" on some source platforms)
-  5. [optional] if the source platform does not offer a mechanism to query disk areas that have changed between live-snapshots, Coriolis will deploy a temporary Linux worker VM (the "disk replication worker") on the source platform.  
-This temporary VM will then run Coriolis' disk Replication engine in order to compute the disk change areas between syncs itself.
+  4. if this is the first replica execution of the VM, create a new live-snapshot of the disks of the VM on the source cloud. If this is a later replica execution, create a new live-snapshot based on the one from the last successful replica execution (also referred to as an "incremental snapshot" on some source platforms)
+  5. [optional] if the source platform does not offer a mechanism to query disk areas that have changed between live-snapshots, Coriolis will deploy a temporary Linux worker VM (the "disk replication worker") on the source platform. This temporary VM will then run Coriolis' disk Replication engine in order to compute the disk change areas between syncs itself.
   6. create a temporary Linux worker VM (the "disk writer worker") on the destination cloud and attach the disks from step 2 to it
   7. read the contents of the snapshot created at step 4 (either via the source platform's snapshot/backup APIs, or the disk replication worker from step 5), transferring the written chunks to the disk writer VM created in step 6, which then writes the chunks at the appropriate index/offset of the disks created at step 2
   8. once the contents of all the disks have been synced, detach the disks created at step 2 and delete the disk writer worker VM created at step 6, as well as the disk replication worker from step 5.

@@ -51,7 +51,7 @@ Below is a listing of the source environment parameters the Stackit plugin suppo
   "project": "stackit-source-project"
 }
 ```
-  
+
 Each parameter represents:
 
   * **guest_os_type_override** (string: **linux** or **windows**) — overrides the OS type Coriolis reads from source image or boot-volume metadata. Use this when Stackit metadata is missing or wrong; it affects listing, export info, and which destination OSMorphing tools/worker image are used.

@@ -70,9 +70,9 @@ check_latest_version=false
 metadata_services=cloudbaseinit.metadata.services.nocloudservice.NoCloudConfigDriveService
 plugins=cloudbaseinit.plugins.common.mtu.MTUPlugin,cloudbaseinit.plugins.windows.ntpclient.NTPClientPlugin,cloudbaseinit.plugins.common.sethostname.SetHostNamePlugin,cloudbaseinit.plugins.windows.extendvolumes.ExtendVolumesPlugin,cloudbaseinit.plugins.windows.winrmlistener.ConfigWinRMListenerPlugin,cloudbaseinit.plugins.common.userdata.UserDataPlugin
 ```
-  
+
   4. Save the configuration and start a sysprep process, shutdown the Windows VM afterward
-  5. Save the LXD VM as an image using the publish command:  
+  5. Save the LXD VM as an image using the publish command:
 
 
 
@@ -80,7 +80,7 @@ plugins=cloudbaseinit.plugins.common.mtu.MTUPlugin,cloudbaseinit.plugins.windows
 ```text
 lxc publish <vm_name> --alias windows-worker --reuse description="Windows Worker Image" release="<Windows release version>" type=disk os=windows
 ```
-  
+
 ## Configuration Options
 
 [![](_static/images/lxc-options.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2023/08/lxc-options.png?ssl=1)
@@ -127,7 +127,7 @@ Below is a listing of the configuration section needed when migrating/replicatin
 # Only available on bridged networks.
 # use_network_forwarding = false  
 ```
-  
+
 ## OSMorphing steps taken when migrating to LXD
 
 Depending on the OS release we are migrating, the following notable steps will be performed as part of the OSMorphing process:

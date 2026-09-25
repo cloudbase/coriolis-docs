@@ -27,20 +27,20 @@ tar -xvf coriolis-appliance.ova
 # this will extract the vmdk disk. Use qemu-img to convert it:
 qemu-img convert -f vmdk -O qcow2 disk-0.vmdk image-name.qcow2
 ```
-  
+
 For this example, the Coriolis VM will be deployed in VMWare by importing the .ova file directly from the Web link.
 
- NOTE: If using Coriolis for DRaaS scenarios, deploying Coriolis on the source platform is not recommended for fault tolerance reasons. In DRaaS scenarios, please deploy the appliance on the destination platform or within a space that is external and independent of both platforms.
+NOTE: If using Coriolis for DRaaS scenarios, deploying Coriolis on the source platform is not recommended for fault tolerance reasons. In DRaaS scenarios, please deploy the appliance on the destination platform or within a space that is external and independent of both platforms.
 
 Example network configuration
 
-Scenario 1:  
-Single network interface to the Coriolis appliance that handles all communications with the source and target platforms, including the data transfer.  
-It must be ensured that the speedlink for the virtual interface is higher than 1Gbps, as that will affect the migration job duration.
+Scenario 1:
 
-Scenario 2:  
-A first interface is used for management and platform communication.  
-The 2nd interface handles the data replication, this must be on a high bandwidth for faster migrations.
+Single network interface to the Coriolis appliance that handles all communications with the source and target platforms, including the data transfer. It must be ensured that the speedlink for the virtual interface is higher than 1Gbps, as that will affect the migration job duration.
+
+Scenario 2:
+
+A first interface is used for management and platform communication. The 2nd interface handles the data replication, this must be on a high bandwidth for faster migrations.
 
 3\. Connect to the Coriolis appliance
 

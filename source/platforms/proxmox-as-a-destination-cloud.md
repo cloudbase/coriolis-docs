@@ -5,8 +5,7 @@ wp_id: 42900
 
 # Proxmox as a destination cloud
 
-### Migrating (CMaaS) to Proxmox  
-  
+### Migrating (CMaaS) to Proxmox
 Migrations to Proxmox VE operate in the same way Replicas do and thus entail the same requirements and steps described below.
 
 ### Replicating (DRaaS) to Proxmox
@@ -15,8 +14,7 @@ Migrations to Proxmox VE operate in the same way Replicas do and thus entail the
 
 #### Requirements:
 
-To **Replicate** to Proxmox VE, **VM templates** for temporary Coriolis workers are required.  
-The templates need the following platform specifics in addition to **[Coriolis Temporary Migration Worker](https://cloudbase.it/coriolis-temporary-migration-worker)**.
+To **Replicate** to Proxmox VE, **VM templates** for temporary Coriolis workers are required. The templates need the following platform specifics in addition to **[Coriolis Temporary Migration Worker](https://cloudbase.it/coriolis-temporary-migration-worker)**.
 
 In the case of Replicating or Migrating to Proxmox VE, images will need to be created for both Linux and Windows machines for the worker to create temporary VMs to perform the tasks. The template OS version must be at least the same as the VM OS that needs to be migrated.
 
@@ -46,7 +44,7 @@ systemctl enable qemu-guest-agent
 systemctl start qemu-guest-agent
 systemctl status qemu-guest-agent
 ```
-  
+
   * Configuration to a **network** with a **DHCP server** , a network which the Coriolis appliance can reach.
 
 
@@ -92,15 +90,13 @@ When using Coriolis to migrate to Proxmox, a Proxmox user with the following rol
 PVEDatastoreAdmin| Coriolis creates, manages, clones, deletes transferred volumes on destination Proxmox datastores  
 PVEVMAdmin| Coriolis creates, deletes, edits, clones worker or migrated VMs on the destination Proxmox  
 PVESDNUser| Coriolis may use SDN networks when creating worker or migratied VMs (depending on how you configure the migrations)  
-  
+
 #### Replica executions:
 
 #### Steps performed by Coriolis
 
-  1. if this is the first replica execution for the VM, create empty volumes on the destination cloud, each matching the specifications of a disk the VM had on the source.  
-If this is a later replica execution, the previously created volumes are used
-  2. if this is the first replica execution of the VM, create a new live snapshot of the disks of the VM on the source cloud (handled by whatever source cloud plugin we are using).  
-If this is a later replica execution, create a new live snapshot based on the one from the last successful replica execution
+  1. if this is the first replica execution for the VM, create empty volumes on the destination cloud, each matching the specifications of a disk the VM had on the source. If this is a later replica execution, the previously created volumes are used
+  2. if this is the first replica execution of the VM, create a new live snapshot of the disks of the VM on the source cloud (handled by whatever source cloud plugin we are using). If this is a later replica execution, create a new live snapshot based on the one from the last successful replica execution
   3. create a temporary Linux worker VM in Proxmox VE (the "disk copy worker") on the destination cloud and attach the volumes from Step 1 to it
   4. read the contents of the snapshot created at step 2 via the source platform's snapshot/backup APIs (handled by whatever source cloud plugin we are using), transferring the written chunks to the temporary VM created in step 3, which then writes the chunks at the appropriate index/offset of the disks created at step 1
   5. once the contents of all the disks have been synced to the volumes created in Step 1, detach the volumes and delete the disk copy worker created in Step 3

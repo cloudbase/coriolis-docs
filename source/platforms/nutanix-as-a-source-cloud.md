@@ -22,7 +22,7 @@ Note that Prism Central isn’t included by default in the latest community edit
 Nutanix API| 4.0  
 Nutanix AOS| >= 6.8  
 Nutanix Prism Central| >= 7.3  
-  
+
 ### Nutanix endpoint connection parameters
 
 Coriolis requires the following connection parameters to access Nutanix Prism Central and migrate resources:
@@ -109,7 +109,7 @@ Plugin identifier| **nutanix**|  Identifies the plugin. Used for the **–provid
 Credentials needed| Nutanix Prism Central address and credentials.|    
 Deployment requirements| Coriolis worker component(s) need network access to the Nutanix Prism Central API endpoint as well as the Nutanix iSCSI portal.| Coriolis deployment and environment connectivity requirements  
 Instance identification scheme| By name or ID.| How instances to migrate/replicate are identified on a source cloud handled by this plugin  
-  
+
 ### Known issues and limitations
 
 #### Incremental transfers

@@ -72,26 +72,26 @@ Install Cloudbase-Init, without running sysprep from the installation wizard.
 
 Edit the Cloudbase-Init configuration file (typically C:\\\Program Files\\\Cloudbase Solutions\\\Cloudbase-Init\\\conf\\\cloudbase-init.conf) to match the following:
 
-> [DEFAULT]  
-> username=Admin  
-> groups=Administrators  
-> inject_user_password=true  
-> config_drive_raw_hhd=true  
-> config_drive_cdrom=true  
-> config_drive_vfat=true  
-> bsdtar_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\bsdtar.exe  
-> mtools_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\  
-> verbose=true  
-> debug=true  
-> log_dir=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\log\  
-> log_file=cloudbase-init.log  
-> default_log_levels=comtypes=INFO,suds=INFO,iso8601=WARN,requests=WARN  
-> logging_serial_port_settings=COM1,115200,N,8  
-> mtu_use_dhcp_config=true  
-> ntp_use_dhcp_config=true  
-> local_scripts_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts\  
-> check_latest_version=false  
-> metadata_services=cloudbaseinit.metadata.services.configdrive.ConfigDriveService,cloudbaseinit.metadata.services.httpservice.HttpService  
+> [DEFAULT]
+> username=Admin
+> groups=Administrators
+> inject_user_password=true
+> config_drive_raw_hhd=true
+> config_drive_cdrom=true
+> config_drive_vfat=true
+> bsdtar_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\bsdtar.exe
+> mtools_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\
+> verbose=true
+> debug=true
+> log_dir=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\log\
+> log_file=cloudbase-init.log
+> default_log_levels=comtypes=INFO,suds=INFO,iso8601=WARN,requests=WARN
+> logging_serial_port_settings=COM1,115200,N,8
+> mtu_use_dhcp_config=true
+> ntp_use_dhcp_config=true
+> local_scripts_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts\
+> check_latest_version=false
+> metadata_services=cloudbaseinit.metadata.services.configdrive.ConfigDriveService,cloudbaseinit.metadata.services.httpservice.HttpService
 > plugins=cloudbaseinit.plugins.common.mtu.MTUPlugin,cloudbaseinit.plugins.windows.ntpclient.NTPClientPlugin,cloudbaseinit.plugins.common.sethostname.SetHostNamePlugin,cloudbaseinit.plugins.windows.extendvolumes.ExtendVolumesPlugin,cloudbaseinit.plugins.windows.winrmlistener.ConfigWinRMListenerPlugin,cloudbaseinit.plugins.common.userdata.UserDataPlugin
 
 Save the configuration and start a sysprep process, then shut down the Windows VM.

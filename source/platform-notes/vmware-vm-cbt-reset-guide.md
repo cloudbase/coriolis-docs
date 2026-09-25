@@ -5,8 +5,7 @@ wp_id: 41525
 
 # VMware VM CBT reset guide
 
-The following guide will provide information on resetting CBT for VMs that cannot perform backups using VMware CBT.  
-VMware provides more info on the matter on its documentation page **[here](https://kb.vmware.com/s/article/1020128)**.
+The following guide will provide information on resetting CBT for VMs that cannot perform backups using VMware CBT. VMware provides more info on the matter on its documentation page **[here](https://kb.vmware.com/s/article/1020128)**.
 
 Changed Block Tracking (CBT) is a VMkernel feature that keeps track of the storage blocks of virtual machines as they change over time. The VMkernel keeps track of block changes on virtual machines, which enhances the backup process for applications developed to take advantage of VMware’s vStorage APIs.
 
@@ -52,8 +51,7 @@ To reset CBT on a vSphere virtual machine:
 
 [![](_static/images/scsi-false.jpg)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2022/09/scsi-false.jpg?ssl=1)
 
-  
-**NOTE:** Where **scsix:x** is the SCSI controller and SCSI device ID of your virtual disk.  
+**NOTE:** Where **scsix:x** is the SCSI controller and SCSI device ID of your virtual disk.
 
 
 8\. Open the virtual machine's working directory using the Datastore Browser or ESXi shell. For more information on identifying the working directory, see [Locating virtual machine log files on an ESXi/ESX host (1007805)](https://kb.vmware.com/s/article/1007805).

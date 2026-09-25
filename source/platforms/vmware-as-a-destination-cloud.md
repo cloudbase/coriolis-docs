@@ -15,7 +15,6 @@ Migrations to VMWare vSphere operate in the same way Replicas do and thus entail
 
 In order to **Replicate** to VMWare vSphere, **VM templates** for temporary Coriolis workers are required.
 
-  
 The templates need the following:
 
 #### Linux
@@ -43,10 +42,8 @@ The templates need the following:
 
 #### Steps performed by Coriolis
 
-  1. if this is the first replica execution for the VM, create an empty volume disk on the destination cloud, each matching the specifications of a disk the VM had on the source.  
-If this is a later replica execution, the previously created volume disks are used
-  2. if this is the first replica execution of the VM, create a new live snapshot of the disks of the VM on the source cloud (handled by whatever source cloud plugin we are using).  
-If this is a later replica execution, create a new live snapshot based on the one from the last successful replica execution
+  1. if this is the first replica execution for the VM, create an empty volume disk on the destination cloud, each matching the specifications of a disk the VM had on the source. If this is a later replica execution, the previously created volume disks are used
+  2. if this is the first replica execution of the VM, create a new live snapshot of the disks of the VM on the source cloud (handled by whatever source cloud plugin we are using). If this is a later replica execution, create a new live snapshot based on the one from the last successful replica execution
   3. create a temporary Linux worker VM on VMWare vSphere (the "disk copy worker") on the destination cloud and attach the disk volumes from Step 1 to it
   4. read the contents of the snapshot created at step 2 via the source platform's snapshot/backup APIs (handled by whatever source cloud plugin we are using), transferring the written chunks to the temporary VM created in step 3, which then writes the chunks at the appropriate index/offset of the disks made at Step 1
   5. once the contents of all the disks have been synced to the volumes created in Step 1, detach the volumes and delete the disk copy worker made in Step 3
@@ -99,7 +96,7 @@ Change configuration -> Remove disk | Removing replica disks from worker VMs
 Change configuration -> Add or remove device | Adding required buses, migrated NICs and disk devices to migrated VM  
 Edit Inventory -> Create new | Creating final VM  
 **Resource** | The host object(s) to be migrated to | Assign virtual machine to resource pool | Assigning created worker or final VM to a resource pool  
-  
+
 #### Configuration options for VMWare vSphere as a destination
 
   * **Title** = The name that will be listed in Coriolis' Dashboard. The default will be the name of the machine on the source platform

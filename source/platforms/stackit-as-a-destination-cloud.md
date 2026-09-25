@@ -15,10 +15,8 @@ Transfer Migrations to Stackit operate in the same way Transfer Replicas do and 
 
 #### Steps performed by Coriolis
 
-  1. if this is the first replica execution for the VM, create empty Stackit volumes on the destination side, each matching the specifications of a disk the VM had on the source.  
-If this is a later replica execution, the previously created Stackit volumes are used
-  2. if this is the first replica execution of the VM, create a new live snapshot of the disks of the VM on the source cloud (handled by whatever source cloud plugin we are using).  
-If this is a later replica execution, create a new live snapshot based on the one from the last successful replica execution
+  1. if this is the first replica execution for the VM, create empty Stackit volumes on the destination side, each matching the specifications of a disk the VM had on the source. If this is a later replica execution, the previously created Stackit volumes are used
+  2. if this is the first replica execution of the VM, create a new live snapshot of the disks of the VM on the source cloud (handled by whatever source cloud plugin we are using). If this is a later replica execution, create a new live snapshot based on the one from the last successful replica execution
   3. create a temporary Linux worker VM (the “disk copy worker”) on the destination side and attach the Stackit volumes from Step 1 to it
   4. read the contents of the snapshot created at step 2 via the source platform’s snapshot/backup APIs (handled by whatever source cloud plugin we are using), transferring the written chunks to the temporary VM created in step 3, which then writes the chunks at the appropriate index/offset of the disks created at step 1
   5. once the contents of all the disks have been synced to the Stackit volumes created in Step 1, detach the Stackit volumes and delete the disk copy worker created in Step 3
@@ -272,8 +270,8 @@ use_config_drive = false
 # Location of the Cloudbase-Init ZIP for amd64 systems (string value)
 cloudbaseinit_x64_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x64.zip
 ```
-  
-[/crayon] 
+
+[/crayon]
 
 #### Example of destination environment JSON to be passed to the Stackit plugin
 
@@ -318,8 +316,8 @@ cloudbaseinit_x64_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x6
   "windows_virtio_iso_url": "https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso"
 }
 ```
-  
-[/crayon] 
+
+[/crayon]
 
 Each parameter represents:
 

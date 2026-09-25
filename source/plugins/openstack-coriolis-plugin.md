@@ -5,8 +5,7 @@ wp_id: 38472
 
 # OpenStack Coriolis Plugin
 
-**Coriolis** integrates the platform Plugin on the Appliance itself, this way there is no need for agents to be deployed on platforms to establish communication between the platform and the Coriolis components. Using this type of architecture,  
-Coriolis guarantees the connection to the supported platform set up to be used as either Source or Destination, as long as the requirements are met.
+**Coriolis** integrates the platform Plugin on the Appliance itself, this way there is no need for agents to be deployed on platforms to establish communication between the platform and the Coriolis components. Using this type of architecture, Coriolis guarantees the connection to the supported platform set up to be used as either Source or Destination, as long as the requirements are met.
 
 This section describes the functionality available via Coriolis' OpenStack plugin, enabling Coriolis to migrate and replicate to/from an OpenStack cloud.
 
@@ -111,7 +110,7 @@ NOTE UEFI is supported in certain situations:
 ```text
 --property hw_machine_type=hyperv-gen2
 ```
-  
+
   * KVM is used. UEFI is supported if the glance image has the following property set:
 
 
@@ -119,11 +118,10 @@ NOTE UEFI is supported in certain situations:
 ```text
 --property hw_firmware_type=uefi
 ```
-  
+
 ### Coriolis OpenStack Ceph integration
 
-Coriolis also offers the option of Ceph backend storage to be used with the two features of **Ceph Snapshots** and **Ceph Backups** for **Replica and Migration** tasks.  
-For more information on this option, please go to **[Coriolis OpenStack Ceph integration](https://cloudbase.it/openstack-ceph-integration)** page.
+Coriolis also offers the option of Ceph backend storage to be used with the two features of **Ceph Snapshots** and **Ceph Backups** for **Replica and Migration** tasks. For more information on this option, please go to **[Coriolis OpenStack Ceph integration](https://cloudbase.it/openstack-ceph-integration)** page.
 
 ### OpenStack platform specifics
 
@@ -136,7 +134,7 @@ Source disk export requirements |  Through Swift (instances booted from a Cinder
 Instance identification scheme |  Names (must be unique within the tenant) or IDs |  How instances to migrate/replicate are identified on a source cloud handled by this plugin   
 Network identification scheme |  Names or IDs of desired Neutron networks |  How networks are identified by the plugin. Required for the **network_map** field of the **- destination-environment**  
 Storage identification scheme |  Names or IDs of Cinder volume types |  How storage backends are identified by the plugin. Required for the **storage_map** field of the **- destination-environment **  
-  
+
 ### OpenStack connection parameters
 
 To connect to an OpenStack cloud to perform a migration/replica to/from that cloud, the following connection parameters are required:
@@ -177,7 +175,7 @@ To connect to an OpenStack cloud to perform a migration/replica to/from that clo
          }
  } 
 ```
-  
+
 Each parameter represents:
 
   * **identity_api_version  (integer)** - the version of the Keystone API to use, supported versions including v2 and v3

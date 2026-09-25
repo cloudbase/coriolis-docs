@@ -7,12 +7,11 @@ wp_id: 39345
 
 ### Backup fails when the source Endpoint is set for the VCenter
 
-**Error message** :   
-_" The ESXi host performing the CBT export refused connection. The host is chosen automatically by Center, so please ensure that the Coriolis deployment can dial TCP/902 on all the ESXi hosts of a vSphere, and that DNS name resolution firewalls are setup to facilitate this.Alternatively, try connecting Coriolis directly to the specific ESXi host which is running the VM(s) to be migrated by creating a Coriolis endpoint using the DNS name/IP address of the host itself. "_
+**Error message** : _" The ESXi host performing the CBT export refused connection. The host is chosen automatically by Center, so please ensure that the Coriolis deployment can dial TCP/902 on all the ESXi hosts of a vSphere, and that DNS name resolution firewalls are setup to facilitate this.Alternatively, try connecting Coriolis directly to the specific ESXi host which is running the VM(s) to be migrated by creating a Coriolis endpoint using the DNS name/IP address of the host itself. "_
 
 If the above error message occurs in a multi ESXi hosts situation where vCenter is used in the Coriolis endpoint configuration, we recommend adding as Coriolis Endpoint the ESXi hosts IP or Hostname rather than the vCenter'. This way, we are making sure that Coriolis will send the commands directly to the ESXi host.
 
-The error message will point to port 443 which vCenter will use to communicate with the ESXi hosts, but Coriolis will not be able to confirm the connection.  
+The error message will point to port 443 which vCenter will use to communicate with the ESXi hosts, but Coriolis will not be able to confirm the connection.
 
 
 In the case where the **ESXi Host** is connected to vCenter using its **hostname** and the **Coriolis Endpoint** is created using vCenter details, the **vixdisklib** will look to resolve the hostnames.
@@ -32,8 +31,7 @@ This can be avoided if the **Coriolis Endpoint** is created using the **IP** of 
 
 ### Replica/Migration fails due to corrupt CBT data
 
-**Error message:**  
-"Error caused by file /vmfs/volumes/xxxxxx/xxxxx.vmdk". 
+**Error message:** "Error caused by file /vmfs/volumes/xxxxxx/xxxxx.vmdk".
 
 If the above message occurs, it is an internal VMWare type of error that causes CBT data to be corrupted and thus, unexportable. This is a VMware software issue, and Coriolis is merely passing further to the user the error it receives from the hypervisor.
 
@@ -116,8 +114,7 @@ VMware 6.x series is EOL and should not be used in production.
 
 ### Migration job enters a Cancelled state
 
-**Error message** :   
-This task was user-cancelled. Additional cancellation info from worker service: "Task was canceled."
+**Error message** : This task was user-cancelled. Additional cancellation info from worker service: "Task was canceled."
 
 Please follow the VMware plugin documentation for the proper setup and configuration to ensure a smooth integration with your VMware environment.
 

@@ -5,8 +5,8 @@ wp_id: 43526
 
 # oVirt as a destination cloud
 
-**NOTE: Both OLVM and RHEV are considered oVirt platforms in the Coriolis documentation pages and therefore all notes about the oVirt platform will apply to both the OLVM and RHEV providers.**  
-  
+**NOTE: Both OLVM and RHEV are considered oVirt platforms in the Coriolis documentation pages and therefore all notes about the oVirt platform will apply to both the OLVM and RHEV providers.**
+
 ### Migrating (CMaaS) to oVirt
 
 Migrations to oVirt operate like Replicas do and thus entail the same requirements and steps described below.
@@ -56,15 +56,14 @@ Once the image is imported as a template, a new VM must be created using it and 
 
 #### Installing Qemu Guest Agent when not present
 
-If the agent is not present install it on the machine and save it as a template afterward.  
-On Ubuntu or Debian derivatives, run:
+If the agent is not present install it on the machine and save it as a template afterward. On Ubuntu or Debian derivatives, run:
 
 ```bash
 apt update && apt -y install qemu-guest-agent
 systemctl enable --now qemu-guest-agent
 systemctl status qemu-guest-agent
 ```
-  
+
 On RedHat Linux derivatives, run:
 
 ```bash
@@ -72,7 +71,7 @@ yum install -y qemu-guest-agent
 systemctl enable --now qemu-guest-agent
 systemctl status qemu-guest-agent
 ```
-  
+
 On Windows, download the VirtIO drivers using the [**official archive**](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/), copy on or attach it to the machine, and use the .iso image for the following:
 
   * Install **VirtIO drivers** by running the .exe file
@@ -127,8 +126,7 @@ Depending on the Coriolis configuration, the disk copy worker might have to do s
 The images do **NOT** require any special Coriolis agent running in them and can be images already available on oVirt, granted the following requirements:
 
   * When Migrating a Windows VM, **[the temporary worker image](https://cloudbase.it/coriolis-temporary-migration-worker)** version used for the temporary worker**must be the same** as the one for the VM replicated/migrated or **newer**.
-  * image must have **VirtIO drivers** and ovirt **guest agent/qemu guest agent**  
-For VirtIO drivers, please follow the **[official page](https://docs.fedoraproject.org/en-US/quick-docs/creating-windows-virtual-machines-using-virtio-drivers/)** for download for the community drivers, or use the Oracle VirtIO drivers.
+  * image must have **VirtIO drivers** and ovirt **guest agent/qemu guest agent** For VirtIO drivers, please follow the **[official page](https://docs.fedoraproject.org/en-US/quick-docs/creating-windows-virtual-machines-using-virtio-drivers/)** for download for the community drivers, or use the Oracle VirtIO drivers.
 
 
 

@@ -5,8 +5,7 @@ wp_id: 43850
 
 # Coriolis in Air‑Gapped Environments
 
-**Coriolis** can operate and handle VM migrations, including in restricted deployments, and does not require an Internet connection to carry out the operations, given that a few requirements are met.  
-  
+**Coriolis** can operate and handle VM migrations, including in restricted deployments, and does not require an Internet connection to carry out the operations, given that a few requirements are met.
 This guide describes how to configure and operate **Coriolis** in environments without outbound internet connectivity (air‑gapped environments). In such systems, several artifacts and repositories must be set up in the local infrastructure and made available in the target cloud.
 
 The main dependencies to consider and self-host are the Cloudbase-init tool and platform-specific drivers, such as the VirtIO drivers, which will be detailed below.
@@ -29,8 +28,7 @@ $ vim /etc/coriolis/coriolis.conf
 
 The nano editor is also available. 
 
-If OpenStack is used as the destination, locate the following section.  
-  
+If OpenStack is used as the destination, locate the following section.
 [openstack_migration_provider]
 
 [![](_static/images/ee9f6e8e-9d58-4a43-aa45-dcf099340167.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/03/ee9f6e8e-9d58-4a43-aa45-dcf099340167.png?ssl=1)
@@ -69,10 +67,8 @@ Then, proceed to edit the Coriolis configuration file and look for the **[proxy]
 
 [![](_static/images/66b465a7-3415-4ee5-90a4-6b938f2c5454.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/03/66b465a7-3415-4ee5-90a4-6b938f2c5454.png?ssl=1)
 
-After modifying these details, you can save the changes and exit the editor.  
-This will also further allow the **Linux workers** so that the proxy configured will be used.
+After modifying these details, you can save the changes and exit the editor. This will also further allow the **Linux workers** so that the proxy configured will be used.
 
-  
 NOTE! For **Windows workers**  to use a** ** proxy, the proxy configuration should be set in the Windows temporary worker template images.
 
 NOTE! The **no_proxy** variable can contain multiple hosts, comma-separated. Wildcard entries are not supported.
@@ -91,12 +87,12 @@ Once the console option has been selected, the proxy settings can be configured 
 
 Proxy parameter definitions:
 
-**proxy_host** - Set to true to enable proxy settings on the appliance host (required for system upgrades or apt updates).  
-  
-**proxy_worker** - Set to true to enable proxy settings for the coriolis-worker container (required if specific Endpoints are only accessible through a proxy).  
-  
-Setting **proxy_host** does not affect **proxy_worker** and vice versa.  
-  
+**proxy_host** - Set to true to enable proxy settings on the appliance host (required for system upgrades or apt updates).
+
+**proxy_worker** - Set to true to enable proxy settings for the coriolis-worker container (required if specific Endpoints are only accessible through a proxy).
+
+Setting **proxy_host** does not affect **proxy_worker** and vice versa.
+
 Setting both variables to false will remove proxy configurations from both the host and the coriolis-worker container.
 
 ```json
@@ -111,7 +107,7 @@ https_proxy = http://10.0.0.1:3128
 # Specify additional exclusions
 no_proxy =
 ```
-  
+
 Modify the file variables as required for your network architecture, as in the example below:
 
 The "no_proxy" variable is automatically populated by the Coriolis appliance with the following values:
@@ -122,8 +118,7 @@ The "no_proxy" variable is automatically populated by the Coriolis appliance wit
 
 
 
-If additional exclusions are required, you may manually append them to the **no_proxy** line without affecting the automatic defaults. For example, adding **no_proxy = example.com** in the **proxy-settings.ini** will make Coriolis set the following value:   
-**< appliance_ip>,localhost,127.0.0.1,example.com**.
+If additional exclusions are required, you may manually append them to the **no_proxy** line without affecting the automatic defaults. For example, adding **no_proxy = example.com** in the **proxy-settings.ini** will make Coriolis set the following value: **< appliance_ip>,localhost,127.0.0.1,example.com**.
 
 ## Other considerations
 

@@ -5,9 +5,7 @@ wp_id: 38507
 
 # VMWare Coriolis Plugin
 
-**Coriolis** integrates the platform Plugin on the Appliance itself, this way there is no need for agents to be deployed on platforms to establish the communication between the platform and the Coriolis components. Using this type of architecture,  
-Coriolis guarantees the connection to the supported platform set up to be used as either Source or Destination, as long as the requirements are met.  
-  
+**Coriolis** integrates the platform Plugin on the Appliance itself, this way there is no need for agents to be deployed on platforms to establish the communication between the platform and the Coriolis components. Using this type of architecture, Coriolis guarantees the connection to the supported platform set up to be used as either Source or Destination, as long as the requirements are met.
 VMware platform is supported via Coriolis Plugins as a stand-alone ESXi (source-only) and VMware vSphere.
 
 **Coriolis** connects to the vCenter management interface REST API to collect information about the VMs and to handle snapshot creation and data replication.
@@ -57,7 +55,7 @@ To connect to vSphere/ESXi to perform a migration/replica from that cloud, the f
      "allow_untrusted": false
  }
 ```
-  
+
 Each parameter represents:
 
   * **host (string)** - the address or resolvable domain name of the vSphere host
@@ -81,7 +79,7 @@ Source disk export requirements| All VM disks must be normal virtual disks locat
 Instance identification scheme| Slash-separated VM inventory path starting with datacenter(ex: "DC1/somevmfolder/The VM")If VM is at top-level, datacenter may be omitted (ex: "DC1/The VM" can be "The VM")| How instances to migrate/replicate are identified on a source cloud handled by this plugin  
 Network identification scheme| Names of VM Networks (ex: "VM Network Local")If a VM is attached to a Distributed Virtual Switch (DvS), the name of the DvS Port Group is referenced.| How the plugin identifies networks. Required for the **network_map** field of the **- destination-environment**  
 Storage identification scheme| Names of datastore hosting the virtual disks(s)| How the plugin identifies storage backends. Required for the **storage_map** field of the **- destination-environment**  
-  
+
 ### VMware Coriolis plugin known issues
 
 For further information regarding the VMware Plugin's known issues, please check the **[documentation page](https://cloudbase.it/vmware-plugin-known-issues)**.

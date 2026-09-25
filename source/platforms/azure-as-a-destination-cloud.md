@@ -27,8 +27,7 @@ Migrations to Azure operate in the same way Replicas do and thus entail the same
 
 #### Steps performed by Coriolis
 
-  1. create snapshots of the replicate disks on the destination cloud in order to be able to roll back any changes. By default, new disks are created from these snapshots, leaving the original replica volumes intact for future replica executions.  
-This is an Azure disk snapshot, and not related to the Coriolis option of Clone disk(s)
+  1. create snapshots of the replicate disks on the destination cloud in order to be able to roll back any changes. By default, new disks are created from these snapshots, leaving the original replica volumes intact for future replica executions. This is an Azure disk snapshot, and not related to the Coriolis option of Clone disk(s)
   2. depending on the OS of the VM whose replica is being deployed, boot a temporary worker VM ("the OSMorphing worker") with the same OS type on the destination cloud, and attach the disks from step 1 to it
   3. perform the "OSMorphing process", where Coriolis commands the OSMorphing worker created at step 2 to scan all attached disks for the OS installation of the VM we are migrating, mount and perform the steps needed to prepare the installation for Azure
   4. detach the disks created at step 1 from the OSMorphing worker created at step 2 and delete the temporary worker VM 
@@ -82,7 +81,7 @@ Below is a listing of the destination environment parameters the Azure plugin su
      "preserve_nic_ips": false
  }
 ```
-  
+
 Each parameter represents:
 
   * **location (string)** - the Azure location to which to migrate/replicate (ex: westus, eastus, etc…)
@@ -134,8 +133,7 @@ Below is a listing of the configuration section needed when migrating/replicatin
  # export_arm_network_api_version = 2015-06-15
  # export_blob_storage_api_version = 2015-04-05 
 ```
-  
-  
+
 Below is a listing of the configuration section needed when migrating/replicating to Azure:
 
 #### Configuration options for Azure as a destination
@@ -209,18 +207,18 @@ Below is a listing of the configuration section needed when migrating/replicatin
  cloudbaseinit_x64_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x64.zip
  cloudbaseinit_x86_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x86.zip 
 ```
-  
+
 #### Coriolis Advanced options for Target Destinations
 
 In the case of Replicating/Migration to Azure, Worker images have the following requirements: 
 
-  * **Linux****image requirements**  
+  * **Linux****image requirements**
 
 
 
 The Linux image should have the walinuxagent installed and configured for the first boot. Coriolis will create a unique key pair for each migration/replication and add it as authorized via metadata. 
 
-  * **Windows****image requirements**   
+  * **Windows****image requirements**
 
 
 
@@ -233,7 +231,7 @@ The template OS version must be at least the same as the OS of the VM that needs
 **Option name (UI)**  | **Parameter**  | **Description**    
 ---|---|---  
 Location | location | the Azure location to which to migrate/replicate (ex: westus, eastus, etc…)   
-   
+
 Resource Group | resource_group | the name of a pre-existing resource group in which to migrate/replicate to, must exist in the specified location   
 Storage account name | storage_account_name | name of the Azure storage account to create VHD Page blobs on   
 Storage container name | storage_container_name| name of the Azure storage container to create VHD Page blobs on   
@@ -242,7 +240,7 @@ Worker Size | worker_size | the size of the temporary replication/OSMorphing wor
 Linux Migration image | linux_migr_image | the parameters of a Linux Azure image to use during replication/Linux OSMorphing, default is the 16.04 image exemplified in the listing above   
 Windows Migration image | windows_migr_image | the parameters of a Windows Azure image to use during Windows OSMorphing, default is the Server 2016 image exemplified in the listing above   
 Preserve NIC IPs | preserve_nic_ips | whether to set the same IP addresses on migrated VM NICs if the mapped network/subnet combination includes the IP address(es) the NICs had on the source within their IP range   
-  
+
 ### OSMorphing steps taken when migrating/replicating to Azure
 
 The OSMorphing process for Azure mandatorily consists of setting all interfaces on the migrated/replicated VM to use DHCP on boot, as one cannot specify the desired MAC address for a NIC upon its creation, nor can we know what MAC address Azure will assign to the NIC utils the NIC is attached to the final VM

@@ -5,7 +5,6 @@ wp_id: 43828
 
 # Upgrading Coriolis
 
-  
 This guide describes the procedure for performing an **in-place upgrade of Coriolis service containers** using the **console upgrade option introduced in Coriolis v2603.0**.
 
 The upgrade is performed directly from the **Coriolis Console** and updates the running Coriolis service containers to the specified version.
@@ -43,7 +42,7 @@ https://pypi.org/simple
 https://registry-1.docker.io
 https://docker.io
 ```
-  
+
 * * *
 
 ### 2\. Verify Current Coriolis Version
@@ -61,7 +60,7 @@ Run the following command and save the version number.
 ```text
 cat /etc/coriolis/coriolis.release
 ```
-  
+
 [![](_static/images/4e97910e-8344-434a-b298-e1ca4bf3cf3d.png)](https://i0.wp.com/cloudbase.it/wp-content/uploads/2026/03/4e97910e-8344-434a-b298-e1ca4bf3cf3d.png?ssl=1)
 
 Now you can return to the main console menu with the options.
@@ -91,7 +90,7 @@ Step 1 - From the Coriolis Console menu, choose:
 ```text
 13) Upgrade Options
 ```
-  
+
 Step 2 - Choose the option:
 
 1) Upgrade Coriolis Services
@@ -99,7 +98,7 @@ Step 2 - Choose the option:
 ```text
 1) Upgrade Coriolis Services
 ```
-  
+
 Step 3 - Specify Target Version
 
 You will be prompted to enter the **Coriolis version** to upgrade to, for example:
@@ -109,7 +108,7 @@ You will be prompted to enter the **Coriolis version** to upgrade to, for exampl
 ```text
 2608.2
 ```
-  
+
 Important:
 
   * The target version must be newer than the currently installed version
@@ -139,7 +138,7 @@ Step 1 - From the Coriolis Console menu, choose:
 ```text
 13) Upgrade Options
 ```
-  
+
 Step 2 - Choose the option:
 
 2) Patch Coriolis Component
@@ -147,7 +146,7 @@ Step 2 - Choose the option:
 ```text
 2) Patch Coriolis Component
 ```
-  
+
 Step 3 - Specify the Coriolis Component to be upgraded
 
 In this interactive menu you can select one of the 13 components of Coriolis that can be upgraded independently. 
@@ -165,7 +164,7 @@ You will be prompted to enter the **Patch version for Component** to be upgrade 
 ```text
 2608.1.1
 ```
-  
+
 Important:
 
   * The target patch version must be newer than the currently installed version

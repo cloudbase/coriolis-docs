@@ -5,9 +5,7 @@ wp_id: 38484
 
 # Coriolis License
 
-Coriolis licenses have a start and expiration date for the allowed operation types to be performed.  
-The licenses will **specify the maximum** number of VMs which can be Migrated using **Coriolis Migrations** and also **specify the maximum** number of VMs which can have Disaster Recovery setup using **Coriolis Replicas** and **Coriolis Replica Deployments**.  
-The number of operations that can be performed using a license is per VM, so one 5-VM-Migration counts the same as five 1-VM-Migrations.
+Coriolis licenses have a start and expiration date for the allowed operation types to be performed. The licenses will **specify the maximum** number of VMs which can be Migrated using **Coriolis Migrations** and also **specify the maximum** number of VMs which can have Disaster Recovery setup using **Coriolis Replicas** and **Coriolis Replica Deployments**. The number of operations that can be performed using a license is per VM, so one 5-VM-Migration counts the same as five 1-VM-Migrations.
 
 A valid Coriolis license is required in order to have Migrations and Replicas executed by a Coriolis installation.
 

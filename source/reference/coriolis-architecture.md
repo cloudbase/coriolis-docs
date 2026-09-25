@@ -23,8 +23,7 @@ There were several key design decisions made regarding Coriolis that set the pro
 
 ## Recovery Point Objective & Recovery Time Objective
 
-Before creating a Migration or a Replica Deployment, consider the two most important parameters of a data protection plan and disaster recovery strategy: Recovery Point Objective & Recovery Time Objective.  
-For more information, please check the **[RPO& RTO documentation](https://cloudbase.it/rpo-rto)**. 
+Before creating a Migration or a Replica Deployment, consider the two most important parameters of a data protection plan and disaster recovery strategy: Recovery Point Objective & Recovery Time Objective. For more information, please check the **[RPO& RTO documentation](https://cloudbase.it/rpo-rto)**.
 
 ## Modes
 
@@ -64,7 +63,7 @@ Once the Coriolis endpoint is exposed, the user can download the CA certificate 
 ```text
 http://APPLIANCE_IP:9001/coriolis-ca.crt
 ```
-  
+
 When using the**coriolis CLI tool** , besides having to source keystone authentication information, the CA certificate will also need to be passed.
 
 Users can either export the CA’s path in the **OS_CACERT** environment variable using:
@@ -73,7 +72,7 @@ Users can either export the CA’s path in the **OS_CACERT** environment variabl
 export OS_CACERT="/root/coriolis-ca.crt"
 coriolis endpoint list
 ```
-  
+
 or have it passed to the client calls using the **- -os-cacert** option:
 
 coriolis \--os-cacert /root/coriolis-ca.crt endpoint list
