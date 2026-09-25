@@ -1,0 +1,34 @@
+.partner-logos {
+  margin: 1rem 0 1.5rem;
+}
+
+.partner-logos-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: 100%;
+  margin: 0.75rem 0;
+}
+
+.partner-logos-row > a,
+.partner-logos-row > img {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.partner-logos-row img {
+  display: block;
+  height: 78px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.partner-logos-banner {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0.75rem 0;
+}

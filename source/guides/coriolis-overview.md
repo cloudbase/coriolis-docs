@@ -84,11 +84,20 @@ and **cross-site disaster recovery** features (DRaaS) between a source cloud pla
 
 After thoroughly evaluating migration solutions, **Coriolis** emerged as the clear choice for many clients, some of whom are mentioned below. Their decision reflects the confidence in Coriolis to seamlessly orchestrate not only the cross-platform migrations but also as the preferred Disaster Recovery solution, making Coriolis a significant milestone in their IT strategy.
 
-[![](_static/images/SUSE_Logo-hor_L_Green-pos_sRGB-1.jpg)](https://www.suse.com/pcsc/viewVersionPage?versionID=26504) [![](_static/images/oracle_coriolis.png)](https://apexapps.oracle.com/pls/apex/f?p=10263:15:::::P15_PRODUCT_NAME,SP_PRODUCT_ID,AI_SR_VENDOR_ID,AI_SR_PRODUCT_LEVEL:%5CCoriolis%5C,23402,6943,23402&cs=1wcFpgnjUeNgHgOoeuTPNzOaJpflsGEr634w3Mcc8vbnHcsFcA-aKSqJutpLsT4RuWqMEpjZnPPyu6UGodmP4EQ) [![](_static/images/redhat_coriolis.png)](https://www.redhat.com/en/solutions/modernization-and-migration-solutions) [![](_static/images/canonical_coriolis-1.png)](https://canonical.com/partners/find-a-partner?search=Cloudbase+Solutions)
-
-![](_static/images/coriolis_customers_2024.png)
-
-![](_static/images/sivali.png) ![](_static/images/vhi-128.svg) ![](_static/images/66ec6956cb6658555fd52a17_Cloud-Logo-Blue-1.svg)
+<div class="partner-logos">
+<div class="partner-logos-row">
+<a href="https://www.suse.com/pcsc/viewVersionPage?versionID=26504"><img src="../_static/images/SUSE_Logo-hor_L_Green-pos_sRGB-1.jpg" alt="SUSE"></a>
+<a href="https://apexapps.oracle.com/pls/apex/f?p=10263:15:::::P15_PRODUCT_NAME,SP_PRODUCT_ID,AI_SR_VENDOR_ID,AI_SR_PRODUCT_LEVEL:%5CCoriolis%5C,23402,6943,23402&cs=1wcFpgnjUeNgHgOoeuTPNzOaJpflsGEr634w3Mcc8vbnHcsFcA-aKSqJutpLsT4RuWqMEpjZnPPyu6UGodmP4EQ"><img src="../_static/images/oracle_coriolis.png" alt="Oracle"></a>
+<a href="https://www.redhat.com/en/solutions/modernization-and-migration-solutions"><img src="../_static/images/redhat_coriolis.png" alt="Red Hat"></a>
+<a href="https://canonical.com/partners/find-a-partner?search=Cloudbase+Solutions"><img src="../_static/images/canonical_coriolis-1.png" alt="Canonical"></a>
+</div>
+<img class="partner-logos-banner" src="../_static/images/coriolis_customers_2024.png" alt="Coriolis customers">
+<div class="partner-logos-row">
+<img src="../_static/images/sivali.png" alt="Sivali Cloud Technology">
+<img src="../_static/images/vhi-128.svg" alt="Virtuozzo">
+<img src="../_static/images/66ec6956cb6658555fd52a17_Cloud-Logo-Blue-1.svg" alt="Cloud">
+</div>
+</div>
 
 **Coriolis** **Training**
 
