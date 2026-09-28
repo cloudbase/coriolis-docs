@@ -107,24 +107,26 @@ Below is a listing of the source environment parameters the OpenStack plugin sup
 
 ```json
 {
-         "custom_os_type_map": { "redhat": "linux" },
-         "replica_export_mechanism": "swift_backups",
-         "swift_backups_options": {
-                 "volume_backups_container": "coriolis"
-         },
-         "coriolis_backups_options": {
-                "export_interim_volume_type": "default-volume-type",
-                "export_image": "bionic",
-                "export_worker_use_config_drive": true,
-                "export_network": "admin-net",
-                "export_flavor_name": "m1.small",
-                "export_worker_use_fip": true,
-                "export_fip_pool_name": "floating-ip-net",
-                "export_worker_boot_from_volume": false,
-                "export_worker_volume_type": "default-volume-type",
-                "export_worker_volume_size": 20
-         }
- }
+  "custom_os_type_map": {
+    "redhat": "linux"
+  },
+  "replica_export_mechanism": "swift_backups",
+  "swift_backups_options": {
+    "volume_backups_container": "coriolis"
+  },
+  "coriolis_backups_options": {
+    "export_interim_volume_type": "default-volume-type",
+    "export_image": "bionic",
+    "export_worker_use_config_drive": true,
+    "export_network": "admin-net",
+    "export_flavor_name": "m1.small",
+    "export_worker_use_fip": true,
+    "export_fip_pool_name": "floating-ip-net",
+    "export_worker_boot_from_volume": false,
+    "export_worker_volume_type": "default-volume-type",
+    "export_worker_volume_size": 20
+  }
+}
 ```
 
   * **custom_os_type_map (string)** - Custom mapping between the 'os_type' or 'os_distro' of Glance images on the source OpenStack. Mapping values must be one of the supported OS types in Coriolis.

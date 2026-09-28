@@ -54,12 +54,12 @@ To connect to vSphere/ESXi to perform a migration/replica from that cloud, the f
 
 ```json
 {
-     "host": "10.7.1.2",
-     "port": 443,
-     "username": "jack@vsphere.local",
-     "password": "SeKr3t",
-     "allow_untrusted": false
- }
+  "host": "10.7.1.2",
+  "port": 443,
+  "username": "jack@vsphere.local",
+  "password": "SeKr3t",
+  "allow_untrusted": false
+}
 ```
 
 Each parameter represents:

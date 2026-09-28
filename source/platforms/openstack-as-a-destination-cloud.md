@@ -254,48 +254,57 @@ Below is a listing of the destination environment parameters the OpenStack plugi
 
 ```json
 {
-         
-         "network_map": {
-                "source network name": "name or ID of existing Neutron network in destination OpenStack"
-         },
-         "storage_mappings": {
-                "default": "cinder-volume-type-0",
-                "backend_mappings": [{"source": "datastor1", "destination": "cinder-volume-type-1"}],
-                "disk_mappings": [{"disk_id": "", "destination": "cinder-volume-type-2"}]
-         },
-         "hypervisor_type": "kvm",
-         "flavor_name": "m1.small",
-         "keypair_name": "new-key",
-         "delete_disks_on_vm_termination": false,
-         "security_groups": ["name of existing secgroup on destination OpenStack", "and another one"],
-         
-         "migr_image_map": {
-                "linux": "Linux migration worker Image name/ID",
-                "windows": "63d8f1a4-3192-4edc-b113-0d099b4bc458"
-         },
-         "migr_network": "private",
-         "migr_worker_use_fip": true,
-         "migr_fip_pool_name": "external_network/external_subnet",
-         "migr_flavor_name": "m1.small",
-     "migr_worker_boot_from_volume": true,
-     "migr_worker_volume_size": 1,
-         "migr_worker_volume_type": "cinder-voltype",
-     "list_all_destination_networks": true,
-         "migr_worker_use_config_drive": true,
-         
-         "port_reuse_policy": "keep_mac",
-         "volumes_are_zeroed": true,
-         "preserve_fixed_ips": true,
-         "server_group": "name or ID of Nova server group",
-         "use_floating_ip": true,
-         "floating_ip_pool": "external_network/external_subnet",
-         
-         "set_dhcp": true,
-         "instance_tags": {
-                "tag1": "value1",
-                "tag2": "value2"
-         }
- }
+  "network_map": {
+    "source network name": "name or ID of existing Neutron network in destination OpenStack"
+  },
+  "storage_mappings": {
+    "default": "cinder-volume-type-0",
+    "backend_mappings": [
+      {
+        "source": "datastor1",
+        "destination": "cinder-volume-type-1"
+      }
+    ],
+    "disk_mappings": [
+      {
+        "disk_id": "",
+        "destination": "cinder-volume-type-2"
+      }
+    ]
+  },
+  "hypervisor_type": "kvm",
+  "flavor_name": "m1.small",
+  "keypair_name": "new-key",
+  "delete_disks_on_vm_termination": false,
+  "security_groups": [
+    "name of existing secgroup on destination OpenStack",
+    "and another one"
+  ],
+  "migr_image_map": {
+    "linux": "Linux migration worker Image name/ID",
+    "windows": "63d8f1a4-3192-4edc-b113-0d099b4bc458"
+  },
+  "migr_network": "private",
+  "migr_worker_use_fip": true,
+  "migr_fip_pool_name": "external_network/external_subnet",
+  "migr_flavor_name": "m1.small",
+  "migr_worker_boot_from_volume": true,
+  "migr_worker_volume_size": 1,
+  "migr_worker_volume_type": "cinder-voltype",
+  "list_all_destination_networks": true,
+  "migr_worker_use_config_drive": true,
+  "port_reuse_policy": "keep_mac",
+  "volumes_are_zeroed": true,
+  "preserve_fixed_ips": true,
+  "server_group": "name or ID of Nova server group",
+  "use_floating_ip": true,
+  "floating_ip_pool": "external_network/external_subnet",
+  "set_dhcp": true,
+  "instance_tags": {
+    "tag1": "value1",
+    "tag2": "value2"
+  }
+}
 ```
 
 Each parameter represents:

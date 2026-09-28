@@ -338,9 +338,9 @@ For replication, the following can be used:
 
 ```json
 {
-     "fallback_to_crash_consistent_snapshots": true,
-     "verify_rct_server": false
- }
+  "fallback_to_crash_consistent_snapshots": true,
+  "verify_rct_server": false
+}
 ```
 
 Each parameter represents:

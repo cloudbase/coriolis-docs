@@ -67,7 +67,7 @@ Network identification scheme| Names of VM Networks| How the plugin identifies n
   "port": 8443,
   "client_certificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURDVENDQWZHZ0F3SUJBZ0lVQWZQejU0cnJLSzQydlhDQnJOemdaMnh4Q0lFd0RRWUpLb1pJa...",
   "client_key": "LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0JSUV2UUlCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQktjd2dnU2pBZ0VBQW9JQkFRQ2s4UDRXWVI1a0tjOHAKOTRQRUZMN0dQcUwvc3...",
-  "allow_untrusted": true  
+  "allow_untrusted": true
 }
 ```
 

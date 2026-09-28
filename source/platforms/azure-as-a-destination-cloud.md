@@ -41,41 +41,44 @@ Below is a listing of the destination environment parameters the Azure plugin su
 
 ```json
 {
-     
-     "location": "westus",
-     "resource_group": "Migrations",
-     "network_map":{
-         "source network name": "azure-network-name/test-subnet-name"
-     },
-     "storage_map": {
-         "default": "Standard_LRS",
-         "backend_mappings": [
-             {"source": "source_backend", "destination": "Premium_LRS"}
-         ],
-         "disk_mappings": [
-             {"disk_id": "source_disk_id", "destination": "Premium_SSD"}
-         ]
-     },
-     "vm_size": "Standard_D1",
-     
-     "worker_size": "Standard_D1",
-     "linux_migr_image": {
-         "publisher": "Canonical",
-         "offer": "UbuntuServer",
-         "sku": "16.04.0-LTS",
-         "version": "latest"
-     },
-     "windows_migr_image": {
-         "publisher": "MicrosoftWindowsServer",
-         "offer": "WindowsServer",
-         "sku": "2016-Datacenter-Server-Core",
-         "version": "latest"
-     },
-     
-     "storage_account_name": "storage-account",
-     "storage_container_name": "coriolis",
-     "preserve_nic_ips": false
- }
+  "location": "westus",
+  "resource_group": "Migrations",
+  "network_map": {
+    "source network name": "azure-network-name/test-subnet-name"
+  },
+  "storage_map": {
+    "default": "Standard_LRS",
+    "backend_mappings": [
+      {
+        "source": "source_backend",
+        "destination": "Premium_LRS"
+      }
+    ],
+    "disk_mappings": [
+      {
+        "disk_id": "source_disk_id",
+        "destination": "Premium_SSD"
+      }
+    ]
+  },
+  "vm_size": "Standard_D1",
+  "worker_size": "Standard_D1",
+  "linux_migr_image": {
+    "publisher": "Canonical",
+    "offer": "UbuntuServer",
+    "sku": "16.04.0-LTS",
+    "version": "latest"
+  },
+  "windows_migr_image": {
+    "publisher": "MicrosoftWindowsServer",
+    "offer": "WindowsServer",
+    "sku": "2016-Datacenter-Server-Core",
+    "version": "latest"
+  },
+  "storage_account_name": "storage-account",
+  "storage_container_name": "coriolis",
+  "preserve_nic_ips": false
+}
 ```
 
 Each parameter represents:

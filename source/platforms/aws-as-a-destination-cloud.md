@@ -108,19 +108,32 @@ Below is a listing of the destination environment parameters the AWS plugin supp
 
 ```json
 {
-	"network_map": {
-		"source network name": "ID of existing VPC."
-	},
-	"storage_mappings": {
-		"default": "standard",
-		"backend_mappings": [{"source": "datastor1", "destination": "gp2"}],
-		"disk_mappings": [{"disk_id": "<ID of disk>", "destination": "io1"}]
-	},
-	"migr_image_map": {"linux": "ami-50946030", "windows": "ami-50946031"},
-	"worker_instance_type": "t2.medium",
-	"instance_type": "t2.medium",
-	"availability_zone": "az1",
-	"retain_source_ip": true
+  "network_map": {
+    "source network name": "ID of existing VPC."
+  },
+  "storage_mappings": {
+    "default": "standard",
+    "backend_mappings": [
+      {
+        "source": "datastor1",
+        "destination": "gp2"
+      }
+    ],
+    "disk_mappings": [
+      {
+        "disk_id": "<ID of disk>",
+        "destination": "io1"
+      }
+    ]
+  },
+  "migr_image_map": {
+    "linux": "ami-50946030",
+    "windows": "ami-50946031"
+  },
+  "worker_instance_type": "t2.medium",
+  "instance_type": "t2.medium",
+  "availability_zone": "az1",
+  "retain_source_ip": true
 }
 ```
 

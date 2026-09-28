@@ -108,13 +108,13 @@ To connect to OCI to perform a migration/replica to it, the following connection
 
 ```json
 {
-     "region": "",
-     "tenancy": "",
-     "user": "",
-     "private_key_passphrase": "",
-     "private_key_data": "",
-     "fingerprint": "private_key_fingerprint_hex"
- }
+  "region": "",
+  "tenancy": "",
+  "user": "",
+  "private_key_passphrase": "",
+  "private_key_data": "",
+  "fingerprint": "private_key_fingerprint_hex"
+}
 ```
 
 The parameters representing
@@ -138,29 +138,41 @@ Below is a listing of the destination environment parameters the OCI plugin supp
 
 ```json
 {
-     "network_map": {
-         "source_network_1": {
-             "id": "",
-             "security_groups": ["network_secgroup_id_1"]
-         }
-     },
-     "storage_mapping": {
-         "default": "emulated",
-         "backend_mappings": [{"source": "datastor1", "destination": "iscsi"}],
-         "disk_mappings": [{"disk_id": "", "destination": "paravirtualized"}]
-     },
-     "use_pv_mode": true,
-     "availability_domain": "",
-     "compartment": "",
-     "vcn_compartment": "",
-     "set_public_ip": true,
-     "migr_subnet_id": "",
-     "migr_image_map": {
-         "linux": "",
-         "windows": ""
-     },
-     "migr_shape_name": "VM.Standard1.2",
-     "shape_name": "VM.Standard2.2"
+  "network_map": {
+    "source_network_1": {
+      "id": "",
+      "security_groups": [
+        "network_secgroup_id_1"
+      ]
+    }
+  },
+  "storage_mapping": {
+    "default": "emulated",
+    "backend_mappings": [
+      {
+        "source": "datastor1",
+        "destination": "iscsi"
+      }
+    ],
+    "disk_mappings": [
+      {
+        "disk_id": "",
+        "destination": "paravirtualized"
+      }
+    ]
+  },
+  "use_pv_mode": true,
+  "availability_domain": "",
+  "compartment": "",
+  "vcn_compartment": "",
+  "set_public_ip": true,
+  "migr_subnet_id": "",
+  "migr_image_map": {
+    "linux": "",
+    "windows": ""
+  },
+  "migr_shape_name": "VM.Standard1.2",
+  "shape_name": "VM.Standard2.2"
 }
 ```
 

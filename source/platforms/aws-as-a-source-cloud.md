@@ -80,10 +80,13 @@ Below is a listing of the destination environment parameters the AWS plugin supp
 
 ```json
 {
-     "migr_image_map": {"linux": "ami-50946030", "windows": "ami-50946031"},
-     "worker_instance_type": "t2.medium",
-     "shutdown_migrated_instance": false
- }
+  "migr_image_map": {
+    "linux": "ami-50946030",
+    "windows": "ami-50946031"
+  },
+  "worker_instance_type": "t2.medium",
+  "shutdown_migrated_instance": false
+}
 ```
 
 Each parameter represents:

@@ -53,7 +53,7 @@ Below is a listing of the source environment parameters the oVirt plugin support
 
 ```json
 {
-    "automatically_enable_incremental_backups": true
+  "automatically_enable_incremental_backups": true
 }
 ```
 

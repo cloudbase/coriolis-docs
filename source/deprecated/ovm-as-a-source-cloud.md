@@ -69,14 +69,13 @@ Below is a listing of the source environment parameters the OVM plugin supports 
 #### Example of source environment JSON to be passed to the OVM plugin
 
 ```json
- {
-          "repository_name": "",
-          "export_template_name": "",
-          "export_template_username": "",
-          "export_template_password": "",
-          "virtual_disk_clone_types": "THIN_CLONE"
-  }
-    
+{
+  "repository_name": "",
+  "export_template_name": "",
+  "export_template_username": "",
+  "export_template_password": "",
+  "virtual_disk_clone_types": "THIN_CLONE"
+}
 ```
 
 Each parameter represents:

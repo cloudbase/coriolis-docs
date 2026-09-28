@@ -47,28 +47,23 @@ In order to connect to Azure to perform a migration/replica to it, the following
 
 ```json
 {
-     
-     "subscription_id": "1621bde4-09ee-4904-bea6-cd58316b4bb8",
-     
-     "service_principal_credentials": {
-         "client_id": "7d9ffca0-be78-4f85-a13f-14e791413068",
-         "client_secret": "7tnshUgXxrA8iCtCB1VpAiJ5LwP/qhe2q6pVhVYOQfs="
-     },
-     "default_resource_group": "",
-     "tenant": "",
-     
-     
-     
-     "cloud_profile": "AzureCloud",
-     "custom_cloud_properties": {
-         "endpoints": {
-             "management_endpoint": ""
-         },
-         "suffixes": {
-             "storage_endpoint": ""
-         }
-     }
- }
+  "subscription_id": "1621bde4-09ee-4904-bea6-cd58316b4bb8",
+  "service_principal_credentials": {
+    "client_id": "7d9ffca0-be78-4f85-a13f-14e791413068",
+    "client_secret": "7tnshUgXxrA8iCtCB1VpAiJ5LwP/qhe2q6pVhVYOQfs="
+  },
+  "default_resource_group": "",
+  "tenant": "",
+  "cloud_profile": "AzureCloud",
+  "custom_cloud_properties": {
+    "endpoints": {
+      "management_endpoint": ""
+    },
+    "suffixes": {
+      "storage_endpoint": ""
+    }
+  }
+}
 ```
 
 Only **service_principal_credentials** must be provided. Should both be provided, Coriolis will prefer using the user credentials.

@@ -331,18 +331,24 @@ Where OS_USERNAME is the login user for Coriolis (usually 'admin'), OS_PASSWORD 
 {
   "auth": {
     "identity": {
-      "methods": ["password"],
+      "methods": [
+        "password"
+      ],
       "password": {
         "user": {
           "name": "__OS_USERNAME__",
-          "domain": { "name": "Default" },
+          "domain": {
+            "name": "Default"
+          },
           "password": "__OS_PASSWORD__"
         }
       }
     },
     "scope": {
       "project": {
-        "domain": { "name": "Default" },
+        "domain": {
+          "name": "Default"
+        },
         "name": "__OS_TENANT_NAME__"
       }
     }

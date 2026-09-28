@@ -95,11 +95,11 @@ Below is a listing of the source environment parameters the OCI-C plugin support
 
 ```json
 {
-     "export_image_name": "/oracle/public/OL_7.2_UEKR4_x86_64",
-     "export_img_username": "cloud-user",
-     "export_shape_name": "oc3",
-     "export_root_disk_size": 20
- }
+  "export_image_name": "/oracle/public/OL_7.2_UEKR4_x86_64",
+  "export_img_username": "cloud-user",
+  "export_shape_name": "oc3",
+  "export_root_disk_size": 20
+}
 ```
 
 Each parameter represents:
@@ -202,25 +202,34 @@ Below is a listing of the destination environment parameters the OCI-C plugin su
 
 ```json
 {
-     "network_map": {
-         "source network name": "name of an existing IP network on destination OPC"
-     },
-     "storage_mappings": {
-         "default": "/oracle/public/storage/default",
-         "backend_mappings": [{"source": "datastor1", "destination": "/oracle/public/storage/default"}],
-         "disk_mappings": [{"disk_id": "", "destination": "/oracle/public/storage/latency"}]
-     },
-     "migr_image_map": {
-         "linux": "/oracle/public/OL_7.2_UEKR4_x86_64",
-         
-         "windows": "/Compute-a488347/user@mail.com/Windows_2012_R2"
-     },
-     "migr_shape_name": "oc3",
-     "shape_name": "oc3",
-     "default_volume_pool": "/oracle/public/storage/default",
-     "keypair_name": "key1",
-     "set_public_ip": true
- }
+  "network_map": {
+    "source network name": "name of an existing IP network on destination OPC"
+  },
+  "storage_mappings": {
+    "default": "/oracle/public/storage/default",
+    "backend_mappings": [
+      {
+        "source": "datastor1",
+        "destination": "/oracle/public/storage/default"
+      }
+    ],
+    "disk_mappings": [
+      {
+        "disk_id": "",
+        "destination": "/oracle/public/storage/latency"
+      }
+    ]
+  },
+  "migr_image_map": {
+    "linux": "/oracle/public/OL_7.2_UEKR4_x86_64",
+    "windows": "/Compute-a488347/user@mail.com/Windows_2012_R2"
+  },
+  "migr_shape_name": "oc3",
+  "shape_name": "oc3",
+  "default_volume_pool": "/oracle/public/storage/default",
+  "keypair_name": "key1",
+  "set_public_ip": true
+}
 ```
 
 Each parameter represents:
@@ -295,14 +304,13 @@ In order to connect to OCI-C to perform a migration from it, the following conne
 
 ```json
 {
-     "identity_domain": "a514847",
-     "username": "user@email.com",
-     "password": "SuperS3kre7",
-     
-     "api_endpoint": "https://compute.eucom-north-1.oraclecloud.com/",
-     "storage_api_endpoint": "https://Storage-a514847.storage.oraclecloud.com/v1/Storage-6264247ef814462f8dd4908f3eaaf288",
-     "storage_auth_endpoint": "https://Storage-6264247ef814462f8dd4908f3eaaf288.storage.oraclecloud.com/auth/v1.0"
- }
+  "identity_domain": "a514847",
+  "username": "user@email.com",
+  "password": "SuperS3kre7",
+  "api_endpoint": "https://compute.eucom-north-1.oraclecloud.com/",
+  "storage_api_endpoint": "https://Storage-a514847.storage.oraclecloud.com/v1/Storage-6264247ef814462f8dd4908f3eaaf288",
+  "storage_auth_endpoint": "https://Storage-6264247ef814462f8dd4908f3eaaf288.storage.oraclecloud.com/auth/v1.0"
+}
 ```
 
 Each parameter representing:

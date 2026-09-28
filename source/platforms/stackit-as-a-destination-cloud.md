@@ -269,17 +269,33 @@ cloudbaseinit_x64_url = https://www.cloudbase.it/downloads/CloudbaseInitSetup_x6
   },
   "storage_mappings": {
     "default": "storage_premium_perf2",
-    "backend_mappings": [{"source": "datastor1", "destination": "storage_premium_perf4"}],
-    "disk_mappings": [{"disk_id": "3000", "destination": "storage_premium_perf6"}]
+    "backend_mappings": [
+      {
+        "source": "datastor1",
+        "destination": "storage_premium_perf4"
+      }
+    ],
+    "disk_mappings": [
+      {
+        "disk_id": "3000",
+        "destination": "storage_premium_perf6"
+      }
+    ]
   },
   "machine_type": "g1.2",
   "project": "dest-stackit-project",
   "keypair_name": "new-key",
   "delete_disks_on_server_termination": false,
-  "security_groups": ["security-group0", "security-group1"],
+  "security_groups": [
+    "security-group0",
+    "security-group1"
+  ],
   "affinity_group": "name or ID of affinity group",
   "availability_zone": "eu01-1",
-  "server_labels": ["env=prod", "migrated-by-coriolis"],
+  "server_labels": [
+    "env=prod",
+    "migrated-by-coriolis"
+  ],
   "server_properties": {},
   "use_public_ip": true,
   "disk_bus": "virtio",

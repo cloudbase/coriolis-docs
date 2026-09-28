@@ -29,10 +29,10 @@ In order to connect to AWS to perform a migration from it, the following connect
 
 ```json
 {
-     "region": "us-west-2",
-     "access_key_id": "BKIAKWUNHI3HYZJ7Y3EQ",
-     "secret_access_key": "XuuT6SMN5Ub96AXMEIX9gvPXITK3xnfyRFJOkaSo"
- }
+  "region": "us-west-2",
+  "access_key_id": "BKIAKWUNHI3HYZJ7Y3EQ",
+  "secret_access_key": "XuuT6SMN5Ub96AXMEIX9gvPXITK3xnfyRFJOkaSo"
+}
 ```
 
 Each parameter represents:

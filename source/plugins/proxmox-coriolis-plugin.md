@@ -25,16 +25,16 @@ In order to connect to an Proxmox cloud to perform a migration/replica to that c
 
 ```json
 {
-     "name": "Proxmox",
-     "coriolis_regions": "Public",
-     "host": "10.8.17.240",
-     "port": 8006,
-     "protocol": "https",
-     "username": "root",
-     "password": "SeKr3t",
-     "authentication_realm": "pam",
-     "allow_untrusted": false
- }
+  "name": "Proxmox",
+  "coriolis_regions": "Public",
+  "host": "10.8.17.240",
+  "port": 8006,
+  "protocol": "https",
+  "username": "root",
+  "password": "SeKr3t",
+  "authentication_realm": "pam",
+  "allow_untrusted": false
+}
 ```
 
 Each parameter represents:

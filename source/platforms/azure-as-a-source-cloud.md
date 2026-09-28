@@ -37,18 +37,18 @@ During step 6, the changed blocks are transferred and written to disks on the de
 
 ```json
 {
-     "location": "westus",
-     "resource_group": "coriolis-testgroup",
-     "export_worker_size": "Standard_A1",
-     "export_worker_image": {
-         "publisher": "Canonical",
-         "offer": "UbuntuServer",
-         "sku": "16.04.0-LTS",
-         "version": "latest"},
-     
-     "storage_account_name": "storage-account",
-     "storage_container_name": "coriolis"
- }
+  "location": "westus",
+  "resource_group": "coriolis-testgroup",
+  "export_worker_size": "Standard_A1",
+  "export_worker_image": {
+    "publisher": "Canonical",
+    "offer": "UbuntuServer",
+    "sku": "16.04.0-LTS",
+    "version": "latest"
+  },
+  "storage_account_name": "storage-account",
+  "storage_container_name": "coriolis"
+}
 ```
 
 Each parameter representing:
