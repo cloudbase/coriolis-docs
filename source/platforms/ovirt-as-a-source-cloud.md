@@ -5,7 +5,9 @@ wp_id: 43569
 
 # oVirt as a source cloud
 
-**NOTE: Both OLVM and RHEV are considered oVirt platforms in the Coriolis documentation pages, and therefore all notes about the oVirt platform will apply to both the OLVM and RHEV providers.**
+```{note}
+Both OLVM and RHEV are considered oVirt platforms in the Coriolis documentation pages, and therefore all notes about the oVirt platform will apply to both the OLVM and RHEV providers.
+```
 
 ### Migrating (CMaaS) from oVirt
 
@@ -33,7 +35,9 @@ Consider reviewing the general steps recommended before creating and executing a
 
 After the above steps are completed, the written blocks of the backup will be transferred and written to disks on the destination via the destination cloud plugin.
 
-**NOTE:** During a Replica/Migration process from oVirt, if the option to keep the static IP address for the machine is selected, QEMU Guest Agent must be available, and the machine must have been powered on during at least one of the replica syncs.
+```{note}
+During a Replica/Migration process from oVirt, if the option to keep the static IP address for the machine is selected, QEMU Guest Agent must be available, and the machine must have been powered on during at least one of the replica syncs.
+```
 
 **IMPORTANT!** Any 3rd party backup software that creates VM backups will interfere with Coriolis' replication process, as in the process of a VM backup, all the disks are locked, thus only one VM backup can exist at a time.
 

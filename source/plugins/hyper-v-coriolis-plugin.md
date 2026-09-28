@@ -163,7 +163,9 @@ Migrations from Hyper-V operate in the same way Replicas do and thus entail the 
 
 **Input** : the name or GUID of the VM.
 
-NOTE! Please consider reviewing the general steps recommended to be performed before creating a migration for a VM from Hyper-V in the dedicated documentation titled "Preparing a VM for migration/replication".
+```{note}
+Please consider reviewing the general steps recommended to be performed before creating a migration for a VM from Hyper-V in the dedicated documentation titled "Preparing a VM for migration/replication".
+```
 
 #### Steps performed by Coriolis
 

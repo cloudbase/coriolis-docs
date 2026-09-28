@@ -20,11 +20,17 @@ The Coriolis worker components need network access to the API endpoint of the vC
 
 For CBT-enabled Coriolis Migrations, as well as Coriolis Replicas (DRaaS), the Coriolis worker components will need TCP/902 network access to the ESXi host. If using a multi-host vSphere, any ESXi host can perform the CBT export, so network access to all of them is required.
 
-NOTE! Both the suggested standard management port (443) and backup port (902) are configurable so that they may differ from environment to environment.
+```{note}
+Both the suggested standard management port (443) and backup port (902) are configurable so that they may differ from environment to environment.
+```
 
-NOTE! In a vSphere environment, the Coriolis virtual appliance must be able to connect**over port TCP/902 to every ESXi node**. This might require additional network setup consideration if the ESXi nodes reside on a separate or private network.
+```{note}
+In a vSphere environment, the Coriolis virtual appliance must be able to connect **over port TCP/902 to every ESXi node**. This might require additional network setup consideration if the ESXi nodes reside on a separate or private network.
+```
 
-NOTE! The Coriolis virtual appliance must be able to resolve the FQDNs of the ESXi hosts if they are enrolled under vSphere.
+```{note}
+The Coriolis virtual appliance must be able to resolve the FQDNs of the ESXi hosts if they are enrolled under vSphere.
+```
 
 Refer to the [Network Ports Requirements page](../reference/coriolis-network-ports-requirements.md) for more details.
 

@@ -99,7 +99,9 @@ The source VM(s) can be booted from either a Cinder volume or directly from a Gl
 
 The source VM(s) must be booted from a Cinder volume. VMs booted from a Glance image can not be exported through Swift/Ceph.
 
-NOTE UEFI is supported in certain situations:
+```{note}
+UEFI is supported in certain situations:
+```
 
   * Microsoft Hyper-V is used. UEFI is supported if the glance image has the following property set:
 

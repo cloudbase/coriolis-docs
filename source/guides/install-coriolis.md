@@ -30,7 +30,9 @@ qemu-img convert -f vmdk -O qcow2 disk-0.vmdk image-name.qcow2
 
 For this example, the Coriolis VM will be deployed in VMWare by importing the .ova file directly from the Web link.
 
-NOTE: If using Coriolis for DRaaS scenarios, deploying Coriolis on the source platform is not recommended for fault tolerance reasons. In DRaaS scenarios, please deploy the appliance on the destination platform or within a space that is external and independent of both platforms.
+```{note}
+If using Coriolis for DRaaS scenarios, deploying Coriolis on the source platform is not recommended for fault tolerance reasons. In DRaaS scenarios, please deploy the appliance on the destination platform or within a space that is external and independent of both platforms.
+```
 
 Example network configuration
 
@@ -54,7 +56,9 @@ In order to get the admin password of the Coriolis web UI, navigate to option '*
 
 ![](_static/images/pass.jpg)
 
-**NOTE:** If the environment the Coriolis Appliance was deployed in does not feature DHCP, you will have to log in to the serial console of the appliance and manually configure static networking within it, using option '4' Edit/Inspect Network Settings. It is recommended that the appliance be rebooted after any networking-related reconfigurations.
+```{note}
+If the environment the Coriolis Appliance was deployed in does not feature DHCP, you will have to log in to the serial console of the appliance and manually configure static networking within it, using option '4' Edit/Inspect Network Settings. It is recommended that the appliance be rebooted after any networking-related reconfigurations.
+```
 
 The appliance will automatically configure the settings below if provided by the network configuration or a metadata service. The following settings should be verified and confirmed:
 
@@ -62,7 +66,9 @@ a. Ensure that all network settings are correct for the Coriolis Appliance. This
 
 b. Ensure that the Coriolis Appliance is allowed to connect to an online NTP host, or that the time is properly synced with the hypervisor. Certain operations will fail if the time drifts and fails to sync.
 
-NOTE: SSH access to the Coriolis virtual appliance is not permitted and not provided to the user. This restriction is enforced for security and stability reasons, as it can introduce the risk of unauthorized modifications, configuration drift, and unintended system changes that may compromise the integrity, supportability, or proper functioning of the appliance.
+```{note}
+SSH access to the Coriolis virtual appliance is not permitted and not provided to the user. This restriction is enforced for security and stability reasons, as it can introduce the risk of unauthorized modifications, configuration drift, and unintended system changes that may compromise the integrity, supportability, or proper functioning of the appliance.
+```
 
 Any required configuration, troubleshooting, or maintenance operations can be performed through the (serial) console of the appliance, as that provides all the required options and configuration.
 

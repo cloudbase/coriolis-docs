@@ -67,7 +67,9 @@ device = "vda"
 location = "/mnt/snapstores/snapstore_files"
 ```
 
-**NOTE:** If there are multiple disks on the server, there is a possibility to use separate snapshot locations for each snapshotted disk, by modifying **config.toml** as follows:
+```{note}
+If there are multiple disks on the server, there is a possibility to use separate snapshot locations for each snapshotted disk, by modifying **config.toml** as follows:
+```
 
   1. add more entries for the parameter '**snapstore_destinations** '
   2. under '**snapstore_mappings** ' add the devices to be snapshotted and their location which were specified in the above step

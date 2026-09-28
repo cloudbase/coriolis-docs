@@ -43,7 +43,9 @@ The **Coriolis virtual appliance** can be easily deployed as a virtual machine (
   * 8GB RAM
   * One or more network interfaces for access to the APIs of the source and destination environments
 
-NOTE! These requirements are suitable for a proof-of-concept or small test lab only. To ensure proper performance in a production environment, a compatibility assessment should be performed to determine the appropriate resource sizing for the Coriolis virtual appliance.
+```{note}
+These requirements are suitable for a proof-of-concept or small test lab only. To ensure proper performance in a production environment, a compatibility assessment should be performed to determine the appropriate resource sizing for the Coriolis virtual appliance.
+```
 
 Coriolis is designed to meet the specific needs of each migration or disaster recovery implementation and can be easily **scaled out both horizontally and vertically** to accommodate increasing workloads. In the case of multiple parallel and simultaneous Replica or Migration jobs, additional Coriolis worker systems can be deployed for large-scale deployments.
 
@@ -275,6 +277,8 @@ When encountering any issue during one of the above processes, the **Coriolis Lo
 
 * * *
 
-**NOTE!** Before initiating any migration operation using Coriolis, you are solely responsible for creating a complete and verified backup of all data, applications, virtual machines, workloads, and configurations in the source environment. Coriolis also displays a prominent notification recommending such a backup before commencing any migration.
+```{note}
+Before initiating any migration operation using Coriolis, you are solely responsible for creating a complete and verified backup of all data, applications, virtual machines, workloads, and configurations in the source environment. Coriolis also displays a prominent notification recommending such a backup before commencing any migration.
+```
 
 Cloudbase Solutions does not warrant against data loss resulting from the use of third-party systems or solutions, infrastructure failures, or Customer actions when used together with Coriolis.

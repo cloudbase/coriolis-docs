@@ -5,7 +5,9 @@ wp_id: 43526
 
 # oVirt as a destination cloud
 
-**NOTE: Both OLVM and RHEV are considered oVirt platforms in the Coriolis documentation pages and therefore all notes about the oVirt platform will apply to both the OLVM and RHEV providers.**
+```{note}
+Both OLVM and RHEV are considered oVirt platforms in the Coriolis documentation pages and therefore all notes about the oVirt platform will apply to both the OLVM and RHEV providers.
+```
 
 ### Migrating (CMaaS) to oVirt
 

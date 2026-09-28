@@ -37,7 +37,9 @@ For this type of Replica/Migration to work, we will need to have an agent runnin
 
 The following Linux distributions have been validated, and based on the kernel mapping below, the releases are known to be working. A newer minor kernel release for the below is expected to continue to work with the Coriolis Bare-Metal Agent as listed.
 
-**NOTE! Incremental Replica syncs for a bare-metal server using the Coriolis Agent are currently supported only for Linux kernel 5.11 and below.**
+```{note}
+Incremental Replica syncs for a bare-metal server using the Coriolis Agent are currently supported only for Linux kernel 5.11 and below.
+```
 
 **For other kernels, only the "lift-and-shift" Coriolis Migrations are supported, incremental syncs not being available.**
 
@@ -51,7 +53,9 @@ The following Linux distributions have been validated, and based on the kernel m
 | ![](_static/images/opensuse.svg) **openSUSE Leap** | 15.4 | 5.14.21-150400.24 |
 | ![](_static/images/debian.jpg) **Debian** | 10 | 4.19.0-21 |
 
-**NOTE:** Oracle Linux Unbreakable Kernel is not supported, **Red Hat Compatible Kernel** must be used instead.
+```{note}
+Oracle Linux Unbreakable Kernel is not supported, **Red Hat Compatible Kernel** must be used instead.
+```
 
 ### Installing the Snapshot Agent
 

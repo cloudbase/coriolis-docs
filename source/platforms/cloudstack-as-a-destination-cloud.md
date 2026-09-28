@@ -66,7 +66,9 @@ deleteVolume resizeVolume attachVolume detachVolume createSnapshot deleteSnapsho
 listStoragePools| associateIpAddress  
 disassociateIpAddress enableStaticNat disableStaticNat createFirewallRule deleteFirewallRule
 
-> **Note:** The **Admin - Read-Only** role provides the baseline read-only access. The permissions listed above must be granted in addition to that role to enable Coriolis migration operations.
+```{note}
+The **Admin - Read-Only** role provides the baseline read-only access. The permissions listed above must be granted in addition to that role to enable Coriolis migration operations.
+```
 
 ## Endpoint connection
 

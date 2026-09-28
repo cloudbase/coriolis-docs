@@ -70,7 +70,9 @@ Double-check that the file is indeed a VMDK file correctly located on the datast
 
 It is also worth asking the VMWare platform admin to check the logs of both the vCenter server as well as the ESXi host the VM being replicated is running on.
 
-NOTE: the ESXi host from which the export is performed is **not** necessarily the same one the VM is on. If exporting from a vSphere, any ESXi host in the cluster could hypothetically do the export
+```{note}
+The ESXi host from which the export is performed is **not** necessarily the same one the VM is on. If exporting from a vSphere, any ESXi host in the cluster could hypothetically do the export.
+```
 
 #### Workarounds:
 

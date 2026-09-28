@@ -12,7 +12,9 @@ Linux and Windows OS images must be present on the destination platform for the 
 
 In a situation of Replicating/Migrating a Linux VM, only a Linux template will be required, as both **Disk cloning** and **OSMorphing** processes use Linux.
 
-NOTE! When migrating a **Windows VM** , both **Linux and Windows templates** have to be specified, as **Disk cloning** is performed using the Linux template and **OSMorphing** is performed using the Windows template.
+```{note}
+When migrating a **Windows VM**, both **Linux and Windows templates** have to be specified, as **Disk cloning** is performed using the Linux template and **OSMorphing** is performed using the Windows template.
+```
 
 ## Linux Temporary Migration Worker
 
@@ -22,7 +24,9 @@ In the case of Linux OS images, we recommend using **Ubuntu Server 24.04 LTS (or
 
 When migrating Windows VMs, the Windows template used must be of an equal or later version than the guests being migrated, as the Windows image servicing tools are not forward-compatible.
 
-**NOTE!** For all Windows VM Migration/Replication, the **System Language** used in the Windows Template must be set to **English**.
+```{note}
+For all Windows VM Migration/Replication, the **System Language** used in the Windows Template must be set to **English**.
+```
 
 For the Windows template VM used by Coriolis' worker on all supported Cloud Endpoints, the following are required:
 

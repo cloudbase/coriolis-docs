@@ -11,7 +11,9 @@ Coriolis supports migrating these workloads as a single clustered transfer. Cori
 
 This section describes destination-side behavior and the end-to-end requirements for migrating shared disks. For source-side export behavior affecting disks that cannot use Changed Block Tracking (CBT), including shared disks and disks configured in VMware Independent mode, see [**Disks that do not support CBT**](../platforms/vmware-as-a-source-cloud.md#disks-that-do-not-support-cbt).
 
-**NOTE!** All source VMs that share a disk must be powered off during Transfer Execution.
+```{note}
+All source VMs that share a disk must be powered off during Transfer Execution.
+```
 
 This requirement originates from VMware rather than from Coriolis. Shared disks and disks using VMware Independent modes do not support CBT, and VMware cannot create a consistent snapshot of these disks while the associated guests are running. In addition, another cluster member may continue writing to the same shared volume, which would make a live export inconsistent. 
 
@@ -49,7 +51,9 @@ Typical flow from the Coriolis Dashboard (or CLI):
   5. Keep **Clone Disks** **disabled** for deployments that include shared disks (see Limitations).
   6. Run the transfer. After a successful Replica execution, deploy with the same constraints.
 
-NOTE! Do not split cluster members across separate transfers if they share a single destination volume.
+```{note}
+Do not split cluster members across separate transfers if they share a single destination volume.
+```
 
 ## Limitations and requirements
 

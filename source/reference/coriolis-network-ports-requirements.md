@@ -39,7 +39,9 @@ Temporary Migration Worker - Destination| 22
 5566| TCP  
 VM snapshot data transfer via NFC (to all ESXi nodes*)| 902| TCP  
 
-* NOTE! In the case of VMware vSphere as the source platform, Coriolis must be able to connect to all the VMware ESXi nodes, not only to the one holding the VM to be migrated. That is due to how VMware manages the data transfer, refer to the VMware plugin documentation for more details.
+```{note}
+In the case of VMware vSphere as the source platform, Coriolis must be able to connect to all the VMware ESXi nodes, not only to the one holding the VM to be migrated. That is due to how VMware manages the data transfer, refer to the VMware plugin documentation for more details.
+```
 
 ### Amazon Web Services (AWS)
 

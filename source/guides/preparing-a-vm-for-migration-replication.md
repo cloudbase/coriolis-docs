@@ -16,7 +16,9 @@ For SUSE products, including OpenSUSE variants, you can head to this page: [Life
 
 **Important:** Before starting a VM migration with Coriolis, pause any other third-party backup tools that protect the source VMs, or explicitly exclude the VMs from those backup jobs for the duration of the migration. Running concurrent backup operations during migration can interfere with snapshot handling, change tracking, or disk consistency and may cause migration failures or inconsistent migrated workloads.
 
-NOTE! The guest OS on the source platform must also be correctly set to at least the higher level, such as (generic) Linux or (generic) Windows. As the overall recommendation, the guest OS should already be defined as good practice, such as Ubuntu Server or Windows Server. As Coriolis is agentless, we rely on such information to be correctly set, in order to perform operations such as the OSMorphing stage according to the migrated OS.
+```{note}
+The guest OS on the source platform must also be correctly set to at least the higher level, such as (generic) Linux or (generic) Windows. As the overall recommendation, the guest OS should already be defined as good practice, such as Ubuntu Server or Windows Server. As Coriolis is agentless, we rely on such information to be correctly set, in order to perform operations such as the OSMorphing stage according to the migrated OS.
+```
 
 For example, in the case of a VM running on VMware, the guest OS can be set under the VM settings:
 
@@ -30,7 +32,9 @@ In the migration process, Coriolis will do its best to ensure that the instance 
 
 While certain aspects cannot be guaranteed for every supported destination platform (such as the exact bus setup or the order in which the devices appear to the VM), Coriolis will always attempt to create virtual NIC resources with the **same MAC address**.
 
-NOTE!  Some platforms may not support explicitly setting a MAC address when creating a virtual NIC. Please review the documentation for the respective platform plugins for any warnings related to this aspect.
+```{note}
+Some platforms may not support explicitly setting a MAC address when creating a virtual NIC. Please review the documentation for the respective platform plugins for any warnings related to this aspect.
+```
 
 Depending on the situation, there are several aspects apart from the MAC address to consider:
 
@@ -143,7 +147,9 @@ root@coriolis:~#
 
 Several cloud service providers, such as Amazon Web Services (AWS) or Microsoft Azure, provide on-demand Linux images bundled with a paid subscription. Such subscription-based services are provided for RedHat Cloud Access or Ubuntu Advantage and are bundled as part of the cloud provider access.
 
-NOTE! When moving a subscription-based Linux VM from a supported cloud provider to a different environment - either a different cloud or internal infrastructure - the user is responsible for the license continuity and ensuring that the license terms are not violated.
+```{note}
+When moving a subscription-based Linux VM from a supported cloud provider to a different environment - either a different cloud or internal infrastructure - the user is responsible for the license continuity and ensuring that the license terms are not violated.
+```
 
 In the case of Red Hat Enterprise Linux (RHEL), you must handle this either by bringing your own subscription (BYOS) or by contacting the sales representative of the Linux vendor on what the best subscription switch path is.
 

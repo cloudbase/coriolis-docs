@@ -5,13 +5,17 @@ wp_id: 40789
 
 # oVirt Coriolis Plugin
 
-**NOTE: Both OLVM and RHEV are considered oVirt platforms in the Coriolis documentation pages and therefore all notes about the oVirt platform will apply to both the OLVM and RHEV providers.**
+```{note}
+Both OLVM and RHEV are considered oVirt platforms in the Coriolis documentation pages and therefore all notes about the oVirt platform will apply to both the OLVM and RHEV providers.
+```
 
 **Coriolis** integrates the platform Plugin on the Appliance itself, this way there is no need for agents to be deployed on platforms to establish the communication between the platform and the Coriolis components. Using this type of architecture, Coriolis guarantees the connection to the supported platform set up to be used as either Source or Destination, as long as the requirements are met.
 
 **Coriolis** connects to the oVirt management interface REST API to collect information about the VMs and to handle backup creation and data replication.
 
-NOTE! The QEMU Guest Agent must be installed and updated to the latest version available on the VMs, as well as on the Coriolis temporary workers.
+```{note}
+The QEMU Guest Agent must be installed and updated to the latest version available on the VMs, as well as on the Coriolis temporary workers.
+```
 
 Coriolis supports environments running the oVirt engine starting from version 4.3 and is compatible with newer releases up to 4.5.4.
 

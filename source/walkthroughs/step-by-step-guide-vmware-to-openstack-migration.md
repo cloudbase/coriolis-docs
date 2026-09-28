@@ -136,7 +136,9 @@ There must be present Linux and Windows OS images on the destination platform fo
 
 In a situation of Replicating/Migrating a Linux VM, only Linux templates are required, as both **Disk cloning** and **OSMorphing** processes use Linux.
 
-NOTE! When migrating a **Windows VM** , both **Linux and Windows templates** have to be specified. The **Disk cloning** is performed using the Linux template, and **OSMorphing** is performed using the Windows template.
+```{note}
+When migrating a **Windows VM**, both **Linux and Windows templates** have to be specified. The **Disk cloning** is performed using the Linux template, and **OSMorphing** is performed using the Windows template.
+```
 
 #### Linux Temporary Migration Worker
 

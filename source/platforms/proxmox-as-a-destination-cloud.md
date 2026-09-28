@@ -18,7 +18,9 @@ To **Replicate** to Proxmox VE, **VM templates** for temporary Coriolis workers 
 
 In the case of Replicating or Migrating to Proxmox VE, images will need to be created for both Linux and Windows machines for the worker to create temporary VMs to perform the tasks. The template OS version must be at least the same as the VM OS that needs to be migrated.
 
-**NOTE!** When Replicating/Migrating a **Windows VM** , both **Linux and Windows templates**  have to be specified, as **Disk cloning**  is performed using the Linux template and **OSMorphing**  is performed using the Windows template.
+```{note}
+When Replicating/Migrating a **Windows VM**, both **Linux and Windows templates** have to be specified, as **Disk cloning** is performed using the Linux template and **OSMorphing** is performed using the Windows template.
+```
 
 #### Linux
 

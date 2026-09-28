@@ -17,7 +17,9 @@ Coriolis connects to the libvirt service through **SSH**(TCP/22) on each SUSE Li
 
 A valid SSH private key is required for authentication when configuring the Coriolis endpoint. The corresponding public key must already be configured and authorized on the target Libvirt host **before** the endpoint can be used.
 
-> **Note:** It is recommended to use a dedicated service account for Libvirt endpoint access instead of the root account. The account should have sufficient **permissions** to access and manage Libvirt resources on the target host. On systems using group-based access control, this typically includes membership in the **libvirt and kvm groups**.
+```{note}
+It is recommended to use a dedicated service account for Libvirt endpoint access instead of the root account. The account should have sufficient **permissions** to access and manage Libvirt resources on the target host. On systems using group-based access control, this typically includes membership in the **libvirt and kvm groups**.
+```
 
 The SSH private key must be provided as part of the endpoint configuration and must be **base64-encoded** before submission. Only the SSH private key content should be encoded and passed to the endpoint.
 

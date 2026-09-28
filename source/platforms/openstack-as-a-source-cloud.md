@@ -17,7 +17,9 @@ In the process of replicating from an OpenStack, Coriolis will clone locally the
 
 **Input** : the ID or name (if and only if it is unique in the given tenant) of the instance to be replicated. The instance can be booted either from a Cinder volume or directly from a Glance image. 
 
-NOTE please consider reviewing the general steps recommended to be performed before creating and executing a replica of an instance from OpenStack [her](../guides/preparing-a-vm-for-migration-replication.md)[e](../guides/preparing-a-vm-for-migration-replication.md).
+```{note}
+Please consider reviewing the general steps recommended to be performed before creating and executing a replica of an instance from OpenStack [here](../guides/preparing-a-vm-for-migration-replication.md).
+```
 
 #### Steps performed by Coriolis
 
@@ -42,7 +44,9 @@ In the process of replicating from an OpenStack, Coriolis will use Cinder-backup
 
 **Input** : the ID or name (if and only if it is unique in the given tenant) of the instance to be replicated. The instance must be booted from a Cinder volume to replicate through Cinder backups.
 
-NOTE please consider reviewing the general steps recommended to be performed before creating and executing a replica of an instance from OpenStack [here](../guides/preparing-a-vm-for-migration-replication.md).
+```{note}
+Please consider reviewing the general steps recommended to be performed before creating and executing a replica of an instance from OpenStack [here](../guides/preparing-a-vm-for-migration-replication.md).
+```
 
 #### Steps performed by Coriolis
 
@@ -65,7 +69,9 @@ In the process of replicating from an OpenStack, Coriolis will use Cinder-snapsh
 
 **Input** : the ID or name (if and only if it is unique in the given tenant) of the instance to be replicated. The instance must be booted from a Cinder volume to replicate. Coriolis cannot replicate instances booted off of Glance images.
 
-NOTE please consider reviewing the general steps recommended to be performed before creating and executing a replica of an instance from OpenStack [here](../guides/preparing-a-vm-for-migration-replication.md).
+```{note}
+Please consider reviewing the general steps recommended to be performed before creating and executing a replica of an instance from OpenStack [here](../guides/preparing-a-vm-for-migration-replication.md).
+```
 
 #### Steps performed by Coriolis
 

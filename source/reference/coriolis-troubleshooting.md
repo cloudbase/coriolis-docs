@@ -35,7 +35,9 @@ debug_os_morphing_errors = false
 
 If set to 'true', the Coriolis Conductor will skip performing the cleanup steps on the temporary resources on the destination platform and will log out the connection info for the temporary VM in the Coriolis-conductor.log.
 
-NOTE please remember to run a `docker restart Coriolis-conductor` for any changes to `debug_os_morphing_errors` to take effect.
+```{note}
+Please remember to run a `docker restart Coriolis-conductor` for any changes to `debug_os_morphing_errors` to take effect.
+```
 
 * * *
 

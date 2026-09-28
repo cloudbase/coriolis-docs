@@ -39,7 +39,9 @@ When migrating or replicating instances to Stackit, the user must specify which 
 
 The worker image OS version must be the same as or newer than the migrated instance.
 
-**NOTE!** When Replicating/Migrating a **Windows VM** , both **Linux and Windows images** have to be specified, as **Disk transferring**  is performed using the Linux template and **OSMorphing**  is performed using the Windows template.
+```{note}
+When Replicating/Migrating a **Windows VM**, both **Linux and Windows images** have to be specified, as **Disk transferring** is performed using the Linux template and **OSMorphing** is performed using the Windows template.
+```
 
 ![](_static/images/image-5.png)
 

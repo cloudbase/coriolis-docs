@@ -21,7 +21,9 @@ The Console Menu has several options available:
 
 ![](_static/images/edit-cfg.jpg)
 
-NOTE: This shell session can also be used to interact with your OpenStack environment (if any), as OpenStack CLI is available on the Coriolis Appliance out of the box. Sourcing the RC file will allow access/control over your OpenStack environment using Coriolis Appliance.
+```{note}
+This shell session can also be used to interact with your OpenStack environment (if any), as OpenStack CLI is available on the Coriolis Appliance out of the box. Sourcing the RC file will allow access/control over your OpenStack environment using Coriolis Appliance.
+```
 
 After editing any Coriolis files, it is mandatory to restart the Coriolis Services for the changes to take effect. Upon exiting the shell session you will be prompted to restart the Coriolis Services.
 
@@ -29,7 +31,9 @@ After editing any Coriolis files, it is mandatory to restart the Coriolis Servic
 
   * **Edit/Inspect Network Settings** This option will again open the shell session called **Coriolis Appliance Editing Environment** , which offers the option of editing network configurations.
 
-NOTE: The **Network Settings** are only applied **after** you edit the configurations and the **Coriolis Services** are **restarted** , so to validate them, please use the **Edit/Inspect Coriolis Configuration** option.
+```{note}
+The **Network Settings** are only applied **after** you edit the configurations and the **Coriolis Services** are **restarted** , so to validate them, please use the **Edit/Inspect Coriolis Configuration** option.
+```
 
   * **Restart Coriolis Service** This option offers the capability of restarting the services without interacting with other menus.
 

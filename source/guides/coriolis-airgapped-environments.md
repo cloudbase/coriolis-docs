@@ -76,15 +76,21 @@ $ vim /etc/coriolis/coriolis.conf
 
 After modifying these details, you can save the changes and exit the editor. This will also further allow the **Linux workers** so that the proxy configured will be used.
 
-NOTE! For **Windows workers**  to use a** ** proxy, the proxy configuration should be set in the Windows temporary worker template images.
+```{note}
+For **Windows workers** to use a proxy, the proxy configuration should be set in the Windows temporary worker template images.
+```
 
-NOTE! The **no_proxy** variable can contain multiple hosts, comma-separated. Wildcard entries are not supported.
+```{note}
+The **no_proxy** variable can contain multiple hosts, comma-separated. Wildcard entries are not supported.
+```
 
 ### Setting up a proxy for the Coriolis appliance
 
 In case the proxy is needed to provide internet for the Coriolis appliance (such as the need for internet while undergoing appliance upgrades) or you need it to get access to the environments, **that means the environments are not accessible without a proxy being set.**
 
-**NOTE!** You should avoid adding a proxy if you can already access the environments, as it may cause conflicts with the current connections.
+```{note}
+You should avoid adding a proxy if you can already access the environments, as it may cause conflicts with the current connections.
+```
 
 To configure this, you need to go to the Coriolis console and select the option **5) Configure/Restore Appliance Proxy Settings** , as shown in the screenshot below.
 

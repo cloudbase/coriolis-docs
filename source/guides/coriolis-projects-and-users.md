@@ -31,7 +31,9 @@ When creating a new User, the mandatory fields that need to be filled in, will b
 
 Once the Projects and Users are created, **further management** can be performed by **selecting the Project/User** from the Dashboard.
 
-**NOTE!** After creating a new user, you will have to navigate to the projects screen and assign the new user to one or multiple projects, as illustrated in the screenshots below. Only after this is done the new user will be able to login to Coriolis and access the projects.
+```{note}
+After creating a new user, you will have to navigate to the projects screen and assign the new user to one or multiple projects, as illustrated in the screenshots below. Only after this is done the new user will be able to login to Coriolis and access the projects.
+```
 
 For Projects:
 

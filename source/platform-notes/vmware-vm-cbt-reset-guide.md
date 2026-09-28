@@ -47,7 +47,9 @@ To reset CBT on a vSphere virtual machine:
 
 ![](_static/images/scsi-false.jpg)
 
-**NOTE:** Where **scsix:x** is the SCSI controller and SCSI device ID of your virtual disk.
+```{note}
+Where **scsix:x** is the SCSI controller and SCSI device ID of your virtual disk.
+```
 
 8\. Open the virtual machine's working directory using the Datastore Browser or ESXi shell. For more information on identifying the working directory, see [Locating virtual machine log files on an ESXi/ESX host (1007805)](https://kb.vmware.com/s/article/1007805).
 

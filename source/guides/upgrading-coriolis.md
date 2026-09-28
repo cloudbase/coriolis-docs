@@ -119,7 +119,9 @@ Confirm the selected version when prompted. After that is provided, the upgrade 
 
 Starting from **Coriolis v2608.0** , a new option was added, **Patch Coriolis Component** , to upgrade just a single component of Coriolis.
 
-**NOTE:** This procedure is intended for scenarios where the Coriolis Team provides a targeted patch or backport for a specific Coriolis component, allowing a fix to be applied to the currently deployed release without requiring a full Coriolis platform upgrade.
+```{note}
+This procedure is intended for scenarios where the Coriolis Team provides a targeted patch or backport for a specific Coriolis component, allowing a fix to be applied to the currently deployed release without requiring a full Coriolis platform upgrade.
+```
 
 Step 1 - From the Coriolis Console menu, choose:
 
@@ -169,7 +171,9 @@ Step 6 - Post-Patch Verification
 
 Once the component is patched to the new version, Coriolis waits 60s and checks if the upgrade was successful.
 
-**NOTE:** In the case the upgrade was not successful, Coriolis reverts the component to the version prior of the patch.
+```{note}
+In the case the upgrade was not successful, Coriolis reverts the component to the version prior of the patch.
+```
 
 ![](_static/images/image-15.png)
 
@@ -185,7 +189,9 @@ Do not interrupt the upgrade process or press any keys while it is running, as t
 
 Once the upgrade process completes successfully, you will see the following screen. Indicating that the Ansible playbook finished and control has returned to the Coriolis Console. This indicates the upgrade process has completed successfully and the Coriolis services are running with the new version.
 
-**NOTE:** In case the upgrade was not successful, Coriolis reverts the components to the previous version.
+```{note}
+In case the upgrade was not successful, Coriolis reverts the components to the previous version.
+```
 
 ![](_static/images/c5e8da74-877f-48f5-a52b-745b50723183.png)
 

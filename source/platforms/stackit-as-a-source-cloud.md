@@ -17,7 +17,9 @@ In the process of replicating from Stackit, Coriolis will clone locally the volu
 
 **Input** : the ID or name of the instance to be replicated. The instance is expected to be booted from volume, an error will be raised if ephemeral root disks are used since these cannot be exported.
 
-NOTE please consider reviewing the general steps recommended to be performed before creating and executing a replica of an instance from Stackit [_here_](../guides/preparing-a-vm-for-migration-replication.md).
+```{note}
+Please consider reviewing the general steps recommended to be performed before creating and executing a replica of an instance from Stackit [here](../guides/preparing-a-vm-for-migration-replication.md).
+```
 
 #### Steps performed by Coriolis
 
@@ -62,7 +64,9 @@ Each parameter represents:
   * **export_worker_volume_performance_class** (string) — volume performance class for the temporary export worker’s boot volume.
   * **project** (string) — ID of the Stackit project from which to export VMs. If unset, the project of the service account from the Coriolis endpoint is used. Export workers and source minion pools must use the same project.
 
-> **NOTE:** The **project** option can only be populated and used if the endpoint service account has StackIt Organization level permissions to access all the projects in it.
+```{note}
+The **project** option can only be populated and used if the endpoint service account has StackIt Organization level permissions to access all the projects in it.
+```
 
 The export worker is always created in the same availability zone as the source server. Created source minion pools must also be configured to use the same availabilizy zone as the migrated VMs. Servers booted from an ephemeral root disk (not from volume) cannot be exported, because Stackit does not expose those disk contents.
 

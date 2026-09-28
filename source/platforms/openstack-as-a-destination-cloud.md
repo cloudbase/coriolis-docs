@@ -39,7 +39,9 @@ In the case of Replicating or Migrating to OpenStack, there will need to be imag
 
 The template OS version must be at least the same as the OS of the VM that needs to be migrated.
 
-**NOTE!** When Replicating/Migrating a **Windows VM** , both **Linux and Windows templates**  have to be specified, as **Disk cloning**  is performed using the Linux template and **OSMorphing**  is performed using the Windows template.
+```{note}
+When Replicating/Migrating a **Windows VM**, both **Linux and Windows templates** have to be specified, as **Disk cloning** is performed using the Linux template and **OSMorphing** is performed using the Windows template.
+```
 
 In case a Floating IP Pool network is not visible to be selected, it can mean that the network resides under another tenant project. To overcome this, you must enable the "**List All Destination Networks**".
 
