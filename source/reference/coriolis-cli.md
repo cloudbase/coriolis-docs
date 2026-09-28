@@ -244,7 +244,7 @@ The above command will define a replication job with Coriolis, which may later h
 
 ### Starting an execution for a replication job
 
-**Prerequisites** : an already defined replication job that does not already have a running execution
+**Prerequisites**: an already defined replication job that does not already have a running execution
 
 An existing replica may have a new execution (sync run) started by running the following:
 
@@ -286,7 +286,7 @@ $coriolis replica disks delete $REPLICA_ID
 
 ### Deploying a replica on the destination cloud
 
-**Prerequisite** : a pre-existing Coriolis replica that has at least one successful replica execution
+**Prerequisite**: a pre-existing Coriolis replica that has at least one successful replica execution
 
 An existing replica may be deployed on the destination cloud by running the following:
 
@@ -362,7 +362,7 @@ Once we have the token, we can go ahead and execute some calls, like listing end
 curl -s -X GET -H "Accept: application/json" -H "X-Auth-Token: $OS_TOKEN" -k https://${APPLIANCE_IP}:7667/v1/${PROJECT_ID}/endpoints
 ```
 
-You can get your PROJECT_ID from the UI URL or from the console by executing **#openstack project list** , after entering option 3. 
+You can get your PROJECT_ID from the UI URL or from the console by executing **#openstack project list**, after entering option 3. 
 
 The above API call has been made in insecure mode, as Coriolis hosts its own PKI.
 

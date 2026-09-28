@@ -27,14 +27,14 @@ More **Projects and Users** can be created using the **"New" button** listed on 
 :alt: New button for projects and users
 ```
 
-When creating a new Project, the mandatory field that need to be filled in, is the **Project Name** , also there will be an option for enabling it or not to be used once the Project is created.
+When creating a new Project, the mandatory field that need to be filled in, is the **Project Name**, also there will be an option for enabling it or not to be used once the Project is created.
 
 ```{image} ../_static/images/new-project-1.2.jpg
 :align: center
 :alt: New project form
 ```
 
-When creating a new User, the mandatory fields that need to be filled in, will be the **Username** , a **Password** for the new user and select the **Primary Project** for the new user. There will also be the option to have the user as enabled or not once it is created.
+When creating a new User, the mandatory fields that need to be filled in, will be the **Username**, a **Password** for the new user and select the **Primary Project** for the new user. There will also be the option to have the user as enabled or not once it is created.
 
 ```{image} ../_static/images/new-user.jpg
 :align: center

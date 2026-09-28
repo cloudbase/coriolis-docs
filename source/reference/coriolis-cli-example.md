@@ -108,7 +108,7 @@ The above command will define a replication job with Coriolis, which may be late
 
 #### Cloud specific parameters for Source/Destination environments
 
-For more information regarding the **Source/Destination cloud specific parameters** , please check the **[Coriolis Replica/Migration parameters](coriolis-replica-migration-cli-parameters.md)** list.
+For more information regarding the **Source/Destination cloud specific parameters**, please check the **[Coriolis Replica/Migration parameters](coriolis-replica-migration-cli-parameters.md)** list.
 
 The list that is available on **Coriolis Replica/Migration parameters** page can be shown using the following commands on Coriolis machine:
 
@@ -125,7 +125,7 @@ $coriolis endpoint source/destination options list $ENDPOINT_ID
 
 ### Starting an execution for a replication job
 
-**Prerequisites** : an already defined replication job which does not already have a running execution
+**Prerequisites**: an already defined replication job which does not already have a running execution
 
 An existing replica may have a new execution (sync run) started by running the following:
 
@@ -171,7 +171,7 @@ coriolis replica disks delete $REPLICA_ID
 
 ### Deploying a replica on the destination cloud
 
-**Prerequisite** : a pre-existing Coriolis replica which has at least one successful replica execution
+**Prerequisite**: a pre-existing Coriolis replica which has at least one successful replica execution
 
 An existing replica may be deployed on the destination cloud by running the following:
 

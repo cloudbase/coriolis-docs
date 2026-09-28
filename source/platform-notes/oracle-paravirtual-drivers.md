@@ -17,7 +17,7 @@ The following steps will guide toward extracting the Oracle Paravirual Drivers f
   * **download** Oracle Paravirtual Drivers from the Oracle official support page 
     * Oracle VM Windows PV drivers are available at no charge and can be downloaded by following the instructions**[here](https://www.oracle.com/virtualization/technologies/vm/downloads/server-storage-vm-downloads.html)**.
   * have the Setup.exe file of the PV drivers copied on the **Windows VM** under the system drive root folder (usually C:\\)
-  * run the following script on the **Windows VM** , which will **install** and **create an archive** of the PV drivers files under the **pv-drivers** folder on the system drive.
+  * run the following script on the **Windows VM**, which will **install** and **create an archive** of the PV drivers files under the **pv-drivers** folder on the system drive.
 
 The end archive created by the below script must contain the files and sub-folders of the "Oracle VM Windows PV Drivers" directory but not the directory itself.
 
@@ -34,7 +34,7 @@ Start-Process -Wait -ArgumentList "/silent" -PassThru -FilePath '$env\Setup.exe'
 
   * copy the PV drivers archive to a web server where Coriolis has access to, or directly on Coriolis Appliance 
     1. for using a webserver: 
-       * using **Coriolis CLI** , navigate to **/etc/coriolis**
+       * using **Coriolis CLI**, navigate to **/etc/coriolis**
        * edit **coriolis.conf** file 
        * under**oracle_vm_migration_provider** add the path to **windows_pv_drivers_url =**
     2. for using the local Coriolis Appliance 

@@ -115,7 +115,7 @@ For further information, please check **[Coriolis Licensing](coriolis-license.md
 
 * * *
 
-For **OpenStack** , **Coriolis** is compatible with the vanilla OpenStack project, as well as being validated with the most common OpenStack distributions from trusted vendors such as:
+For **OpenStack**, **Coriolis** is compatible with the vanilla OpenStack project, as well as being validated with the most common OpenStack distributions from trusted vendors such as:
 
 <div class="platform-vendors">
 <img src="../_static/images/Canonical-Openstack-logo2x-1.jpg" alt="Canonical OpenStack">
@@ -208,7 +208,7 @@ Before starting the migration process, there is a list of recommended steps to t
 
 For information regarding the steps for preparing a VM, please check the **[Preparing a VM for Replica/Migration page](preparing-a-vm-for-migration-replication.md)**.
 
-**Note!** When preparing for a **Replica/Migration** , Coriolis will create the disks on the destination platform with an **additional 1GB** to their original size. The 1GB disk size to be added is most common for all platforms, as it is the smallest unit of measure that the clouds support.
+**Note!** When preparing for a **Replica/Migration**, Coriolis will create the disks on the destination platform with an **additional 1GB** to their original size. The 1GB disk size to be added is most common for all platforms, as it is the smallest unit of measure that the clouds support.
 
 The additional disk size on the destination platform is required to cover situations where the disk on the source may be larger only by a few bytes (than what the platform declares), and some data is written at the very end of the disk.
 
@@ -218,7 +218,7 @@ The additional disk size on the destination platform is required to cover situat
 
 The source VM continues to run throughout the data synchronization process, without downtime or service impact.
 
-For tutorials and more information on **Migrations** , please check the [**How to create a Migration**](how-to-create-a-migration.md) page.
+For tutorials and more information on **Migrations**, please check the [**How to create a Migration**](how-to-create-a-migration.md) page.
 
 For **DR** information and tutorials, please check the **[How to create a Replica](how-to-create-a-replica.md)** page.
 

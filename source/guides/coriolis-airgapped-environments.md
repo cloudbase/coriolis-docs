@@ -92,7 +92,7 @@ In case the proxy is needed to provide internet for the Coriolis appliance (such
 You should avoid adding a proxy if you can already access the environments, as it may cause conflicts with the current connections.
 ```
 
-To configure this, you need to go to the Coriolis console and select the option **5) Configure/Restore Appliance Proxy Settings** , as shown in the screenshot below.
+To configure this, you need to go to the Coriolis console and select the option **5) Configure/Restore Appliance Proxy Settings**, as shown in the screenshot below.
 
 ![](_static/images/coriolis-appliance-console.png)
 

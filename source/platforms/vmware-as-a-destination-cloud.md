@@ -24,13 +24,13 @@ The templates need the following:
   * Must **disable security/unattended** updates on Ubuntu as those will **conflict with Coriolis**
   * **Template VM config** must have a **SCSI** controller bus attached
   * **VMware tools** need to be installed
-  * Configuration to a **network** with a **DHCP server** , which Coriolis can reach
+  * Configuration to a **network** with a **DHCP server**, which Coriolis can reach
 
 #### Windows
 
   * OS used for the image must be the same version or newer than the VM to be **replicated/migrated**
   * **VMWare tools** need to be installed
-  * Configuration to a **network** with a **DHCP server** , a network which Coriolis can reach
+  * Configuration to a **network** with a **DHCP server**, a network which Coriolis can reach
   * **Template VM config** must have a **SCSI** controller bus attached
   * for more information regarding Coriolis' Worker template, please check the **[Coriolis Temporary Migration Worker](../reference/coriolis-temporary-migration-worker.md)** page.
 
@@ -68,7 +68,7 @@ The template OS version must be at least the same as the OS of the VM that needs
 
 For role isolation purposes, we highly recommend creating a new service role in vCenter. This role will then be assigned to a new service user that will be used in Coriolis.
 
-When having **VMware as a destination platform** , the role of the user account given to Coriolis must have the following privileges:
+When having **VMware as a destination platform**, the role of the user account given to Coriolis must have the following privileges:
 
 **Object** | **Required on** | **Required Privilege** | **Motivation/observation**  
 ---|---|---|---  
@@ -119,9 +119,9 @@ Edit Inventory -> Create new | Creating final VM
 
 #### Using the First Class Disks option
 
-When using the option for **First Class Disks** , Coriolis will require that the vCenter version **be at least 6.7 or newer**. Coriolis is able to use First Class Disk if the **Hosts are running on an earlier version** , but the **mandatory** version of **vCenter is 6.7 or newer**.
+When using the option for **First Class Disks**, Coriolis will require that the vCenter version **be at least 6.7 or newer**. Coriolis is able to use First Class Disk if the **Hosts are running on an earlier version**, but the **mandatory** version of **vCenter is 6.7 or newer**.
 
-In the situation of creating a **Replica Deployment** using an existing **Replica Execution** , Coriolis will **support** the option of **Cloning Replica Disks** only if **First Class Disks** are used.
+In the situation of creating a **Replica Deployment** using an existing **Replica Execution**, Coriolis will **support** the option of **Cloning Replica Disks** only if **First Class Disks** are used.
 
 ### OSMorphing steps taken when migrating/replicating to VMWare vSphere
 

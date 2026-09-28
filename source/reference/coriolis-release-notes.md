@@ -69,7 +69,7 @@ Latest Release
     * Added support for RHEL-family release 10 migrations (exceptions: Azure & OCI as destination);
     * Installs required packages for migrating encrypted VMs to minion machine;
     * Added configurable TPM PCRs to be applied when migrating encrypted VMs;
-    * Added support for Ubuntu 26 as minion, and any other minion that uses **sudo-rs** ;
+    * Added support for Ubuntu 26 as minion, and any other minion that uses **sudo-rs**;
     * Optimizes dracut rebuilding;
   * Windows OSMorphing: 
     * cloudbase-init no longer sets real time clock to UTC post-deployment;

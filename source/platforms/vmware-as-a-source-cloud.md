@@ -12,7 +12,7 @@ Migrations from VMware vSphere or VMware ESXi operate in the same way Replicas d
 
 #### Requirements:
 
-When replicating VMs from **VMware vSphere/ESXi** , Coriolis uses **Changed Block Tracking (CBT)** to efficiently identify and transfer changed disk blocks between Transfer Executions. The initial Transfer Execution creates a snapshot of the source VM and retrieves the disk contents from the snapshot. Subsequent Transfer Executions can use CBT to transfer only the blocks that have changed since the previous execution.
+When replicating VMs from **VMware vSphere/ESXi**, Coriolis uses **Changed Block Tracking (CBT)** to efficiently identify and transfer changed disk blocks between Transfer Executions. The initial Transfer Execution creates a snapshot of the source VM and retrieves the disk contents from the snapshot. Subsequent Transfer Executions can use CBT to transfer only the blocks that have changed since the previous execution.
 
 The following requirements apply when replicating VMs from VMware vSphere/ESXi:
 
@@ -21,7 +21,7 @@ The following requirements apply when replicating VMs from VMware vSphere/ESXi:
     * **Read-only access** to the VMs being replicated.
     * Permissions to **create and delete VM snapshots** on the VMs being replicated.
     * **Read-only access** to the properties of the infrastructure associated with the VMs, such as datastore properties, datastore names and IOPS, and Distributed Virtual Switch (DvS) VLAN information.
-  * The VM's disks must be hosted on **CBT-compatible datastores** , such as **VMFS or NFS**.
+  * The VM's disks must be hosted on **CBT-compatible datastores**, such as **VMFS or NFS**.
   * Disks must be configured in **Dependent** disk mode.
   * The VM must not use **Raw Device Mappings (RDMs)**.
   * **CBT must be enabled on all disks** for incremental synchronization to be used. CBT is represented by the **ctkEnabled** flag, which must be set to **True** for each source disk.For information about enabling CBT, see [VMware's official knowledge base](https://knowledge.broadcom.com/external/article/320557/changed-block-tracking-cbt-on-virtual-ma.html).
@@ -93,7 +93,7 @@ For more information regarding the Coriolis Worker template, please check the **
 
 For role isolation purposes, we highly recommend creating a new service role in vCenter. This role will then be assigned to a new service user who will be used in Coriolis.
 
-When having **VMware as a source platform** , the role of the user account given to Coriolis must have the following privileges:
+When having **VMware as a source platform**, the role of the user account given to Coriolis must have the following privileges:
 
 **Object**| **Required Privilege**|  **Required on**| **Requirement**| **Motivation/observation**  
 ---|---|---|---|---  

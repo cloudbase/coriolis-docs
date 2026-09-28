@@ -142,7 +142,7 @@ When migrating a **Windows VM**, both **Linux and Windows templates** have to be
 
 #### Linux Temporary Migration Worker
 
-For Linux OS images, we recommend using **Ubuntu Server 20.04 LTS (or newer)** , or **Oracle Linux Server 8 (or newer).** Both distributions have cloud images provided by their vendors, which can be used as-is, without any modifications.
+For Linux OS images, we recommend using **Ubuntu Server 20.04 LTS (or newer)**, or **Oracle Linux Server 8 (or newer).** Both distributions have cloud images provided by their vendors, which can be used as-is, without any modifications.
 
 #### Windows Temporary Migration Worker
 

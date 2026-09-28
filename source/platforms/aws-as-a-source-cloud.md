@@ -11,7 +11,7 @@ Migrations from AWS operate in the same way Replicas do and thus entail the same
 
 ### Replicating (DRaaS) from AWS
 
-**Input** : the ID or "Name" tag of the instance. The instance must be in the same **region** parameter supplied in the connection info used to create the AWS Coriolis endpoint.
+**Input**: the ID or "Name" tag of the instance. The instance must be in the same **region** parameter supplied in the connection info used to create the AWS Coriolis endpoint.
 
 #### Steps performed by Coriolis
 

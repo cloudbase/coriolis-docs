@@ -7,7 +7,7 @@ wp_id: 41363
 
 Ceph is an open-source software-defined storage solution designed to address modern enterprises' block, file, and object storage needs.
 
-**Ceph-based snapshots** are a recommended option if supported by your platform configuration, as in comparison with the **Coriolis Backups** , where Coriolis spawns temporary resources to perform the disk replication, or **Swift Backups** where Coriolis creates Cinder backups for every replicated VM and then fetches the objects from Swift.
+**Ceph-based snapshots** are a recommended option if supported by your platform configuration, as in comparison with the **Coriolis Backups**, where Coriolis spawns temporary resources to perform the disk replication, or **Swift Backups** where Coriolis creates Cinder backups for every replicated VM and then fetches the objects from Swift.
 
 **Ceph-based snapshots** using either option of **Ceph Backups** of **Ceph Snapshots** will perform the disk replication by fetching the chunks located on Openstack's Ceph following the snapshot creation.
 

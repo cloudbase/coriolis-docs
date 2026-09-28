@@ -41,7 +41,7 @@ systemctl start qemu-guest-agent
 systemctl status qemu-guest-agent
 ```
 
-  * Configuration to a **network** with a **DHCP server** , a network which the Coriolis appliance can reach.
+  * Configuration to a **network** with a **DHCP server**, a network which the Coriolis appliance can reach.
 
 #### Windows
 
@@ -63,7 +63,7 @@ systemctl status qemu-guest-agent
       * After the driver installs, click **Close** to close the window.
       * Reboot the virtual machine to complete the driver installation
 
-  * Configuration to a **network** with a **DHCP server** , a network which Coriolis can reach
+  * Configuration to a **network** with a **DHCP server**, a network which Coriolis can reach
 
   * **Template VM config** must have an **SCSI** controller bus attached
 

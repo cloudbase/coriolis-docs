@@ -5,7 +5,7 @@ wp_id: 38738
 
 # Coriolis Logs
 
-All Coriolis installations feature the **Coriolis logger** , a central logging daemon created to integrate into a Coriolis deployment.
+All Coriolis installations feature the **Coriolis logger**, a central logging daemon created to integrate into a Coriolis deployment.
 
 This allows easy streaming of logs to any web sockets enabled destination (WebUI, CLI, etc), as well as allowing users of Coriolis to easily download logs that are aggregated by this service.
 
@@ -54,9 +54,9 @@ Please see for usage info:
 
 ## Coriolis Log Rotation
 
-Log Rotation provides the option to set log intervals with values that are available for **coriolis-api** , **coriolis-conductor** and **coriolis-worker**. It can be enabled by editing the ***-logging.conf** file for each of the 3 components mentioned above, the ***-logging.conf** files are available on Coriolis' Appliance, under **/etc/coriolis/** ***-logging.conf**
+Log Rotation provides the option to set log intervals with values that are available for **coriolis-api**, **coriolis-conductor** and **coriolis-worker**. It can be enabled by editing the ***-logging.conf** file for each of the 3 components mentioned above, the ***-logging.conf** files are available on Coriolis' Appliance, under **/etc/coriolis/** ***-logging.conf**
 
-After the values are modified in the ***-logging.conf** , the container for the respective component has to be restarted for the changes to apply.
+After the values are modified in the ***-logging.conf**, the container for the respective component has to be restarted for the changes to apply.
 
 **Coriolis Log Rotation applies to v2012 release or newer.**
 

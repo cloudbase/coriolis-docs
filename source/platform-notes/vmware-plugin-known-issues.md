@@ -7,7 +7,7 @@ wp_id: 39345
 
 ### Backup fails when the source Endpoint is set for the VCenter
 
-**Error message** : _"The ESXi host performing the CBT export refused connection. The host is chosen automatically by Center, so please ensure that the Coriolis deployment can dial TCP/902 on all the ESXi hosts of a vSphere, and that DNS name resolution firewalls are setup to facilitate this.Alternatively, try connecting Coriolis directly to the specific ESXi host which is running the VM(s) to be migrated by creating a Coriolis endpoint using the DNS name/IP address of the host itself."_
+**Error message**: _"The ESXi host performing the CBT export refused connection. The host is chosen automatically by Center, so please ensure that the Coriolis deployment can dial TCP/902 on all the ESXi hosts of a vSphere, and that DNS name resolution firewalls are setup to facilitate this.Alternatively, try connecting Coriolis directly to the specific ESXi host which is running the VM(s) to be migrated by creating a Coriolis endpoint using the DNS name/IP address of the host itself."_
 
 If the above error message occurs in a multi ESXi hosts situation where vCenter is used in the Coriolis endpoint configuration, we recommend adding as Coriolis Endpoint the ESXi hosts IP or Hostname rather than the vCenter'. This way, we are making sure that Coriolis will send the commands directly to the ESXi host.
 
@@ -38,7 +38,7 @@ The following steps have been observed to solve this error. Further assistance c
 
   * create a Coriolis **endpoint** using the **IP/hostname** of the **ESXi host** the **VM** is currently running on instead of the IP/hostname of the vCenter server. This will force Coriolis to export from that host instead of a random host within the cluster. 
 
-  * **move** the **VM** using **vMotion** to a different **ESXi host** , and retry with the above step to also change Coriolis's endpoint to the new ESXi host.
+  * **move** the **VM** using **vMotion** to a different **ESXi host**, and retry with the above step to also change Coriolis's endpoint to the new ESXi host.
 
 * * *
 
@@ -103,7 +103,7 @@ VMware 6.x series is EOL and should not be used in production.
 
 ### Migration job enters a Cancelled state
 
-**Error message** : This task was user-cancelled. Additional cancellation info from worker service: "Task was canceled."
+**Error message**: This task was user-cancelled. Additional cancellation info from worker service: "Task was canceled."
 
 Please follow the VMware plugin documentation for the proper setup and configuration to ensure a smooth integration with your VMware environment.
 

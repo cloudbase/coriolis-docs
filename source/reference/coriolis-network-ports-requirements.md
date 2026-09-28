@@ -9,7 +9,7 @@ In order for Coriolis to be able to perform Replica/Migration tasks, it will req
 
 The following ports are the default for each endpoint, so the Cloud administrator must verify for any customized ports. For cloud access of the Endpoints, Coriolis will use the same ports even though the Endpoint will be used as the source or destination.
 
-The temporary worker transfer mechanism for the destination platforms offers two options: HTTPS and SSH. The default one is the **HTTPS-based transfer mechanism (TCP/5566)** , which is faster but might not work if there are firewalls in the way. The SSH-based transfer mechanism (TCP/22) is more costly but will be allowed by most firewalls since SSH access from the Coriolis installation to the temporary worker VM is always required. Coriolis automatically sets security group rules for the temporary VMs accordingly.
+The temporary worker transfer mechanism for the destination platforms offers two options: HTTPS and SSH. The default one is the **HTTPS-based transfer mechanism (TCP/5566)**, which is faster but might not work if there are firewalls in the way. The SSH-based transfer mechanism (TCP/22) is more costly but will be allowed by most firewalls since SSH access from the Coriolis installation to the temporary worker VM is always required. Coriolis automatically sets security group rules for the temporary VMs accordingly.
 
 Regarding the **temporary migration worker** for the source platforms, Coriolis uses **Replicator port 4433** for performing disk chunking and transferring the backup data to the writer located on the destination platform. This port is used on platforms that require a **migration worker machine**.
 

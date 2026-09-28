@@ -255,8 +255,8 @@ During the OSMorphing process, Coriolis will create a temporary VM to scan the A
 
 The images do **NOT** require any special Coriolis agent running in them and can be images already available in Azure, granted the following requirements:
 
-**Linux** : the Linux image should have the **walinuxagent**  installed and configured for first boot. Coriolis will create a unique key pair for each migration/replication and add it as authorized via metadata.
+**Linux**: the Linux image should have the **walinuxagent**  installed and configured for first boot. Coriolis will create a unique key pair for each migration/replication and add it as authorized via metadata.
 
-**Windows** : the Windows image should have the Azure provisioning agent OR cloudbase-init installed and configured for the first boot. Coriolis will create a unique password for each migration deployment and use it to set up WinRM access via a VM extension.
+**Windows**: the Windows image should have the Azure provisioning agent OR cloudbase-init installed and configured for the first boot. Coriolis will create a unique password for each migration deployment and use it to set up WinRM access via a VM extension.
 
 For more information regarding the Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](../reference/coriolis-temporary-migration-worker.md)** page.

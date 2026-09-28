@@ -14,7 +14,7 @@ Both modes of operation use the same underlying Coriolis mechanisms to achieve t
 
 ### Replicas (DRaaS)
 
-**Scenario addressed** : continuous background sync of a running workload's storage from a source cloud directly to a destination cloud ("executing a Replica"), and the ability to create a new VM on the destination cloud using the previously-synced storage elements should disaster strike on the source ("deploying a Replica")
+**Scenario addressed**: continuous background sync of a running workload's storage from a source cloud directly to a destination cloud ("executing a Replica"), and the ability to create a new VM on the destination cloud using the previously-synced storage elements should disaster strike on the source ("deploying a Replica")
 
 #### Architectural overview
 
@@ -90,7 +90,7 @@ The above describes the steps Coriolis takes in general terms. If you would like
 
 ### Migrations (CMaaS)
 
-**Scenario addressed** : "lift-and-shift" type migrations, where the goal is to move the storage of an existing instance on the source cloud to the destination cloud and boot a new instance with identical settings 
+**Scenario addressed**: "lift-and-shift" type migrations, where the goal is to move the storage of an existing instance on the source cloud to the destination cloud and boot a new instance with identical settings 
 
 #### Inputs
 

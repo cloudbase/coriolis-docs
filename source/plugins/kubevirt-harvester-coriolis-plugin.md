@@ -7,7 +7,7 @@ wp_id: 43143
 
 **Coriolis** provides agentless integration with supported virtualization platforms by running the platform plugin directly on the Coriolis Appliance. This architecture eliminates the need to deploy agents on source or destination platforms and simplifies connectivity and setup.
 
-Coriolis has been validated for Harvester environments from **version 1.3 through 1.8.0**. This compatibility also extends to **SUSE Virtualization** , which is based on the same underlying platform capabilities.
+Coriolis has been validated for Harvester environments from **version 1.3 through 1.8.0**. This compatibility also extends to **SUSE Virtualization**, which is based on the same underlying platform capabilities.
 
 For a VMware to SUSE Virtualization migration,  here is a representation of the steps involved:
 
@@ -27,7 +27,7 @@ To connect to Kubevirt to perform migration to it, the following connection para
 
 A valid kubeconfig YAML needs to be passed to the Coriolis endpoint. In a traditional KubeVirt setup, the kubeconfig can be found at the **~/.kube/config** location in your environment.
 
-If using Harvester, a kubeconfig can be generated for the logged-in user by accessing the Harvester UI's Support page and clicking **Download KubeConfig** , as shown below.
+If using Harvester, a kubeconfig can be generated for the logged-in user by accessing the Harvester UI's Support page and clicking **Download KubeConfig**, as shown below.
 
 ![](_static/images/kubeconf.png)
 

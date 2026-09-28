@@ -11,7 +11,7 @@ Before installing the snapshot agent on the machines, make sure you either have 
 
 Coriolis Snapshot Agent **requires an extra disk device attached** to the server, where it can store the created snapshots. The **extra disk** device can be either a **physical** disk, a **removable** disk, or an **iSCSI** attached disk. The size of this extra disk should be at least the same as the total storage capacity of the server.
 
-Before starting to install the **Snapshot Agent** , the **extra disk** must be **formatted and mounted**.
+Before starting to install the **Snapshot Agent**, the **extra disk** must be **formatted and mounted**.
 
 **The minimum size** of the **extra disk** must be **at least the size of the largest disk** available on the Bare Metal Server.
 

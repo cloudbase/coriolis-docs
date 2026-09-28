@@ -57,7 +57,7 @@ Click “**Next**” and choose the target endpoint (**Oracle VM**):
 
 ![](_static/images/Coriolis-Web-New-replica-5.png) Click “**Next**” to set the Oracle VM specific options, starting with the name of the **Server Pool** to be used:
 
-![](_static/images/Coriolis-Web-New-replica-6.png) Clicking once more “**Next**” will bring you to the **Network Mapping** , where for each network used by the VM(s) on the source cloud we need to select a matching network on the target. This is where the VMs will be connected after being migrated.
+![](_static/images/Coriolis-Web-New-replica-6.png) Clicking once more “**Next**” will bring you to the **Network Mapping**, where for each network used by the VM(s) on the source cloud we need to select a matching network on the target. This is where the VMs will be connected after being migrated.
 
 ![](_static/images/Coriolis-Web-New-replica-7.png) Click “**Next**” and you will see the **scheduling** options:
 

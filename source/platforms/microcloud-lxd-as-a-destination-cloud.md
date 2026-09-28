@@ -33,7 +33,7 @@ Steps performed by Coriolis:
 
 ### Temporary worker image for Replica/Migration
 
-When choosing to run a task of **Replica/Migration** to **LXD** , Coriolis lists images available locally on the destination MicroCloud/LXD, and also from Ubuntu’s official releases remote. Images listed are filtered by **amd64** architecture and **virtual-machine** type. Also, from the Ubuntu remote, only supported LTS images are listed. If an image from a different custom remote needs to be used, we recommend copying it to the local image remote. This is because Coriolis can only access local images via LXD API, parsing and filtering remote images directly from the**simplestreams** image server. We chose the Ubuntu releases remote because it’s static on any destination LXD, therefore it cannot be changed/deleted from the platform.
+When choosing to run a task of **Replica/Migration** to **LXD**, Coriolis lists images available locally on the destination MicroCloud/LXD, and also from Ubuntu’s official releases remote. Images listed are filtered by **amd64** architecture and **virtual-machine** type. Also, from the Ubuntu remote, only supported LTS images are listed. If an image from a different custom remote needs to be used, we recommend copying it to the local image remote. This is because Coriolis can only access local images via LXD API, parsing and filtering remote images directly from the**simplestreams** image server. We chose the Ubuntu releases remote because it’s static on any destination LXD, therefore it cannot be changed/deleted from the platform.
 
 The instructions below describe the process of setting up the Windows worker image:
 

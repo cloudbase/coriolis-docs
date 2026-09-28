@@ -7,7 +7,7 @@ wp_id: 41641
 
 **Coriolis** integrates the platform Plugin on the Appliance itself. Here, Coriolis will need to take advantage of Snapshot Agents deployed on the Bare Metal Server to establish communication with the Plugin. This way, Coriolis guarantees the connection to the Bare Metal server, as long as all requirements are met.
 
-**Bare Metal Hub Plugin** is one of the supported Source platforms by Coriolis, which will allow Migrating workload from bare-metal to the cloud, for what is called **Physical to Virtual (p2v)** , as Coriolis supports multiple clouds as Destination platforms.
+**Bare Metal Hub Plugin** is one of the supported Source platforms by Coriolis, which will allow Migrating workload from bare-metal to the cloud, for what is called **Physical to Virtual (p2v)**, as Coriolis supports multiple clouds as Destination platforms.
 
 ![Coriolis P2V](_static/images/p2v-3.jpg)
 
@@ -20,7 +20,7 @@ Source to Coriolis required ports:
 
 For the Coriolis appliance to the target platform port requirements, you can refer to [this page](../reference/coriolis-network-ports-requirements.md).
 
-In the **Bare Metal Hub** , which is a UI section for Coriolis-metal-hub functionality, you will be able to:
+In the **Bare Metal Hub**, which is a UI section for Coriolis-metal-hub functionality, you will be able to:
 
   * Register bare metal servers that already have the snapshot agent installed;
   * Show bare metal server information;
@@ -77,7 +77,7 @@ As the Endpoint and the Snapshot Agent are installed, the next step is to add th
 
 ![](_static/images/addbm.jpg)
 
-  * Once the machine has been contacted, the connection will be validated and listed as **active** , meaning that the machine is ready to be used for **Replica/Migration**.
+  * Once the machine has been contacted, the connection will be validated and listed as **active**, meaning that the machine is ready to be used for **Replica/Migration**.
 
   * Also, Coriolis will display the hardware details of the newly added machine
 

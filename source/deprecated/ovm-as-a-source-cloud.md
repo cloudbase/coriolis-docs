@@ -13,7 +13,7 @@ Migrations to OVM operate in the same way Replicas do and thus entail the same r
 
 ### Replicating (DRaaS) from OVM
 
-**Input** : the names of the instances.
+**Input**: the names of the instances.
 
 #### Steps performed by Coriolis
 
@@ -56,7 +56,7 @@ During step 5, the data chunks will be handed directly to the destination cloud 
 
 The **export_template_name** parameter which is used for the **temporary worker** must use an Oracle Linux VM (**recommended version 7.x or newer**) for the template.
 
-Please ensure that the Oracle VM Guest Additions Daemon, **ovmd** , is installed on the guest OS that will be used as the template. This will allow Coriolis to fetch the IP address of the temporary worker once it is spawned. Refer to the Oracle VM documentation for the required steps.
+Please ensure that the Oracle VM Guest Additions Daemon, **ovmd**, is installed on the guest OS that will be used as the template. This will allow Coriolis to fetch the IP address of the temporary worker once it is spawned. Refer to the Oracle VM documentation for the required steps.
 
 NOTE! you must ensure that the OS type property is correctly set for the Template in OVM, that being setting the corresponding Oracle Linux distribution and the release for it.
 

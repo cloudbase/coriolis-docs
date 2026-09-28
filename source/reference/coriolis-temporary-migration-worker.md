@@ -18,7 +18,7 @@ When migrating a **Windows VM**, both **Linux and Windows templates** have to be
 
 ## Linux Temporary Migration Worker
 
-In the case of Linux OS images, we recommend using **Ubuntu Server 24.04 LTS (or newer)** , or **Oracle Linux Server 9 (or newer).** Both distributions have cloud images provided by their vendors, which can be used as-is, without any modifications.
+In the case of Linux OS images, we recommend using **Ubuntu Server 24.04 LTS (or newer)**, or **Oracle Linux Server 9 (or newer).** Both distributions have cloud images provided by their vendors, which can be used as-is, without any modifications.
 
 ## Windows Temporary Migration Worker
 

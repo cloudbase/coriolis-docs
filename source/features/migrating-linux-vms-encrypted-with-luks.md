@@ -39,11 +39,11 @@ cloudbase@ubuntu24luks:~$ sudo cryptsetup luksDump /dev/sda3
 
 3\. Coriolis copies the encrypted disk as-is (it never decrypts data at the block level), then during **OS Morphing** it uses the migration passphrase to unlock the container just long enough to inject drivers, rebuild the _initramfs_ and stage a first-boot cleanup script.
 
-4\. On its **first boot** , the migrated VM re-enrolls encryption using the _destination 's_ TPM, removes the migration passphrase added at step 1, and reboots itself. If the destination VM does **not** have a (v)TPM device, the first-boot script **aborts** before removing the migration keyslot; it deliberately does not touch it once TPM enrollment fails, to avoid locking users out of the disk.
+4\. On its **first boot**, the migrated VM re-enrolls encryption using the _destination 's_ TPM, removes the migration passphrase added at step 1, and reboots itself. If the destination VM does **not** have a (v)TPM device, the first-boot script **aborts** before removing the migration keyslot; it deliberately does not touch it once TPM enrollment fails, to avoid locking users out of the disk.
 
-**Note 1** : Check with your Coriolis provider before migrating LUKS-encrypted VMs, and confirm the option is enabled for the target environment/pool you're migrating into.
+**Note 1**: Check with your Coriolis provider before migrating LUKS-encrypted VMs, and confirm the option is enabled for the target environment/pool you're migrating into.
 
-**Note 2** : Your original key (e.g. the source VM's TPM-sealed slot) is **never touched or shared with Coriolis** , it only ever needs the migration passphrase.
+**Note 2**: Your original key (e.g. the source VM's TPM-sealed slot) is **never touched or shared with Coriolis**, it only ever needs the migration passphrase.
 
 ### Known Issues
 

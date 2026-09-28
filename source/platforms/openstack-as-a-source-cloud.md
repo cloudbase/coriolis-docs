@@ -15,7 +15,7 @@ Transfer Migrations from OpenStack operate in the same way Transfer Replicas do 
 
 In the process of replicating from an OpenStack, Coriolis will clone locally the volumes of the source VM and boot a temporary worker VM on the source OpenStack to perform the actual disk exports.
 
-**Input** : the ID or name (if and only if it is unique in the given tenant) of the instance to be replicated. The instance can be booted either from a Cinder volume or directly from a Glance image. 
+**Input**: the ID or name (if and only if it is unique in the given tenant) of the instance to be replicated. The instance can be booted either from a Cinder volume or directly from a Glance image. 
 
 ```{note}
 Please consider reviewing the general steps recommended to be performed before creating and executing a replica of an instance from OpenStack [here](../guides/preparing-a-vm-for-migration-replication.md).
@@ -42,7 +42,7 @@ In the process of replicating from an OpenStack, Coriolis will use Cinder-backup
   * Cinder-backup must be installed and enabled
   * Cinder-backup must be configured to use either Swift/Ceph as the backup storage system
 
-**Input** : the ID or name (if and only if it is unique in the given tenant) of the instance to be replicated. The instance must be booted from a Cinder volume to replicate through Cinder backups.
+**Input**: the ID or name (if and only if it is unique in the given tenant) of the instance to be replicated. The instance must be booted from a Cinder volume to replicate through Cinder backups.
 
 ```{note}
 Please consider reviewing the general steps recommended to be performed before creating and executing a replica of an instance from OpenStack [here](../guides/preparing-a-vm-for-migration-replication.md).
@@ -67,7 +67,7 @@ In the process of replicating from an OpenStack, Coriolis will use Cinder-snapsh
   * Cinder-volume must be configured to use Ceph as a volume storage backend
   * All of the Cinder volumes of a given instance must be stored on a single Ceph cluster and pool
 
-**Input** : the ID or name (if and only if it is unique in the given tenant) of the instance to be replicated. The instance must be booted from a Cinder volume to replicate. Coriolis cannot replicate instances booted off of Glance images.
+**Input**: the ID or name (if and only if it is unique in the given tenant) of the instance to be replicated. The instance must be booted from a Cinder volume to replicate. Coriolis cannot replicate instances booted off of Glance images.
 
 ```{note}
 Please consider reviewing the general steps recommended to be performed before creating and executing a replica of an instance from OpenStack [here](../guides/preparing-a-vm-for-migration-replication.md).

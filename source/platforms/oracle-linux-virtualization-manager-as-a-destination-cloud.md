@@ -37,7 +37,7 @@ Migrations to oVirt operate like Replicas do and thus entail the same requiremen
 
 ### Temporary worker image for Replica/Migration
 
-When choosing to run a task of **Replica/Migration** to **oVirt** , there will have to be VM templates on the destination platform having a set username and password for the Coriolis worker to access and use as a temporary VM.
+When choosing to run a task of **Replica/Migration** to **oVirt**, there will have to be VM templates on the destination platform having a set username and password for the Coriolis worker to access and use as a temporary VM.
 
 The **VM templates** need to have the IDs all zeroed, like the default **oVirt** image created. In a case where that image is no longer existent or was changed, a new image must be created.
 
@@ -75,7 +75,7 @@ On Windows, download the VirtIO drivers using the [**official archive**](https:/
 
 #### Post-completion
 
-After completing the **qemu-guest-agent** install, depending on the OS type selected **Linux or Windows** , follow the [**temporary worker**](../reference/coriolis-temporary-migration-worker.md) page for the completing steps.
+After completing the **qemu-guest-agent** install, depending on the OS type selected **Linux or Windows**, follow the [**temporary worker**](../reference/coriolis-temporary-migration-worker.md) page for the completing steps.
 
 **Note:** For Windows VMs, the temporary worker image version must be at least the same as the OS of the VM that needs to be migrated.
 
@@ -97,7 +97,7 @@ When migrating Windows VMs, the OSMorphing workers need to install VirtIO driver
 
 The user needs to self-host the drivers using their Oracle account, by accepting Oracle's EULA and downloading the ZIP file containing the drivers. Downloading steps can be found [here](https://docs.oracle.com/en/operating-systems/oracle-linux/kvm-virtio/kvm-virtio-DownloadingtheOracleVirtIODriversforMicrosoftWindows.html#kvm-virtio-download) under the **Downloading the Oracle VirtIO Drivers** section.
 
-As of June 2024, the latest version of the **Oracle VirtIO Drivers Version for Microsoft Windows is 2.1.0** , the archive filename is **V1037432-01.zip** (44.4 MB).
+As of June 2024, the latest version of the **Oracle VirtIO Drivers Version for Microsoft Windows is 2.1.0**, the archive filename is **V1037432-01.zip** (44.4 MB).
 
 Please ensure that the zip archive contains the file "winvirtio.iso" as Coriolis will be requiring that to slipstream the Windows VirtIO drivers.
 

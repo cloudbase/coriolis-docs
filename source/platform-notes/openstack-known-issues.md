@@ -39,6 +39,6 @@ While migrating from VMWare to OpenStack if no metadata for the networks and sto
 
 To have it fixed, use config drive to send metadata to the temporary disk copy/OSMorphing worker VMs in case Neutron metadata is not available.
 
-The parameter for the above example is **migr_worker_use_config_drive** , and it is part of the OpenStack destination environment parameters.
+The parameter for the above example is **migr_worker_use_config_drive**, and it is part of the OpenStack destination environment parameters.
 
 Please refer to the JSON file example mentioned under Openstack destination environment parameters on **[OpenStack main documentation page.](../platforms/openstack-as-a-destination-cloud.md)**

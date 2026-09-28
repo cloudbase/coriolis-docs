@@ -37,7 +37,7 @@ Steps performed by Coriolis when deploying a replica or completing a migration t
   1. Snapshot the replicated volumes on CloudStack so changes can be rolled back in case of deployment failures. By default, new volumes are created from these snapshots for deployment, leaving the original replicated volumes intact for future replica executions.
   2. If **OS morphing**  is enabled, deploy a temporary minion VM matching the guest OS (**Linux template**  for Linux guests, **Windows template**  for Windows guests), attach the deployment volumes, and run OS morphing to adapt the guest for CloudStack/KVM (drivers, networking, cloud-init or cloudbase-init, and related packages).
   3. Detach the volumes from the morphing minion and delete the temporary minion VM.
-  4. Deploy the final migrated VM: create a shell VM from the **Linux template** , replace its boot volume with the migrated root disk, attach remaining data disks, map guest networks from the transfer network map, and port VM configuration from the source VM (CPU, RAM, firmware, secure boot, etc.).
+  4. Deploy the final migrated VM: create a shell VM from the **Linux template**, replace its boot volume with the migrated root disk, attach remaining data disks, map guest networks from the transfer network map, and port VM configuration from the source VM (CPU, RAM, firmware, secure boot, etc.).
   5. Start the migrated VM on CloudStack (unless configured to skip starting migrated instances).
 
 ## CloudStack prerequisites
@@ -191,7 +191,7 @@ winrm enumerate winrm/config/listener
 Get-Content 'C:\Program Files\Cloudbase Solutions\Cloudbase-Init\log\cloudbase-init.log'
 ```
 
-Expect an **HTTPS listener on 5986** , **UserDataPlugin**  applying the Administrator password, and no **SetUserPasswordPlugin**  errors.
+Expect an **HTTPS listener on 5986**, **UserDataPlugin**  applying the Administrator password, and no **SetUserPasswordPlugin**  errors.
 
 ### Recommended compute and disk offerings
 

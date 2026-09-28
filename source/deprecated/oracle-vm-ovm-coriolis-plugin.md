@@ -27,19 +27,19 @@ OVM Coriolis plugin does not support replicate/migrate UEFI instances (not suppo
 
 Coriolis will require access to Oracle PV-drivers in order to have the Migrated VM properly set up for the destination environment.
 
-For more information on how to download and have Coriolis use **[Oracle PV-drivers](../platform-notes/oracle-paravirtual-drivers.md)** , please check the documentation page.
+For more information on how to download and have Coriolis use **[Oracle PV-drivers](../platform-notes/oracle-paravirtual-drivers.md)**, please check the documentation page.
 
 ### Coriolis OVM Exporter
 
 The Coriolis OVM Exporter service has been integrated with Coriolis to efficiently and safely move the virtual machines from OVM to any of the supported destinations, without any kind of interruption to business continuity on the source.
 
-For more information regarding **Coriolis OVM Exporter** , please check **[OVM Exporter](coriolis-ovm-exporter.md)** page.
+For more information regarding **Coriolis OVM Exporter**, please check **[OVM Exporter](coriolis-ovm-exporter.md)** page.
 
 ### OVM as a source cloud
 
 Coriolis' OVM plugin supports both migrating (CMaaS) and replicating (DRaaS) from OVM.
 
-For more information regarding **[OVM as a source cloud](ovm-as-a-source-cloud.md)** , please check its documentation page.
+For more information regarding **[OVM as a source cloud](ovm-as-a-source-cloud.md)**, please check its documentation page.
 
 ### OVM as a destination cloud
 

@@ -5,7 +5,7 @@ wp_id: 41002
 
 # Coriolis Console Menu
 
-Coriolis Console Menu is represented by the **Interactive User Console** , accessed via serial console after the Coriolis Appliance deployment is complete.
+Coriolis Console Menu is represented by the **Interactive User Console**, accessed via serial console after the Coriolis Appliance deployment is complete.
 
 ![](_static/images/console_menu.png)
 
@@ -29,10 +29,10 @@ After editing any Coriolis files, it is mandatory to restart the Coriolis Servic
 
 ![](_static/images/restart.jpg)
 
-  * **Edit/Inspect Network Settings** This option will again open the shell session called **Coriolis Appliance Editing Environment** , which offers the option of editing network configurations.
+  * **Edit/Inspect Network Settings** This option will again open the shell session called **Coriolis Appliance Editing Environment**, which offers the option of editing network configurations.
 
 ```{note}
-The **Network Settings** are only applied **after** you edit the configurations and the **Coriolis Services** are **restarted** , so to validate them, please use the **Edit/Inspect Coriolis Configuration** option.
+The **Network Settings** are only applied **after** you edit the configurations and the **Coriolis Services** are **restarted**, so to validate them, please use the **Edit/Inspect Coriolis Configuration** option.
 ```
 
   * **Restart Coriolis Service** This option offers the capability of restarting the services without interacting with other menus.

@@ -19,7 +19,7 @@ The worker components of Coriolis need network access to the AWS APIs, as well a
 
 **The AWS Coriolis plugin only supports EBS-backed instances**. Migrating instance-storage-based VMs is unfeasible given Coriolis' agentless nature (from the point of view of the migrated instances).
 
-Currently,**only HVM guests are supported** , with support for PV guests in advanced development stages.
+Currently,**only HVM guests are supported**, with support for PV guests in advanced development stages.
 
 ### AWS connection parameters
 

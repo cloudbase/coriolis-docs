@@ -56,7 +56,7 @@ tar -xvzf coriolis-snapshot-agent.tar.gz
 
 ![](_static/images/install2.jpg)
 
-  * Then you will be prompted to enter the **CA Fingerprint** , which can be copied from the top right corner **Coriolis Bare Metal Hub Fingerprint** on the Coriolis UI **Bare Metal Servers** tab as seen below 
+  * Then you will be prompted to enter the **CA Fingerprint**, which can be copied from the top right corner **Coriolis Bare Metal Hub Fingerprint** on the Coriolis UI **Bare Metal Servers** tab as seen below 
 
   * Also, you will be asked to mention if the machine is used as a web server or not, an option that the **Coriolis Appliance** further uses to generate the certificates.
 
@@ -82,7 +82,7 @@ tar -xvzf coriolis-snapshot-agent.tar.gz
 
 #### Coriolis Snapshot Agent Config
 
-With the installation complete, **Coriolis Snapshot Agent** will create a config file containing the selected options and the agent defaults. For more information on the **config file** , check the **[Coriolis Snapshot Agent Config](coriolis-snapshot-agent-config.md)** page.
+With the installation complete, **Coriolis Snapshot Agent** will create a config file containing the selected options and the agent defaults. For more information on the **config file**, check the **[Coriolis Snapshot Agent Config](coriolis-snapshot-agent-config.md)** page.
 
 #### Other considerations
 

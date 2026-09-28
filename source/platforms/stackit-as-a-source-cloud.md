@@ -15,7 +15,7 @@ Transfer Migrations from Stackit operate in the same way Transfer Replicas do an
 
 In the process of replicating from Stackit, Coriolis will clone locally the volumes of the source VM and boot a temporary worker VM on the source Stackit side to perform the actual disk exports.
 
-**Input** : the ID or name of the instance to be replicated. The instance is expected to be booted from volume, an error will be raised if ephemeral root disks are used since these cannot be exported.
+**Input**: the ID or name of the instance to be replicated. The instance is expected to be booted from volume, an error will be raised if ephemeral root disks are used since these cannot be exported.
 
 ```{note}
 Please consider reviewing the general steps recommended to be performed before creating and executing a replica of an instance from Stackit [here](../guides/preparing-a-vm-for-migration-replication.md).

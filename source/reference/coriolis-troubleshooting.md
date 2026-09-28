@@ -9,7 +9,7 @@ This page outlines different situations that a user might encounter when using C
 
 ### No matching migration image type found for OS type 'windows'
 
-When Replicating/Migrating a **Windows VM** , the above error can be seen if a Windows template has not been specified for the Temporary migration worker. in the Target options menu, under the Advanced screen, both **Linux and Windows templates**  have to be specified. This is required as **Disk cloning**  is performed using the Linux template and **OSMorphing**  is performed using the Windows template.
+When Replicating/Migrating a **Windows VM**, the above error can be seen if a Windows template has not been specified for the Temporary migration worker. in the Target options menu, under the Advanced screen, both **Linux and Windows templates**  have to be specified. This is required as **Disk cloning**  is performed using the Linux template and **OSMorphing**  is performed using the Windows template.
 
 * * *
 
@@ -88,7 +88,7 @@ The following command can be used to change the password for the admin user:
  $ openstack user set --password-prompt admin 
 ```
 
-Once done, consider setting also the corresponding password in **/etc/kolla/admin-openrc.sh** :
+Once done, consider setting also the corresponding password in **/etc/kolla/admin-openrc.sh**:
 
 ```bash
  $ export OS_PASSWORD=YourNewPassword 

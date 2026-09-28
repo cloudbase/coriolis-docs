@@ -76,7 +76,7 @@ Install an Oracle Linux 7 x64 VM with the following settings:
   * 1 vNIC connected to a network reachable from the Coriolis appliance
   * 1 virtual disk (10 GB, sparse allocation)
 
-Perform a minimal system installation. **Do not partition the disk with LVM** , use standard partitioning.
+Perform a minimal system installation. **Do not partition the disk with LVM**, use standard partitioning.
 
 Once done, update the system and install the Unbreakable Enterprise Kernel:
 

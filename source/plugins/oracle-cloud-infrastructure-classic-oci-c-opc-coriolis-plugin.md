@@ -43,7 +43,7 @@ For more information regarding Coriolis Worker template, please check the **[Cor
 
 ### Supported instances
 
-**The OCI-C source Coriolis plugin only supports migrating OCI-C VMs which are running** , as a deprovisioned VM's disks can't be identified reliably.
+**The OCI-C source Coriolis plugin only supports migrating OCI-C VMs which are running**, as a deprovisioned VM's disks can't be identified reliably.
 
 OCI-C Coriolis plugin cannot replicate/migrate UEFI-based instances(not supported by OCI-C cloud).
 
@@ -55,7 +55,7 @@ Migrations from OCI-C operate in the same way Replicas do, and thus entail the s
 
 ### Replicating (DRaaS) from OCI-C
 
-**Input** : the names of the instances. The instance must be in the same region parameter supplied in the connection info used to create the OCI-C Coriolis endpoint.
+**Input**: the names of the instances. The instance must be in the same region parameter supplied in the connection info used to create the OCI-C Coriolis endpoint.
 
 Please consider reviewing the general steps recommended to be performed before creating migration for an instance from OCI-C [here](https://cloudbasedev.atlassian.net/wiki/spaces/COR/pages/1845333/Preparing+a+VM+for+migration+replication).
 

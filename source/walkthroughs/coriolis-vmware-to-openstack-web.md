@@ -51,7 +51,7 @@ Click “**Next**” and choose the target endpoint (**OpenStack**):
 
 ![](_static/images/Coriolis-Web-New-Replica-3-OpenStack.png) After clicking “**Next**” again, it’s time to select the VM(s) to migrate. You can apply filters on the name to simplify the search:
 
-![](_static/images/Coriolis-Web-New-replica-5.png) Click “**Next**” to set the OpenStack specific options, starting with the name of the **flavor** to be used: ![](_static/images/Coriolis-Web-New-replica-6-OpenStack.png) Clicking once more “**Next**” will bring you to the **Network Mapping** , where for each network used by the VM(s) on the source cloud we need to select a matching network on the target. This is where the VMs will be connected after being migrated. ![](_static/images/Coriolis-Web-New-replica-7-OpenStack.png) Click “**Next**” and you will see the **scheduling** options:
+![](_static/images/Coriolis-Web-New-replica-5.png) Click “**Next**” to set the OpenStack specific options, starting with the name of the **flavor** to be used: ![](_static/images/Coriolis-Web-New-replica-6-OpenStack.png) Clicking once more “**Next**” will bring you to the **Network Mapping**, where for each network used by the VM(s) on the source cloud we need to select a matching network on the target. This is where the VMs will be connected after being migrated. ![](_static/images/Coriolis-Web-New-replica-7-OpenStack.png) Click “**Next**” and you will see the **scheduling** options:
 
 ![](_static/images/Coriolis-Web-New-replica-8.png) One more “**Next**” and you have a final confirmation screen:
 

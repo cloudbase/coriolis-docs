@@ -9,7 +9,7 @@ This guide describes the procedure for performing an **in-place upgrade of Corio
 
 The upgrade is performed directly from the **Coriolis Console** and updates the running Coriolis service containers to the specified version.
 
-Starting from **Coriolis v2608.0** , a new option was added, **Patch Coriolis Component** , to upgrade just a single component of Coriolis.
+Starting from **Coriolis v2608.0**, a new option was added, **Patch Coriolis Component**, to upgrade just a single component of Coriolis.
 
 ![](_static/images/image-12.png)
 
@@ -117,7 +117,7 @@ Confirm the selected version when prompted. After that is provided, the upgrade 
 
 ### 3.2. Patch Coriolis Component
 
-Starting from **Coriolis v2608.0** , a new option was added, **Patch Coriolis Component** , to upgrade just a single component of Coriolis.
+Starting from **Coriolis v2608.0**, a new option was added, **Patch Coriolis Component**, to upgrade just a single component of Coriolis.
 
 ```{note}
 This procedure is intended for scenarios where the Coriolis Team provides a targeted patch or backport for a specific Coriolis component, allowing a fix to be applied to the currently deployed release without requiring a full Coriolis platform upgrade.

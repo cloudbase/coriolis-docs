@@ -24,7 +24,7 @@ When migrating Windows VMs, the OSMorphing workers need to install VirtIO driver
 
 The user needs to self-host the drivers using their Oracle account, by accepting Oracle's EULA and downloading the ZIP file containing the drivers. Downloading steps can be found [here](https://docs.oracle.com/en/operating-systems/oracle-linux/kvm-virtio/kvm-virtio-DownloadingtheOracleVirtIODriversforMicrosoftWindows.html#kvm-virtio-download) under the **Downloading the Oracle VirtIO Drivers** section.
 
-As of June 2024, the latest version of the **Oracle VirtIO Drivers Version for Microsoft Windows is 2.1.0** , the archive filename is **V1037432-01.zip** (44.4 MB).
+As of June 2024, the latest version of the **Oracle VirtIO Drivers Version for Microsoft Windows is 2.1.0**, the archive filename is **V1037432-01.zip** (44.4 MB).
 
 Please ensure that the zip archive contains the file "winvirtio.iso" as Coriolis will be requiring that to slipstream the Windows VirtIO drivers.
 

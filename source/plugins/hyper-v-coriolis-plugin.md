@@ -161,7 +161,7 @@ Migrations from Hyper-V operate in the same way Replicas do and thus entail the 
 
 ### Replicating (DRaaS) from Hyper-V
 
-**Input** : the name or GUID of the VM.
+**Input**: the name or GUID of the VM.
 
 ```{note}
 Please consider reviewing the general steps recommended to be performed before creating a migration for a VM from Hyper-V in the dedicated documentation titled "Preparing a VM for migration/replication".
@@ -326,13 +326,13 @@ To connect to Hyper-V to perform a migration/replica from it, the following conn
 
 Each parameter represents:
 
-  * **host (string)** : resolvable hostname or IPv4/v6 address of the Hyper-V host
-  * **username (string)** : username for the Windows host. Can include domain as a prefix (with backslashes)
-  * **password (string)** : password for the above user
-  * **port (integer)** : port number the Hyper-V server has a WinRM Listener configured to listen on
-  * **allow_untrusted (boolean)** : whether or not to accept connecting to hosts with a self-signed certificate
-  * **rct_password (string)** : _auth_key_ used when generating Rocket.toml file as described in the RCT setup section of this document
-  * **rct_port (integer)** : port number the Hyper-V server has RCT Listener configured as used in Rocket.toml file generation
+  * **host (string)**: resolvable hostname or IPv4/v6 address of the Hyper-V host
+  * **username (string)**: username for the Windows host. Can include domain as a prefix (with backslashes)
+  * **password (string)**: password for the above user
+  * **port (integer)**: port number the Hyper-V server has a WinRM Listener configured to listen on
+  * **allow_untrusted (boolean)**: whether or not to accept connecting to hosts with a self-signed certificate
+  * **rct_password (string)**: _auth_key_ used when generating Rocket.toml file as described in the RCT setup section of this document
+  * **rct_port (integer)**: port number the Hyper-V server has RCT Listener configured as used in Rocket.toml file generation
 
 For replication, the following can be used:
 

@@ -61,7 +61,7 @@ Where **scsix:x** is the SCSI controller and SCSI device ID of your virtual disk
 
 11\. In the vSphere Client, right-click the virtual machine and click **Power On**.
 
-12\. Before you will run the **Coriolis Replica/Migration** task with the help of **CBT** , you must re-enable CBT manually or allow**Coriolis** to enable CBT when selecting **VMware** as a source. Some backup tools automatically enable CBT, For more information, see [Enabling or disabling Changed Block Tracking (CBT) on virtual machines (1031873)](https://kb.vmware.com/s/article/1031873).
+12\. Before you will run the **Coriolis Replica/Migration** task with the help of **CBT**, you must re-enable CBT manually or allow**Coriolis** to enable CBT when selecting **VMware** as a source. Some backup tools automatically enable CBT, For more information, see [Enabling or disabling Changed Block Tracking (CBT) on virtual machines (1031873)](https://kb.vmware.com/s/article/1031873).
 
 ### Reset CBT for multiple VMs using PowerCLI script
 

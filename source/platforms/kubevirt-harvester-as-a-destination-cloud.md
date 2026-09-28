@@ -110,7 +110,7 @@ raw_hdd=true
   * Considerations: 
     * If VM images are supported, export the PVC as an image. Add the following image label for Coriolis to be able to detect it as a Windows image: 
       * **harvesterhci.io/os-type : windows**
-      * If it's an EFI image, the following **annotation** must be also added to the VMImage object (under **metadata.annotations**): **vm.boot/firmware** : **uefi**
+      * If it's an EFI image, the following **annotation** must be also added to the VMImage object (under **metadata.annotations**): **vm.boot/firmware**: **uefi**
     * If VM images are not supported, set this PVC as a Windows image in the Kubevirt configuration options: 
       * **[kubevirt_migration_provider] migr_image_map = linux: quay.io/containerdisks/ubuntu:22.04, windows: my-namespace/my-windows-pvc**
 

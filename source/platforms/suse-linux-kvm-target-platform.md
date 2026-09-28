@@ -7,7 +7,7 @@ wp_id: 43972
 
 ## Migrating to SUSE Linux (KVM)
 
-When using SUSE Linux as a KVM-based virtualization platform, Coriolis integrates with each KVM host through **libvirt** , which is the management library and API used to control KVM/QEMU environments.
+When using SUSE Linux as a KVM-based virtualization platform, Coriolis integrates with each KVM host through **libvirt**, which is the management library and API used to control KVM/QEMU environments.
 
 Coriolis connects to the libvirt service through **SSH**(TCP/22) on each SUSE Linux KVM host to perform the operations required during migration workflows. In this design, each SUSE Linux KVM host must expose a functional libvirt endpoint that Coriolis can reach and authenticate against.
 
