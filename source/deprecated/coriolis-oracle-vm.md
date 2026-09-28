@@ -116,7 +116,7 @@ Once the operating system is installed, add the [Oracle Linux PV drivers](https:
 
 Configuring WINRM can be easily achieved with the following PowerShell script:
 
-```text
+```powershell
 wget https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1 -UseBasicParsing -OutFile ConfigureRemoting.ps1
 powershell -ExecutionPolicy remoteSigned -File ConfigureRemoting.ps1
 ```

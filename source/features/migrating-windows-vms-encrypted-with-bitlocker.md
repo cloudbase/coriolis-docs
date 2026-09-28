@@ -21,7 +21,7 @@ A preconfigured BitLocker recovery password must be specified when initiating th
 
 The following sample calls the WMI API through PowerShell to configure a BitLocker recovery password for the OS drive. Its output is easier to parse than that of the **manage-bde** command and more convenient to use as part of automated scripts. Follow these steps on the Windows instance that is about to be migrated.
 
-```text
+```powershell
 $osVol = gwmi -ns "Root\CIMV2\Security\MicrosoftVolumeEncryption" `
   -class Win32_EncryptableVolume `
   -filter "VolumeType = 0"
@@ -54,7 +54,7 @@ In order for the final VM to be able to launch, Coriolis suspends BitLocker duri
 
 **Important:** make sure that your Windows minion image has the BitLocker feature installed, otherwise it will not be able to unlock the volume.
 
-```text
+```powershell
 Install-WindowsFeature BitLocker
 ```
 

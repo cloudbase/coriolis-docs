@@ -21,7 +21,7 @@ The following steps will guide toward extracting the Oracle Paravirual Drivers f
 
 The end archive created by the below script must contain the files and sub-folders of the "Oracle VM Windows PV Drivers" directory but not the directory itself.
 
-```text
+```powershell
 Start-Process -Wait -ArgumentList "/silent" -PassThru -FilePath '$env\Setup.exe'
  $winnet = "${env:ProgramFiles(x86)}\Oracle Corporation\Oracle VM Windows PV Drivers\winnet"
  $winlh = "${env:ProgramFiles(x86)}\Oracle Corporation\Oracle VM Windows PV Drivers\winlh"

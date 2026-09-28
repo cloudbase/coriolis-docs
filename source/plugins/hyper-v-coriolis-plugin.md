@@ -40,7 +40,7 @@ On the Microsoft Hyper-V (source) hosts, WinRM can be easily enabled by running 
 
   * First, the script has to be downloaded on the Windows Server VM
 
-```text
+```powershell
 $URL="https://raw.githubusercontent.com/cloudbase/coriolis-resources/master/windows/winrm-gen.ps1"
 
 $Path="C:\<Path-to-file>\winrm-gen.ps1"
@@ -50,7 +50,7 @@ Invoke-Webrequest -URI $URL -OutFile $Path
 
   * Next, navigate to the directory where the script resides and run it
 
-```text
+```powershell
 cd C:\<Path-to-file>\
 
 .\winrm-gen.ps1
@@ -64,7 +64,7 @@ The steps required to configure and **enable WinRM HTTPS** service and configure
 
 This can be achieved by running:
 
-```text
+```powershell
 $winrm quickconfig -transport:https
 ```
 
@@ -108,19 +108,19 @@ In a test environment, **WinRM** can be used with **self-signed SSL certificates
 
   * Creating the self-signed certificate on the destination machine.
 
-```text
+```powershell
 New-SelfSignedCertificate -Subject 'CN=servername.domain.com' -TextExtension '2.5.29.37={text}1.3.6.1.5.5.7.3.1'
 ```
 
   * Configuring the server’s WinRM web server (listener) to use the self-signed certificate for authentication.
 
-```text
+```powershell
 winrm create winrm/config/Listener?Address=*+Transport=HTTPS '@{Hostname="servername.domain.com"; CertificateThumbprint="<cert thumbprint here>"}'
 ```
 
   * Opening the appropriate ports on the destination machine’s Windows firewall**:**
 
-```text
+```powershell
 $FirewallParam = @{ 
       DisplayName = 'Windows Remote Management (HTTPS-In)'
       Direction = 'Inbound' 
@@ -227,7 +227,7 @@ Expand-Archive "$env:USERPROFILE\gen-certs.zip" -DestinationPath "$env:USERPROFI
 
 #### Generate X509 certificates
 
-```text
+```powershell
 & "$env:USERPROFILE\rct\gen-certs.exe" -certificate-hosts "127.0.0.1,localhost" -output-dir "$env:USERPROFILE\rct" 
 ```
 
@@ -237,7 +237,7 @@ Expand-Archive "$env:USERPROFILE\gen-certs.zip" -DestinationPath "$env:USERPROFI
 
 #### Get certificates full path
 
-```text
+```powershell
 ls $env:USERPROFILE\rct 
 ```
 
@@ -247,7 +247,7 @@ In our case, it is _C:/Users/Administrator/rct/_
 
 2) create a config file array variable and replace accordingly the desired _auth_key/ port/ certs &key path_, as follows:
 
-```text
+```powershell
 $config = @"
 [global]
 # Use something else
@@ -277,7 +277,7 @@ Depending on your client, you may need to concatenate the **ca-pub.pem** with **
 
 #### Enable RCT port in the firewall
 
-```text
+```powershell
 New-NetFirewallRule -DisplayName rct -Direction Inbound -LocalPort 6677 -Protocol TCP -Action Allow 
 ```
 
