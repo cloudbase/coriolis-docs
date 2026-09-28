@@ -189,7 +189,6 @@ For more information regarding each supported platform, please check the corresp
 <ul>
 <li class="platform"><img src="../_static/images/lxd-logo.png" alt=""><a href="../plugins/microcloud-lxd-coriolis-plugin.html" title="MicroCloud (LXD) Coriolis Plugin">Canonical MicroCloud (LXD)</a></li>
 <li class="platform"><img src="../_static/images/proxmox-logo-stacked-color.svg" alt=""><a href="../plugins/proxmox-coriolis-plugin.html" title="Proxmox VE Coriolis Plugin">Proxmox VE</a></li>
-<li class="platform"><img src="../_static/images/oracle2022.png" alt=""><a href="../plugins/oracle-vm-ovm-coriolis-plugin.html" title="Oracle VM Coriolis Plugin">Oracle VM Server (OVM)</a></li>
 <li class="platform"><img src="../_static/images/oracle2022.png" alt=""><a href="../plugins/oracle-cloud-infrastructure-oci-coriolis-plugin.html" title="OCI Coriolis Plugin">Oracle Cloud Infrastructure (OCI)</a></li>
 <li class="platform"><img src="../_static/images/oracle2022.png" alt=""><a href="../plugins/ovirt-coriolis-plugin.html" title="OLVM Coriolis Plugin">Oracle Linux Virtualization Manager (OLVM)</a></li>
 <li class="platform"><img src="../_static/images/oracle2022.png" alt=""><a href="../plugins/oracle-cloud-infrastructure-oci-coriolis-plugin.html" title="Oracle PCA Coriolis Plugin">Oracle PCA solutions</a></li>

@@ -12,5 +12,4 @@ openstack-known-issues
 openstack-ceph-integration
 oracle-paravirtual-drivers
 oracle-cloud-infrastructure-user-group-policy-requirements
-coriolis-ovm-exporter
 ```

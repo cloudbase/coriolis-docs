@@ -12,8 +12,6 @@ vmware-as-a-source-cloud
 vmware-as-a-destination-cloud
 openstack-as-a-source-cloud
 openstack-as-a-destination-cloud
-ovm-as-a-source-cloud
-ovm-as-a-destination-cloud
 ovirt-as-a-source-cloud
 oracle-linux-virtualization-manager-as-a-destination-cloud
 nutanix-as-a-source-cloud

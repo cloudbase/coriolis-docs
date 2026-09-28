@@ -12,7 +12,6 @@ amazon-web-services-aws-coriolis-plugin
 microsoft-azure-azurestack-coriolis-plugin
 microcloud-lxd-coriolis-plugin
 proxmox-coriolis-plugin
-oracle-vm-ovm-coriolis-plugin
 oracle-cloud-infrastructure-oci-coriolis-plugin
 oracle-cloud-infrastructure-classic-oci-c-opc-coriolis-plugin
 ovirt-coriolis-plugin
