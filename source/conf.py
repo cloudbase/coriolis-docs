@@ -48,12 +48,6 @@ html_theme_options = {
     "sticky_navigation": True,
 }
 
-# WordPress slugs that do not match the scraped filename.
-_SLUG_ALIASES = {
-    "cloudstack-as-a-destination-cloud": "cloudstack-as-a-destination-cloud-2",
-    "minion-pools---creation-and-management": "minion-pools-creation-and-management",
-}
-
 _DOCS_DIR = Path(__file__).parent
 # stem -> docname, for pages that live in a section folder.
 _SLUG_TO_DOC = {}
@@ -93,7 +87,7 @@ def _rewrite_source(app, docname, source):
         text = text.replace("(_static/", "(../_static/")
 
     def rewrite_link(match: re.Match) -> str:
-        slug = _SLUG_ALIASES.get(match.group(1).lower(), match.group(1).lower())
+        slug = match.group(1).lower()
         target = _SLUG_TO_DOC.get(slug)
         if target is None:
             return match.group(0)

@@ -23,5 +23,5 @@ kubevirt-harvester-as-a-destination-cloud
 suse-linux-kvm-target-platform
 stackit-as-a-source-cloud
 stackit-as-a-destination-cloud
-cloudstack-as-a-destination-cloud-2
+cloudstack-as-a-destination-cloud
 ```
