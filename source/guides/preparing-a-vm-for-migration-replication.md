@@ -104,11 +104,11 @@ This table will outline all the supported virtualization/cloud platforms by Cori
 
 \*OpenStack instances do not have an exact way of telling if they’re UEFI instances or not, besides reading instance metadata, which may not always be available. In those cases, the Firmware type can be overridden by a source environment option
 
-![:check_mark:](_static/images/check_mark_32.png) : fully supports UEFI with Secure Boot
+<p class="icon-legend"><img src="../_static/images/check_mark_32.png" alt=""> fully supports UEFI with Secure Boot</p>
 
-![:ballot_box_with_check:](_static/images/2611.png) : only supports UEFI firmware, but no Secure Boot
+<p class="icon-legend"><img src="../_static/images/2611.png" alt=""> only supports UEFI firmware, but no Secure Boot</p>
 
-![:x:](_static/images/274c.png): the underlying platform does not support UEFI or Secure Boot
+<p class="icon-legend"><img src="../_static/images/274c.png" alt=""> the underlying platform does not support UEFI or Secure Boot</p>
 
 Secure Boot is not yet fully supported on AWS, only on Windows instances, but Coriolis will not be enabling it until proper support is added. Coriolis does not yet support Secure Boot for Azure.
 

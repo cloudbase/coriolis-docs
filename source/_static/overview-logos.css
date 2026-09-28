@@ -207,3 +207,11 @@ table.docutils td:first-child img {
   display: block;
   margin: 0 auto 0.35rem;
 }
+
+.rst-content .icon-legend img {
+  display: inline;
+  width: 1.15em;
+  height: 1.15em;
+  margin: 0 0.35rem 0 0;
+  vertical-align: -0.2em;
+}

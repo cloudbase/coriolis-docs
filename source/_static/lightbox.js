@@ -1,6 +1,6 @@
 (function () {
   var skip =
-    ".platform, .platform-vendors, .partner-logos, .video-preview, .video-previews, table.docutils";
+    ".platform, .platform-vendors, .partner-logos, .video-preview, .video-previews, .icon-legend, table.docutils";
 
   function eligible(img) {
     return img.closest(".rst-content") && !img.closest(skip) && !img.closest("a");
