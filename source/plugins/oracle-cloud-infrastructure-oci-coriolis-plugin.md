@@ -220,7 +220,7 @@ Below is a listing of the configuration section needed when migrating/replicatin
  # Windows VMs that are migrated to OCI need virtio drivers.
  # Please refer to the documentation page of the Coriolis OCI plugin for more
  # information on how to obtain the .zip file containing the drivers:
- # https://cloudbase.it/oracle-cloud-infrastructure-oci-coriolis-plugin/
+ # https://cloudbase.github.io/coriolis-docs/plugins/oracle-cloud-infrastructure-oci-coriolis-plugin.html
  # The downloaded ZIP has to be self-hosted. Paste the ZIP URL to the option below:
  # windows_virtio_zip_url = https://example.com/virtio-1.1.3.zip 
 ```

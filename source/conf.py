@@ -1,9 +1,6 @@
 """Sphinx configuration for the Coriolis documentation."""
 
 import html
-import os
-import re
-from pathlib import Path
 
 project = "Coriolis"
 author = "Cloudbase Solutions"
@@ -48,46 +45,13 @@ html_theme_options = {
     "sticky_navigation": True,
 }
 
-_DOCS_DIR = Path(__file__).parent
-# stem -> docname, for pages that live in a section folder.
-_SLUG_TO_DOC = {}
-for _path in _DOCS_DIR.rglob("*.md"):
-    _rel = _path.relative_to(_DOCS_DIR).as_posix()
-    if _path.name == "index.md" or _rel in exclude_patterns or _rel.startswith("deprecated/"):
-        continue
-    _SLUG_TO_DOC[_path.stem] = _rel[:-3]
-
-# Page URL only: optional trailing slash and a heading anchor. Extra path
-# segments (attachment pages, downloads) are left unchanged.
-_PAGE_LINK = re.compile(
-    r"https?://(?:www\.)?cloudbase\.it/"
-    r"([a-z0-9-]+)"
-    r"/?"
-    r"(#[A-Za-z0-9_\-]+)?"
-    r"(?=[\s\)\"<]|$)",
-    re.IGNORECASE,
-)
-
-
-def _relative_doc_link(docname: str, target: str, anchor: str) -> str:
-    start = os.path.dirname(docname) or "."
-    return os.path.relpath(f"{target}.md", start=start) + anchor
-
 
 def _rewrite_source(app, docname, source):
     text = html.unescape(source[0])
     if "/" in docname:
         text = text.replace("](_static/", "](../_static/")
         text = text.replace("(_static/", "(../_static/")
-
-    def rewrite_link(match: re.Match) -> str:
-        slug = match.group(1).lower()
-        target = _SLUG_TO_DOC.get(slug)
-        if target is None:
-            return match.group(0)
-        return _relative_doc_link(docname, target, match.group(2) or "")
-
-    source[0] = _PAGE_LINK.sub(rewrite_link, text)
+    source[0] = text
 
 
 def setup(app):
