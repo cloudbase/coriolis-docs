@@ -211,20 +211,34 @@ Each Parameter representing:
 
 Below is a listing of the destination environment parameters the OVM plugin supports when migrating/replicating a VM to OVM:
 
-```text
-'{
-      "network_map": {
-          "source network name": "0a6b0100",
-      },
-      "storage_mappings": {
-          "backend_mappings": [{"source": "datastor1", "destination": "Main"}],
-          "disk_mappings": [{"disk_id": "2000", "destination": "Main"}]
-      },
-      "server_pool_name": "Main",
-      "repository_name": "Main",
-      "migr_template_name_map": {
-          "linux": "linux_migration_worker",
- }, "migr_template_username_map": { "linux": "root" }, "migr_template_password_map": { "linux": "Passw0rd" }, "leave_migrated_vm_off": false, "os_label": "coriolis-migrated", "virtual_disk_clone_type": "THIN_CLONE"'
+```json
+{
+  "network_map": {
+    "source network name": "0a6b0100"
+  },
+  "storage_mappings": {
+    "backend_mappings": [
+      {"source": "datastor1", "destination": "Main"}
+    ],
+    "disk_mappings": [
+      {"disk_id": "2000", "destination": "Main"}
+    ]
+  },
+  "server_pool_name": "Main",
+  "repository_name": "Main",
+  "migr_template_name_map": {
+    "linux": "linux_migration_worker"
+  },
+  "migr_template_username_map": {
+    "linux": "root"
+  },
+  "migr_template_password_map": {
+    "linux": "Passw0rd"
+  },
+  "leave_migrated_vm_off": false,
+  "os_label": "coriolis-migrated",
+  "virtual_disk_clone_type": "THIN_CLONE"
+}
 ```
 
 Each parameter representing:
