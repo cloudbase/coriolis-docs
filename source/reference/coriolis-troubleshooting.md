@@ -128,15 +128,17 @@ From the console menu, go to the option to edit the network settings.
 
 You can set a static IP in this format:
 
-> network:
->   version: 2
->   ethernets:
->     enp0s3:
->       dhcp4: no
->       addresses: [192.168.0.123/24]
->       gateway4: 192.168.1.1
->       nameservers:
->         addresses: [8.8.8.8,8.8.4.4]
+```yaml
+network:
+  version: 2
+  ethernets:
+    enp0s3:
+      dhcp4: no
+      addresses: [192.168.0.123/24]
+      gateway4: 192.168.1.1
+      nameservers:
+        addresses: [8.8.8.8,8.8.4.4]
+```
 
 Once the configuration file is saved, exit the Coriolis console edit session by typing "exit", which will prompt to restart the network services in order to apply the configuration change.
 
