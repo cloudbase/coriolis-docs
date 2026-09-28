@@ -143,3 +143,67 @@ table.docutils td:first-child img {
   background: #f00;
   border-radius: 12px;
 }
+
+/* Center ordinary screenshots. Layouts below keep their own image rules. */
+.rst-content img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rst-content .platform img {
+  display: block;
+  width: 55px;
+  height: 55px;
+  flex: 0 0 55px;
+  margin: 0;
+  object-fit: contain;
+}
+
+.rst-content .platform-vendors img {
+  display: block;
+  flex: 1 1 0;
+  width: 0;
+  min-width: 0;
+  max-width: 220px;
+  height: auto;
+  margin: 0;
+}
+
+.rst-content .partner-logos-row img {
+  display: block;
+  height: 78px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.rst-content .partner-logos-banner {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0.75rem 0;
+}
+
+.rst-content .video-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  margin: 0;
+}
+
+.rst-content table.docutils img {
+  display: inline;
+  max-height: 40px;
+  width: auto;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.rst-content table.docutils td:first-child img {
+  display: block;
+  margin: 0 auto 0.35rem;
+}
