@@ -69,12 +69,6 @@ _PAGE_LINK = re.compile(
 )
 
 
-def _anchor_to_myst(anchor: str) -> str:
-    if not anchor:
-        return ""
-    return "#" + anchor[1:].replace("_", "-").lower()
-
-
 def _relative_doc_link(docname: str, target: str, anchor: str) -> str:
     start = os.path.dirname(docname) or "."
     return os.path.relpath(f"{target}.md", start=start) + anchor
@@ -91,7 +85,7 @@ def _rewrite_source(app, docname, source):
         target = _SLUG_TO_DOC.get(slug)
         if target is None:
             return match.group(0)
-        return _relative_doc_link(docname, target, _anchor_to_myst(match.group(2) or ""))
+        return _relative_doc_link(docname, target, match.group(2) or "")
 
     source[0] = _PAGE_LINK.sub(rewrite_link, text)
 
