@@ -1,3 +1,16 @@
+/* Shibuya hides the project name when a logo image is present. */
+.sy-head-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.sy-head-brand img + strong {
+  display: inline;
+  color: var(--sy-c-text);
+  font-size: 1.05rem;
+}
+
 .partner-logos {
   margin: 1rem 0 1.5rem;
 }
