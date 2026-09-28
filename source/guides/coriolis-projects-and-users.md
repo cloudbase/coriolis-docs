@@ -15,19 +15,31 @@ Coriolis Projects and Users will provide the following:
 
 By default Coriolis comes with one **admin Project** and one **admin user** assigned to it.
 
-![](_static/images/project.jpg)
+```{image} ../_static/images/project.jpg
+:align: center
+:alt: Coriolis projects list
+```
 
 More **Projects and Users** can be created using the **"New" button** listed on the top right corner on Coriolis' Dashboard.
 
-![](_static/images/new-pu.jpg)
+```{image} ../_static/images/new-pu.jpg
+:align: center
+:alt: New button for projects and users
+```
 
 When creating a new Project, the mandatory field that need to be filled in, is the **Project Name** , also there will be an option for enabling it or not to be used once the Project is created.
 
-![](_static/images/new-project-1.2.jpg)
+```{image} ../_static/images/new-project-1.2.jpg
+:align: center
+:alt: New project form
+```
 
 When creating a new User, the mandatory fields that need to be filled in, will be the **Username** , a **Password** for the new user and select the **Primary Project** for the new user. There will also be the option to have the user as enabled or not once it is created.
 
-![](_static/images/new-user.jpg)
+```{image} ../_static/images/new-user.jpg
+:align: center
+:alt: New user form
+```
 
 Once the Projects and Users are created, **further management** can be performed by **selecting the Project/User** from the Dashboard.
 
@@ -47,4 +59,12 @@ For Users:
   * Project membership can be changed
   * user can be removed
 
-![](_static/images/edit-project.jpg) ![](_static/images/edit-users-1.2.jpg)
+```{image} ../_static/images/edit-project.jpg
+:align: center
+:alt: Edit project
+```
+
+```{image} ../_static/images/edit-users-1.2.jpg
+:align: center
+:alt: Edit user
+```
