@@ -24,7 +24,6 @@ suppress_warnings = ["myst.header"]
 source_suffix = {".md": "markdown"}
 root_doc = "index"
 exclude_patterns = [
-    "coriolis.md",
     "deprecated/**",
     "_build",
     "Thumbs.db",
