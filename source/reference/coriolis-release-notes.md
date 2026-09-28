@@ -743,7 +743,7 @@ This is a minor release to address several bugs and to bring several improvement
 
   * **Coriolis OVM Exporter**
 
-Coriolis OVM Exporter brings incremental backups to OVM for more efficient migrations. The new feature is explained in detail here: [Coriolis OVM exporter - Cloudbase Solutions](../platform-notes/coriolis-ovm-exporter.md)
+Coriolis OVM Exporter brings incremental backups to OVM for more efficient migrations.
 
   * **Add OCI provider minion pool support**
 
