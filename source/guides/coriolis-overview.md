@@ -14,16 +14,22 @@ After thoroughly evaluating migration solutions, **Coriolis** emerged as the cle
 
 <div class="partner-logos">
 <div class="partner-logos-row">
-<a href="https://www.suse.com/pcsc/viewVersionPage?versionID=26504"><img src="../_static/images/SUSE_Logo-hor_L_Green-pos_sRGB-1.jpg" alt="SUSE"></a>
-<a href="https://apexapps.oracle.com/pls/apex/f?p=10263:15:::::P15_PRODUCT_NAME,SP_PRODUCT_ID,AI_SR_VENDOR_ID,AI_SR_PRODUCT_LEVEL:%5CCoriolis%5C,23402,6943,23402&cs=1wcFpgnjUeNgHgOoeuTPNzOaJpflsGEr634w3Mcc8vbnHcsFcA-aKSqJutpLsT4RuWqMEpjZnPPyu6UGodmP4EQ"><img src="../_static/images/oracle_coriolis.png" alt="Oracle"></a>
-<a href="https://www.redhat.com/en/solutions/modernization-and-migration-solutions"><img src="../_static/images/redhat_coriolis.png" alt="Red Hat"></a>
-<a href="https://canonical.com/partners/find-a-partner?search=Cloudbase+Solutions"><img src="../_static/images/canonical_coriolis-1.png" alt="Canonical"></a>
+<a href="https://www.suse.com/pcsc/viewVersionPage?versionID=26504"><img src="../_static/images/suse-logo.svg" alt="SUSE"></a>
+<a href="https://apexapps.oracle.com/pls/apex/f?p=10263:15:::::P15_PRODUCT_NAME,SP_PRODUCT_ID,AI_SR_VENDOR_ID,AI_SR_PRODUCT_LEVEL:%5CCoriolis%5C,23402,6943,23402&cs=1wcFpgnjUeNgHgOoeuTPNzOaJpflsGEr634w3Mcc8vbnHcsFcA-aKSqJutpLsT4RuWqMEpjZnPPyu6UGodmP4EQ"><img src="../_static/images/oracle.svg" alt="Oracle"></a>
+<a href="https://www.redhat.com/en/solutions/modernization-and-migration-solutions"><img class="logo-light" src="../_static/images/redhat_light_mode.svg" alt="Red Hat"><img class="logo-dark" src="../_static/images/redhat_dark_mode.svg" alt=""></a>
+<a href="https://canonical.com/partners/find-a-partner?search=Cloudbase+Solutions"><img class="logo-light" src="../_static/images/Canonical-Light-Digital.svg" alt="Canonical"><img class="logo-dark" src="../_static/images/Canonical-Dark-Digital.svg" alt=""></a>
 </div>
-<img class="partner-logos-banner" src="../_static/images/coriolis_customers_2024.png" alt="Coriolis customers">
+<div class="partner-logos-row">
+<img src="../_static/images/nri_logo.png" alt="NRI">
+<img src="../_static/images/dtcloud.svg" alt="DT Cloud">
+<img src="../_static/images/datacomm_logo.png" alt="datacom">
+<img class="logo-light" src="../_static/images/vault.png" alt="Vault"><img class="logo-dark" src="../_static/images/vault_white.png" alt="">
+</div>
 <div class="partner-logos-row">
 <img src="../_static/images/sivali.png" alt="Sivali Cloud Technology">
-<img src="../_static/images/vhi-128.svg" alt="Virtuozzo">
+<img class="logo-light" src="../_static/images/vhi-128.svg" alt="Virtuozzo"><img class="logo-dark" src="../_static/images/vhi-128-dark.svg" alt="">
 <img src="../_static/images/66ec6956cb6658555fd52a17_Cloud-Logo-Blue-1.svg" alt="Cloud">
+
 </div>
 </div>
 

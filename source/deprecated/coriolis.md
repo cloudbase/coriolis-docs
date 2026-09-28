@@ -77,7 +77,7 @@ In order for Coriolis to create a migration or a replica, connections to source 
 
 For **OpenStack**, **Coriolis** is compatible with the vanilla OpenStack project and validated with leading OpenStack distributions from trusted vendors, including:
 
-![Canonical OpenStack](_static/images/Canonical-Openstack-logo2x-1.jpg)
+<img class="logo-light" src="../_static/images/canonical-openstack.svg" alt="Canonical OpenStack"><img class="logo-dark" src="../_static/images/canonical-openstack-dark.svg" alt="">
 
 ![Virtuozzo](_static/images/virtuozzo-Copy.png)
 
