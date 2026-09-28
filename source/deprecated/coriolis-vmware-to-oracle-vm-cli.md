@@ -11,7 +11,7 @@ Coriolis provides a portable command line interface (CLI) available on Linux, Ma
 
 Coriolis uses Keystone for identity management and the CLI usage resembles the OpenStack client for setting the required variables. The easiest way to start is just to SSH into the VM appliance. The connection parameters are available in "**/etc/kolla/admin-openrc.sh**”:
 
-```text
+```bash
 OS_AUTH_URL=http://127.0.0.1:35357/v3
 OS_IDENTITY_API_VERSION=3
 OS_INTERFACE=internal
@@ -27,7 +27,7 @@ OS_USER_DOMAIN_NAME=default
 
 To begin with, we need to store in Barbican the Oracle VM Manager credentials and connection information:
 
-```text
+```bash
 openstack secret store -p '{"username":"admin", "password":"your_password", "host":"your_ovm_host", "port": 7002, "allow_untrusted":true}'
 ```
 
@@ -54,13 +54,13 @@ The above call will return an output similar to:
 
 Copy the “Secret href” in order to create the Coriolis endpoint along with a name, a description and the provider type (oracle_vm in this case):
 
-```text
+```bash
 coriolis endpoint create --provider oracle_vm --name OVM --description "My Oracle VM" --connection-secret http://127.0.0.1:9311/v1/secrets/eb3e0343-671e-4b8e-bfe2-1d7ef9848575
 ```
 
 You can now list the endpoints with:
 
-```text
+```bash
 coriolis endpoint list
 ```
 
@@ -76,7 +76,7 @@ The output will look like this:
 
 It is recommended to validate the connection to make sure coriolis can properly connect to your Oracle VM Manager, using the ID of the connection:
 
-```text
+```bash
 coriolis endpoint validate connection 1769beb7-0fdf-4211-b47e-8d9056e757a5
 ```
 
@@ -88,15 +88,15 @@ Connections can be managed with **coriolis endpoint show <id>**, **coriolis endp
 
 Similarly to the Oracle VM case, an endpoint can be created for your VMware vSphere endpoint:
 
-```text
-openstack secret store -p '{"username": "your_user@vsphere.local", "password": "your_password", "host": "your_vsphere_host", "port": 443, "allow_untrusted": true}’
+```bash
+openstack secret store -p '{"username": "your_user@vsphere.local", "password": "your_password", "host": "your_vsphere_host", "port": 443, "allow_untrusted": true}'
 ```
 
-```text
+```bash
 coriolis endpoint create --provider vmware_vsphere --name VMware --description "My VMware vSphere" --connection-secret <secret_href>
 ```
 
-```text
+```bash
 coriolis endpoint validate connection <id>
 ```
 
@@ -104,7 +104,7 @@ coriolis endpoint validate connection <id>
 
 At this point you should have two valid endpoints configured in Coriolis:
 
-```text
+```bash
 coriolis endpoint list
 ```
 
@@ -121,7 +121,7 @@ If you don’t know the name of the VMs to replicate, you can just list them wit
 
 For example the following command will list the first 10 VMs with a name containing “oracle”:
 
-```text
+```bash
 coriolis endpoint instance list 9f4ee75c-215d-48e8-9a0f-e337fbdf4581 --limit 10 --name 'oracle'
 ```
 
@@ -135,7 +135,7 @@ coriolis endpoint instance list 9f4ee75c-215d-48e8-9a0f-e337fbdf4581 --limit 10 
 
 We need to let Coriolis know about how to map the networks between origin (VMware) and destination (Oracle VM) and what server pool to use:
 
-```text
+```bash
 REPLICA_ENV='{"network_map": {"VM Network": "management"}, "server_pool_name": "pool1"}'
 ```
 
@@ -143,7 +143,7 @@ In this example, the VMware network is called “VM Network” and the correspon
 
 We can now create the replica:
 
-```text
+```bash
 coriolis replica create --origin-endpoint 9f4ee75c-215d-48e8-9a0f-e337fbdf4581 --destination-endpoint 1769beb7-0fdf-4211-b47e-8d9056e757a5 --instance "Your VM Name” --destination-environment "$REPLICA_ENV"
 ```
 
@@ -151,7 +151,7 @@ Note: to replicate a group of VMs, just add more “**- instance <VM name>**” 
 
 You can list the replicas with:
 
-```text
+```bash
 coriolis replica list
 ```
 
@@ -159,7 +159,7 @@ coriolis replica list
 
 Now it’s time to get Coriolis copy all the VM data from VMware to Oracle VM. The first time it will perform a full copy of the content of the VM, while from the second time onwards it will only copy incrementally the data that changed:
 
-```text
+```bash
 coriolis replica execute <replica_id>
 ```
 
@@ -169,7 +169,7 @@ This will return an ID that identifies this particular execution along with info
 
 You can now check the status of the execution:
 
-```text
+```bash
 coriolis replica execution show <replica_id> <execution_id>
 ```
 
@@ -185,7 +185,7 @@ Since the data is fully replicated on the target infrastructure you won’t be a
 
 Since the replica execution completed, we can now get the VM to run on Oracle VM. This requires a migration:
 
-```text
+```bash
 coriolis migration deploy replica <replica id>
 ```
 
@@ -193,13 +193,13 @@ The command will return a migration id and info about the tasks that are going t
 
 Like for the replica case, you can check the status of the migration:
 
-```text
+```bash
 coriolis migration show <migration_id>
 ```
 
 You can also list all migrations at once to get an overview of the status:
 
-```text
+```bash
 coriolis migration list
 ```
 

@@ -44,7 +44,7 @@ For instructions on how to create Coriolis Endpoints please check Defining a Cor
 
 Granted all the above, a migration job may be created for an instance by running the following:
 
-```text
+```bash
 source /etc/kolla/admin-openrc.sh
  
 coriolis migration create \
@@ -61,7 +61,7 @@ The above command will create a migration job within Coriolis, which may be late
 
 In addition to the above create command, the Coriolis command line client also offers the following operations on migration jobs:
 
-```text
+```bash
 source /etc/kolla/admin-openrc.sh
  
 # list all registered migration jobs:
@@ -92,7 +92,7 @@ coriolis migration delete $MIGRATION_ID
 
 Granted all the above, a replication job may be **defined**  (but not yet executed) for an instance by running the following:
 
-```text
+```bash
 source /etc/kolla/admin-openrc.sh
  
 coriolis replica create \
@@ -112,7 +112,7 @@ For more information regarding the **Source/Destination cloud specific parameter
 
 The list that is available on **Coriolis Replica/Migration parameters** page can be shown using the following commands on Coriolis machine:
 
-```text
+```bash
 $coriolis endpoint list
 #listing all available coriolis endpoints
 
@@ -129,7 +129,7 @@ $coriolis endpoint source/destination options list $ENDPOINT_ID
 
 An existing replica may have a new execution (sync run) started by running the following:
 
-```text
+```bash
 source /etc/kolla/admin-openrc.sh
  
 coriolis replica execute $REPLICA_ID
@@ -141,7 +141,7 @@ The above command will launch a new replica execution, which may later be querie
 
 In addition to the above execution command, the Coriolis command line client also offers the following operations on replica executions:
 
-```text
+```bash
 source /etc/kolla/admin-openrc.sh
  
 # list all executions of a replica:
@@ -175,7 +175,7 @@ coriolis replica disks delete $REPLICA_ID
 
 An existing replica may be deployed on the destination cloud by running the following:
 
-```text
+```bash
 source /etc/kolla/admin-openrc.sh
  
 coriolis migration deploy replica $REPLICA_ID
@@ -242,7 +242,7 @@ Each parameter representing:
 
 #### Execution script example
 
-```text
+```bash
 coriolis replica create \
      --origin-endpoint 0b9774fd-c39b-4c7e-acf8-4ba37dad155e \
      --destination-endpoint 807e2f7f-fcd6-4423-a0f6-7550277f2182 \
@@ -254,7 +254,7 @@ coriolis replica create \
 
 Verifying the current Replica tasks:
 
-```text
+```bash
 $coriolis replica list
 #listing all availale coriolis replicas
 
@@ -265,7 +265,7 @@ $coriolis replica list
 
 Using the Replica ID, the Replica can be further inspected:
 
-```text
+```bash
 $coriolis replica show 926a49bb-2bd9-4533-87e1-2d0e7505e06d
 #inspecting the coriolis replica
 ```
@@ -339,7 +339,7 @@ Some of the parameters can be set as default by editing the **coriolis.conf** fi
 
 The coriolis.conf file is available on the Coriolis Appliance:
 
-```text
+```bash
 $cd /etc/coriolis/coriolis.conf
 ```
 
@@ -347,7 +347,7 @@ For the example above, some parameters that can be set as default are **server_p
 
 After the parameters are set as default and the newly edited **coriolis.conf** file is saved, a restart of the **Coriolis Worker container** is required.
 
-```text
+```bash
 $docker restart coriolis-worker
 ```
 
@@ -357,7 +357,7 @@ Once the Coriolis Worker container is up and running after the restart, the **Re
 
 List of Coriolis Replica Schedule commands:
 
-```text
+```bash
 coriolis replica schedule create $replica_ID
 #creating a new schedule for an existing replica
 coriolis replica schedule delete $replica_ID
@@ -372,7 +372,7 @@ coriolis replica schedule update $replica_ID $schedule_ID
 
 Coriolis Replica Schedule details using the above execution example:
 
-```text
+```bash
 $coriolis replica list
 #listing all available coriolis replicas
 

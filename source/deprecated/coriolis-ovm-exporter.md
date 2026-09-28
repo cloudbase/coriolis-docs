@@ -32,25 +32,25 @@ The following steps will provide guidance on how to configure and run the Coriol
 
 1\. Establish connection to the compute node and navigate to the following path:
 
-```text
+```bash
 cd /usr/local/bin/
 ```
 
 2\. At this point you can choose to **build** Coriolis OVM Exporter yourself or **download** the pre-compiled binary from GitHub. For build information, please refer to the project**[README file](https://github.com/cloudbase/coriolis-ovm-exporter)** available on GitHub. We will focus on using the pre-compiled binary for the remainder of this article:
 
-```text
+```bash
 wget https://github.com/cloudbase/coriolis-ovm-exporter/releases/download/v0.1/coriolis-ovm-exporter 
 ```
 
 3\. Set the newly downloaded file as executable
 
-```text
+```bash
 chmod +x /usr/local/bin/coriolis-ovm-exporter
 ```
 
 4\. Create a new configuration directory and navigate to its path
 
-```text
+```bash
 mkdir /etc/coriolis-ovm-exporter && cd /etc/coriolis-ovm-exporter
 ```
 
@@ -93,7 +93,7 @@ vi confing.toml
 
 a. If the chosen option is upstart, follow the instructions
 
-```text
+```bash
 #navigate to the following path to create the configuration file
 cd /etc/init
 

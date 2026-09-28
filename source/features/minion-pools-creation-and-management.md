@@ -9,7 +9,7 @@ For most of the supported plugins, the set of **parameters** related to **Minion
 
 A new minion pool for a given Coriolis Cloud Endpoint can be created using the following: 
 
-```text
+```bash
 coriolis minion pool create \
   --pool-endpoint $ENDPOINT_ID \
   --pool-platform source \
@@ -33,7 +33,7 @@ The available parameters for minion pools include:
 
 Additional operations on minion pools include: 
 
-```text
+```bash
 #inspect existing pools:
  coriolis minion pool list
  coriolis minion pool show $POOL_ID
@@ -81,7 +81,7 @@ Additional operations on minion pools include:
 
 Once created, Minion Pools can then be used when creating Migrations or Replica jobs using the **- origin-minion-pool-id**, **- destination-minion-pool-id**, and **- osmorphingminion-pool-mapping** arguments as shown below:
 
-```text
+```bash
 coriolis migration/replica create \
   --origin-endpoint $ENDPOINT_ID_1 \
   # NOTE: the origin Minion Pool must be associated with the

@@ -21,14 +21,14 @@ The following steps will offer guidance for downloading and extracting the file:
 
 2\. Download the file 
 
-```text
+```bash
 cd ~
 wget https://github.com/cloudbase/coriolis-snapshot-agent/releases/download/1.1.1/coriolis-snapshot-agent.tar.gz
 ```
 
 3\. Extract the downloaded file
 
-```text
+```bash
 tar -xvzf coriolis-snapshot-agent.tar.gz
 ```
 
@@ -46,7 +46,7 @@ tar -xvzf coriolis-snapshot-agent.tar.gz
 
   * Run the install script copied on the machine 
 
-```text
+```bash
 ./coriolis-snapshot-agent -install
 ```
 

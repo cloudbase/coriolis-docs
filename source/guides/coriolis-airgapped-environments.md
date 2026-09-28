@@ -24,7 +24,7 @@ From the Coriolis Console, select the following option:
 
 In the CLI, run the following command to start modifying the coriolis.conf file.
 
-```text
+```bash
 $ vim /etc/coriolis/coriolis.conf
 ```
 
@@ -68,7 +68,7 @@ From within the Coriolis console, you need to select option **3) Edit/Inspect Co
 
 Then, proceed to edit the Coriolis configuration file and look for the **[proxy]** section.
 
-```text
+```bash
 $ vim /etc/coriolis/coriolis.conf
 ```
 

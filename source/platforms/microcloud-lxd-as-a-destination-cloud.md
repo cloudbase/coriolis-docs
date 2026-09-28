@@ -68,7 +68,7 @@ plugins=cloudbaseinit.plugins.common.mtu.MTUPlugin,cloudbaseinit.plugins.windows
   4. Save the configuration and start a sysprep process, shutdown the Windows VM afterward
   5. Save the LXD VM as an image using the publish command:
 
-```text
+```bash
 lxc publish <vm_name> --alias windows-worker --reuse description="Windows Worker Image" release="<Windows release version>" type=disk os=windows
 ```
 

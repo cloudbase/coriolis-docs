@@ -11,7 +11,7 @@ To begin with, just point the browser (Firefox, Chrome, Safari or Edge) to the a
 
 ![](_static/images/Coriolis-Web-Welcome.png) You can use the “admin” user to login with the password randomly generated during the deployment. To retrieve the password, just connect to the VM using **SSH**(default credentials:**root / coriolis**) and run:
 
-```text
+```bash
 grep OS_PASSWORD /etc/kolla/admin-openrc.sh
 ```
 

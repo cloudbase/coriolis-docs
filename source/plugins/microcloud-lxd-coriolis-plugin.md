@@ -29,13 +29,13 @@ The LXD Coriolis endpoint uses the client key pairs, which can be generated usin
 
 Run the command below to generate a new keypair:
 
-```text
+```bash
 openssl req -x509 -newkey rsa:2048 -keyout lxd_coriolis.key -nodes -out lxd_coriolis.crt -subj "/CN=lxd.local" -days +3650
 ```
 
 Add the certificate to be trusted in LXD:
 
-```text
+```bash
 lxc config trust add lxd_coriolis.crt
 ```
 
@@ -43,7 +43,7 @@ lxc config trust add lxd_coriolis.crt
 
 After generating the client keypair, input it into the Coriolis Endpoint in **base64** format.
 
-```text
+```bash
 base64 -w0 lxd_coriolis.crt<br>base64 -w0 lxd_coriolis.key
 ```
 

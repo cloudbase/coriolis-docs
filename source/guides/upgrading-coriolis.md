@@ -55,7 +55,7 @@ Step 2 - Check the Installed Version
 
 Run the following command and save the version number.
 
-```text
+```bash
 cat /etc/coriolis/coriolis.release
 ```
 
@@ -205,7 +205,7 @@ Before restoring the backup configuration file, you may want to review the diffe
 
 You may do this by running:
 
-```text
+```bash
 diff -u /etc/coriolis/coriolis.conf /etc/coriolis/coriolis.conf.<timestamp>
 ```
 
@@ -213,7 +213,7 @@ diff -u /etc/coriolis/coriolis.conf /etc/coriolis/coriolis.conf.<timestamp>
 
 After reviewing the changes, run the following command to overwrite the default  coriolis.conf file with the backup version.
 
-```text
+```bash
 cp /etc/coriolis/coriolis.conf.<timestamp> /etc/coriolis/coriolis.conf
 ```
 

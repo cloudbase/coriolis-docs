@@ -31,7 +31,7 @@ snapstore_destinations = "/mnt/snapstores/snapstore_files"
 
   * list the current disks after adding the extra disk and start its partitioning
 
-```text
+```bash
 ls /dev/sd*
 
 fdisk /dev/sdx
@@ -57,7 +57,7 @@ sudo mkfs.ext4 /dev/sdx1
 
   * mount the previously formatted partition
 
-```text
+```bash
 mount /dev/sdx1 /mnt/snapstores/snapstore_files
 ```
 

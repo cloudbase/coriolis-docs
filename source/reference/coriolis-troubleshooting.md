@@ -47,7 +47,7 @@ Below is a sample of the connection info for the temporary worker VM as seen in 
 
 #### debug_os_morphing_errors log output example
 
-```text
+```bash
 # NOTE: the private keys for the worker VMs may have the passphrase
 # configured in coriolis.conf set to them:
 $ grep "temp_keypair_password" /etc/coriolis/coriolis.conf

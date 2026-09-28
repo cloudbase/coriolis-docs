@@ -109,12 +109,12 @@ After applying TLS cipher hardening, you can validate the effective configuratio
 
 For a full TLS handshake overview:
 
-```text
+```bash
 openssl s_client -connect <host>:<port>
 ```
 
 Use nmap to list all accepted ciphers by the services:
 
-```text
+```bash
 nmap --script ssl-enum-ciphers -p <port> <host>
 ```

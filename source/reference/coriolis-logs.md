@@ -48,7 +48,7 @@ Logs can be streamed or downloaded from the Coriolis-logger backend by using the
 
 Please see for usage info:
 
-```text
+```bash
 #coriolis log --help 
 ```
 

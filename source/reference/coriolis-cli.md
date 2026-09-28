@@ -49,7 +49,7 @@ By default, the Coriolis RC file for the admin account is to be found under /etc
 
 ![](_static/images/coriolis-options.png)
 
-```text
+```bash
 $cat /etc/kolla/admin-openrc.sh
 ```
 
@@ -57,7 +57,7 @@ $cat /etc/kolla/admin-openrc.sh
 
 It will also need to be copied to the machine where the Coriolis client has been installed.
 
-```text
+```bash
 $scp /etc/kolla/admin-openc.sh adrian@<IP address>:/mnt/c/coriolis/
 ```
 
@@ -65,7 +65,7 @@ After copying it, the file needs to be sourced on the machine where the client r
 
 Please modify the OS_AUTH_URL with the corresponding IP of the Coriolis appliance. A ping test can confirm the connectivity from the client machine where you have installed the CLI to the Coriolis remote-facing IP address.
 
-```text
+```bash
 $source admin-openrc.sh
 
 $coriolis endpoint list
@@ -83,7 +83,7 @@ Below is an example of creating an endpoint for a fictitious "CloudX"
 
 ### Endpoint creation example
 
-```text
+```bash
 #the example of the RC file is reffering to the one on the Coriolis Appliance
 $source /etc/kolla/admin-openrc.sh
 $coriolis endpoint create \
@@ -103,7 +103,7 @@ Instead of providing the plaintext JSON **- connection** directly to Coriolis, o
 
 #### Endpoint creation example with Barbican secret
 
-```text
+```bash
 #the example of the RC file is reffering to the one on the Coriolis Appliance
 $source /etc/kolla/admin-openrc.sh
 $openstack secret store --name "CloudX credentials" -t "text/plain" \
@@ -123,7 +123,7 @@ From the command line client, this may be done by running the following:
 
 #### Endpoint validation example
 
-```text
+```bash
 #the example of the RC file is reffering to the one on the Coriolis Appliance
 $source /etc/kolla/admin-openrc.sh
 $coriolis endpoint validate connection $ENDPOINT_ID
@@ -139,7 +139,7 @@ From the command line client, the following may be run to list instances availab
 
 #### Endpoint instance list example
 
-```text
+```bash
 #the example of the RC file is reffering to the one on the Coriolis Appliance
 $source /etc/kolla/admin-openrc.sh
 $coriolis endpoint instance list --source-environment '{"source": "parameters"}' $ENDPOINT_ID
@@ -153,7 +153,7 @@ For starting migrations/replicas for a given instance, whether or not it may be 
 
 In addition to the above notable commands, the Coriolis command line client also offers the following operations on cloud endpoints:
 
-```text
+```bash
 #the example of the RC file is reffering to the one on the Coriolis Appliance
 $source /etc/kolla/admin-openrc.sh
  #list all defined endpoints:
@@ -180,7 +180,7 @@ Granted all the above, a migration job may be created for an instance by running
 
 ### Creating a Coriolis migration
 
-```text
+```bash
 #the example of the RC file is reffering to the one on the Coriolis Appliance
 $source /etc/kolla/admin-openrc.sh
 $coriolis migration create \
@@ -198,7 +198,7 @@ The above command will create a migration job within Coriolis, which may later b
 
 In addition to the above create command, the Coriolis command line client also offers the following operations on migration jobs:
 
-```text
+```bash
 #the example of the RC file is reffering to the one on the Coriolis Appliance
 $source /etc/kolla/admin-openrc.sh
  #list all registered migration jobs:
@@ -228,7 +228,7 @@ Granted all the above, a replication job may be **defined** (but not yet execute
 
 ### Creating a Coriolis replica
 
-```text
+```bash
 #the example of the RC file is reffering to the one on the Coriolis Appliance
 $source /etc/kolla/admin-openrc.sh
 $coriolis replica create \
@@ -250,7 +250,7 @@ An existing replica may have a new execution (sync run) started by running the f
 
 #### Executing a Coriolis replica
 
-```text
+```bash
 #the example of the RC file is reffering to the one on the Coriolis Appliance
 $source /etc/kolla/admin-openrc.sh
 $coriolis replica execute $REPLICA_ID
@@ -262,7 +262,7 @@ The above command will launch a new replica execution, which may later be querie
 
 In addition to the above execution command, the Coriolis command line client also offers the following operations on replica executions:
 
-```text
+```bash
 #the example of the RC file is reffering to the one on the Coriolis Appliance
 $source /etc/kolla/admin-openrc.sh
  #list all executions of a replica:
@@ -292,7 +292,7 @@ An existing replica may be deployed on the destination cloud by running the foll
 
 #### Deploying a Coriolis replica
 
-```text
+```bash
 #the example of the RC file is reffering to the one on the Coriolis Appliance
 $source /etc/kolla/admin-openrc.sh
 $coriolis migration deploy replica $REPLICA_ID
