@@ -23,7 +23,9 @@ The SSH private key must be provided as part of the endpoint configuration and m
 
 If an SSH private key is provided in the connection info, it must be base64-encoded, and then the resulting string must be used as the value in the endpoint configuration.
 
-> base64 -w0 <path-to-private-key>
+```bash
+base64 -w0 <path-to-private-key>
+```
 
 ![](_static/images/suse-linux-endpoint.png)
 
