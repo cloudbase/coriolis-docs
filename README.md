@@ -10,7 +10,15 @@ The published site is [https://cloudbase.github.io/coriolis-docs/](https://cloud
 make html
 ```
 
-`make html` creates `.venv`, installs `requirements.txt`, and writes the HTML to `build/html`. Open `build/html/index.html` in a browser.
+`make html` creates `.venv`, installs `requirements.txt`, and writes the HTML to `build/html`.
+
+To build and open the site in a browser:
+
+```bash
+make serve
+```
+
+That serves `build/html` on all interfaces at port 8000. Open [http://127.0.0.1:8000/](http://127.0.0.1:8000/). Override the address with `make serve PORT=8080 BIND=127.0.0.1`. Stop the server with Ctrl-C.
 
 Pages are Markdown under `source/`, built with Sphinx, MyST, and the Read the Docs theme.
 
