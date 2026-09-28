@@ -151,6 +151,15 @@ table.docutils td:first-child img {
   margin-right: auto;
 }
 
+.rst-content img + img {
+  margin-top: 1.5rem;
+}
+
+/* Theme sets margin: auto on .align-center, which drops the usual 24px gap. */
+.rst-content img.align-center {
+  margin-bottom: 24px;
+}
+
 .rst-content .platform img {
   display: block;
   width: 55px;
