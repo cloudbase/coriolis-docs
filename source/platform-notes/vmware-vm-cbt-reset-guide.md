@@ -35,7 +35,7 @@ To reset CBT on a vSphere virtual machine:
 
 ![](_static/images/edit-settings.jpg)
 
-5\. Click the **Options** tab, select the **Advanced  **section and then click **Edit Configuration Parameters**.
+5\. Click the **Options** tab, select the **Advanced** section and then click **Edit Configuration Parameters**.
 
 ![](_static/images/advanced-set.jpg)
 

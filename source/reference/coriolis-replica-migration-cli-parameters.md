@@ -135,23 +135,23 @@ Below is a listing of the destination environment parameters the OpenStack plugi
 ```
 
   * **network_map**  (string-string mapping) - a mapping between the names of networks on the source cloud and names or IDs of corresponding pre-existing networks on the destination Openstack. For each NIC of the instance on the source cloud, Coriolis will lookup the mapped network on the destination OpenStack and ensure the Neutron port corresponding to that NIC is attached to that Neutron network
-  * **storage_mappings  **(object) - storage-related options such as how to map each disk or storage type on the source to Cinder volume types on OpenStack
+  * **storage_mappings** (object) - storage-related options such as how to map each disk or storage type on the source to Cinder volume types on OpenStack
   * **hypervisor_type**  (string) - the type of hypervisor the destination OpenStack features, supported options being "hyperv", "qemu" or "kvm"
   * **flavor_name**  (string) - name of pre-existing Nova flavor on the destination OpenStack for the migrated/replicated instance to be booted as
   * **keypair_name**  (string) - name of a pre-existing Nova keypair to be injected into the migrated/replicated instance on the destination cloud
   * **delete_disks_on_vm_termination**  (boolean) - whether or not to set the Cinder volumes as ephemeral (to be deleted when the VM is deleted) on the newly migrated/replicated instance on the destination OpenStack.
-  * **security_groups  **(list of strings) - list of names or IDs of pre-existing security groups on the destination OpenStack to be applied to the migrated/replicated instance
+  * **security_groups** (list of strings) - list of names or IDs of pre-existing security groups on the destination OpenStack to be applied to the migrated/replicated instance
   * **migr_image**  (string) - name or ID of the pre-existing Glance image to be used for the disk copy and/or OSMorphing workers. The name must be unique in the destination cloud. Overrides the settings in 'migr_image_map'
   * **migr_image_map**  (string-string mapping) - if migrating/replicating a heterogeneous workload with both Linux and Windows instances, separate image names/IDs will need to be provided for the temporary OSMorphing workers for each OS. Only accepted keys are 'linux' and 'windows'. Please review the "OSMorphing worker images" section for exact details on the requirements of the worker images for each OS type
   * **migr_network**  (string) - name of an existing Neutron network one the destination OpenStack to which to attach the Neutron port of the temporary disk copy/OSMorphing worker VMs
-  * **migr_worker_use_fip  **(bool) - whether or not to allocate floating IP addresses from the "migr_fip_pool_name" for the temporary disk copy/OSMorphing worker VMs
+  * **migr_worker_use_fip** (bool) - whether or not to allocate floating IP addresses from the "migr_fip_pool_name" for the temporary disk copy/OSMorphing worker VMs
   * **migr_fip_pool_name**  (string) - name of an existing Neutron network and an associated subnet(optional) on the destination OpenStack which serves as external and may have floating IPs allocated from it. These floating IPs will be associated to the temporary disk copy/OSMorphing worker VMs Coriolis will be creating during the migration/replication process
-  * **migr_flavor_name  **(string) - name of an existing Nova flavor which to boot the temporary disk copy/OSMorphing worker VMs as
+  * **migr_flavor_name** (string) - name of an existing Nova flavor which to boot the temporary disk copy/OSMorphing worker VMs as
   * **migr_worker_boot_from_volume**  (boolean) - Whether or not to download the worker image to a Cinder volume and boot the worker from that.
   * **migr_worker_volume_size**  (integer) - The integer size (in GBs) of the Cinder volume to boot temporary worker VMs from. This option is only effective if 'migr_worker_boot_from_volume' is set. If not set, Coriolis will use the disk size set the selected 'migr_flavor_name'.
   * **migr_worker_volume_type**  (string) - Name of the pre-created Cinder volume type to use when creating temporary worker volumes. This option is only effective if 'Migration Worker Boot From Volume' is set.
-  * **migr_worker_use_config_drive  **(boolean) - whether or not to use config drive to send metadata to the temporary disk copy/OSMorphing worker VMs in case Neutron metadata is not available
-  * **port_reuse_policy  **(valid values are "keep_mac", "replace_mac" and "reuse_ports") - sets what Coriolis should do if it encounters an existing Neutron port with a MAC address needed for the instance it is migrating/replicating. If set to 'keep_mac', Coriolis will delete the existing ports and recreate them with the same MAC address for the new VM. If set to "replace_mac", Coriolis will create new Neutron ports with different MAC addresses. If set to 'reuse_ports', Coriolis will try to reuse the existing ports it has found for the new migrated/replicated instance.
+  * **migr_worker_use_config_drive** (boolean) - whether or not to use config drive to send metadata to the temporary disk copy/OSMorphing worker VMs in case Neutron metadata is not available
+  * **port_reuse_policy** (valid values are "keep_mac", "replace_mac" and "reuse_ports") - sets what Coriolis should do if it encounters an existing Neutron port with a MAC address needed for the instance it is migrating/replicating. If set to 'keep_mac', Coriolis will delete the existing ports and recreate them with the same MAC address for the new VM. If set to "replace_mac", Coriolis will create new Neutron ports with different MAC addresses. If set to 'reuse_ports', Coriolis will try to reuse the existing ports it has found for the new migrated/replicated instance.
   * **list_all_destination_networks**  (boolean) - whether or not to list all networks. By default, Coriolis will only list the networks which are in the same tenant as the one set in the Coriolis endpoint.
   * **volumes_are_zeroed**  (boolean) - whether unallocated blocks on Cinder target volumes contain zeros on creation. This is controlled by the "volume_clear" option in Cinder's configuration file
   * **set_dhcp**  (boolean) - whether or not to reconfigure the internal network settings of each interface of the instance being migrated/replicated during the OSMorphing process to have the VM perform DHCP on first boot inside the new environment.
@@ -350,7 +350,7 @@ Below is a listing of the destination environment parameters the OCI plugin supp
   * **migr_shape_name**  (string) - Name of the OCI shape to be used for the worker instance.
   * **compartment**  (string) - name of the OCI compartment to boot the use for the Migration/Replica 
   * **vcn_compartment**  (string) - This option allows the selection of VCNs from a different compartment
-  * **set_public_ip  **(boolean) - whether or not to set a public IP address for the migrated VM
+  * **set_public_ip** (boolean) - whether or not to set a public IP address for the migrated VM
   * **shape_name**  (string) - Name of the OCI shape used when creating the final migrated instance.
 
 ## OCI-C source environment parameters
@@ -370,7 +370,7 @@ Below is a listing of the source environment parameters the OCI-C plugin support
 }
 ```
 
-  * **export_image_name  **(string) - name of a Linux image on OCI-C to use for the temporary VMs which will be exporting disk data from OCI-C
+  * **export_image_name** (string) - name of a Linux image on OCI-C to use for the temporary VMs which will be exporting disk data from OCI-C
   * **export_img_username**  (string) - username to use when connection to the temporary disk copy worker
   * **export_shape_name**  (string) - name of the shape to use for the temporary VMs which will be exporting disk data from OCI-C
   * **export_root_disk_size**  (integer) - size (in GBs) of the root disk of temporary worker VMs. This is only affected by the selected image as the Coriolis Replica export process from OCI bears no extra storage requirements

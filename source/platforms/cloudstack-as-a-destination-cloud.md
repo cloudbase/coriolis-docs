@@ -5,7 +5,7 @@ wp_id: 44185
 
 # CloudStack as a destination cloud
 
-**Coriolis  **provides agentless integration with supported virtualization platforms by running the platform plugin directly on the Coriolis Appliance. This architecture eliminates the need to deploy agents on source or destination platforms and simplifies connectivity and setup.
+**Coriolis** provides agentless integration with supported virtualization platforms by running the platform plugin directly on the Coriolis Appliance. This architecture eliminates the need to deploy agents on source or destination platforms and simplifies connectivity and setup.
 
 This document presents how to use Coriolis to replicate or migrate VMs into **Apache CloudStack**. Migrations (CMaaS) and Replicas (DRaaS) follow the same destination requirements and transfer flow described below.
 
@@ -132,7 +132,7 @@ Prepare the golden image, configure cloudbase-init as below, sysprep, and regist
 
 CloudStack has no API to set the Windows minion password through the QEMU guest agent. Coriolis deploys the morphing minion with **cloudbase-init userdata**  that sets the **Administrator**  password. The template must apply that userdata and configure WinRM HTTPS on every first boot — CloudStack **deployVirtualMachine**  re-runs cloudbase-init on each deploy, so WinRM must be set up through cloudbase-init plugins in the template.
 
-Edit both files on the golden VM (keep **metadata_services  **and **plugins  **aligned):
+Edit both files on the golden VM (keep **metadata_services** and **plugins** aligned):
 
   * **C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\cloudbase-init.conf**  — first boot after deploy
   * **C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\cloudbase-init-unattend.conf**  — sysprep only

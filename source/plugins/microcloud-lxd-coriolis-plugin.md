@@ -51,7 +51,7 @@ base64 -w0 lxd_coriolis.crt<br>base64 -w0 lxd_coriolis.key
 
 **Supported Actions:**| **Migration Destination - Replica Destination**| **Comments**  
 ---|---|---  
-Plugin identifier| **lxd**|  Identifies the plugin. Used for the **- provider **CLI parameter  
+Plugin identifier| **lxd**|  Identifies the plugin. Used for the **- provider** CLI parameter  
 Credentials needed| Client certificate, trust password| Necessary credentials to give to Coriolis.  
 Deployment requirements| Coriolis worker component(s) need network access to the LXD APIs.| Coriolis deployment and environment connectivity requirements  
 DRaaS source requirements| LXD is not currently supported as a DRaaS source| Requirements to use the replica export (DRaaS source) features  

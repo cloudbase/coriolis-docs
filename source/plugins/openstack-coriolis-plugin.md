@@ -121,7 +121,7 @@ Coriolis also offers the option of Ceph backend storage to be used with the two 
 
 ### OpenStack platform specifics
 
-**Supported Actions:  ** |  **Migration Source/Destination - Replica Source/Destination**| **Comments**  
+**Supported Actions:** |  **Migration Source/Destination - Replica Source/Destination**| **Comments**  
 ---|---|---  
 Plugin identifier |  **openstack** |  Identifies the plugin. Used for the **- provider** CLI parameter   
 Credentials needed |  Standard Keystone user credentials, not necessarily with administrative rights. If replicating directly from Ceph, the Ceph credentials used by Cinder are also required. |  Necessary credentials to give to Coriolis   
@@ -129,7 +129,7 @@ Deployment requirements |  Coriolis worker component(s) need network access to p
 Source disk export requirements |  Through Swift (instances booted from a Cinder volume only): Cinder-backup installed and configured to use Swift as the storage backend ('backup_swift_auth' must be set to 'same_user') OR Through Ceph (instances booted from a Cinder volume only): Either Cinder-volume or Cinder-backup configured to use Ceph (this requires direct Ceph cluster access) OR Through Coriolis (instances can be booted either from a Cinder volume or from a Glance image): Network access to source OpenStack's Floating IP ranges |  Requirements to use the replica export (CMaaS/DRaaS source) features   
 Instance identification scheme |  Names (must be unique within the tenant) or IDs |  How instances to migrate/replicate are identified on a source cloud handled by this plugin   
 Network identification scheme |  Names or IDs of desired Neutron networks |  How networks are identified by the plugin. Required for the **network_map** field of the **- destination-environment**  
-Storage identification scheme |  Names or IDs of Cinder volume types |  How storage backends are identified by the plugin. Required for the **storage_map** field of the **- destination-environment **  
+Storage identification scheme |  Names or IDs of Cinder volume types |  How storage backends are identified by the plugin. Required for the **storage_map** field of the **- destination-environment**  
 
 ### OpenStack connection parameters
 
@@ -186,7 +186,7 @@ Each parameter represents:
   * **allow_untrusted_swift (boolean, only used when replicating from an OpenStack)** - whether to skip certificate verification if the Swift proxy is HTTPS-only with self-signed certificates
   * **region_name (string)** - the name of the region to use for all operations. This can be overridden at the service level via the region option relating to each service
   * **nova_region_name (string)** - the name of the Nova region to use, overrides the main **region_name**  parameter
-  * **neutron_region_name  (string) **- the name of the Neutron region to use, overrides the main **region_name**  parameter
+  * **neutron_region_name  (string)** - the name of the Neutron region to use, overrides the main **region_name**  parameter
   * **glance_region_name  (string)** - the name of the Glance region to use, overrides the main region_name parameter
   * **cinder_region_name (string)** - the name of the Cinder region to use, overrides the main **region_name**  parameter
   * **swift_region_name (string, only used when replicating from an OpenStack)** - the name of the Swift region to use, overrides the main **region_name**  parameter
@@ -201,7 +201,7 @@ Each parameter represents:
   * **ceph_username  (string)** - Ceph user to use when connecting to the source OpenStack's Ceph cluster. The user must have read-only access to the Ceph pool(s) used by the Cinder-backup and Cinder-volume service(s). Ideally, this should be the same user that the Cinder services themselves are using.
   * **ceph_keyring_file  (string)** - Ceph keyring file with the access key(s) for the user given as the 'Ceph Username' for the cluster described in the given 'Ceph Configuration File'. Ideally, this should be the same keyring file as used by the Cinder service(s).
   * **ceph_pool_name  (string)** - Name of the Ceph pool in which Cinder volume snapshots/backups are stored.
-  * **ceph_cluster_name  (string) **- Name of the Ceph cluster in which Cinder volume snapshots/backups are stored.
+  * **ceph_cluster_name  (string)** - Name of the Ceph cluster in which Cinder volume snapshots/backups are stored.
   * **ceph_connection_timeout  (integer)** - Integer number of seconds to wait on Ceph connections before timing out.
 
 ### Known issues
