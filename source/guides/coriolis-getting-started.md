@@ -122,8 +122,8 @@ For **OpenStack**, **Coriolis** is compatible with the vanilla OpenStack project
 
 <div class="platform-vendors">
 <img class="logo-light" src="../_static/images/canonical-openstack.svg" alt="Canonical OpenStack"><img class="logo-dark" src="../_static/images/canonical-openstack-dark.svg" alt="">
-<img src="../_static/images/rhosp2.png" alt="RHOSP">
-<img class="logo-light" src="../_static/images/vhi-128.svg" alt="Virtuozzo VHI"><img class="logo-dark" src="../_static/images/vhi-128-dark.svg" alt="">
+<img class="logo-light" src="../_static/images/redhat_light_mode.svg" alt="Red Hat"><img class="logo-dark" src="../_static/images/redhat_dark_mode.svg" alt="">
+<img class="logo-light" src="../_static/images/vhi-128.svg" alt="Virtuozzo"><img class="logo-dark" src="../_static/images/vhi-128-dark.svg" alt="">
 </div>
 
 ## Supported guest operating systems

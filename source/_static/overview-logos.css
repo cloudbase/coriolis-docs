@@ -106,18 +106,20 @@
 
 .platform-vendors {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 1.25rem;
-  margin: 1rem 0;
+  justify-content: space-between;
+  gap: 1.5rem 2.5rem;
+  margin: 1.25rem 0 1.75rem;
 }
 
 .platform-vendors img {
-  flex: 1 1 0;
-  width: 0;
-  min-width: 0;
-  max-width: 220px;
-  height: auto;
+  flex: 0 1 auto;
+  width: auto;
+  max-width: min(280px, 100%);
+  height: 64px;
+  object-fit: contain;
+  object-position: center;
 }
 
 table.docutils img {
@@ -188,12 +190,13 @@ article.yue .platform img {
 
 article.yue .platform-vendors img {
   display: block;
-  flex: 1 1 0;
-  width: 0;
-  min-width: 0;
-  max-width: 220px;
-  height: auto;
+  flex: 0 1 auto;
+  width: auto;
+  max-width: min(280px, 100%);
+  height: 64px;
   margin: 0;
+  object-fit: contain;
+  object-position: center;
 }
 
 article.yue .partner-logos-row img {
