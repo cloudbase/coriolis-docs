@@ -100,7 +100,7 @@ This table will outline all the supported virtualization/cloud platforms by Cori
 | ![](_static/images/OVirt-logo-highres.png) **OLVM & RedHat Virtualization (RHV)** | ![:check_mark:](_static/images/check_mark_32.png) | ![:check_mark:](_static/images/check_mark_32.png) |
 | ![](_static/images/ws2022.png) **Microsoft Hyper-V** | ![:check_mark:](_static/images/check_mark_32.png) | ![:heavy_minus_sign:](_static/images/2796.png) |
 | ![](_static/images/18700703.png) **SUSE Virtualization (Harvester)** | ![:heavy_minus_sign:](_static/images/2796.png) | ![:check_mark:](_static/images/check_mark_32.png) |
-| <img class="logo-light" src="../_static/images/proxmox.svg" alt="Proxmox"><img class="logo-dark" src="../_static/images/proxmox-light.svg" alt=""> | ![:heavy_minus_sign:](_static/images/2796.png) | ![:check_mark:](_static/images/check_mark_32.png) |
+| <img class="logo-light" src="../_static/images/proxmox.svg" alt="Proxmox"><img class="logo-dark" src="../_static/images/proxmox-light.svg" alt=""> **Proxmox** | ![:heavy_minus_sign:](_static/images/2796.png) | ![:check_mark:](_static/images/check_mark_32.png) |
 
 \*OpenStack instances do not have an exact way of telling if they’re UEFI instances or not, besides reading instance metadata, which may not always be available. In those cases, the Firmware type can be overridden by a source environment option
 
