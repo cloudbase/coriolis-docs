@@ -20,7 +20,7 @@ make serve
 
 That serves `build/html` on all interfaces at port 8000. Open [http://127.0.0.1:8000/](http://127.0.0.1:8000/). Override the address with `make serve PORT=8080 BIND=127.0.0.1`. Stop the server with Ctrl-C.
 
-Pages are Markdown under `source/`, built with Sphinx, MyST, and the Read the Docs theme.
+Pages are Markdown under `source/`, built with Sphinx, MyST, and the Shibuya theme.
 
 ## Publishing
 

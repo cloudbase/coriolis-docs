@@ -1,3 +1,16 @@
+/* Shibuya hides the project name when a logo image is present. */
+.sy-head-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.sy-head-brand img + strong {
+  display: inline;
+  color: var(--sy-c-text);
+  font-size: 1.05rem;
+}
+
 .partner-logos {
   margin: 1rem 0 1.5rem;
 }
@@ -74,19 +87,21 @@
 }
 
 .platform {
-  display: flex;
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
   align-items: center;
-  gap: 14px;
+  column-gap: 14px;
   list-style: none;
   margin: 0 0 14px;
   padding: 0;
 }
 
 .platform img {
-  width: 55px;
-  height: 55px;
-  flex: 0 0 55px;
+  width: 100%;
+  height: 46px;
+  max-width: none;
   object-fit: contain;
+  object-position: center;
 }
 
 .platform-vendors {
@@ -111,7 +126,8 @@ table.docutils img {
   vertical-align: middle;
 }
 
-table.docutils td:first-child {
+table.docutils td:first-child,
+table.docutils :is(th, td).text-center {
   text-align: center;
 }
 
@@ -145,31 +161,32 @@ table.docutils td:first-child img {
 }
 
 /* Center ordinary screenshots. Layouts below keep their own image rules. */
-.rst-content img {
+article.yue img {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-.rst-content img + img {
+article.yue img + img {
   margin-top: 1.5rem;
 }
 
 /* Theme sets margin: auto on .align-center, which drops the usual 24px gap. */
-.rst-content img.align-center {
+article.yue img.align-center {
   margin-bottom: 24px;
 }
 
-.rst-content .platform img {
+article.yue .platform img {
   display: block;
-  width: 55px;
-  height: 55px;
-  flex: 0 0 55px;
+  width: 100%;
+  height: 46px;
+  max-width: none;
   margin: 0;
   object-fit: contain;
+  object-position: center;
 }
 
-.rst-content .platform-vendors img {
+article.yue .platform-vendors img {
   display: block;
   flex: 1 1 0;
   width: 0;
@@ -179,7 +196,7 @@ table.docutils td:first-child img {
   margin: 0;
 }
 
-.rst-content .partner-logos-row img {
+article.yue .partner-logos-row img {
   display: block;
   height: 78px;
   width: 100%;
@@ -188,14 +205,14 @@ table.docutils td:first-child img {
   object-fit: contain;
 }
 
-.rst-content .partner-logos-banner {
+article.yue .partner-logos-banner {
   display: block;
   width: 100%;
   height: auto;
   margin: 0.75rem 0;
 }
 
-.rst-content .video-preview img {
+article.yue .video-preview img {
   display: block;
   width: 100%;
   height: auto;
@@ -204,7 +221,7 @@ table.docutils td:first-child img {
   margin: 0;
 }
 
-.rst-content table.docutils img {
+article.yue table.docutils img {
   display: inline;
   max-height: 40px;
   width: auto;
@@ -212,15 +229,28 @@ table.docutils td:first-child img {
   vertical-align: middle;
 }
 
-.rst-content table.docutils td:first-child img {
+article.yue table.docutils td:first-child img {
   display: block;
   margin: 0 auto 0.35rem;
 }
 
-.rst-content .icon-legend img {
+article.yue .icon-legend img {
   display: inline;
   width: 1.15em;
   height: 1.15em;
   margin: 0 0.35rem 0 0;
   vertical-align: -0.2em;
+}
+
+/* Light artwork stays on a light page. html.dark / html.light come from the theme toggle. */
+img.logo-dark {
+  display: none !important;
+}
+
+html.dark img.logo-light {
+  display: none !important;
+}
+
+html.dark img.logo-dark {
+  display: block !important;
 }

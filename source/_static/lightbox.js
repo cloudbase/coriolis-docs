@@ -3,11 +3,11 @@
     ".platform, .platform-vendors, .partner-logos, .video-preview, .video-previews, .icon-legend, table.docutils";
 
   function eligible(img) {
-    return img.closest(".rst-content") && !img.closest(skip) && !img.closest("a");
+    return img.closest("article.yue") && !img.closest(skip) && !img.closest("a");
   }
 
   function init() {
-    var images = document.querySelectorAll(".rst-content img");
+    var images = document.querySelectorAll("article.yue img");
     var targets = [];
     images.forEach(function (img) {
       if (eligible(img)) {
