@@ -126,7 +126,8 @@ table.docutils img {
   vertical-align: middle;
 }
 
-table.docutils td:first-child {
+table.docutils td:first-child,
+table.docutils :is(th, td).text-center {
   text-align: center;
 }
 

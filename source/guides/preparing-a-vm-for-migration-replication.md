@@ -87,7 +87,7 @@ Depending on the destination platform's limitations (such as supported bus types
 This table will outline all the supported virtualization/cloud platforms by Coriolis, and whether their respective providers support UEFI firmware, with/without Secure Boot.
 
 | | **Supported in Export Provider** | **Supported in Import Provider** |
-|---|---|---|
+|:---:|:---:|:---:|
 | <img class="logo-light" src="../_static/images/openstack.svg" alt="OpenStack"><img class="logo-dark" src="../_static/images/openstack-dark.svg" alt=""> **OpenStack** | ![:check_mark:](_static/images/check_mark_32.png)* | ![:check_mark:](_static/images/check_mark_32.png) |
 | ![](_static/images/vmware.svg) | ![:check_mark:](_static/images/check_mark_32.png) | ![:check_mark:](_static/images/check_mark_32.png) |
 | <img class="logo-light" src="../_static/images/aws.svg" alt="AWS"><img class="logo-dark" src="../_static/images/aws-dark.svg" alt=""> | ![:ballot_box_with_check:](_static/images/2611.png) | ![:ballot_box_with_check:](_static/images/2611.png) |
