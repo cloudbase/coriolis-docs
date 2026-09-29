@@ -201,7 +201,6 @@ For more information regarding each supported platform, please check the corresp
 <li class="platform"><img src="../_static/images/oracle.svg" alt=""><a href="../plugins/oracle-cloud-infrastructure-oci-coriolis-plugin.html" title="Oracle PCA Coriolis Plugin">Oracle PCA solutions</a></li>
 <li class="platform"><img src="../_static/images/virt-icon1.png" alt=""><a href="../plugins/kubevirt-harvester-coriolis-plugin.html" title="Red Hat OpenShift Virtualization">Red Hat OpenShift Virtualization</a></li>
 <li class="platform"><img src="../_static/images/redhat.svg" alt=""><a href="../plugins/ovirt-coriolis-plugin.html" title="Red Hat Virtualization">Red Hat Virtualization (legacy RHV)</a></li>
-<li class="platform"><img class="logo-light" src="../_static/images/stackit-32.svg" alt=""><img class="logo-dark" src="../_static/images/stackit-32-white.svg" alt=""><a href="../plugins/stackit-coriolis-plugin.html" title="StackIT Coriolis Plugin">StackIT</a></li>
 </ul>
 </div>
 </div> 
