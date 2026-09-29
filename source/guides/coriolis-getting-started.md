@@ -83,6 +83,7 @@ For further information, please check **[Coriolis Licensing](coriolis-license.md
 <li class="platform"><img src="../_static/images/ws2022.png" alt="Microsoft Hyper-V"><span>Microsoft Hyper-V*</span></li>
 <li class="platform"><img src="../_static/images/nutanix.svg" alt="Nutanix AHV"><span>Nutanix AHV</span></li>
 <li class="platform"><img class="logo-light" src="../_static/images/openstack.svg" alt="OpenStack"><img class="logo-dark" src="../_static/images/openstack-dark.svg" alt=""><span>OpenStack</span></li>
+<li class="platform"><img class="logo-light" src="../_static/images/stackit-32.svg" alt="StackIT"><img class="logo-dark" src="../_static/images/stackit-32-white.svg" alt=""><span>StackIT</span></li>
 <li class="platform"><img src="../_static/images/vmware.svg" alt="VMware vSphere"><span>VMware vSphere</span></li>
 <li class="platform"><img class="logo-light" src="../_static/images/vhi-128.svg" alt="Virtuozzo Hybrid Infrastructure"><img class="logo-dark" src="../_static/images/vhi-128-dark.svg" alt=""><span>Virtuozzo Hybrid Infrastructure (VHI)</span></li>
 <li class="platform"><img src="../_static/images/oracle.svg" alt="Oracle Virtualization"><span>Oracle Virtualization (OLVM)</span></li>
@@ -93,6 +94,7 @@ For further information, please check **[Coriolis Licensing](coriolis-license.md
 <p>Target platforms</p>
 <ol>
 <li class="platform"><img class="logo-light" src="../_static/images/aws.svg" alt="AWS"><img class="logo-dark" src="../_static/images/aws-dark.svg" alt=""><span>Amazon Web Services (AWS)</span></li>
+<li class="platform"><img class="logo-light" src="../_static/images/cloudstack-32.svg" alt="CloudStack"><img class="logo-dark" src="../_static/images/cloudstack-32-white.svg" alt=""><span>CloudStack</span></li>
 <li class="platform"><img src="../_static/images/18700703.png" alt="KubeVirt"><span>KubeVirt</span></li>
 <li class="platform"><img src="../_static/images/azure.svg" alt="Microsoft Azure"><span>Microsoft Azure</span></li>
 <li class="platform"><img class="logo-light" src="../_static/images/microcloud.svg" alt="MicroCloud"><img class="logo-dark" src="../_static/images/microcloud-dark.svg" alt=""><span>MicroCloud (LXD)</span></li>
@@ -103,6 +105,7 @@ For further information, please check **[Coriolis Licensing](coriolis-license.md
 <li class="platform"><img class="logo-light" src="../_static/images/proxmox.svg" alt="Proxmox VE"><img class="logo-dark" src="../_static/images/proxmox-light.svg" alt=""><span>Proxmox VE</span></li>
 <li class="platform"><img src="../_static/images/virt-icon1.png" alt="Red Hat OpenShift Virtualization"><span>Red Hat OpenShift Virtualization</span></li>
 <li class="platform"><img src="../_static/images/redhat.svg" alt="Red Hat Virtualization"><span>Red Hat Virtualization (legacy RHV)</span></li>
+<li class="platform"><img class="logo-light" src="../_static/images/stackit-32.svg" alt="StackIT"><img class="logo-dark" src="../_static/images/stackit-32-white.svg" alt=""><span>StackIT</span></li>
 <li class="platform"><img src="../_static/images/suse.svg" alt="SUSE Virtualization"><span>SUSE Virtualization</span></li>
 <li class="platform"><img src="../_static/images/suse.svg" alt="SUSE Linux (KVM)"><span>SUSE Linux (KVM)</span></li>
 <li class="platform"><img src="../_static/images/vmware.svg" alt="VMware vSphere"><span>VMware vSphere</span></li>
@@ -183,12 +186,14 @@ For more information regarding each supported platform, please check the corresp
 <li class="platform"><img src="../_static/images/azure.svg" alt=""><a href="../plugins/microsoft-azure-azurestack-coriolis-plugin.html" title="Microsoft Azure Coriolis Plugin">Microsoft Azure and AzureStack Hub</a></li>
 <li class="platform"><img src="../_static/images/ws2022.png" alt=""><a href="../plugins/hyper-v-coriolis-plugin.html" title="Microsoft Hyper-V Coriolis Plugin">Microsoft Hyper-V</a></li>
 <li class="platform"><img src="../_static/images/nutanix.svg" alt=""><a href="../platforms/nutanix-as-a-source-cloud.html" title="Nutanix AHV Coriolis Plugin">Nutanix AHV</a></li>
+<li class="platform"><img class="logo-light" src="../_static/images/stackit-32.svg" alt=""><img class="logo-dark" src="../_static/images/stackit-32-white.svg" alt=""><a href="../plugins/stackit-coriolis-plugin.html" title="StackIT Coriolis Plugin">StackIT</a></li>
 <li class="platform"><img src="../_static/images/18700703.png" alt=""><a href="../plugins/kubevirt-harvester-coriolis-plugin.html" title="SUSE Virtualization">SUSE Virtualization</a></li>
 <li class="platform"><img src="../_static/images/18700703.png" alt=""><a href="../platforms/suse-linux-kvm-target-platform.html" title="SUSE Linux (KVM)">SUSE Linux (KVM)</a></li>
 </ul>
 </div>
 <div class="destination-platform">
 <ul>
+<li class="platform"><img class="logo-light" src="../_static/images/cloudstack-32.svg" alt=""><img class="logo-dark" src="../_static/images/cloudstack-32-white.svg" alt=""><a href="../platforms/cloudstack-as-a-destination-cloud.html" title="CloudStack as a destination cloud">CloudStack</a></li>
 <li class="platform"><img class="logo-light" src="../_static/images/microcloud.svg" alt=""><img class="logo-dark" src="../_static/images/microcloud-dark.svg" alt=""><a href="../plugins/microcloud-lxd-coriolis-plugin.html" title="MicroCloud (LXD) Coriolis Plugin">Canonical MicroCloud (LXD)</a></li>
 <li class="platform"><img class="logo-light" src="../_static/images/proxmox.svg" alt=""><img class="logo-dark" src="../_static/images/proxmox-light.svg" alt=""><a href="../plugins/proxmox-coriolis-plugin.html" title="Proxmox VE Coriolis Plugin">Proxmox VE</a></li>
 <li class="platform"><img src="../_static/images/oracle.svg" alt=""><a href="../plugins/oracle-cloud-infrastructure-oci-coriolis-plugin.html" title="OCI Coriolis Plugin">Oracle Cloud Infrastructure (OCI)</a></li>
@@ -196,6 +201,7 @@ For more information regarding each supported platform, please check the corresp
 <li class="platform"><img src="../_static/images/oracle.svg" alt=""><a href="../plugins/oracle-cloud-infrastructure-oci-coriolis-plugin.html" title="Oracle PCA Coriolis Plugin">Oracle PCA solutions</a></li>
 <li class="platform"><img src="../_static/images/virt-icon1.png" alt=""><a href="../plugins/kubevirt-harvester-coriolis-plugin.html" title="Red Hat OpenShift Virtualization">Red Hat OpenShift Virtualization</a></li>
 <li class="platform"><img src="../_static/images/redhat.svg" alt=""><a href="../plugins/ovirt-coriolis-plugin.html" title="Red Hat Virtualization">Red Hat Virtualization (legacy RHV)</a></li>
+<li class="platform"><img class="logo-light" src="../_static/images/stackit-32.svg" alt=""><img class="logo-dark" src="../_static/images/stackit-32-white.svg" alt=""><a href="../plugins/stackit-coriolis-plugin.html" title="StackIT Coriolis Plugin">StackIT</a></li>
 </ul>
 </div>
 </div> 
