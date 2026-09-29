@@ -19,6 +19,7 @@ proxmox-as-a-destination-cloud
 microcloud-lxd-as-a-destination-cloud
 kubevirt-harvester-as-a-destination-cloud
 suse-linux-kvm-target-platform
+suse-linux-kvm-sap-hana-target-platform
 stackit-as-a-source-cloud
 stackit-as-a-destination-cloud
 cloudstack-as-a-destination-cloud

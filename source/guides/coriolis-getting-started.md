@@ -106,7 +106,7 @@ For further information, please check **[Coriolis Licensing](coriolis-license.md
 <li class="platform"><img src="../_static/images/virt-icon1.png" alt="Red Hat OpenShift Virtualization"><span>Red Hat OpenShift Virtualization</span></li>
 <li class="platform"><img src="../_static/images/redhat.svg" alt="Red Hat Virtualization"><span>Red Hat Virtualization (legacy RHV)</span></li>
 <li class="platform"><img class="logo-light" src="../_static/images/stackit-32.svg" alt="StackIT"><img class="logo-dark" src="../_static/images/stackit-32-white.svg" alt=""><span>StackIT</span></li>
-<li class="platform"><img src="../_static/images/suse.svg" alt="SUSE Virtualization"><span>SUSE Virtualization</span></li>
+<li class="platform"><img src="../_static/images/18700703.png" alt="SUSE Virtualization"><span>SUSE Virtualization</span></li>
 <li class="platform"><img src="../_static/images/suse.svg" alt="SUSE Linux (KVM)"><span>SUSE Linux (KVM)</span></li>
 <li class="platform"><img src="../_static/images/vmware.svg" alt="VMware vSphere"><span>VMware vSphere</span></li>
 <li class="platform"><img class="logo-light" src="../_static/images/vhi-128.svg" alt="Virtuozzo Hybrid Infrastructure"><img class="logo-dark" src="../_static/images/vhi-128-dark.svg" alt=""><span>Virtuozzo Hybrid Infrastructure (VHI)</span></li>
@@ -188,7 +188,7 @@ For more information regarding each supported platform, please check the corresp
 <li class="platform"><img src="../_static/images/nutanix.svg" alt=""><a href="../platforms/nutanix-as-a-source-cloud.html" title="Nutanix AHV Coriolis Plugin">Nutanix AHV</a></li>
 <li class="platform"><img class="logo-light" src="../_static/images/stackit-32.svg" alt=""><img class="logo-dark" src="../_static/images/stackit-32-white.svg" alt=""><a href="../plugins/stackit-coriolis-plugin.html" title="StackIT Coriolis Plugin">StackIT</a></li>
 <li class="platform"><img src="../_static/images/18700703.png" alt=""><a href="../plugins/kubevirt-harvester-coriolis-plugin.html" title="SUSE Virtualization">SUSE Virtualization</a></li>
-<li class="platform"><img src="../_static/images/18700703.png" alt=""><a href="../platforms/suse-linux-kvm-target-platform.html" title="SUSE Linux (KVM)">SUSE Linux (KVM)</a></li>
+<li class="platform"><img src="../_static/images/suse.svg" alt=""><a href="../platforms/suse-linux-kvm-target-platform.html" title="SUSE Linux (KVM)">SUSE Linux (KVM)</a></li>
 </ul>
 </div>
 <div class="destination-platform">
