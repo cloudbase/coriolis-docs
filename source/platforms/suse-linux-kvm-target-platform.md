@@ -11,7 +11,11 @@ When using SUSE Linux as a KVM-based virtualization platform, Coriolis integrate
 
 Coriolis connects to the libvirt service through **SSH**(TCP/22) on each SUSE Linux KVM host to perform the operations required during migration workflows. In this design, each SUSE Linux KVM host must expose a functional libvirt endpoint that Coriolis can reach and authenticate against.
 
-**Note:** Migration to SUSE Linux on KVM applies to standard virtual machines only. SAP HANA workloads require a separate licensing model and endpoint, which provide SAP HANA-specific configuration options needed to meet performance, support, and compliance requirements.
+```{note} Migration to SUSE Linux on KVM applies to standard virtual machines only. SAP HANA workloads require a separate licensing model and endpoint, which provide SAP HANA-specific configuration options needed to meet performance, support, and compliance requirements.
+
+See the [**SAP HANA SKU document**](./suse-linux-kvm-sap-hana-target-platform.md)
+for more details.
+```
 
 ### Endpoint connection parameters
 
@@ -306,30 +310,7 @@ virsh net-start vfio-p1p1
 virsh net-autostart vfio-p1p1
 ```
 
-## Storage controllers exposed over PCI passthrough
-
-PCI passthrough requires the same kernel parameters as described by the
-SR-IOV section above.
-
-Use the "passthrough_disk_controllers" setting to whitelist storage controllers
-that can be attached to migrated VMs.
-
-All devices that belong to a IO-MMU group must be attached together to the
-same VM. In case of Fibre Channel HBAs, make sure to whitelist all the HBAs
-that belong to the same IO-MMU group.
-
-Note that only the first HBA of a group will be reported as a Coriolis storage
-backend. Coriolis will automatically "detach" the devices from the host, set them
-to use the VFIO driver and attach them to transfer workers or replica instances.
-
-If a replica instance is deleted and you wish to reuse the controller for
-another instance, use the "free_libvirt_resources.py" script from the appliance
-console to release it and the corresponding disks.
-
-Use the `virsh nodedev-reattach` to expose the storage controller to the host
-again, passing `pci_<address_with_underscores>` as parameter.
-
-### Guest configuration
+#### Guest configuration
 
 The migrated VM needs to include the according VF interface drivers, which
 can be handled through user scripts during OS morphing.
