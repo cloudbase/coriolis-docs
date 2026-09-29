@@ -197,3 +197,139 @@ sqlite_database_file = /opt/coriolis/libvirt_provider_db.sqlite
 # Attach a persistent TPM device to replica instances.
 add_tpm_device = true
 ```
+
+## Libvirt host prerequisites
+
+### Storage pool
+
+The provider relies on Libvirt storage pools, allowing it to transparently use
+a variety of storage backends: local directory, Ceph, LVM, etc.
+
+Note that the minion VM image is expected to reside in a "directory"
+storage pool. To speed up minion VM deployments, the provider will create QCOW2
+images pointing to the specified image.
+
+Create a directory storage pool like so:
+
+```bash
+pool_name=local-dir-pool
+pool_path=/var/lib/libvirt/local-dir-pool
+
+sudo virsh pool-define-as \
+  --name $pool_name \
+  --type dir \
+  --target $pool_path
+
+sudo mkdir -p $pool_path
+sudo chown -R libvirt-qemu:kvm $pool_path
+sudo chmod 755 $pool_path
+sudo virsh pool-start $pool_name
+sudo virsh pool-autostart $pool_name
+```
+
+Then copy the desired minion image to that directory. When initiating transfers,
+the user will be prompted to select an image from that location.
+
+### Networks
+
+The minion VM network is expected to have DHCP enabled and be accessible from
+the appliance side.
+
+This example uses the `br1` bridge, which must be pre-configured:
+
+```bash
+cat > br1-network.xml <<EOF
+<network>
+  <name>br1-network</name>
+  <forward mode='bridge'/>
+  <bridge name='br1'/>
+</network>
+EOF
+
+virsh net-define br1-network.xml
+virsh net-start br1-network
+virsh net-autostart br1-network
+```
+
+### SR-IOV
+
+The Libvirt Coriolis provider can assign SR-IOV VFs to replica instances.
+
+Follow this guide to configure a `hostdev` Libvirt network, which can then
+be passed to Coriolis transfers.
+
+#### Host configuration
+
+First, enable SR-IOV and VT-d in the BIOS configuration.
+
+Then add the following to the list of kernel parameters to allow VM passthrough
+devices:
+
+```text
+intel_iommu=on iommu=pt
+```
+
+Some devices may not be mapped correctly and also require the following:
+
+```text
+pci=realloc pci=assign-busses
+```
+
+Preallocate the desired number of VFs:
+
+```bash
+echo 8 > /sys/class/net/p1p1/device/sriov_numvfs
+```
+
+To make the VFs persistent, consider using a Systemd service or Netplan
+configuration, depending on the Linux distribution.
+
+#### Libvirt network
+
+Libvirt networks can be configured to expose SR-IOV VFs to the connected VMs.
+
+Set the forward mode to `hostdev` and enable `managed` mode to automatically
+pick a VF. Then specify the desired PF to expose.
+
+```bash
+cat > vfio-p1p1-network.xml <<EOF
+<network>
+  <name>vfio-p1p1</name>
+  <forward mode='hostdev' managed='yes'>
+    <pf dev='p1p1'/>
+  </forward>
+</network>
+EOF
+
+virsh net-define vfio-p1p1-network.xml
+virsh net-start vfio-p1p1
+virsh net-autostart vfio-p1p1
+```
+
+## Storage controllers exposed over PCI passthrough
+
+PCI passthrough requires the same kernel parameters as described by the
+SR-IOV section above.
+
+Use the "passthrough_disk_controllers" setting to whitelist storage controllers
+that can be attached to migrated VMs.
+
+All devices that belong to a IO-MMU group must be attached together to the
+same VM. In case of Fibre Channel HBAs, make sure to whitelist all the HBAs
+that belong to the same IO-MMU group.
+
+Note that only the first HBA of a group will be reported as a Coriolis storage
+backend. Coriolis will automatically "detach" the devices from the host, set them
+to use the VFIO driver and attach them to transfer workers or replica instances.
+
+If a replica instance is deleted and you wish to reuse the controller for
+another instance, use the "free_libvirt_resources.py" script from the appliance
+console to release it and the corresponding disks.
+
+Use the `virsh nodedev-reattach` to expose the storage controller to the host
+again, passing `pci_<address_with_underscores>` as parameter.
+
+### Guest configuration
+
+The migrated VM needs to include the according VF interface drivers, which
+can be handled through user scripts during OS morphing.
