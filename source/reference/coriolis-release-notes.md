@@ -11,7 +11,7 @@ Latest Release
 
 ### Changes and improvements
 
-  * Linux OSMorphing: 
+  * Linux OSMorphing:
     * Fix static preservation if the mac changes on the destination;
     * Fix resolv.conf restoration;
     * Fix volume management when using minion pools;
@@ -19,7 +19,7 @@ Latest Release
   * Adds FQDN export info, fixes hostname porting
   * Upgrade process improvements
   * Adds support for the **StackIt** platform, as source and destination;
-  * Security fixes: 
+  * Security fixes:
     * Fully updated with latest security patches provided by Ubuntu;
 
 ### Coriolis Provider Kubevirt
@@ -56,14 +56,14 @@ Latest Release
 
 ### Coriolis Provider VMware
 
-  * Adds **export_mechanism** source option, with the ability to use the in-built **[OpenVixDiskLib](https://github.com/cloudbase/OpenVixDiskLib)** library to export VMs. 
+  * Adds **export_mechanism** source option, with the ability to use the in-built **[OpenVixDiskLib](https://github.com/cloudbase/OpenVixDiskLib)** library to export VMs.
     * Updating to this release will install OpenVixDiskLib, as well as exposing an option to load a licensed VDDK provided by the end-user.
 
 ## Version 2608.0
 
 ### Changes and improvements
 
-  * Linux OSMorphing: 
+  * Linux OSMorphing:
     * Add support for migrating VMs with **LABEL=** fstab entries;
     * Fix Debian static IP preservation issue (cannot decode 'str' object);
     * Added support for RHEL-family release 10 migrations (exceptions: Azure & OCI as destination);
@@ -71,7 +71,7 @@ Latest Release
     * Added configurable TPM PCRs to be applied when migrating encrypted VMs;
     * Added support for Ubuntu 26 as minion, and any other minion that uses **sudo-rs**;
     * Optimizes dracut rebuilding;
-  * Windows OSMorphing: 
+  * Windows OSMorphing:
     * cloudbase-init no longer sets real time clock to UTC post-deployment;
     * Stages virtio ballooning service installation;
     * All Windows migrations will use stable cloudbase-init builds by default;
@@ -84,7 +84,7 @@ Latest Release
   * Fixed replicator ssh tunneling;
   * Added ability to patch individual components for smaller appliance updates;
   * Fixed mariaDB logs filling up the appliance disk;
-  * Security fixes: 
+  * Security fixes:
     * Fully updated with latest security patches provided by Ubuntu;
 
 ### Coriolis Web UI
@@ -140,7 +140,7 @@ Latest Release
 
 ### Changes and improvements
 
-  * Linux OSMorphing: 
+  * Linux OSMorphing:
     * commands retrial optimizations;
     * grub mounts/dismounts fixes;
     * RedHat-based guest repository management improvements;
@@ -150,7 +150,7 @@ Latest Release
     * Fix DHCP migrations for Redhat and SUSE guests;
     * Fix UEFI grub executable entries on BIOS guests ('linuxefi' not found on boot);
     * Customise cloud-init datasources on various destination platforms;
-  * Windows OSMorphing: 
+  * Windows OSMorphing:
     * Drops creation of 'Admin' user when migrating Windows;
     * Validate downloaded virtio ISO;
   * Deployer manager optimizations;
@@ -159,7 +159,7 @@ Latest Release
   * Adds ability to migrate disk-encrypted VMs by LUKS and BitLocker to various destination platforms: SUSE Virtualization and SUSE KVM destinations officially supported;
   * Fix transfer scheduling;
   * Adds API-side pagination for optimized loading;
-  * Security fixes: 
+  * Security fixes:
     * Disables weak SSH MAC algorithms & adds ability to disable SSH service entirely;
     * Updated TLS cipher support to 1.2+ only;
     * Allows editing barbican, keystone, rabbitmq apache/wsgi configs (mainly for hardening purposes);
@@ -227,7 +227,7 @@ Latest Release
 ### Changes and improvements
 
   * Fixed tasks hanging in "PENDING" or "RUNNING" statuses;
-  * Introduces SUSE KVM as destination provider; 
+  * Introduces SUSE KVM as destination provider;
   * Improved command retrial;
   * Added VM inventory CSV export capability (limited to source provider support);
   * Fix percentage progress not showing 100% on complete transfers;
@@ -291,7 +291,7 @@ Latest Release
 
   * Improve agent installation on older linux systems;
   * Adds high availability enablement option;
-  * Adds memory ballooning force disablement option. 
+  * Adds memory ballooning force disablement option.
 
 ### Coriolis Provider Proxmox
 
@@ -455,7 +455,7 @@ Latest Release
 
 ### New features
 
-  * Migrations have been redesigned to allow transfers (data replication), with controlled switch-over on when the VM is to be created on target 
+  * Migrations have been redesigned to allow transfers (data replication), with controlled switch-over on when the VM is to be created on target
     * In addition, the **Auto Deploy** option allows setting an incremental sync, followed by automatically completing the migration.
 
 ### Changes and improvements
@@ -514,7 +514,7 @@ This version is a fix-release, addressing an issue with adding an OpenStack endp
   * Switch minion disk attachment interface to virtio-scsi
   * Other fixes and improvements
   * Handle fixed CDROM device in OLVM/oVirt for migrated Windows VM for drive letter consistency
-  * 
+  *
 
 ### Coriolis Provider for OCI
 
@@ -543,7 +543,7 @@ This is a minor release to address several bugs and to bring several improvement
 
   * Introducing **Proxmox** as a new destination platform
   * Added support for Amazon Linux 2 (AL2) in OSMorphing
-  * Improvements in the Windows OSMorphing process 
+  * Improvements in the Windows OSMorphing process
 
 ### Coriolis Provider for MicroCloud / LXD
 
@@ -587,9 +587,9 @@ This is a minor release to address several bugs and to bring several improvement
 
   * Introducing a new supported destination platform - **Canonical MicroCloud | LXD**
   * Added support for Ubuntu 22.04 LTS
-  * Added support for RedHat 9.x, including community-driven distributions 
+  * Added support for RedHat 9.x, including community-driven distributions
     * Added support for Rocky Linux 8.x and 9.x
-  * Expanded migration support for UEFI-based instances 
+  * Expanded migration support for UEFI-based instances
     * including better handling for Secure Boot feature migration
     * automated handling of q35 machine type under OpenStack with KVM
 
@@ -619,7 +619,7 @@ This is a minor release to address several bugs and to bring several improvement
 ### New features
 
   * Introducing a new supported destination platform - **Oracle Private Cloud Appliance (PCA) X9-2**
-  * Backup writer improvements 
+  * Backup writer improvements
     * improved support for SELinux-enabled temporary worker machines
     * added support for nftables
   * Deprecated OPC target provider
@@ -648,16 +648,16 @@ This is a minor release to address several bugs and to bring several improvement
 
 ### New features
 
-  * Introducing **Coriolis Bare Metal Agent** - migrating p2v 
+  * Introducing **Coriolis Bare Metal Agent** - migrating p2v
     * This can also be used for v2v where platform access is limited
     * Linux Agent only is currently available
     * More details can be found at [Coriolis Bare Metal Hub Plugin - Cloudbase Solutions](../plugins/coriolis-bare-metal-hub-plugin.md)
-  * Introducing support for **OLVM - Oracle Linux Virtualization Manager** - as a destination platform 
+  * Introducing support for **OLVM - Oracle Linux Virtualization Manager** - as a destination platform
     * This is backed by oVirt and KVM nodes
     * **RedHat Virtualization (RHV/RHEV)** is also supported as a destination platform
   * Added support for **Ubuntu 22.04** in OSMorphing
   * Added support for **flexible shapes on OCI**
-  * Defaulting Data Transfer Mechanism to HTTPS 
+  * Defaulting Data Transfer Mechanism to HTTPS
     * HTTPS-based transfers are faster when compared with SSH-based ones, choice between options is still available
 
 ### Changes and fixes
@@ -710,10 +710,10 @@ This is a minor release to address several bugs and to bring several improvement
 
 ### New features
 
-  * Coriolis virtual appliance console menu 
+  * Coriolis virtual appliance console menu
     * This new feature allows configuring and managing the Coriolis settings directly from the appliance. Coriolis information can also be obtained from here.
   * Support for short UUID filesystems
-  * Disable compression in the default configuration 
+  * Disable compression in the default configuration
     * As the general recommendation is for the Coriolis virtual appliance to be hosted on the destination cloud, compressing transfer is disabled. This should be used when the Coriolis worker process is hosted on the source cloud and can be controlled from the Coriolis configuration file.
 
 ### Changes and fixes

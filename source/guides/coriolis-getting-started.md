@@ -30,7 +30,7 @@ For more information regarding Coriolis' Replica and Migration Architecture, che
 
 ### About this guide
 
-In this guide, you will go through the initial Coriolis setup, configure the source and destination endpoints, and run a Replica Execution and Deployment as quickly as possible.
+In this guide, you will go through the initial Coriolis setup, configure the source and destination endpoints, and run a Transfer Execution and Deployment as quickly as possible.
 
 The guide details Coriolis's main features and capabilities, allowing you to evaluate all features.
 
@@ -65,7 +65,7 @@ For more information, please check the **[Coriolis Console Menu](coriolis-consol
 
 ## Coriolis License
 
-Coriolis Licenses are required to perform Replicas/Migrations. 
+Coriolis Licenses are required to perform Replicas/Migrations.
 
 Replica and Migration licenses are counted separately and on a per-VM basis. In the case of a Replica, which is a continuous syncing process, a valid license is required when both creating the Replica and for the following syncs.
 
@@ -128,7 +128,7 @@ For **OpenStack**, **Coriolis** is compatible with the vanilla OpenStack project
 
 ## Supported guest operating systems
 
-While the Migration/Replication processes treat the VM as a black box and are agnostic as to the operating system used in the guest, the OSMorphing process is tailored to the specific guest OS release. 
+While the Migration/Replication processes treat the VM as a black box and are agnostic as to the operating system used in the guest, the OSMorphing process is tailored to the specific guest OS release.
 
 Coriolis aims to support the OSMorphing process for the following guest operating system releases:
 
@@ -203,7 +203,7 @@ For more information regarding each supported platform, please check the corresp
 <li class="platform"><img src="../_static/images/redhat.svg" alt=""><a href="../plugins/ovirt-coriolis-plugin.html" title="Red Hat Virtualization">Red Hat Virtualization (legacy RHV)</a></li>
 </ul>
 </div>
-</div> 
+</div>
 
 For Virtuozzo's VHI platform, please refer to the OpenStack Coriolis plugin pages.
 
