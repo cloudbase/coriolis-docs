@@ -15,29 +15,25 @@ Regarding the **temporary migration worker** for the source platforms, Coriolis 
 
 ### OpenStack
 
-**Service**| **Default Port**| **Protocol**  
----|---|---  
-Keystone| 5000| TCP  
-Cinder| 8776| TCP  
-Nova| 8774| TCP  
-Glance| 9292| TCP  
-Neutron| 9696| TCP  
-Swift| 8080| TCP  
-Ceph| 6789| TCP  
-Temporary Migration Worker - Source| 22, 4433| TCP  
-Temporary Migration Worker - Destination| 22  
-4433 5986
-5566| TCP  
+**Service**| **Default Port**| **Protocol**
+---|---|---
+Keystone| 5000| TCP
+Cinder| 8776| TCP
+Nova| 8774| TCP
+Glance| 9292| TCP
+Neutron| 9696| TCP
+Swift| 8080| TCP
+Ceph| 6789| TCP
+Temporary Migration Worker - Source| 22, 4433| TCP
+Temporary Migration Worker - Destination| 22, 4433, 5986, 5566| TCP
 
 ### VMware
 
-**Service**| **Default** **Port**| **Protocol**  
----|---|---  
-vSphere API Access (Management)| 443| TCP  
-Temporary Migration Worker - Destination| 22  
-4433 5986
-5566| TCP  
-VM snapshot data transfer via NFC (to all ESXi nodes*)| 902| TCP  
+**Service**| **Default** **Port**| **Protocol**
+---|---|---
+vSphere API Access (Management)| 443| TCP
+Temporary Migration Worker - Destination| 22, 4433, 5986, 5566| TCP
+VM snapshot data transfer via NFC (to all ESXi nodes*)| 902| TCP
 
 ```{note}
 In the case of VMware vSphere as the source platform, Coriolis must be able to connect to all the VMware ESXi nodes, not only to the one holding the VM to be migrated. That is due to how VMware manages the data transfer, refer to the VMware plugin documentation for more details.
@@ -45,127 +41,107 @@ In the case of VMware vSphere as the source platform, Coriolis must be able to c
 
 ### Amazon Web Services (AWS)
 
-**Service**| **Default** **Port**| **Protocol**  
----|---|---  
-Public API| 80, 443| TCP  
-Temporary Migration Worker - Source| 22, 4433| TCP  
-Temporary Migration Worker - Destination| 22  
-4433 5986
-5566| TCP  
+**Service**| **Default** **Port**| **Protocol**
+---|---|---
+Public API| 80, 443| TCP
+Temporary Migration Worker - Source| 22, 4433| TCP
+Temporary Migration Worker - Destination| 22, 4433, 5986, 5566| TCP
 
 ### Microsoft Azure
 
-**Service**| **Default** **Port**| **Protocol**  
----|---|---  
-Public API| 80, 443| TCP  
-Temporary Migration Worker - Source| 22, 4433| TCP  
-Temporary Migration Worker - Destination| 22  
-4433 5986
-5566| TCP  
+**Service**| **Default** **Port**| **Protocol**
+---|---|---
+Public API| 80, 443| TCP
+Temporary Migration Worker - Source| 22, 4433| TCP
+Temporary Migration Worker - Destination| 22, 4433, 5986, 5566| TCP
 
 ### Microsoft Windows Server - Hyper-V
 
-**Service**| **Default** **Port**| **Protocol**  
----|---|---  
-Management| 443| TCP  
-RCT Source| 6677| TCP  
+**Service**| **Default** **Port**| **Protocol**
+---|---|---
+Management| 443| TCP
+RCT Source| 6677| TCP
 
 ### Oracle Cloud Infrastructure (OCI)
 
-**Service**| **Default** **Port**| **Protocol**  
----|---|---  
-Public API| 80, 443| TCP  
-Temporary Migration Worker - Destination| 22  
-5986
-5566| TCP  
+**Service**| **Default** **Port**| **Protocol**
+---|---|---
+Public API| 80, 443| TCP
+Temporary Migration Worker - Destination| 22, 5986, 5566| TCP
 
 ### oVirt (OLVM and Red Hat Virtualization)
 
-**Service**| **Default** **Port**| **Protocol**  
----|---|---  
-Public API| 80, 443| TCP  
-Source Image Transfer| 54322| TCP  
-Temporary Migration Worker - Destination| 22  
-4433 5986
-5566| TCP  
+**Service**| **Default** **Port**| **Protocol**
+---|---|---
+Public API| 80, 443| TCP
+Source Image Transfer| 54322| TCP
+Temporary Migration Worker - Destination| 22, 4433, 5986, 5566| TCP
 
 ### SUSE Virtualization (Harvester)
 
-**Service**| **Default** **Port**| **Protocol**  
----|---|---  
-Kubernetes API| 443| TCP  
-KubeVirt API| 443| TCP  
-Temporary Migration Worker - Destination| 22  
-5986
-5566| TCP  
+**Service**| **Default** **Port**| **Protocol**
+---|---|---
+Kubernetes API| 443| TCP
+KubeVirt API| 443| TCP
+Temporary Migration Worker - Destination| 22, 5986, 5566| TCP
 
 ### SUSE Linux (KVM)
 
-**Service**| **Default** **Port**| **Protocol**  
----|---|---  
-SSH access for libvirt qemu+ssh transport| 22| TCP  
-Temporary Migration Worker - Destination| 22  
-5986
-5566| TCP  
+**Service**| **Default** **Port**| **Protocol**
+---|---|---
+SSH access for libvirt qemu+ssh transport| 22| TCP
+Temporary Migration Worker - Destination| 22, 5986, 5566| TCP
 
 ### Proxmox VE
 
-**Service**| **Default** **Port**| **Protocol**  
----|---|---  
-Management API| 8006| TCP  
-Temporary Migration Worker - Destination| 22  
-4433 5986
-5566| TCP  
+**Service**| **Default** **Port**| **Protocol**
+---|---|---
+Management API| 8006| TCP
+Temporary Migration Worker - Destination| 22, 4433, 5986, 5566| TCP
 
 ### CloudStack
 
-**Service**| **Default Port**| **Protocol**  
----|---|---  
-Management API| 443| TCP  
-Temporary Migration Worker - Destination| 22  
-4433 5986
-5566| TCP  
+**Service**| **Default Port**| **Protocol**
+---|---|---
+Management API| 443| TCP
+Temporary Migration Worker - Destination| 22, 4433, 5986, 5566| TCP
 
 ### MicroCloud/LXD
 
-**Service**| **Default Port**| **Protocol**  
----|---|---  
-Management API| 8443| TCP  
-Temporary Migration Worker - Destination| 22  
-5986
-5566| TCP  
+**Service**| **Default Port**| **Protocol**
+---|---|---
+Management API| 8443| TCP
+Temporary Migration Worker - Destination| 22, 5986, 5566| TCP
 
 ### Bare-Metal (Linux p2v)
 
-**Service**| **Default Port**| **Protocol**  
----|---|---  
-Bare-metal Hub API| 9900| TCP  
-Snapshot Agent API| 9999| TCP  
+**Service**| **Default Port**| **Protocol**
+---|---|---
+Bare-metal Hub API| 9900| TCP
+Snapshot Agent API| 9999| TCP
 
 ### Nutanix
 
-**Service**| **Default Port**| **Protocol**  
----|---|---  
-Management API| 9440| TCP  
+**Service**| **Default Port**| **Protocol**
+---|---|---
+Management API| 9440| TCP
 
 ### [Legacy] Oracle VM (OVM)
 
-**Service**| **Default** **Port**| **Protocol**  
----|---|---  
-Management| 7002| TCP  
-Temporary Migration Worker - Source| 22, 4433| TCP  
-Temporary Migration Worker - Destination| 22  
-5986
-5566| TCP  
-OVM Exporter| 5544| TCP  
+**Service**| **Default** **Port**| **Protocol**
+---|---|---
+Management| 7002| TCP
+Temporary Migration Worker - Source| 22, 4433| TCP
+Temporary Migration Worker - Destination| 22, 5986, 5566| TCP
+OVM Exporter| 5544| TCP
 
 ### [Legacy] Oracle Cloud Infrastructure Classic (OCI-C)
 
-**Service**| **Default** **Port**| **Protocol**  
----|---|---  
-Public API| 80, 443| TCP  
-Temporary Migration Worker - Source| 22, 4433| TCP  
-Temporary Migration Worker - Destination| 22, 5986| TCP  
+**Service**| **Default** **Port**| **Protocol**
+---|---|---
+Public API| 80, 443| TCP
+Temporary Migration Worker - Source| 22, 4433| TCP
+Temporary Migration Worker - Destination| 22, 5986| TCP
 
 ### Coriolis API/CLI remote access
 
