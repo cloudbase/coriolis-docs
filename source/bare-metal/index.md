@@ -1,4 +1,4 @@
-# Bare metal
+# Bare Metal Migrations
 
 ```{toctree}
 :maxdepth: 1

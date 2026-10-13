@@ -1,6 +1,7 @@
 ---
 title: "Coriolis Release Notes"
 wp_id: 40587
+tocdepth: 2
 ---
 
 # Coriolis Release Notes
