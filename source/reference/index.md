@@ -17,5 +17,5 @@ coriolis-replica-migration-cli-parameters
 coriolis-troubleshooting
 coriolis-release-notes
 coriolis-roadmap
-coriolis-eula
+Coriolis EULA <https://cloudbase.it/coriolis-eula/>
 ```
