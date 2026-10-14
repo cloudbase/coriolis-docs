@@ -131,6 +131,7 @@ Below is a listing of the source environment parameters the OpenStack plugin sup
 
   * **custom_os_type_map (string)** - Custom mapping between the 'os_type' or 'os_distro' of Glance images on the source OpenStack. Mapping values must be one of the supported OS types in Coriolis.
   * **replica_export_mechanism (string)** - Replica export mechanism to use. Available mechanisms are "swift_backups", "ceph_backups", "ceph_snapshots", "coriolis_backups"
+  * **verify_disk_integrity (boolean)** - Whether or not to verify the checksum of each disk against the source after replicating it. Only effective when **Replica Export Mechanism** is **Coriolis Backups**, and only when the destination **Data Transfer Mechanism** is **HTTPS**. See [**Disk Verification**](../features/coriolis-disk-verification.md).
   * **swift_backups_options (object)** - Custom options for the "swift_backups" replica export mechanism
   * **volume_backups_container (string)** - Name of the Swift container to store volume backups. Only available "swift_backups" is chosen as the replica mechanism.
   * **coriolis_backups_options (object)** - Custom options for the "coriolis_backups" replica export mechanism.

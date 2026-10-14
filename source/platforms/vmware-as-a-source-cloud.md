@@ -175,8 +175,7 @@ Below is a listing of the source environment parameters the VMware plugin suppor
   * **export_transfer_mechanism** (string) - Which mechanism to use to read VM disk data during export. 'vddk' reads directly via the VDDK library (must be provided by the user). 'openvixdisklib' uses an alternative implementation included with Coriolis.
   * **vixdisklib_compatibility_version** (string) - The vSphere version for which to initialize vixDiskLib.
   * **automatically_enable_cbt** (boolean) - Whether or not Coriolis should attempt to automatically enable CBT on the VM before Replication.
-  * **verify_disk_integrity (boolean)** - Whether or not to compute source-side checksums for each disk and enable end-to-end source/destination checksum verification.
+  * **verify_disk_integrity (boolean)** - Whether or not to compute source-side checksums for each disk and enable end-to-end source/destination checksum verification. See [**Disk Verification**](../features/coriolis-disk-verification.md).
   * **export_hostname_as_instance_name** (boolean) - Whether or not to use the hostname of the exported VM as the migrated VM's name, in order to more easily identify it.
-  * **verify_disk_integrity** (boolean) - Whether or not to compute source-side checksums for each disk and enable end-to-end source/destination checksum verification.
   * **enable_transfer_compression** (boolean) - Whether or not to enable transport level compression when retrieving disk data. Can speed up the transfer if the data is compressible and the connection is slow. Avoid using compression when migrating encrypted disks.
   * **skip_nfc_validation** (boolean) - Whether or not to skip pre-export NFC connectivity validation against ESXi hosts. When unset, the Coriolis worker configuration default is used. When false, Coriolis validates TCP/902 reachability for hosts that may be selected by vCenter for NBD/NBDSSL snapshot transfers.
