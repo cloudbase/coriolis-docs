@@ -9,7 +9,6 @@ and **cross-site disaster recovery** features (DRaaS) between a source cloud pla
 
 guides/index
 reference/index
-plugins/index
 platforms/index
 walkthroughs/index
 features/index
