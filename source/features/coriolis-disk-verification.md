@@ -46,7 +46,7 @@ At a high level, a transfer with disk verification enabled follows this sequence
   6. A matching checksum is recorded in the transfer logs. A mismatch fails the transfer execution.
 
 ```{note}
-For source options, see [**VMware as a source cloud**](../platforms/vmware-as-a-source-cloud.md#example-of-source-environment-json-to-be-passed-to-the-vmware-plugin), [**OpenStack as a source cloud**](../platforms/openstack-as-a-source-cloud.md#openstack-source-environment-parameters), and [**Nutanix as a source cloud**](../platforms/nutanix-as-a-source-cloud.md#nutanix-source-environment-parameters).
+For source options, see [**VMware as a source cloud**](../platforms/vmware/vmware-as-a-source-cloud.md#example-of-source-environment-json-to-be-passed-to-the-vmware-plugin), [**OpenStack as a source cloud**](../platforms/openstack/openstack-as-a-source-cloud.md#openstack-source-environment-parameters), and [**Nutanix as a source cloud**](../platforms/nutanix/nutanix-as-a-source-cloud.md#nutanix-source-environment-parameters).
 ```
 
 ## Enabling disk verification
