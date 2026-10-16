@@ -17,5 +17,7 @@ proxmox/proxmox-coriolis-plugin
 oracle-cloud-infrastructure-oci/oracle-cloud-infrastructure-oci-coriolis-plugin
 ovirt/ovirt-coriolis-plugin
 stackit/stackit-coriolis-plugin
+nutanix/nutanix-coriolis-plugin
+cloudstack/cloudstack-coriolis-plugin
 bare-metal-hub/coriolis-bare-metal-hub-plugin
 ```
