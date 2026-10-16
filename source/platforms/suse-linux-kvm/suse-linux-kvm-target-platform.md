@@ -18,27 +18,9 @@ See the [**SAP HANA SKU document**](./suse-linux-kvm-sap-hana-target-platform.md
 for more details.
 ```
 
-### Endpoint connection parameters
-
-A valid SSH private key is required for authentication when configuring the Coriolis endpoint. The corresponding public key must already be configured and authorized on the target Libvirt host **before** the endpoint can be used.
-
-```{note}
-It is recommended to use a dedicated service account for Libvirt endpoint access instead of the root account. The account should have sufficient **permissions** to access and manage Libvirt resources on the target host. On systems using group-based access control, this typically includes membership in the **libvirt and kvm groups**.
-```
-
-The SSH private key must be provided as part of the endpoint configuration and must be **base64-encoded** before submission. Only the SSH private key content should be encoded and passed to the endpoint.
-
-If an SSH private key is provided in the connection info, it must be base64-encoded, and then the resulting string must be used as the value in the endpoint configuration.
-
-```bash
-base64 -w0 <path-to-private-key>
-```
-
-![](../../_static/images/suse-linux-endpoint.png)
-
-#### Transfer executions
-
 ![](../../_static/images/target-options.png)
+
+### Transfer executions
 
 #### Steps performed by Coriolis
 
@@ -48,7 +30,7 @@ base64 -w0 <path-to-private-key>
   4. Read disk data from the source and stream it to the worker VM's backup writer service, which writes the data to the replica volumes at the correct offsets.
   5. Once all disk contents have been transferred, stop and delete the worker VM.
 
-#### Transfer deployment
+### Transfer deployment
 
 #### Steps performed by Coriolis
 

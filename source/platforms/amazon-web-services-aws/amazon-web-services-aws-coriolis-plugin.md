@@ -43,11 +43,11 @@ Each parameter represents:
 
 ### AWS as a source cloud
 
-For more information on using AWS as a **source cloud** for Replica/MIgration, please check the **[AWS as a source cloud](../amazon-web-services-aws/aws-as-a-source-cloud.md)** page.
+For more information on using AWS as a **source cloud** for Replica/Migration, please check the **[AWS as a source cloud](../amazon-web-services-aws/aws-as-a-source-cloud.md)** page.
 
 ### AWS as a destination cloud
 
-For more information on using AWS as a **destination cloud** for Replica/MIgration, please check the **[AWS as a destination cloud](../amazon-web-services-aws/aws-as-a-destination-cloud.md)** page.
+For more information on using AWS as a **destination cloud** for Replica/Migration, please check the **[AWS as a destination cloud](../amazon-web-services-aws/aws-as-a-destination-cloud.md)** page.
 
 ### AWS platform specifics
 

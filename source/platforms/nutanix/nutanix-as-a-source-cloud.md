@@ -10,34 +10,6 @@ Coriolis integrates the platform Plugin on the Appliance itself, this way there 
 
 ![](../../_static/images/source_options.png)
 
-### Deployment requirements
-
-The worker components of Coriolis need network access to the**Nutanix  Prism Central API**, as well as the **Nutanix iSCSI portal** used when retrieving disk data.
-
-Note that Prism Central isn’t included by default in the latest community edition (2.1), it’s an optional component that must be enabled manually.
-
-#### Version requirements
-
-**Component**| **Version requirement**  
----|---  
-Nutanix API| 4.0  
-Nutanix AOS| >= 6.8  
-Nutanix Prism Central| >= 7.3  
-
-### Nutanix endpoint connection parameters
-
-Coriolis requires the following connection parameters to access Nutanix Prism Central and migrate resources:
-
-![](../../_static/images/image-20260826-092533.png)
-
-Each parameter represents:
-
-  * name - an arbitrary user-defined name for this endpoint
-  * username - Nutanix Prism Central username
-  * password - Nutanix Prism Central password
-  * host - Nutanix Prism Central host address
-  * port - the port used by Nutanix Prism Central
-  * allow untrusted - whether to allow untrusted TLS certificates when contacting Prism Central
 
 ### Migrating (CMaaS) from Nutanix
 
@@ -84,7 +56,7 @@ Below is a listing of the source environment parameters the Nutanix plugin suppo
 
 **application_consistent_snapshot** (boolean) - whether or not to create an application-consistent snapshot by coordinating with guest services such as VSS. The guest services will be notified that a backup is about to be performed, allowing them to flush their buffers and ensure the consistency of the data stored on disk.
 
-**verify_disk_integrity** (boolean) - Whether or not to compute source-side checksums and validate the data received on the destination side. See [**Disk Verification**](../features/coriolis-disk-verification.md).
+**verify_disk_integrity** (boolean) - Whether or not to compute source-side checksums and validate the data received on the destination side. See [**Disk Verification**](../../features/coriolis-disk-verification.md).
 
 #### JSON endpoint connection parameters
 
@@ -99,15 +71,6 @@ For automation and integration, here is the JSON form:
   "allow_untrusted": true
 }
 ```
-
-### Nutanix platform specifics
-
-Supported Actions: | Migration (CMaaS) Source/Destination – Replica (DRaaS) Source/Destination| Comments  
----|---|---  
-Plugin identifier| **nutanix**|  Identifies the plugin. Used for the **–provider** CLI parameter  
-Credentials needed| Nutanix Prism Central address and credentials.|    
-Deployment requirements| Coriolis worker component(s) need network access to the Nutanix Prism Central API endpoint as well as the Nutanix iSCSI portal.| Coriolis deployment and environment connectivity requirements  
-Instance identification scheme| By name or ID.| How instances to migrate/replicate are identified on a source cloud handled by this plugin  
 
 ### Known issues and limitations
 
