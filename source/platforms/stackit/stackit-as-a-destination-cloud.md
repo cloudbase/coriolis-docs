@@ -4,39 +4,39 @@ wp_id: 44279
 orphan: true
 ---
 
-# StackIt as a destination cloud
+# STACKIT as a destination cloud
 
-### Migrating (CMaaS) to Stackit
+### Migrating (CMaaS) to STACKIT
 
-Transfer Migrations to Stackit operate in the same way Transfer Replicas do and thus entail the same requirements and steps described below.
+Transfer Migrations to STACKIT operate in the same way Transfer Replicas do and thus entail the same requirements and steps described below.
 
-### Replicating (DRaaS) to Stackit
+### Replicating (DRaaS) to STACKIT
 
 #### Replica executions:
 
 #### Steps performed by Coriolis
 
-  1. if this is the first replica execution for the VM, create empty Stackit volumes on the destination side, each matching the specifications of a disk the VM had on the source. If this is a later replica execution, the previously created Stackit volumes are used
+  1. if this is the first replica execution for the VM, create empty STACKIT volumes on the destination side, each matching the specifications of a disk the VM had on the source. If this is a later replica execution, the previously created STACKIT volumes are used
   2. if this is the first replica execution of the VM, create a new live snapshot of the disks of the VM on the source cloud (handled by whatever source cloud plugin we are using). If this is a later replica execution, create a new live snapshot based on the one from the last successful replica execution
-  3. create a temporary Linux worker VM (the “disk copy worker”) on the destination side and attach the Stackit volumes from Step 1 to it
+  3. create a temporary Linux worker VM (the “disk copy worker”) on the destination side and attach the STACKIT volumes from Step 1 to it
   4. read the contents of the snapshot created at step 2 via the source platform’s snapshot/backup APIs (handled by whatever source cloud plugin we are using), transferring the written chunks to the temporary VM created in step 3, which then writes the chunks at the appropriate index/offset of the disks created at step 1
-  5. once the contents of all the disks have been synced to the Stackit volumes created in Step 1, detach the Stackit volumes and delete the disk copy worker created in Step 3
+  5. once the contents of all the disks have been synced to the STACKIT volumes created in Step 1, detach the STACKIT volumes and delete the disk copy worker created in Step 3
 
 #### Replica deployments:
 
 #### Steps performed by Coriolis
 
-  1. create snapshots of the replicated Stackit volumes on the destination side to be able to roll back any changes. By default, new volumes are created from these snapshots, leaving the original replica volumes intact for future replica executions
-  2. depending on the OS of the VM whose replica is being deployed, boot a temporary worker VM (“the OSMorphing worker”) with the same OS type on the destination cloud, and attach the Stackit volumes from step 1 to it
-  3. perform the “OSMorphing process”, where Coriolis commands the OSMorphing worker created in step 2 to scan all attached disks for the OS installation of the VM we are migrating, mount, and perform the steps needed to prepare the installation for the Stackit platform (ex: uninstalling the VMWare guest tools and installing VirtIO drivers as well as the Stackit agent)
-  4. detach the Stackit volumes created at step 1 from the OSMorphing worker created at step 2 and delete the temporary worker VM 
-  5. create and boot the migrated VM on the destination cloud with the specifications of the original VM on the source cloud (which have been noted during the particular replica execution we are deploying), creating and attaching any necessary NICs and Stackit volumes.
+  1. create snapshots of the replicated STACKIT volumes on the destination side to be able to roll back any changes. By default, new volumes are created from these snapshots, leaving the original replica volumes intact for future replica executions
+  2. depending on the OS of the VM whose replica is being deployed, boot a temporary worker VM (“the OSMorphing worker”) with the same OS type on the destination cloud, and attach the STACKIT volumes from step 1 to it
+  3. perform the “OSMorphing process”, where Coriolis commands the OSMorphing worker created in step 2 to scan all attached disks for the OS installation of the VM we are migrating, mount, and perform the steps needed to prepare the installation for the STACKIT platform (ex: uninstalling the VMWare guest tools and installing VirtIO drivers as well as the STACKIT agent)
+  4. detach the STACKIT volumes created at step 1 from the OSMorphing worker created at step 2 and delete the temporary worker VM 
+  5. create and boot the migrated VM on the destination cloud with the specifications of the original VM on the source cloud (which have been noted during the particular replica execution we are deploying), creating and attaching any necessary NICs and STACKIT volumes.
 
 ### Configuration Options
 
-#### Advanced Target options for Stackit target destination
+#### Advanced Target options for STACKIT target destination
 
-When migrating or replicating instances to Stackit, the user must specify which images to use for Linux and Windows temporary migration workers. We recommend using the public Stackit images.
+When migrating or replicating instances to STACKIT, the user must specify which images to use for Linux and Windows temporary migration workers. We recommend using the public STACKIT images.
 
 The worker image OS version must be the same as or newer than the migrated instance.
 
@@ -46,7 +46,7 @@ When Replicating/Migrating a **Windows VM**, both **Linux and Windows images** h
 
 ![](../../_static/images/image-5.png)
 
-### OSMorphing steps taken when migrating/replicating to Stackit
+### OSMorphing steps taken when migrating/replicating to STACKIT
 
 The following notable steps will be performed as part of the OSMorphing process:
 
@@ -60,29 +60,29 @@ The following notable steps will be performed as part of the OSMorphing process:
   * installing cloudbase-init and enabling cloudbase-init service
   * installing the VirtIO drivers
 
-In addition to that, the Stackit agent will be installed.
+In addition to that, the STACKIT agent will be installed.
 
 ### Network configuration for the migrated VMs
 
-When migrating instances to Stackit, users can specify which network to use for each individual NIC. The following parameters can be used to further customise the VM network configuration.
+When migrating instances to STACKIT, users can specify which network to use for each individual NIC. The following parameters can be used to further customise the VM network configuration.
 
 #### Preserve fixed IPs
 
-If enabled, the Stackit NIC will use the same fixed (private) IP as the source NICs. An error will be raised if the source IP address is not in the range of the specified Stackit network.
+If enabled, the STACKIT NIC will use the same fixed (private) IP as the source NICs. An error will be raised if the source IP address is not in the range of the specified STACKIT network.
 
-If disabled, Stackit will pick a random address from the given network.
+If disabled, STACKIT will pick a random address from the given network.
 
-Note that Stackit does not currently support IPv6 networks, as such any IPv6 addresses will be dropped.
+Note that STACKIT does not currently support IPv6 networks, as such any IPv6 addresses will be dropped.
 
 #### Use public IP
 
-If enabled, the first NIC will receive a public IP selected by Stackit.
+If enabled, the first NIC will receive a public IP selected by STACKIT.
 
 #### Set DHCP
 
 This setting determines how the guest network interfaces will be configured during OS morphing.
 
-It’s enabled by default and as a result Coriolis will configure each interface to use DHCP. Since all Stackit networks provide DHCP, we recommend leaving this setting on. This also ensures that the correct MTU and routes will be applied.
+It’s enabled by default and as a result Coriolis will configure each interface to use DHCP. Since all STACKIT networks provide DHCP, we recommend leaving this setting on. This also ensures that the correct MTU and routes will be applied.
 
 If disabled, Coriolis expects the guest to have static network configuration. Depending on the guest operating system, the following steps will be taken:
 
@@ -96,15 +96,15 @@ If disabled, Coriolis expects the guest to have static network configuration. De
 
   * define static network configuration through a script that will be invoked by cloudbase-init during the first replica boot
 
-#### Configuration options for Stackit as a destination
+#### Configuration options for STACKIT as a destination
 
-Below is a listing of the configuration section needed when migrating/replicating to Stackit:
+Below is a listing of the configuration section needed when migrating/replicating to STACKIT:
 
-### Stackit destination environment parameters
+### STACKIT destination environment parameters
 
 The destination environment parameters are a set of destination-cloud-specific parameters that offer additional options to the migration/replication process on a per-VM basis.
 
-Below is a listing of the destination environment parameters the Stackit plugin supports when migrating/replicating a VM to Stackit:
+Below is a listing of the destination environment parameters the STACKIT plugin supports when migrating/replicating a VM to STACKIT:
 
 ```ini
 [stackit_migration_provider]
@@ -325,7 +325,7 @@ Each parameter represents:
   * **network_map**  (string–string mapping, required) — mapping between source network identifiers and names or IDs of existing networks on destination STACKIT. For each NIC of the source server, Coriolis creates a NIC on the mapped destination network.
   * **storage_mappings** (object) — how to map each source disk or storage backend to a STACKIT volume performance class. The mapping is expected to contain one or more of the following keys: **default**, **backend_mappings**, and **disk_mappings**. If omitted or empty, STACKIT picks the default performance class. Unmapped disks can also fall back to the plugin’s **default_volume_performance_class** config option.
   * **machine_type**  (string) — name of an existing STACKIT machine type for the migrated server. If omitted, Coriolis picks the smallest type that satisfies the source CPU/RAM. Windows guests need an explicit Windows-compatible type.
-  * **project** (string) — ID of the Stackit project in which to create the migrated resources (VM, volumes, NICs). If unset, the project of the service account from the Coriolis endpoint is used. This option applies to the created migration minions as well.
+  * **project** (string) — ID of the STACKIT project in which to create the migrated resources (VM, volumes, NICs). If unset, the project of the service account from the Coriolis endpoint is used. This option applies to the created migration minions as well.
   * **keypair_name** (string) — name of a keypair available to the Coriolis endpoint user, injected into the migrated server via metadata. Has no effect if **retain_user_credentials** is true (cloud-init will not add that key).
   * **delete_disks_on_server_termination** (boolean, default **false**) — whether the boot volume is deleted when the migrated server is terminated. Applies only to the boot volume.
   * **security_groups** (list of strings) — names or IDs of existing security groups in the same project as the Coriolis endpoint, applied to the migrated server. Joined with the plugin’s **default_security_groups** config option.

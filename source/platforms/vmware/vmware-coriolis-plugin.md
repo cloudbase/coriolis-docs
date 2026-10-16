@@ -40,11 +40,11 @@ Coriolis supports VMware vSphere (vCenter/ESXi) environments starting from versi
 
 ### vSphere as a source cloud
 
-For more information on using vSphere/ESXi as a **source cloud** for Replica/MIgration, please check the **[VMware as a source cloud](../vmware/vmware-as-a-source-cloud.md)** page.
+For more information on using vSphere/ESXi as a **source cloud** for Replica/Migration, please check the **[VMware as a source cloud](../vmware/vmware-as-a-source-cloud.md)** page.
 
 ### vSphere as a destination cloud
 
-For more information on using vSphere/ESXi as a **destination cloud** for Replica/MIgration, please check the **[VMware as a destination cloud](../vmware/vmware-as-a-destination-cloud.md)** page.
+For more information on using vSphere/ESXi as a **destination cloud** for Replica/Migration, please check the **[VMware as a destination cloud](../vmware/vmware-as-a-destination-cloud.md)** page.
 
 ### vSphere/ESXi connection parameters
 

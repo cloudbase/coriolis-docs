@@ -652,7 +652,7 @@ This is a minor release to address several bugs and to bring several improvement
   * Introducing **Coriolis Bare Metal Agent** - migrating p2v 
     * This can also be used for v2v where platform access is limited
     * Linux Agent only is currently available
-    * More details can be found at [Coriolis Bare Metal Hub Plugin - Cloudbase Solutions](../plugins/coriolis-bare-metal-hub-plugin.md)
+    * More details can be found at [Coriolis Bare Metal Hub Plugin - Cloudbase Solutions](../platforms/bare-metal-hub/coriolis-bare-metal-hub-plugin.md)
   * Introducing support for **OLVM - Oracle Linux Virtualization Manager** - as a destination platform 
     * This is backed by oVirt and KVM nodes
     * **RedHat Virtualization (RHV/RHEV)** is also supported as a destination platform

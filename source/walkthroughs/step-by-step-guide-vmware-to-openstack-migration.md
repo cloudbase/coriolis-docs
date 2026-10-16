@@ -172,7 +172,7 @@ For VMware as a source platform, the options are represented by:
   * vixDiskLib compatibility mode - it is set to 8.0 by default, and it is backwards compatible in the case that your VMware runs on older versions
   * Use VM Hostname as Instance Name - if enabled, Coriolis will use the hostname of the machine to identify it more easily
 
-All the platform specifics are available on **[VMware as a source page](../platforms/vmware-as-a-source-cloud.md)**.
+All the platform specifics are available on **[VMware as a source page](../platforms/vmware/vmware-as-a-source-cloud.md)**.
 
 ![](_static/images/mgr4.png)
 
@@ -186,7 +186,7 @@ Once the source details are set, the next step will provide the target platform 
 
 Once the target platform is selected, target options must be allocated to the VM/VMs to be migrated.
 
-All the options are found on the[ **OpenStack as a destination page**](../platforms/openstack-as-a-destination-cloud.md).
+All the options are found on the[ **OpenStack as a destination page**](../platforms/openstack/openstack-as-a-destination-cloud.md).
 
 ![](_static/images/mgr7.png)
 
