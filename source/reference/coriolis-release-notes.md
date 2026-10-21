@@ -7,6 +7,72 @@ wp_id: 40587
 
 Latest Release
 
+## Version 2608.3
+
+### Changes and improvements
+
+  * Linux OSMorphing:
+      * Fix yum package removal: added `--noautoremove` flag
+      * Fix static IP preservation not being applied on various platforms
+      * Better handle initrd reinitialization on newer OS releases
+  * Fix trust deletion on task finalization
+  * Fix transfer schedules not being removed on transfer deletion
+  * Include more diagnostics logs like resource usage
+  * Improve memory ballooning settings porting
+  * UI instance information reload fixes
+  * Release Upgrade installation improvements
+
+### Coriolis Provider Azure
+
+  * RHEL-family OS migration improvements
+
+### Coriolis Provider Kubevirt
+
+  * Allows selecting pod network as minion network
+  * Connection resiliency improvements in clustered environments
+
+### Coriolis Provider Libvirt
+
+  * Add Fibre Channel Passthrough support
+  * Fix vhostmd attachment by attaching as a disk
+  * Improve passthrough controller disk management
+
+### Coriolis Provider LXD
+
+  * Fix minion image list: added Ubuntu 24 and Ubuntu 26 to the default list
+
+### Coriolis Provider Nutanix
+
+  * Fix unexpected recovery point disks
+
+### Coriolis Provider OCI
+
+  * RHEL-family migration improvements
+
+### Coriolis Provider Openstack
+
+  * Add Disk integrity verification of exported volumes
+  * Fix minion security group cleanup
+
+### Coriolis Provider oVirt
+
+  * Add metadata-aided minion logins - users no longer need to provide minion template credentials
+  * Improve memory ballooning preservation
+
+### Coriolis Provider Proxmox
+
+  * Add minion pool support
+  * Better map migrated Windows tags
+  * Improve minion detachment requirements - no longer requires admin permissions
+
+### Coriolis Provider VMWare
+
+  * Add option to export volumes using Coriolis minions
+  * Export detailed memory ballooning information
+  * Improve transfer speeds by directly sending compressed chunks to the destination minions
+    * applies if `enable_transfer_compression` is enabled
+  * Fix missing instance UUID
+
 ## Version 2608.2
 
 ### Changes and improvements
