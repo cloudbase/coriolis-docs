@@ -17,6 +17,16 @@ If the TPM isn’t available (e.g. due to hardware changes or if the disks have 
 
 ## Recommended migration procedure
 
+### Prerequisites
+
+The Windows minion image, which Coriolis uses for the temporary worker VM that performs OS morphing, must have the BitLocker feature installed. Without it, the worker can't unlock the volume and OS morphing fails with a missing packages error.
+
+```powershell
+Install-WindowsFeature BitLocker
+```
+
+### Migration steps
+
 A preconfigured BitLocker recovery password must be specified when initiating the Coriolis transfer. Coriolis will use it to unlock the OS drive during OS morphing, which is performed by a temporary worker VM on the destination cloud.
 
 The following sample calls the WMI API through PowerShell to configure a BitLocker recovery password for the OS drive. Its output is easier to parse than that of the **manage-bde** command and more convenient to use as part of automated scripts. Follow these steps on the Windows instance that is about to be migrated.
@@ -51,12 +61,6 @@ When initiating the migration, specify the recovery password like so:
 ![](_static/images/bitlocker-target-options.png)
 
 In order for the final VM to be able to launch, Coriolis suspends BitLocker during OS morphing. The final VM reconfigures the TPM protector and resumes BitLocker when booted for the first time, which occurs immediately after the OS morphing process.
-
-**Important:** make sure that your Windows minion image has the BitLocker feature installed, otherwise it will not be able to unlock the volume.
-
-```powershell
-Install-WindowsFeature BitLocker
-```
 
 Feel free to remove the temporary key protector from the source and destination instances after completing the migration.
 
