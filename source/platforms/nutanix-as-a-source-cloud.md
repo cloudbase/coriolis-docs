@@ -83,7 +83,7 @@ Below is a listing of the source environment parameters the Nutanix plugin suppo
 
 **application_consistent_snapshot** (boolean) - whether or not to create an application-consistent snapshot by coordinating with guest services such as VSS. The guest services will be notified that a backup is about to be performed, allowing them to flush their buffers and ensure the consistency of the data stored on disk.
 
-**verify_disk_integrity** (boolean) - Whether or not to compute source-side checksums and validate the data received on the destination side.
+**verify_disk_integrity** (boolean) - Whether or not to compute source-side checksums and validate the data received on the destination side. See [**Disk Verification**](../features/coriolis-disk-verification.md).
 
 #### JSON endpoint connection parameters
 
