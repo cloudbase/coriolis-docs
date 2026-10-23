@@ -115,7 +115,7 @@ If the validation step fails, please review all of the provided details to ensur
   4. Project where the user specified above has access
   5. Keystone API version must be selected; v2 comes as the default
 
-Note: For advanced OpenStack endpoint options, please refer to the **OpenStack connection parameters** on the **[Coriolis OpenStack plugin](http://openstack-coriolis-plugin)** page.
+Note: For advanced OpenStack endpoint options, please refer to the **OpenStack connection parameters** on the **[Coriolis OpenStack plugin](../plugins/openstack-coriolis-plugin.md)** page.
 
 ![](_static/images/endpoint5.png)
 
