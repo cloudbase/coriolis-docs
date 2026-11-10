@@ -7,6 +7,39 @@ wp_id: 40587
 
 Latest Release
 
+## Subversions of 2608.3
+
+#### Version 2608.3.5
+
+Coriolis Provider Kubevirt
+
+  * Fix OS detection for Client OSs on Windows 10 & Windows 11
+
+#### Version 2608.3.4
+
+Coriolis Provider Proxmox
+
+  * Fix LVM replica disk names exceeding the 127-char device-mapper limit
+
+#### Version 2608.3.3
+
+Changes and improvements
+
+  * Fix yum package removal on RHEL 7 during OSMorphing
+
+#### Version 2608.3.2
+
+Changes and improvements
+
+  * Fix RHEL 7 morphing selection for the Server os-release name during OSMorphing
+
+#### Version 2608.3.1
+
+Changes and improvements
+
+  * Add support for alias udev rules
+  * Fix an issue where the permission grant would fail for hardened Windows Server images
+
 ## Version 2608.3
 
 ### Changes and improvements
