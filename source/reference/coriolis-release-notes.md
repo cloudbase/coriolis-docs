@@ -9,6 +9,16 @@ Latest Release
 
 ## Subversions of 2608.3
 
+#### Version 2608.3.6
+
+Coriolis Web
+
+  * Add new status filter for the Transfers page: `Unexecuted`
+  * Fix search functionality that was not able to find results on other pages
+  * Fix dashboard statistics, endpoint usage counts and searches being stuck on last page viewed
+  * Other various UI/UX fixes
+
+
 #### Version 2608.3.5
 
 Coriolis Provider Kubevirt
@@ -37,7 +47,7 @@ Changes and improvements
 
 Changes and improvements
 
-  * Add support for alias udev rules
+  * Add support for preserving IP configuration of aliased ifcfg's
   * Fix an issue where the permission grant would fail for hardened Windows Server images
 
 ## Version 2608.3
