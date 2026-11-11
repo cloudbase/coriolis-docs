@@ -14,10 +14,7 @@ Latest Release
 Coriolis Web
 
   * Add new status filter for the Transfers page: `Unexecuted`
-  * Fix search functionality that was not able to find results on other pages
-  * Fix dashboard statistics, endpoint usage counts and searches being stuck on last page viewed
-  * Other various UI/UX fixes
-
+  * Fix [Pagination issues with transfers](https://github.com/cloudbase/coriolis-web/issues/944)
 
 #### Version 2608.3.5
 
