@@ -19,5 +19,6 @@ ovirt/ovirt-coriolis-plugin
 stackit/stackit-coriolis-plugin
 nutanix/nutanix-coriolis-plugin
 cloudstack/cloudstack-coriolis-plugin
+virtuozzo/virtuozzo-coriolis-plugin
 bare-metal-hub/coriolis-bare-metal-hub-plugin
 ```

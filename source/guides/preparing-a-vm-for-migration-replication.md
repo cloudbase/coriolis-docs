@@ -22,7 +22,7 @@ The guest OS on the source platform must also be correctly set to at least the h
 
 For example, in the case of a VM running on VMware, the guest OS can be set under the VM settings:
 
-![](_static/images/vmware-guest-os-settings.png)
+![](../_static/images/vmware-guest-os-settings.png)
 
 While in the source VM settings, any CD-ROM attachments should be unmounted or removed, as Coriolis will not migrate such types.
 
@@ -88,19 +88,22 @@ This table will outline all the supported virtualization/cloud platforms by Cori
 
 | | **Supported in Export Provider** | **Supported in Import Provider** |
 |:---:|:---:|:---:|
-| <img class="logo-light" src="../_static/images/openstack.svg" alt="OpenStack"><img class="logo-dark" src="../_static/images/openstack-dark.svg" alt=""> **OpenStack** | ![:check_mark:](_static/images/check_mark_32.png)* | ![:check_mark:](_static/images/check_mark_32.png) |
-| ![](_static/images/vmware.svg) | ![:check_mark:](_static/images/check_mark_32.png) | ![:check_mark:](_static/images/check_mark_32.png) |
-| <img class="logo-light" src="../_static/images/aws.svg" alt="AWS"><img class="logo-dark" src="../_static/images/aws-dark.svg" alt=""> | ![:ballot_box_with_check:](_static/images/2611.png) | ![:ballot_box_with_check:](_static/images/2611.png) |
-| ![](_static/images/Microsoft_Azure.svg_.png) **Microsoft Azure** | ![:ballot_box_with_check:](_static/images/2611.png) | ![:ballot_box_with_check:](_static/images/2611.png) |
-| ![](_static/images/Blank-diagram.png) **Linux servers** | ![:check_mark:](_static/images/check_mark_32.png) | ![:heavy_minus_sign:](_static/images/2796.png) |
-| ![](_static/images/oracle.svg) **Oracle PCA** | ![:heavy_minus_sign:](_static/images/2796.png) | ![:check_mark:](_static/images/check_mark_32.png) |
-| ![](_static/images/oracle.svg) **OCI** | ![:heavy_minus_sign:](_static/images/2796.png) | ![:check_mark:](_static/images/check_mark_32.png) |
-| <img class="logo-light" src="../_static/images/microcloud.svg" alt="MicroCloud"><img class="logo-dark" src="../_static/images/microcloud-dark.svg" alt=""> **MicroCloud (LXD)** | ![:heavy_minus_sign:](_static/images/2796.png) | ![:check_mark:](_static/images/check_mark_32.png) |
-| ![](_static/images/ovm.jpg) | ![:x:](_static/images/274c.png) | ![:x:](_static/images/274c.png) |
-| ![](_static/images/OVirt-logo-highres.png) **OLVM & RedHat Virtualization (RHV)** | ![:check_mark:](_static/images/check_mark_32.png) | ![:check_mark:](_static/images/check_mark_32.png) |
-| ![](_static/images/ws2022.png) **Microsoft Hyper-V** | ![:check_mark:](_static/images/check_mark_32.png) | ![:heavy_minus_sign:](_static/images/2796.png) |
-| ![](_static/images/18700703.png) **SUSE Virtualization (Harvester)** | ![:heavy_minus_sign:](_static/images/2796.png) | ![:check_mark:](_static/images/check_mark_32.png) |
-| <img class="logo-light" src="../_static/images/proxmox.svg" alt="Proxmox"><img class="logo-dark" src="../_static/images/proxmox-light.svg" alt=""> **Proxmox** | ![:heavy_minus_sign:](_static/images/2796.png) | ![:check_mark:](_static/images/check_mark_32.png) |
+| <img class="logo-light" src="../_static/images/openstack.svg" alt="OpenStack"><img class="logo-dark" src="../_static/images/openstack-dark.svg" alt=""> **OpenStack** | ![:check_mark:](../_static/images/check_mark_32.png)* | ![:check_mark:](../_static/images/check_mark_32.png) |
+| ![](../_static/images/vmware.svg) | ![:check_mark:](../_static/images/check_mark_32.png) | ![:check_mark:](../_static/images/check_mark_32.png) |
+| <img class="logo-light" src="../_static/images/aws.svg" alt="AWS"><img class="logo-dark" src="../_static/images/aws-dark.svg" alt=""> | ![:ballot_box_with_check:](../_static/images/2611.png) | ![:ballot_box_with_check:](../_static/images/2611.png) |
+| ![](../_static/images/Microsoft_Azure.svg_.png) **Microsoft Azure** | ![:ballot_box_with_check:](../_static/images/2611.png) | ![:ballot_box_with_check:](../_static/images/2611.png) |
+| ![](../_static/images/Blank-diagram.png) **Linux servers** | ![:check_mark:](../_static/images/check_mark_32.png) | ![:heavy_minus_sign:](../_static/images/2796.png) |
+| ![](../_static/images/oracle.svg) **Oracle PCA** | ![:heavy_minus_sign:](../_static/images/2796.png) | ![:check_mark:](../_static/images/check_mark_32.png) |
+| ![](../_static/images/oracle.svg) **OCI** | ![:heavy_minus_sign:](../_static/images/2796.png) | ![:check_mark:](../_static/images/check_mark_32.png) |
+| <img class="logo-light" src="../_static/images/microcloud.svg" alt="MicroCloud"><img class="logo-dark" src="../_static/images/microcloud-dark.svg" alt=""> **MicroCloud (LXD)** | ![:heavy_minus_sign:](../_static/images/2796.png) | ![:check_mark:](../_static/images/check_mark_32.png) |
+| ![](../_static/images/ovm.jpg) | ![:x:](../_static/images/274c.png) | ![:x:](../_static/images/274c.png) |
+| ![](../_static/images/OVirt-logo-highres.png) **OLVM & RedHat Virtualization (RHV)** | ![:check_mark:](../_static/images/check_mark_32.png) | ![:check_mark:](../_static/images/check_mark_32.png) |
+| ![](../_static/images/ws2022.png) **Microsoft Hyper-V** | ![:check_mark:](../_static/images/check_mark_32.png) | ![:heavy_minus_sign:](../_static/images/2796.png) |
+| ![](../_static/images/18700703.png) **SUSE Virtualization (Harvester)** | ![:heavy_minus_sign:](../_static/images/2796.png) | ![:check_mark:](../_static/images/check_mark_32.png) |
+| <img class="logo-light" src="../_static/images/proxmox.svg" alt="Proxmox"><img class="logo-dark" src="../_static/images/proxmox-light.svg" alt=""> **Proxmox** | ![:heavy_minus_sign:](../_static/images/2796.png) | ![:check_mark:](../_static/images/check_mark_32.png) |
+| <img class="logo-light" src="../_static/images/cloudstack-32.svg" alt="CloudStack"><img class="logo-dark" src="../_static/images/cloudstack-32-white.svg" alt=""> **CloudStack** | ![:heavy_minus_sign:](../_static/images/2796.png) | ![:check_mark:](../_static/images/check_mark_32.png) |
+| <img class="logo-light" src="../_static/images/stackit-32.svg" alt="STACKIT"><img class="logo-dark" src="../_static/images/stackit-32-white.svg" alt=""> **STACKIT** | ![:check_mark:](../_static/images/check_mark_32.png) | ![:check_mark:](../_static/images/check_mark_32.png) |
+| <img src="../_static/images/nutanix.svg" alt="Nutanix"> **Nutanix** | ![:check_mark:](../_static/images/check_mark_32.png) | ![:heavy_minus_sign:](../_static/images/2796.png) |
 
 \*OpenStack instances do not have an exact way of telling if they’re UEFI instances or not, besides reading instance metadata, which may not always be available. In those cases, the Firmware type can be overridden by a source environment option
 
@@ -111,6 +114,16 @@ This table will outline all the supported virtualization/cloud platforms by Cori
 <p class="icon-legend"><img src="../_static/images/274c.png" alt=""> the underlying platform does not support UEFI or Secure Boot</p>
 
 Secure Boot is not yet fully supported on AWS, only on Windows instances, but Coriolis will not be enabling it until proper support is added. Coriolis does not yet support Secure Boot for Azure.
+
+```{note}
+Coriolis supports virtual TPM (vTPM) devices on the following platforms:
+KubeVirt (SUSE Virtualization/Harvester), Proxmox, libvirt (Linux servers),
+and oVirt (OLVM/RHV).
+
+OpenStack does not enable vTPM by default, but administrators can enable it
+on their own cloud. For a step-by-step example, please see the
+[Canonical OpenStack guide to configuring vTPM](https://canonical.com/openstack/docs/latest/how-to/misc/configuring-vtpm/).
+```
 
 ### Bootloader checks on the source VM
 
