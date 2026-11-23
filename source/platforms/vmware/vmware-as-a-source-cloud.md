@@ -136,7 +136,7 @@ export_transfer_mechanism = openvixdisklib
 # and its dependencies, as taken from the VDDK release. (string value)
 vixdisklib_library_directory = /usr/lib/vmware-vix-disklib
 # The vSphere version for which to initialize vixDiskLib. Must be
-# formatted as 'Major.Minor' (ex: '6.0') (string value)
+# formatted as 'Major.Minor' (ex: '8.0') (string value)
 vixdisklib_compatibility_version = <None>
 # Whether or not Coriolis should attempt to automatically enable CBT
 # on the VM before Replication. This requires that the VM have no pre-

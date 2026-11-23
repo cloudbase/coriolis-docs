@@ -120,7 +120,7 @@ Edit Inventory -> Create new | Creating final VM
 
 #### Using the First Class Disks option
 
-When using the option for **First Class Disks**, Coriolis will require that the vCenter version **be at least 6.7 or newer**. Coriolis is able to use First Class Disk if the **Hosts are running on an earlier version**, but the **mandatory** version of **vCenter is 6.7 or newer**.
+The option for **First Class Disks** is available on all supported vCenter versions (**7.0 or newer**).
 
 In the situation of creating a **Replica Deployment** using an existing **Replica Execution**, Coriolis will **support** the option of **Cloning Replica Disks** only if **First Class Disks** are used.
 

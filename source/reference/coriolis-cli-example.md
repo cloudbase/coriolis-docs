@@ -197,7 +197,7 @@ Below is a listing of the source environment parameters the VMWare plugin suppor
 
 ```json
 {
-  "vixdisklib_compatibility_version": "6.7",
+  "vixdisklib_compatibility_version": "8.0",
   "automatically_enable_cbt": false
 }
 ```
@@ -260,7 +260,7 @@ Each parameter representing:
 coriolis replica create \
      --origin-endpoint 0b9774fd-c39b-4c7e-acf8-4ba37dad155e \
      --destination-endpoint 807e2f7f-fcd6-4423-a0f6-7550277f2182 \
-     --source-environment '{"vixdisklib_compatibility_version": "6.7", "automatically_enable_cbt": true}' \
+     --source-environment '{"vixdisklib_compatibility_version": "8.0", "automatically_enable_cbt": true}' \
      --destination-environment '{"network_map": {"vmnetwork": "0a6b0100"}, "storage_mappings": {"backend_mappings": [{"source": "datastore1", "destination": "Main"}], "disk_mappings": [{"disk_id": "2000", "destination": "Main"}]}, "server_pool_name": "Main", "repository_name": "Main", "migr_template_map": {"linux": "linux_migration_worker"}, "migr_template_username_map": { "linux": "root" }, "migr_template_password_map": { "linux": "Passw0rd" }, "leave_migrated_vm_off": false, "os_label": "coriolis-migrated", "virtual_disk_clone_type": "THIN_CLONE"}' \
       --network-map '{"vmnetwork": "0a6b0100"}' \
       --instance ha-datacenter/Ubuntu-Bionic-Demo \
@@ -333,7 +333,7 @@ $coriolis replica show 926a49bb-2bd9-4533-87e1-2d0e7505e06d
                                            | }                                               
   source_environment                       | {                                               
                                            |   "automatically_enable_cbt": true,             
-                                           |   "vixdisklib_compatibility_version": "6.7"     
+                                           |   "vixdisklib_compatibility_version": "8.0"     
                                            | }                                               
   network_map                              | {                                               
                                            |   "vmnetwork": "0a6b0100"                       

@@ -36,7 +36,7 @@ Refer to the [Network Ports Requirements page](../../reference/coriolis-network-
 
 ### Supported versions
 
-Coriolis supports VMware vSphere (vCenter/ESXi) environments starting from version 6.0 and is compatible with newer releases up to 8.0.x (including 8.0.3). EOL versions of the VMware solutions are no longer covered by vendor support nor actively tested with Coriolis.
+Coriolis supports VMware vSphere (vCenter/ESXi) **7.0 and newer**, including vSphere 8.x and 9.x. VMware vSphere 6.x is **deprecated and no longer supported**. EOL versions of the VMware solutions are no longer covered by vendor support nor actively tested with Coriolis.
 
 ### vSphere as a source cloud
 
