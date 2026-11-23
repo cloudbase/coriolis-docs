@@ -19,6 +19,8 @@ If the TPM isn’t available (e.g. due to hardware changes or if the disks have 
 
 ### Prerequisites
 
+**Note:** This prerequisite only applies when a BitLocker recovery password is provided for the transfer. Otherwise, Coriolis skips the BitLocker unlock during OS morphing.
+
 The Windows minion image, which Coriolis uses for the temporary worker VM that performs OS morphing, must have the BitLocker feature installed. Without it, Coriolis can't detect or unlock the encrypted volumes and OS morphing fails with a missing packages error.
 
 ```powershell
