@@ -19,7 +19,7 @@ If the TPM isn’t available (e.g. due to hardware changes or if the disks have 
 
 ### Prerequisites
 
-The Windows minion image, which Coriolis uses for the temporary worker VM that performs OS morphing, must have the BitLocker feature installed. Without it, the worker can't unlock the volume and OS morphing fails with a missing packages error.
+The Windows minion image, which Coriolis uses for the temporary worker VM that performs OS morphing, must have the BitLocker feature installed. Without it, Coriolis can't detect or unlock the encrypted volumes and OS morphing fails with a missing packages error.
 
 ```powershell
 Install-WindowsFeature BitLocker
