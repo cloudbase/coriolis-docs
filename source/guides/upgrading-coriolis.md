@@ -39,6 +39,8 @@ https://pypi.python.org
 https://pypi.org/simple
 https://registry-1.docker.io
 https://docker.io
+https://proxy.golang.org
+https://sum.golang.org
 ```
 
 * * *
