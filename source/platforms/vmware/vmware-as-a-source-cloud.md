@@ -21,11 +21,11 @@ The following requirements apply when replicating VMs from VMware vSphere/ESXi:
   * The vSphere user configured in Coriolis must have: 
     * **Read-only access** to the VMs being replicated.
     * Permissions to **create and delete VM snapshots** on the VMs being replicated.
-    * **Read-only access** to the properties of the infrastructure associated with the VMs, such as datastore properties, datastore names and IOPS, and Distributed Virtual Switch (DvS) VLAN information.
+    * **Read-only access** to the properties of the infrastructure associated with the VMs, such as datastore properties, datastore names, and IOPS, and Distributed Virtual Switch (DvS) VLAN information.
   * The VM's disks must be hosted on **CBT-compatible datastores**, such as **VMFS or NFS**.
   * Disks must be configured in **Dependent** disk mode.
   * The VM must not use **Raw Device Mappings (RDMs)**.
-  * **CBT must be enabled on all disks** for incremental synchronization to be used. CBT is represented by the **ctkEnabled** flag, which must be set to **True** for each source disk.For information about enabling CBT, see [VMware's official knowledge base](https://knowledge.broadcom.com/external/article/320557/changed-block-tracking-cbt-on-virtual-ma.html).
+  * **CBT must be enabled on all disks** for incremental synchronization to be used. CBT is represented by the **ctkEnabled** flag, which must be set to **True** for each source disk. For information about enabling CBT, see [VMware's official knowledge base](https://knowledge.broadcom.com/external/article/320557/changed-block-tracking-cbt-on-virtual-ma.html).
   * Coriolis can optionally be configured to **enable CBT automatically** on the source VM. Automatic CBT enablement is supported only when the source VM has **no pre-existing snapshots**.
   * The VM must have the **VMware guest agent** installed and running when filesystem quiescing is required during the snapshot process.
 
@@ -71,24 +71,23 @@ Coriolis supports two mechanisms for exporting VMware virtual disks:
 
 Before creating and executing a Replica or Migration from vSphere, review the recommended **pre-migration steps** to ensure that the source environment is properly prepared.
 
-### VMWare source environment parameters
+### VMware source environment parameters
 
 ![](../../_static/images/image_2026-09-14_144911260.png)
 
 ### OSMorphing steps taken when migrating/replicating from vSphere/ESXi
 
-The following notable steps will be performed as part of the OSMorphing process when migrating/replicating an instance away from VMWare:
+The following notable steps will be performed as part of the OSMorphing process when migrating/replicating an instance away from VMware:
 
 #### Linux
 
-  * uninstall the VMWare guest tools
+  * uninstall the VMware guest tools
   * rebuild **initrd** on RHEL-based systems
 
 #### Windows
 
-  * uninstall the VMWare guest tools and drivers
+  * uninstall the VMware guest tools and drivers
 
-For more information regarding the Coriolis Worker template, please check the **[Coriolis Temporary Migration Worker](../../reference/coriolis-temporary-migration-worker.md)** page.
 
 ### Required permissions in vCenter
 
@@ -115,13 +114,13 @@ Create/Remove Snapshot| The VM(s) which are to be migrated| required| Required f
 Allow read-only disk access| The disks of the VM(s) which are to be migrated| required| Required for exporting the data of the VMs' disk(s)  
 
   * * for most resource types, "Read Only" access is implicitly obtained by simply assigning any role to the user on the object in question. (regardless of the privileges declared within the role)
-  * ** The privilege labels and PyVMOMI privilege IDs are for VMware 6.7. Older VMWare releases may have slightly different permission name labels.
+  * ** The privilege labels and PyVMOMI privilege IDs are for VMware 6.7. Older VMware releases may have slightly different permission name labels.
 
 #### Configuration Options
 
-Below is a listing of the configuration section needed when migrating from VMWare vSphere/ESXi:
+Below is a listing of the configuration section needed when migrating from VMware vSphere/ESXi:
 
-#### Configuration options for VMWare vSphere/ESXi as a DRaaS source
+#### Configuration options for VMware vSphere/ESXi as a DRaaS source
 
 ```ini
 # Which mechanism to use to read VM disk data during export. 'vddk'
@@ -159,7 +158,7 @@ The source environment parameters are a set of source-cloud-specific parameters 
 
 Below is a listing of the source environment parameters the VMware plugin supports when migrating/replicating a VM from vSphere/ESXi:
 
-#### Example of source environment JSON to be passed to the VMWare plugin
+#### Example of source environment JSON to be passed to the VMware plugin
 
 ```json
 {
@@ -178,5 +177,5 @@ Below is a listing of the source environment parameters the VMware plugin suppor
   * **automatically_enable_cbt** (boolean) - Whether or not Coriolis should attempt to automatically enable CBT on the VM before Replication.
   * **verify_disk_integrity (boolean)** - Whether or not to compute source-side checksums for each disk and enable end-to-end source/destination checksum verification. See [**Disk Verification**](../../features/coriolis-disk-verification.md).
   * **export_hostname_as_instance_name** (boolean) - Whether or not to use the hostname of the exported VM as the migrated VM's name, in order to more easily identify it.
-  * **enable_transfer_compression** (boolean) - Whether or not to enable transport level compression when retrieving disk data. Can speed up the transfer if the data is compressible and the connection is slow. Avoid using compression when migrating encrypted disks.
+  * **enable_transfer_compression** (boolean) - Whether or not to enable transport-level compression when retrieving disk data. Can speed up the transfer if the data is compressible and the connection is slow. Avoid using compression when migrating encrypted disks.
   * **skip_nfc_validation** (boolean) - Whether or not to skip pre-export NFC connectivity validation against ESXi hosts. When unset, the Coriolis worker configuration default is used. When false, Coriolis validates TCP/902 reachability for hosts that may be selected by vCenter for NBD/NBDSSL snapshot transfers.
