@@ -8,6 +8,76 @@ tocdepth: 2
 
 Latest Release
 
+## Version 2608.4
+
+### Changes and improvements
+
+* Validate connection info before creating an endpoint, so invalid endpoints are no longer saved
+* Add the `coriolis endpoint validate connection info` CLI command
+* Fix task and minion pool progress inconsistencies
+* Appliance upgrades now save custom configurations in `coriolis.conf.d/provider.conf`
+* Linux OSMorphing:
+  * Fix package removal on RHEL 7
+  * Fix RHEL 7 not being selected for VMs with a `Server` os-release name
+  * Fix the NIC naming udev rule when the source NIC has an IP alias (for example `eth0:1`)
+* Windows OSMorphing: Continue driver installation when the permission grant fails on hardened Windows Server images
+
+### Coriolis web UI
+
+* Fix dashboard statistics, endpoint usage counts and search only covering the page last viewed
+* Fix inconsistencies in list filtering, pagination and search in transfers/deployments
+* Show the disk name (or path) and size in the storage mapping, so the disks of a VM can be told apart
+* Add the `Unexecuted` status filter to the Transfers page
+
+### Coriolis Provider AWS
+
+* Export the block device name as the disk path
+
+### Coriolis Provider CloudStack
+
+* Add the data transfer mechanism (`HTTPS` or `SSH`) option
+* Create a separate replica volume for each transfer; later executions of the same transfer reuse its volume
+* Rename the minion template and service offering options
+
+### Coriolis Provider Kubevirt
+
+* Add `disk_bus` option for transfers
+* Fix disk and volume names longer than 63 characters being rejected by KubeVirt
+* Fix replica volume name collisions between concurrent transfers of the same instance
+* Fix Client OS detection for Windows 10 and Windows 11
+* Boot worker VMs with EFI when the image has the `harvesterhci.io/firmware-type: uefi` label or annotation
+
+### Coriolis Provider Nutanix
+
+* Add incremental transfers using CRT for AOS 7.3 and later; older AOS versions still copy the whole disk
+
+### Coriolis Provider OCI
+
+* Improve GRUB handling for RHEL-based VMs
+
+### Coriolis Provider Openstack
+
+* Fix concurrent transfers of the same instance interfering with each other's export worker
+* Export the volume and image name as the disk path
+
+### Coriolis Provider oVirt
+
+* Fix VM creation failing when TPM is enabled on BIOS instances
+* Fix `Force Disable Memory Ballooning` leaving ballooning enabled
+* Export the disk alias as the disk path
+
+### Coriolis Provider Proxmox
+
+* Fix LVM replica disk names exceeding the 127-character device-mapper limit
+
+### Coriolis Provider STACKIT
+
+* Export the volume and image name as the disk path
+
+### Coriolis Provider VMware
+
+* Improve the `vixdisklib_compatibility_version` option
+
 ## Subversions of 2608.3
 
 #### Version 2608.3.6
