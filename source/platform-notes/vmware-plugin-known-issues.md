@@ -97,7 +97,7 @@ This is a bug in VMware when interacting with the Microsoft Volume Shadow Copy S
 
 This applies to all supported Windows Server editions and does not affect the running guest OS on the source.
 
-VMware 6.x series is EOL and should not be used in production.
+VMware 6.x series is EOL and is no longer supported by Coriolis. The minimum supported version is VMware vSphere 7.0.
 
 * * *
 
