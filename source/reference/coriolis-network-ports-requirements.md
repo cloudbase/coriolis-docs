@@ -13,7 +13,7 @@ The temporary worker transfer mechanism for the destination platforms offers two
 
 Regarding the **temporary migration worker** for the source platforms, Coriolis uses **Replicator port 4433** for performing disk chunking and transferring the backup data to the writer located on the destination platform. This port is used on platforms that require a **migration worker machine**.
 
-### OpenStack
+### OpenStack / Virtuozzo (VHI)
 
 **Service**| **Default Port**| **Protocol**
 ---|---|---
